@@ -9,6 +9,42 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<style>
+#customSelect {
+  position: relative;
+  width: 200px;
+  margin: 20px;
+}
+
+.select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  display:none;
+}
+
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-items div:hover {
+  background-color: #ddd;
+}
+
+.select-show {
+  display: block;
+}
+</style>
 </head>
 <body>
 	<h1></h1>
@@ -55,5 +91,37 @@
 <a href="${cp}/page/mainWeb">운동추천</a>
 시험용
 </pre>
+
+<div id="customSelect">
+  <div class="select-selected">옵션1</div>
+  <div class="select-items">
+    <div>옵션 1</div>
+    <div>옵션 2</div>
+    <div>옵션 3</div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+  $("#customSelect .select-selected").click(function(event) {
+//     event.stopPropagation(); // 이벤트 전파 방지
+    
+    // 다른 열려 있는 셀렉트 박스들을 닫음
+    $(".select-items").toggleClass("select-show");
+  });
+  
+//옵션을 선택했을 때 이벤트 처리
+  $("#customSelect .select-items").on("click", "div", function() {
+    var selectedOption = $(this).text(); // 선택한 옵션의 텍스트
+
+    // 선택한 옵션을 선택된 옵션으로 표시
+    $(this).parent().siblings(".select-selected").text(selectedOption);
+
+    // 셀렉트 박스 닫기
+    $(this).parent().removeClass("select-show");
+  });
+});
+</script>
 </body>
 </html>
