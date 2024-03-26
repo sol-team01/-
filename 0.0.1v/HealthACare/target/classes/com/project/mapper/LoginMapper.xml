@@ -32,7 +32,10 @@
 
 				<!--  회원정보 생성 -->
 	<insert id="signUpInfo" parameterType="com.project.dto.userDto.infoDto">
-		INSERT INTO info(U_no,I_name,I_weight,I_height,I_email,I_pwFinding,I_hint) value (#{U_no},#{I_name},#{I_weight},#{I_height},#{I_email},#{I_pwFinding},#{I_hint})
+		INSERT INTO info
+			(U_no,I_name,I_weight,I_height,I_email,I_pwFinding,I_hint)
+		VALUE 
+			(#{U_no},#{I_name},#{I_weight},#{I_height},#{I_email},#{I_pwFinding},#{I_hint})
 	</insert>
 
 
