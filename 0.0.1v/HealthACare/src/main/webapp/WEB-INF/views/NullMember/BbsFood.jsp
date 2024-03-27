@@ -67,7 +67,8 @@
     </tr>
 </c:forEach>
 </table>
- 
+ 	
+ 	
 <a href="#" onclick="goBack()">뒤로가기</a>
 
 <script>
