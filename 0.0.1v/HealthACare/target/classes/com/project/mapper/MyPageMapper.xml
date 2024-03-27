@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hac.mapper.MyPageMapper">
+
+
+	<!-- 닉네임 변경(시간제한 둬야함) -->
+		<!-- 코드를 재활용 하기위해 칼럼을 뚫어 놨고 사용할때 String 으로 칼럼을입력하면 됨 -->
+			<!-- 초단위로 빠져나옴, 닉네임, 프로필 사진은 하루에 한번, (몸무게, 키는 하루안에) -->
+	<select id="updateTime" resultType="com.hac.dto.userDto.infoDto">
+		SELECT DATEDIFF(now(),#{calumName}) AS timeDifference FROM info WHERE U_no = #{U_no}
+	</select>
+	
+	<update id="nameChange">
+		UPDATE info SET I_name = #{I_name},I_nameUpdateTime = now() WHERE U_no #{U_no}
+	</update>
+	
+	
+	<!-- 프로필 사진 변경(시간제한 둬야함) -->
+	<update id="profileImgChange">
+		UPDATE info SET I_profileImg = #{I_profileImg}, I_profileImgUpdateTime = now() WHERE U_no = #{U_no}
+	</update>
+		
+	<!-- 몸무게, 키 수정(당일만 수정 가능하게) -->
+		<!--  지금 날짜과 맨 마지막 인설트 했던 날짜의 차 확인. 1이 넘어가면 날짜가 지났다는것임.-->
+	<select id="physicalUpdateTime">
+		SELECT DATEDIFF(NOW(),P_createdAt) FROM physicalLog WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1;
+	</select>
+	
+		<!--  위의 select 한 값에서 1이 넘게 나왔을경우 인설트 -->
+	<insert id="physical">
+		INSERT INTO physicalLog(U_no,I_weight,I_height,) value (#{U_no},#{I_weight},#{I_height})
+	</insert>
+	
+	<update id="physicalUpdate">
+		UPDATE physicalLog SET I_weight = #{I_weight}, I_height = #{I_height}, I_physicalUpdateTime = now() WHERE U_no = #{U_no} 
+	</update>
+
+
+	<!-- 그레프 정보 뽑아오기 -->
+		<!--  필요한 정보별로 데이터 줄력, 주간, 월간, 연간  -->
+			<!-- period 에 넣는 값에 따라 결과값이 달라짐,-->
+	<select id="physicalLog">
+	SELECT 
+			YEAR(P_createdAt) AS year, 
+			MONTH(P_createdAt) AS month,
+			WEEK(P_createdAt) AS week,
+			AVG(P_weightLog) AS P_weightLog,
+			AVG(P_heightLog) AS P_heightLog
+	FROM 
+			physicalLog
+		<where>
+			<if test="period == 'weekly'">
+				GROUP BY YEAR(P_createdAt), WEEK(P_createdAt)
+			</if>
+			<if test="period == 'monthly'">
+				GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
+			</if>
+			<if test="period == 'yearly'">
+				GROUP BY YEAR(P_createdAt)
+			</if>
+		</where>
+	ORDER BY 
+			YEAR(P_createdAt)
+		<where>
+
+			<if test="period == 'weekly'">
+				,WEEK(P_createdAt);
+			</if>
+			<if test="period == 'monthly'">
+				,MONTH(P_createdAt);
+			</if>
+		</where>
+			
+	</select>
+		<!-- 일간 -->
+	<select id="physicalLogDay">
+		SELECT * FROM physicalLog;
+	</select>
+	<!-- 정보 삭제 -->
+	<delete id="physicalLogDell">
+		DELETE * FROM physicalLog WHERE 
+	</delete>
+	
+	<!-- 이메일 변경 -->
+	
+	
+	<!-- 비밀번호 찾기 질문 및 대답내용 변경 -->
+	
+
+		
+
+</mapper>
