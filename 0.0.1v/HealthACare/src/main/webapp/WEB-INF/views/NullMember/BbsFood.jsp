@@ -17,7 +17,8 @@
 <form action="${cp}/NullMember/BbsFood">
 <input type="text" name=desc_kor autocomplete="off">
 </form>
-	[이름] ${kw.body.items.get(0).DESC_KOR }<br>
+	[식품이름] ${kw.body.items.get(0).DESC_KOR }<br>
+	[1회제공량] ${kw.body.items.get(0).DESC_KOR } g<br>
 	[칼로리]   ${kw.body.items.get(0).NUTR_CONT1 }<br>
  	[단백질]  ${kw.body.items.get(0).NUTR_CONT2 }<br>
  	<hr>

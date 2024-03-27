@@ -48,7 +48,7 @@ public class ApiController {
 		
 		try {
 			String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
-			API_URL = "https://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=2&numOfRows=10&type=json" ;			
+			API_URL = "https://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=10&type=json" ;			
 			log.info("========" + API_URL);
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
