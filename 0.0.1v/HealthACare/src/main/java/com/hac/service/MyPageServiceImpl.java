@@ -8,8 +8,7 @@ import com.hac.mapper.LoginMapper;
 import com.hac.mapper.MyPageMapper;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
-@Log4j
+
 @Service
 public class MyPageServiceImpl implements MyPageService{
 	
