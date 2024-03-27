@@ -141,7 +141,7 @@ public class ApiController {
 		        String sickNm = itemElement.getElementsByTagName("sickNm").item(0).getTextContent();
 		        String specCnt = itemElement.getElementsByTagName("specCnt").item(0).getTextContent();
 		        String vstDdcnt = itemElement.getElementsByTagName("vstDdcnt").item(0).getTextContent();
-		        
+		       
 		        // 추출한 정보 출력
 		        System.out.println("나이: " + age);
 		        System.out.println("환자 수: " + ptntCnt);
