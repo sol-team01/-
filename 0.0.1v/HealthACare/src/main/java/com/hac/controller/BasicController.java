@@ -14,8 +14,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor	
 @Controller
 public class BasicController {
-	
-	private BasicService service;
+
 	
 	@GetMapping("/mainWeb")	
 	public String mainWeb() {
