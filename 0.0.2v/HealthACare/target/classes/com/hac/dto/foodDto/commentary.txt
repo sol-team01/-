@@ -1,0 +1,18 @@
+0.0.1v
+
+결과코드	      resultCode
+결과메시지	      resultMsg
+한 페이지 결과수   numOfRows
+페이지 번호  	  pageNo
+전체 결과 수	  totalCount
+식품이름	      DESC_KOR
+1회제공량 (g)	  SERVING_WT
+열량 (kcal)	  NUTR_CONT1
+탄수화물 (g)	  NUTR_CONT2
+단백질 (g)	  NUTR_CONT3
+지방 (g)	      NUTR_CONT4
+당류 (g)	      NUTR_CONT5
+나트륨 (mg)	  NUTR_CONT6
+콜레스테롤 (mg)	  NUTR_CONT7
+포화지방산 (g)	  NUTR_CONT8
+트랜스지방산 (g)  NUTR_CONT9

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hac.dto.searchDto.LoginDto;
 import com.hac.service.SignService;
@@ -55,4 +56,13 @@ public class SignController {
 	@GetMapping("/signIn")
 	public void signIn(LoginDto dto) {
 	}
+	
+	 // 중복 체크를 위한 요청 처리
+    @ResponseBody
+    @GetMapping("/checkId")
+    public String checkId(@RequestParam("id") String id) {
+        boolean countCheck = signservice.countCheck(id);
+        
+        return String.valueOf(countCheck);
+    }
 }

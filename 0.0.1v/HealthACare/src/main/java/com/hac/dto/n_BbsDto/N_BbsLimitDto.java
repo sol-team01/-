@@ -3,7 +3,7 @@ package com.hac.dto.n_BbsDto;
 import lombok.Data;
 
 @Data
-public class n_BbsLimitDto {
+public class N_BbsLimitDto {
 	 int limitIndex=0;
      int PAGE_LINK_AMOUNT = 4;
      int BLOCK_LINK_AMOUNT = 3;

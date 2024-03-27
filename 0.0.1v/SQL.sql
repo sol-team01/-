@@ -54,3 +54,4 @@ SELECT YEAR(P_createdAt),MONTH(P_createdAt),AVG(P_weightLog) AS average_value_pe
 FROM physicalLog
 GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
 ORDER BY YEAR(P_createdAt), MONTH(P_createdAt);
+
