@@ -19,7 +19,14 @@ public class MyPageServiceImpl implements MyPageService{
 	@Setter(onMethod_ = @Autowired)
 	private LoginMapper loginMapper;	
 	
-	
+	@Override
+	public boolean nameCount(String name) {
+		if(loginMapper.countName(name) == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	@Override
 	public boolean nameChange(MyPageDto dto) {
@@ -32,7 +39,7 @@ public class MyPageServiceImpl implements MyPageService{
 		}
 		
 	}
-	
+	@Override
 	public boolean profileImgChange(MyPageDto dto) {
 		if(mapper.updateTime(dto) > 0) {
 			mapper.profileImgChange(dto); // 프로필 사진 변경 
@@ -44,13 +51,15 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		
 	}
-	
-	public void physical(MyPageDto dto) {
+	@Override
+	public String physical(MyPageDto dto) {
 		
 		if(mapper.physicalUpdateTime(dto) > 0) {
 			mapper.nameChange(dto);
+			return "당일 신체정보를 입력하였습니다.";
 		} else {
 			mapper.physicalUpdate(dto);
+			return "신체정보를 수정하였습니다.";
 		}
 		
 	}
