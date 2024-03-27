@@ -14,5 +14,5 @@ public class InfoDto {
 	private String I_pwFinding;
 	private String I_createdAt;
 	private String I_updatedAt;
-	
+	private String timeDifference;
 }
