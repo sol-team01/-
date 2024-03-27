@@ -44,6 +44,49 @@
 .select-show {
   display: block;
 }
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+
+
+.dropdown {
+  display: inline-block;
+  position:relative;
+}
+
+.dropdown-content1 {
+/*   display: none; */
+display:none;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content1 {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 </style>
 </head>
 <body>
@@ -91,6 +134,17 @@
 <a href="${cp}/page/mainWeb">운동추천</a>
 </pre>
 
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content1">
+  <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+  </div>
+</div>
+
+
+
 <div id="customSelect">
   <div class="select-selected">옵션1</div>
   <div class="select-items">
@@ -109,6 +163,13 @@ $(document).ready(function(){
     // 다른 열려 있는 셀렉트 박스들을 닫음
     $(".select-items").toggleClass("select-show");
   });
+  
+  $("#customSelect .select-selected").hover(function(event) {
+//    event.stopPropagation(); // 이벤트 전파 방지
+   
+   // 다른 열려 있는 셀렉트 박스들을 닫음
+   $(".select-items").toggleClass("select-show");
+ });
   
 //옵션을 선택했을 때 이벤트 처리
   $("#customSelect .select-items").on("click", "div", function() {
