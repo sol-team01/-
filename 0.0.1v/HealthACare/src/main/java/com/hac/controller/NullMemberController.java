@@ -19,12 +19,7 @@ import lombok.extern.log4j.Log4j;
 @Qualifier
 public class NullMemberController {
 	
-<<<<<<< HEAD
-//	@Setter(onMethod_ = @Autowired)
-	private n_BbsService service;
-=======
 	private N_BbsService service;
->>>>>>> bfacba7a0274512072ad5f555847ed421dc31579
 	
 	@GetMapping("/BbsFood")	
 	public String BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {

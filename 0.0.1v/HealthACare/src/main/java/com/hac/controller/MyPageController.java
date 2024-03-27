@@ -4,24 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-=======
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
->>>>>>> f6fffb3be7bfcbd5e7873f874aee3f3ae1844016
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-<<<<<<< HEAD
 import com.hac.dto.searchDto.MyPageDto;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
-=======
-import lombok.AllArgsConstructor;
->>>>>>> bfacba7a0274512072ad5f555847ed421dc31579
 import lombok.extern.log4j.Log4j;
 
 @Log4j
@@ -30,11 +23,10 @@ import lombok.extern.log4j.Log4j;
 //					// 해줌(@Auto.. 처럼)
 @Controller
 public class MyPageController {
-<<<<<<< HEAD
+
 @Setter(onMethod_ = @Autowired)
-=======
->>>>>>> bfacba7a0274512072ad5f555847ed421dc31579
 	private MyPageService service;
+
 	String mag;
 	
 	
@@ -65,8 +57,6 @@ public class MyPageController {
 			return "값이 null임";
 		}
 	}
-
->>>>>>> f6fffb3be7bfcbd5e7873f874aee3f3ae1844016
 	
 	 //이건 추후에 수정해야함
 	@PostMapping("/profileImg")
