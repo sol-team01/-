@@ -1,5 +1,8 @@
 package com.hac.mapper;
 
-public class LoginMapper {
+public interface LoginMapper {
 
+	
+	public int countName(String name);
+	
 }

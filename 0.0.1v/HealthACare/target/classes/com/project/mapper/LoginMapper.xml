@@ -16,7 +16,7 @@
 	</select>	
 	
 				<!--  닉네임 중복검사 0 true -->
-	<select id="countId" parameterType="com.hac.dto.searchDto.LoginDto">
+	<select id="countName" parameterType="com.hac.dto.searchDto.LoginDto">
 		SELECT IFNULL(COUNT(*),0) FROM info WHERE I_name = #{I_name}
 	</select>	
 

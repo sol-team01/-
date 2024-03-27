@@ -8,7 +8,7 @@
 	<!-- 닉네임 변경(시간제한 둬야함) -->
 		<!-- 코드를 재활용 하기위해 칼럼을 뚫어 놨고 사용할때 String 으로 칼럼을입력하면 됨 -->
 			<!-- 초단위로 빠져나옴, 닉네임, 프로필 사진은 하루에 한번, (몸무게, 키는 하루안에) -->
-	<select id="updateTime" resultType="com.hac.dto.userDto.infoDto">
+	<select id="updateTime" resultType="int">
 		SELECT DATEDIFF(now(),#{calumName}) AS timeDifference FROM info WHERE U_no = #{U_no}
 	</select>
 	
