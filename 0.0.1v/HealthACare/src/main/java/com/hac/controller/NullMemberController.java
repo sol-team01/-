@@ -23,17 +23,17 @@ public class NullMemberController {
 //		return "redirect:/NullMember/test";
 //	}
 	@GetMapping("/BbsDisease")	
-	public String BbsDisease() {
+	public String n_BbsDisease() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsDisease";
 	}
 	@GetMapping("/BbsHealth")	
-	public String BbsHealth() {
+	public String n_BbsHealth() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsHealth";
 	}
 	@GetMapping("/BbsCustomer")	
-	public String mainWeb() {
+	public String n_BbsCustomer() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsCustomer";
 	}
