@@ -35,4 +35,11 @@ public class SignService {
 		}
 		return null;
 	}
+	
+	// SignMapper의 countId 메소드를 호출하여 중복 체크
+    public boolean countCheck(String id) {
+        int count = signMapper.countId(id);
+        return count == 0; // 0이면 중복 없음, 아니면 중복
+    }
+	
 }

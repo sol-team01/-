@@ -12,4 +12,7 @@ public interface SignMapper {
 	public ArrayList<LoginDto> loginList();
 	//입력한 로그인을 불러오기 위한 메퍼
 	public LoginDto signIn(@Param("id") String id, @Param("pw") String pw);
+	
+	// 다른 메소드들과 함께 중복 체크를 위한 메소드 추가
+    public int countId(String id);
 }
