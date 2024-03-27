@@ -4,15 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-=======
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
->>>>>>> f6fffb3be7bfcbd5e7873f874aee3f3ae1844016
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.hac.dto.searchDto.MyPageDto;
+import com.hac.service.MyPageService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -55,7 +55,6 @@ public class MyPageController {
 		}
 	}
 
->>>>>>> f6fffb3be7bfcbd5e7873f874aee3f3ae1844016
 	
 	// 이건 추후에 수정해야함
 	@PostMapping("/profileImg")
