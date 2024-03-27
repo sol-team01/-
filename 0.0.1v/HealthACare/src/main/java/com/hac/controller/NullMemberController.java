@@ -1,8 +1,10 @@
 package com.hac.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.service.BasicService;
 
@@ -33,7 +35,7 @@ public class NullMemberController {
 		return "NullMember/BbsHealth";
 	}
 	@GetMapping("/BbsCustomer")	
-	public String n_BbsCustomer() {
+	public String n_BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsCustomer";
 	}
