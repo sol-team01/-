@@ -18,17 +18,19 @@
 <input type="text" name=desc_kor autocomplete="off">
 </form>
 	[식품이름] ${kw.body.items.get(0).DESC_KOR }<br>
-	[1회제공량] ${kw.body.items.get(0).DESC_KOR } g<br>
+	[1회제공량] ${kw.body.items.get(0).SERVING_WT } g<br>
 	[칼로리]   ${kw.body.items.get(0).NUTR_CONT1 }<br>
- 	[단백질]  ${kw.body.items.get(0).NUTR_CONT2 }<br>
+ 	[탄수화물]  ${kw.body.items.get(0).NUTR_CONT2 }<br>
  	<hr>
 	[이름] ${kw.body.items.get(1).DESC_KOR }<br>
+	[1회제공량] ${kw.body.items.get(0).SERVING_WT } g<br>
 	[칼로리]   ${kw.body.items.get(1).NUTR_CONT1 }<br>
- 	[단백질]  ${kw.body.items.get(1).NUTR_CONT2 }<br>
+ 	[탄수화물]  ${kw.body.items.get(1).NUTR_CONT2 }<br>
  	<hr>
 	[이름] ${kw.body.items.get(2).DESC_KOR }<br>
+	[1회제공량] ${kw.body.items.get(0).SERVING_WT } g<br>
 	[칼로리]   ${kw.body.items.get(2).NUTR_CONT1 }<br>
- 	[단백질]  ${kw.body.items.get(2).NUTR_CONT2 }<br>
+ 	[탄수화물]  ${kw.body.items.get(2).NUTR_CONT2 }<br>
  	<hr>
 
 <a href="#" onclick="goBack()">뒤로가기</a>
