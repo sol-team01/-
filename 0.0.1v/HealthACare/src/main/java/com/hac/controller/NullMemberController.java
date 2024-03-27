@@ -35,8 +35,7 @@ public class NullMemberController {
 		return "NullMember/BbsHealth";
 	}
 	@GetMapping("/BbsCustomer")	
-	public String n_BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
-		System.out.println("컨트롤러진입");
-		return "NullMember/BbsCustomer";
+	public void n_BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
+    	model = service.getList(currentPage, model);
 	}
 }

@@ -11,6 +11,13 @@
 </head>
 <body>
 고객지원
+<c:forEach var="guest" items="${list}"> <!-- for반복문 -->
+    ${guest.bno}
+    <a href="${cp}/guest/read?bno=${guest.bno}"> ${guest.btext}</a>
+    <hr>
+    <hr>
+</c:forEach>
+
 
 <a href="#" onclick="goBack()">뒤로가기</a>
 
