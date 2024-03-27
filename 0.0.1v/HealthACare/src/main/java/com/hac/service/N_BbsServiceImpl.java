@@ -4,22 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.hac.dto.n_BbsDto.n_BbsLimitDto;
-import com.hac.mapper.n_BbsMapper;
+import com.hac.dto.n_BbsDto.N_BbsLimitDto;
+import com.hac.mapper.N_BbsMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
-public class n_BbsServiceImpl implements n_BbsService {
+public class N_BbsServiceImpl implements N_BbsService {
 
 	@Setter(onMethod_ = @Autowired)
-	private n_BbsMapper mapper;	
+	private N_BbsMapper mapper;	
 	
 	@Override
 	public Model getList(int currentPage, Model m) {
 		log.info("비지니스 계층===========");
-		n_BbsLimitDto dto = new n_BbsLimitDto();
+		N_BbsLimitDto dto = new N_BbsLimitDto();
 		m.addAttribute("currentPage_for", currentPage); //현재 페이지 번호
 		
 		int totalPage = mapper.getTotalCount()/dto.getPAGE_LINK_AMOUNT();
