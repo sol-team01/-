@@ -17,23 +17,23 @@ public class NullMemberController {
 	
 	private BasicService service;
 	
-	@GetMapping("/BbsFood")	
-	public String BbsCustomer() {
-		System.out.println("컨트롤러진입");
-		return "NullMember/BbsFood";
-	}
+//	@GetMapping("/BbsFood")	
+//	public String BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
+//		System.out.println("apicontroller로 대체됨");
+//		return "redirect:/NullMember/test";
+//	}
 	@GetMapping("/BbsDisease")	
-	public String BbsDisease() {
+	public String n_BbsDisease() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsDisease";
 	}
 	@GetMapping("/BbsHealth")	
-	public String BbsHealth() {
+	public String n_BbsHealth() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsHealth";
 	}
 	@GetMapping("/BbsCustomer")	
-	public String mainWeb() {
+	public String n_BbsCustomer() {
 		System.out.println("컨트롤러진입");
 		return "NullMember/BbsCustomer";
 	}
