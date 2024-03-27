@@ -54,3 +54,14 @@ SELECT YEAR(P_createdAt),MONTH(P_createdAt),AVG(P_weightLog) AS average_value_pe
 FROM physicalLog
 GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
 ORDER BY YEAR(P_createdAt), MONTH(P_createdAt);
+
+
+#----------------------------<최지은>
+#비회원 게시판 테이블
+create table n_BbsCustomerTbl (	
+	bno int auto_increment primary key,			
+	btext text	
+);	
+select * from n_BbsCustomerTbl;
+insert into n_BbsCustomerTbl (btext) values('개');					
+insert into n_BbsCustomerTbl (btext) values('고양이');					

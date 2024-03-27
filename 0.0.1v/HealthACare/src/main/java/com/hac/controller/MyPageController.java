@@ -1,12 +1,7 @@
 package com.hac.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.hac.dto.searchDto.MyPageDto;
-import com.hac.service.MyPageService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -17,26 +12,26 @@ import lombok.extern.log4j.Log4j;
 					// 해줌(@Auto.. 처럼)
 @Controller
 public class MyPageController {
-
-	private MyPageService service;
-	private  
-	
-	@GetMapping("/name")
-	public String nameChange(MyPageDto dto, Model model) {
-		
-	if()
-		if(service.nameChange(dto)) {
-		
-	
-		} else {
-			
-			return ;
-		}
-		
-		
-		
-		return "홈페이지로";
-	}
+//
+//	private MyPageService service;
+//	private  
+//	
+//	@GetMapping("/name")
+//	public String nameChange(MyPageDto dto, Model model) {
+//		
+//	if()
+//		if(service.nameChange(dto)) {
+//		
+//	
+//		} else {
+//			
+//			return ;
+//		}
+//		
+//		
+//		
+//		return "홈페이지로";
+//	}
 	
 	
 	
