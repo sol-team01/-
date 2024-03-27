@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.project.mapper.MyPageMapper">
+<mapper namespace="com.hac.mapper.MyPageMapper">
 
 
 	<!-- 닉네임 변경(시간제한 둬야함) -->
@@ -18,9 +18,9 @@
 	
 	
 	<!-- 프로필 사진 변경(시간제한 둬야함) -->
-	<upadte id="profileImgChange">
+	<update id="profileImgChange">
 		UPDATE info SET I_profileImg = #{I_profileImg}, I_profileImgUpdateTime = now() WHERE U_no = #{U_no}
-	</upadte>
+	</update>
 		
 	<!-- 몸무게, 키 수정(당일만 수정 가능하게) -->
 		<!--  지금 날짜과 맨 마지막 인설트 했던 날짜의 차 확인. 1이 넘어가면 날짜가 지났다는것임.-->
