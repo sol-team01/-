@@ -1,6 +1,7 @@
 package com.hac.controller;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -87,10 +88,10 @@ public class ApiController {
 		// 여기서 부터 아래 === 까지가 한 묶음인데 일단 잠만 둬봐 
 		StringBuilder urlBuilder = new StringBuilder("https://apis.data.go.kr/B551182/diseaseInfoService/getDissByGenderAgeStats");
 		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D");
-		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("10","UTF-8"));
+		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("18","UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1","UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("year", "UTF-8") + "=" + URLEncoder.encode("2022","UTF-8"));
-		urlBuilder.append("&" + URLEncoder.encode("sickCd", "UTF-8") + "=" + URLEncoder.encode("A00","UTF-8"));
+		urlBuilder.append("&" + URLEncoder.encode("sickCd", "UTF-8") + "=" + URLEncoder.encode("B15","UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("sickType", "UTF-8") + "=" + URLEncoder.encode("1","UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("medTp", "UTF-8") + "=" + URLEncoder.encode("1","UTF-8"));
 		URL url = new URL(urlBuilder.toString());
@@ -114,40 +115,45 @@ public class ApiController {
 		con.disconnect();
 		System.out.println(sb.toString());
 		
-		System.out.println("=================================================="); 
-		// 위랑 아래가 같은 건데 일단 같이 넣어둠 =============================================================================================================================
-
-		// XML 파서를 생성하기 위한 팩토리를 생성
+		// 가져온 XML 데이터를 Document 객체로 파싱
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		// Document 객체를 만들기 위한 빌더를 생성
 		DocumentBuilder builder = factory.newDocumentBuilder();
-
-		// xml 파일을 document로 파싱하기
-		Document document = builder.parse("https://apis.data.go.kr/B551182/diseaseInfoService/getDissByGenderAgeStats?serviceKey=hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D&numOfRows=10&pageNo=2&year=2022&sickCd=A00&sickType=1&medTp=1");
-		
+		Document document = builder.parse(new ByteArrayInputStream(sb.toString().getBytes()));
 		// root 요소 가져오기
 		Element root = document.getDocumentElement();
-		// root 요소 확인 : 첫 태그 sample
-		System.out.println(root.getNodeName()); 
-		System.out.println("===========================2"); 
-		// root 요소의 첫 번째 자식 노드의 다음 형제 노드를 가져와서 customer 노드로 지정
-		Node firstNode = root.getFirstChild();
-		// 다음 노드는 customer
-		Node customer = firstNode.getNextSibling();
-		// customer 요소 안의 노드 리스트
-		NodeList childList = customer.getChildNodes();
-		
-		model.addAttribute("list", childList);
-		// childList를 반복하며 자식 노드를 처리
-		for(int i = 0; i < childList.getLength(); i++) {
-			Node item = childList.item(i);
-			if(item.getNodeType() == Node.ELEMENT_NODE) { // 노드의 타입이 Element일 경우(공백이 아닌 경우)
-				System.out.println(item.getNodeName());
-				System.out.println(item.getTextContent());
-				System.out.println("==========================3"); 
-			} else {
-				System.out.println("공백 입니다.");
-			}
+
+		// item 요소 추출
+		NodeList itemList = root.getElementsByTagName("item");
+
+		// 각 item 요소별로 출력
+		for (int i = 0; i < itemList.getLength(); i++) {
+		    Node itemNode = itemList.item(i);
+		    if (itemNode.getNodeType() == Node.ELEMENT_NODE) {
+		        Element itemElement = (Element) itemNode;
+		        
+		        // item 요소 내부에서 필요한 정보 추출
+		        String age = itemElement.getElementsByTagName("age").item(0).getTextContent();
+		        String ptntCnt = itemElement.getElementsByTagName("ptntCnt").item(0).getTextContent();
+		        String rvdInsupBrdnAmt = itemElement.getElementsByTagName("rvdInsupBrdnAmt").item(0).getTextContent();
+		        String rvdRpeTamtAmt = itemElement.getElementsByTagName("rvdRpeTamtAmt").item(0).getTextContent();
+		        String sex = itemElement.getElementsByTagName("sex").item(0).getTextContent();
+		        String sickCd = itemElement.getElementsByTagName("sickCd").item(0).getTextContent();
+		        String sickNm = itemElement.getElementsByTagName("sickNm").item(0).getTextContent();
+		        String specCnt = itemElement.getElementsByTagName("specCnt").item(0).getTextContent();
+		        String vstDdcnt = itemElement.getElementsByTagName("vstDdcnt").item(0).getTextContent();
+		        
+		        // 추출한 정보 출력
+		        System.out.println("나이: " + age);
+		        System.out.println("환자 수: " + ptntCnt);
+		        System.out.println("받은 보조 부담금 액: " + rvdInsupBrdnAmt);
+		        System.out.println("귀환 치료액: " + rvdRpeTamtAmt);
+		        System.out.println("성별: " + sex);
+		        System.out.println("질병 코드: " + sickCd);
+		        System.out.println("질병 이름: " + sickNm);
+		        System.out.println("특수 카운트: " + specCnt);
+		        System.out.println("일일 방문 의사 수: " + vstDdcnt);
+		        System.out.println("==========================3"); 
+		    }
 		}
 		
 		

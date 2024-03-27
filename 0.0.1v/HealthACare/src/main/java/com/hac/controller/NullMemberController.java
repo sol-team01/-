@@ -1,10 +1,12 @@
 package com.hac.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hac.service.BasicService;
+import com.hac.service.n_BbsService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -15,7 +17,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class NullMemberController {
 	
-	private BasicService service;
+	private n_BbsService service;
 	
 //	@GetMapping("/BbsFood")	
 //	public String BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
@@ -33,8 +35,7 @@ public class NullMemberController {
 		return "NullMember/BbsHealth";
 	}
 	@GetMapping("/BbsCustomer")	
-	public String n_BbsCustomer() {
-		System.out.println("컨트롤러진입");
-		return "NullMember/BbsCustomer";
+	public void n_BbsCustomer(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
+    	model = service.getList(currentPage, model);
 	}
 }
