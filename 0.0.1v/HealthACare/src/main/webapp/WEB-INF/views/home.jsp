@@ -125,7 +125,7 @@ display:none;
 		</ul>
 	</nav>
 	<pre>
-<a href="${cp}/page/mainWeb">로그인</a>
+<a href="${cp}/sign/signIn">로그인</a>
 <a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a>
 <a href="${cp}/page/mainWeb">커뮤니티(추후에 li 리스트로 변경 건의)</a>
 <a href="${cp}/page/mainWeb">공지사항</a>
