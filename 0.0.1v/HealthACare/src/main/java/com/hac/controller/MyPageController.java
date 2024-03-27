@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +29,9 @@ public class MyPageController {
 	
 	
 	@GetMapping("/name")
-	public String nameChange(MyPageDto dto, Model model,H) {
+	public String nameChange(MyPageDto dto, Model model,HttpServletRequest request) {
 
+		HttpSession session = request.getSession();
 		// 닉네임 길이 검사
 		if (dto.getI_name() != null && !dto.getI_name().equals(null)) {
 			// 중복 닉네임 검사해줌
@@ -55,7 +59,7 @@ public class MyPageController {
 	
 	// 이건 추후에 수정해야함
 	@PostMapping("/profileImg")
-	public String profileImgChange(@RequestPart("imageFile") MultipartFile file, Model model) {
+	public String profileImgChange(@RequestPart("imageFile") MultipartFile file, Model model,HttpServletRequest request) {
 
 		// 이미지를 첨부중인지 확인하는 함수
 		if (file != null && !file.isEmpty()) {
@@ -75,7 +79,7 @@ public class MyPageController {
 	}
 
 	@GetMapping("/physical")
-	public String physical(MyPageDto dto, Model model) {
+	public String physical(MyPageDto dto, Model model,HttpServletRequest request) {
 
 		// 신체정보 입력
 		if (dto.getI_height() != null && dto.getI_weight() != null &&!dto.getI_height().equals(null) && !dto.getI_weight().equals(null)) {

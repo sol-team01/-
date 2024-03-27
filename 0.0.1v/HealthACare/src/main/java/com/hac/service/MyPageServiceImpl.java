@@ -39,7 +39,7 @@ public class MyPageServiceImpl implements MyPageService{
 		}
 		
 	}
-	
+	@Override
 	public boolean profileImgChange(MyPageDto dto) {
 		if(mapper.updateTime(dto) > 0) {
 			mapper.profileImgChange(dto); // 프로필 사진 변경 
@@ -51,7 +51,7 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		
 	}
-	
+	@Override
 	public String physical(MyPageDto dto) {
 		
 		if(mapper.physicalUpdateTime(dto) > 0) {
