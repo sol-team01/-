@@ -17,13 +17,9 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />	
+		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
- 
- <!--  컨트롤러 연결 -->
-	<context:component-scan base-package="com.hac.controller"/>
-
 
 <!--  이미지 변환 bean 경로 저장 -->	
 <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -33,7 +29,11 @@
  
  <!-- 이미지 변환 형식 설정 -->
  <beans:property name="defaultEncoding" value="utf-8" />
- </beans:bean>	
+ </beans:bean>
+ 
+ 
+	<context:component-scan base-package="com.hac.contriller"/>
+	
 	
 	
 </beans:beans>

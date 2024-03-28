@@ -10,7 +10,7 @@
 		class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/hac"></property> <!--  데이터 베이스 연결 -->			
+		<property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/health"></property> <!--  데이터 베이스 연결 -->			
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
@@ -18,10 +18,6 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
-		<!-- mybatis - mapper 설정 -->
 	<mybatis-spring:scan base-package="com.hac.mapper"/>
-	
-		<!-- 서비스 경로 설정 -->
 	<context:component-scan base-package="com.hac.service"/>
 </beans>
