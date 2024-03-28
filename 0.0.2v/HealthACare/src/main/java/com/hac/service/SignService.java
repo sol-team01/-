@@ -7,12 +7,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hac.dto.searchDto.LoginDto;
+import com.hac.mapper.LoginMapper;
 import com.hac.mapper.SignMapper;
 
 @Service
 public class SignService {
 	@Autowired
 	private SignMapper signMapper;
+	
+
 	
 	private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
@@ -35,4 +38,5 @@ public class SignService {
 		}
 		return null;
 	}
+	
 }

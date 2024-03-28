@@ -6,3 +6,4 @@ public interface LoginMapper {
 	public int countName(String name);
 	
 }
+	

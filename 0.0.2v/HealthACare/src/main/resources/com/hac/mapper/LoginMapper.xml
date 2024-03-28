@@ -5,9 +5,6 @@
 <mapper namespace="com.hac.mapper.LoginMapper">
 	<!-- resultType 에 복수형(ArrayList 등)을 적는게 아님. 그냥 vo 단수의 경로를 적어야됨. -->
 	
-	
-	
-	
 
 	
 				<!--  아이디 중복검사 0 true --> 
@@ -31,7 +28,7 @@
 	</select>
 
 				<!--  회원정보 생성 -->
-	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.infoDto">
+	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.InfoDto">
 		INSERT INTO info
 			(U_no,I_name,I_weight,I_height,I_email,I_pwFinding,I_hint)
 		VALUE 
@@ -63,15 +60,15 @@
 				<!-- 비밀번호 찾기 -->
 				
 					<!-- 등록한 질문 찾기 -->
-	<select id="searchFinding" resultType = "int " parameterType="com.project.dto.searchDto.LoginDto">
+	<select id="searchFinding" parameterType="com.hac.dto.searchDto.LoginDto">
 		SELECT info.I_pwFinding FROM user JOIN info ON user.U_no = info.U_no WHERE user.U_id = #{U_id} 
 	</select>
 					<!-- 등록한 질문을 맞추면 비밀번호 바꿀수있게. -->
-	<select id="searchId"  resultType = "String" parameterType="com.project.dto.searchDto.LoginDto">
+	<select id="searchpw"  resultType = "String" parameterType="com.hac.dto.searchDto.LoginDto">
 		SELECT user.U_no FROM info JOIN user ON info.U_no = user.U_no WHERE info.I_hint = #{I_hint}
 	</select>
 	
-	<update id="pwChange" parameterType="com.project.dto.searchDto.LoginDto">
+	<update id="pwChange" parameterType="com.hac.dto.searchDto.LoginDto">
 		UPDATE user SET U_pw = #{U_pw} WHERE U_no = #{U_no}
 	</update>
 	
