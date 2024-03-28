@@ -36,11 +36,19 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/sdedu/Desktop/mysql-connector-j-8.0.33.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+=======
+<<<<<<< HEAD
+	<classpathentry kind="lib" path="C:/JUM/0.0.2v/HealthACare/mysql-connector-j-8.0.33.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Workspace/팀플지널만/pr/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
+>>>>>>> 421a27122c27ca6705dc102966aaf9549b9dcc7b
+>>>>>>> aac1eb843019e87080685ea2743d9d5c1a1c4e3d
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
