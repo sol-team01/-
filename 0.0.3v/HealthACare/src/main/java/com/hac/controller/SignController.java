@@ -3,6 +3,7 @@ package com.hac.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import lombok.AllArgsConstructor;
 @Controller
 public class SignController {
 	private final SignService signservice;
+	
 	
 	//로그인 페이지로 이동
 	@GetMapping("/login")
@@ -49,10 +51,10 @@ public class SignController {
 		if(dto != null) {
 			session.setAttribute("login", dto.getU_id());
 			System.out.println("로그인 성공");
-			return "redirect:/home";
+			return "redirect:/";
 		} else {
 			System.out.println("로그인 실패");
-			return "redirect:/home";
+			return "redirect:/";
 		}
 	}
 	
