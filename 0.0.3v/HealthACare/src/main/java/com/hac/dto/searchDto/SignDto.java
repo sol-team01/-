@@ -3,7 +3,7 @@ package com.hac.dto.searchDto;
 import lombok.Data;
 
 @Data 
-public class LoginDto {
+public class SignDto {
 	private int U_no;
 	private String U_id = "";
 	private String U_pw = "";
