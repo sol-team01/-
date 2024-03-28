@@ -5,7 +5,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <html>
 <head>
-<title>Home</title>
+<title>Home[0.0.2v]</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
