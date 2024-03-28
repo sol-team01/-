@@ -2,8 +2,19 @@
             	
     
     
+<<<<<<< HEAD
     <wb-module deploy-name="spring-1.0.0-BUILD-SNAPSHOT">
                                 
+=======
+    
+<<<<<<< HEAD
+    <wb-module deploy-name="controller-1.0.0-BUILD-SNAPSHOT">
+=======
+    <wb-module deploy-name="spring-1.0.0-BUILD-SNAPSHOT">
+>>>>>>> branch 'main' of git@github.com:sol-team01/JEE-null-MAN-team-pr.git
+                                        
+        
+>>>>>>> 6a9df496ca9a2cd971107ca811d45159d6de79ae
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
@@ -14,6 +25,7 @@
                         		
         
         
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                         		
         
@@ -28,6 +40,21 @@
         
         <property name="context-root" value="spring"/>
                         	
+=======
+        <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
+                
+        <property name="context-root" value="controller"/>
+=======
+                                        
+        
+        
+        
+        <property name="context-root" value="spring"/>
+>>>>>>> branch 'main' of git@github.com:sol-team01/JEE-null-MAN-team-pr.git
+                                	
+    
+>>>>>>> 6a9df496ca9a2cd971107ca811d45159d6de79ae
     
     
     </wb-module>
