@@ -10,13 +10,12 @@
 </head>
 <body>
 <div>
-<form action="${cp}/sign/signIn" method="post">
+<form action="${cp}/page/signIn" method="post">
 아이디 입력: <input type="text" maxlength="20" name="id"><br>
 비밀번호 입력: <input type="password" maxlength="20" name="pw"><br>
+<input type="submit" name="signIn" value="로그인">
 </form>
-<form action="${cp}/sign/signUp">
-<input type="submit" name="signUp" value="회원가입">
-</form>
+<a href="${cp}/page/signUp"><button>회원가입</button></a>
 </div>
 </body>
 </html>
