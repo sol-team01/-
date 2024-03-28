@@ -9,7 +9,7 @@
 <title>회원가입</title>
 </head>
 <body>
-<form action="${cp}/sign/createId" method="post">
+<form action="${cp}/page/createId" method="post">
 아이디 입력: <input type="text" maxlength="20" name="U_id"><br>
 비밀번호 입력: <input type="password" maxlength="20" name="U_pw"><br>
 비밀번호 확인: <input type="password" maxlength="20" name="rePw"><br>
