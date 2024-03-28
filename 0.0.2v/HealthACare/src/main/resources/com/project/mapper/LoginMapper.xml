@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hac.mapper.SignMapper">
+<mapper namespace="com.hac.mapper.LoginMapper">
 	<!-- resultType 에 복수형(ArrayList 등)을 적는게 아님. 그냥 vo 단수의 경로를 적어야됨. -->
 	
 	

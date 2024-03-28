@@ -32,7 +32,7 @@
  </beans:bean>
  
  
-	<context:component-scan base-package="com.hac.contriller"/>
+	<context:component-scan base-package="com.hac"/>
 	
 	
 	
