@@ -16,16 +16,15 @@ import com.hac.service.SignService;
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping("/page")
+@RequestMapping("/sign")
 @AllArgsConstructor
 public class SignController {
 	private final SignService signservice;
 	
 	@GetMapping("/signUp")	
-	public String signUp(Model model) {
+	public void signUp(Model model) {
 		System.out.println("회원가입 진입");
 		model.addAttribute("loginList",signservice.loginList());
-		return "signUp";
 	}
 	
 	@PostMapping("/createId")
@@ -51,10 +50,5 @@ public class SignController {
 	
 	@GetMapping("/signIn")
 	public void signIn(LoginDto dto) {
-	}
-	
-	@GetMapping("/login")
-	public String login() {
-		return null;
 	}
 }

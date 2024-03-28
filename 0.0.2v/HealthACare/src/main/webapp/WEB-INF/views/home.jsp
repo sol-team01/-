@@ -9,14 +9,87 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
-<link rel="stylesheet" href="${cp}/resources/menu.css">
+<style>
+#customSelect {
+  position: relative;
+  width: 200px;
+  margin: 20px;
+}
+
+.select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  display:none;
+}
+
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-items div:hover {
+  background-color: #ddd;
+}
+
+.select-show {
+  display: block;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+
+
+.dropdown {
+  display: inline-block;
+  position:relative;
+}
+
+.dropdown-content1 {
+/*   display: none; */
+display:none;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content1 {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
 </head>
 <body>
-<!-----------------------------------------------------------------
-0.0.0v - 팀프로젝트 시작
-0.0.1v - 기본 jsp, 로그인 백엔드, api 연결
-0.0.2v - 상세 jsp css, 로그인 구현
-------------------------------------------------------------------->
 	<h1></h1>
 	<P>서버 열린시간: ${serverTime}.</P>
 	<nav class="top-nav">
@@ -70,6 +143,8 @@
   </div>
 </div>
 
+
+
 <div id="customSelect">
   <div class="select-selected">옵션1</div>
   <div class="select-items">
@@ -78,6 +153,35 @@
     <div>옵션 3</div>
   </div>
 </div>
-<script src="${cp}/resources/menu.js"></script>
+
+<script>
+$(document).ready(function(){
+  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+  $("#customSelect .select-selected").click(function(event) {
+//     event.stopPropagation(); // 이벤트 전파 방지
+    
+    // 다른 열려 있는 셀렉트 박스들을 닫음
+    $(".select-items").toggleClass("select-show");
+  });
+  
+  $("#customSelect .select-selected").hover(function(event) {
+//    event.stopPropagation(); // 이벤트 전파 방지
+   
+   // 다른 열려 있는 셀렉트 박스들을 닫음
+   $(".select-items").toggleClass("select-show");
+ });
+  
+//옵션을 선택했을 때 이벤트 처리
+  $("#customSelect .select-items").on("click", "div", function() {
+    var selectedOption = $(this).text(); // 선택한 옵션의 텍스트
+
+    // 선택한 옵션을 선택된 옵션으로 표시
+    $(this).parent().siblings(".select-selected").text(selectedOption);
+
+    // 셀렉트 박스 닫기
+    $(this).parent().removeClass("select-show");
+  });
+});
+</script>
 </body>
 </html>
