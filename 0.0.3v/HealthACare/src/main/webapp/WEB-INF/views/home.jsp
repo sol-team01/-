@@ -65,6 +65,8 @@ Moscow
 <pre>
 	<P>서버 열린시간: ${serverTime}.</P>
 <a href="${cp}/page/login">로그인</a>
+${login}
+<a href="${cp}/page/logout">로그아웃</a>
 <a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a>
 </pre>
 <script>
