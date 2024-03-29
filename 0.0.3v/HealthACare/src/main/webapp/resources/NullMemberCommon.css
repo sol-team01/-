@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+body{
+	background-color: #d0f5ff;	
+	margin: 0px;
+}
+/*기본 영역 세팅 (시작)*/
+#warp{
+	width: 1920px;
+	background-color: white;
+	margin: auto;
+	height:1770px;
+	display: flex;
+}
+#Category{
+	width: 357px;
+	height:1750px;
+	background-color: #9FE2FA99;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 10px 30px;
+	flex-direction: column;
+}
+#main{
+	width: 1503px;
+	text-align: center;
+}
+#top{
+	height: 110px;
+	border-bottom: 1px solid #18A4FF ;
+}
+/*기본 영역 세팅 (끝)*/
+/*CATEGORY 하위*/
+#Category img{
+	width: 200px;
+	height: 90px;
+	margin-bottom: 100px;
+}
+/*CATEGORY 하위(끝)*/
+/*뭔지 모르겠어요~*/
+#customSelect {
+  position: relative;
+  width: 200px;
+  margin: 20px;
+}
+
+.select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  display:none;
+}
+
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-items div:hover {
+  background-color: #ddd;
+}
+
+.select-show {
+  display: block;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+.dropdown {
+  display: inline-block;
+  position:relative;
+}
+
+.dropdown-content1 {
+/*   display: none; */
+display:none;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content1 {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+/*뭔지 모르겠어요~*/
+
+
