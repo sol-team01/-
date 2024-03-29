@@ -182,6 +182,8 @@ $(document).ready(function(){
     $(this).parent().removeClass("select-show");
   });
 });
+
+// 내가 어디 버전에 있는 거지?
 </script>
 </body>
 </html>
