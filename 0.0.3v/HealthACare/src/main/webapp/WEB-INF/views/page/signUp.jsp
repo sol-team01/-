@@ -14,6 +14,10 @@
 비밀번호 입력: <input type="password" maxlength="20" name="U_pw"><br>
 비밀번호 확인: <input type="password" maxlength="20" name="U_repw"><br>
 <input type="submit" value="회원가입">
+
+<script>
+	$
+</script>
 </form>
 </body>
 </html>

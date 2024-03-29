@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+html, body {
+   height: 100%;
+   margin: 0;
+   display: flex;
+   justify-content: center; /* 수평 가운데 정렬 */
+   align-items: center; /* 수직 가운데 정렬 */
+   background-color: #F3F3F3;
+}
+
+form{
+   margin: auto;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   margin: 0px auto;
+}
+
+#loginBox { /* 로그인박스 */
+   display: flex;
+   flex-direction: column;
+   align-items : center; /* 수직 가운데 정렬 */
+   width: 600px;
+   height: 500px;
+   border-radius: 10px;
+   background-color: #ffffff;
+   text-align: center;
+   box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.2);
+}
+
+.image {
+   margin-top: 20px;
+    width: 150px;
+    padding: 10px;
+}
+
+.textbox .text { /* 아이디, 비밀번호 text */
+   color: #6c7079;
+   font-size: 14px;
+   font-weight: bold;
+   margin-top: 10px;
+   text-align: left; /* 왼쪽 정렬 */
+   margin-bottom: 5px;
+/*     max-width: 400px; 최대 너비 설정 */
+}
+.textbox{
+   display: flex;
+   justify-content: center;
+   text-align:left;
+   flex-direction: column;
+}
+
+#pwInput, #idInput { /* input */
+   font-weight: bold;
+   font-size: 15px;
+   border-radius: 3px;
+   width: 400px;
+   height: 30px;
+   padding: 10px;
+   border: 1px solid #ddd;
+   margin-top: 2px;
+   margin: auto;
+}
+
+#loginBt { /* 로그인 버튼 */
+   font-size: 18px;
+   color: #6c7079;
+   font-weight: bold;
+   width: 425px;
+   height: 45px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   margin-top: 30px;
+   border: none;
+}
+
+#signUPBt { /* 회원가입 버튼 */
+   font-size: 18px;
+   color: #6c7079;
+   font-weight: bold;
+   width: 425px;
+   height: 45px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   margin: 10px auto;
+   border: none;
+}
+
+#loginBt:hover, #signUPBt:hover { /* 로그인, 회원가입 버튼 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+   font-weight: bold;
+}
+
+.text2 { /* 아이디, 비밀번호 찾기 text */
+   color: #03BDFF;
+   font-size: 15px;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+#textContain{
+   width:425px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    margin-top: 5px; /* 적절한 여백 조정 */
+    margin-bottom: 30px;
+}

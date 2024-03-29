@@ -16,8 +16,6 @@
 <input type="submit" value="로그인">
 </form>
 <a href="${cp}/page/signUp"><button>회원가입</button></a>
-
-<a href="${cp}/page/signUp">컨트롤러 타워</a>
 </div>
 </body>
 </html>
