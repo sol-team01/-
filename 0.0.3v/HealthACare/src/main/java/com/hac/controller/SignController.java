@@ -44,7 +44,7 @@ public class SignController {
 	@PostMapping("/createId")
 	public String createId(SignDto dto) {
 		signservice.signUp(dto);
-		return "redirect:/";
+		return "redirect:/page/login";
 	}
 	
 	//로그인
