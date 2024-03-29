@@ -2,8 +2,6 @@ package com.hac.service;
 
 import java.util.ArrayList;
 
-import org.springframework.ui.Model;
-
 import com.hac.dto.searchDto.SignDto;
 
 public interface SignService {
@@ -11,5 +9,7 @@ public interface SignService {
 	
 	public ArrayList<SignDto> loginList();
 	
-	public SignDto signIn(String id, String pw);
+	public SignDto signIn(String U_id, String U_pw);
+	
+	public boolean selectId(String U_id);
 }
