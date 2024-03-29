@@ -2,75 +2,114 @@
 
 body{
 	background-color: #d0f5ff;	
+	margin: 0px;
 }
-.top-nav {
-  background-color: #0080ff; /* 네비게이션 바 배경색 */
-  padding: 10px 0; /* 네비게이션 바 상하 여백 */
+/*기본 영역 세팅 (시작)*/
+#warp{
+	width: 1920px;
+	background-color: white;
+	margin: auto;
+	height:1770px;
+	display: flex;
+}
+#Category{
+	width: 357px;
+	height:1750px;
+	background-color: #9FE2FA99;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 10px 30px;
+	flex-direction: column;
+}
+#main{
+	width: 1503px;
+	text-align: center;
+}
+#top{
+	height: 110px;
+	border-bottom: 1px solid #18A4FF ;
+}
+/*기본 영역 세팅 (끝)*/
+/*CATEGORY 하위*/
+#Category img{
+	width: 200px;
+	height: 90px;
+	margin-bottom: 100px;
+}
+/*CATEGORY 하위(끝)*/
+/*뭔지 모르겠어요~*/
+#customSelect {
+  position: relative;
+  width: 200px;
+  margin: 20px;
 }
 
-.top-nav ul {
-  list-style-type: none; /* 목록 스타일 제거 */
-  margin: 0;
-  padding: 0;
-  text-align: center; /* 항목 가운데 정렬 */
+.select-selected {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
-.top-nav ul li {
-  display: inline; /* 항목을 가로로 정렬 */
-}
-
-.top-nav ul li a {
-  display: inline-block;
-  color: #00ffff; /* 링크 텍스트 색상 */
-  padding: 10px 20px; /* 항목 간 여백 */
-  text-decoration: none; /* 링크 밑줄 제거 */
-}
-
-.top-nav ul li a:hover {
-  background-color: #1b2fbe; /* 호버 시 배경색 변경 */
-}
-/* 드롭다운 메뉴 숨기기 */
-.dropdown-content {
-  display: none;
+.select-items {
   position: absolute;
-  top: 220px; /* 부모 요소의 상단에서 50% 지점으로 이동 */
-  transform: translate(-50%, -50%); /* 요소의 중심을 부모 요소의 중심으로 이동 */
-  background-color: #ffffff;
-  color:blue;
-  min-width: 100px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  display:none;
 }
 
-/* 메뉴 호버 시 드롭다운 메뉴 보이기 */
-.dropdownA:hover .dropdown-content {
-  display: block;
-  left: 37%; /* 부모 요소의 왼쪽에서 50% 지점으로 이동 */
-}
-.dropdownB:hover .dropdown-content {
-  display: block;
-  left: 45%; /* 부모 요소의 왼쪽에서 50% 지점으로 이동 */
-}
-.dropdown3:hover .dropdown-content {
-  display: block;
-  left: 53%; /* 부모 요소의 왼쪽에서 50% 지점으로 이동 */
-}
-.dropdown4:hover .dropdown-content {
-  display: block;
-  left: 62%; /* 부모 요소의 왼쪽에서 50% 지점으로 이동 */
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
 }
 
-/* 드롭다운 메뉴 항목 스타일링 */
-.top-nav ul li .dropdown-content a {
-  color: black;
-  padding: 30px 16px;
-  text-decoration: none;
-  display: block; /* 항목을 수직으로 배치 */
-}
-
-/* 드롭다운 메뉴 항목 호버 시 배경색 변경 */
-.dropdown-content a:hover {
+.select-items div:hover {
   background-color: #ddd;
 }
+
+.select-show {
+  display: block;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+}
+.dropdown {
+  display: inline-block;
+  position:relative;
+}
+
+.dropdown-content1 {
+/*   display: none; */
+display:none;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content1 {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+/*뭔지 모르겠어요~*/
 
 
