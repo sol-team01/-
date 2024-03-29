@@ -48,39 +48,7 @@
   	<div>연령대별 질병</div>
   	</div>
 	</div>
-<<<<<<< HEAD
-</div><!-- <div id="Category"> -->
-
-<div id="main">
-<div id="top">
-<input placeholder="Event, Place or type">
-<div id="user">
-Moscow
-<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-<div class="Profile">
-<img  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
-</div> 
-</div>
-</div><!-- 	<div id="top"> -->
-
-<pre>
-	<P>서버 열린시간: ${serverTime}.</P>
-<c:choose>
-    <c:when test="${empty login}">
-        <p>비회원</p>
-        <a href="${cp}/page/login">로그인</a>
-    </c:when>
-    <c:otherwise>
-        <p>${login}</p>
-        <a href="${cp}/page/logout">로그아웃</a>
-        <a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a>
-    </c:otherwise>
-</c:choose>
-</pre>
 <script>
-=======
-	<script>
->>>>>>> 4187689f069cb607fd38bfd40bbc5ab2f02e58c6
 $(document).ready(function(){ //운동 카테고리 버튼
   // 셀렉트 박스를 클릭했을 때 이벤트 처리
   $("#customSelect .SelectHealth").click(function(event) {
@@ -127,26 +95,26 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <!-- ★TODO★ :: 로그인 if 문 추가하여 구분 하여야 함(최) -->
 	<input placeholder="Event, Place or type">
 	<div>
-<!-- 	<div id="user"> -->
-<!-- 	Moscow -->
-<%-- 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png">  --%>
-<%-- 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg"> --%>
-<!-- 	</div> -->
-	<div id="signupBox">
-	SIGN UP
+	<c:choose>
+    <c:when test="${empty login}">
+<!--         <p>비회원</p> -->
+			<a href="${cp}/page/login">
+        	<div id="signupBox"> SIGN UP	</div>
+			</a>
+    </c:when>
+    <c:otherwise>
+<%--         <p>${login}</p> --%>
+<!--         마이페이지(로그인 시 노출)</a> -->
+	<div id="user">	
+    <a href="${cp}/page/logout">로그아웃</a>
+	<a href="${cp}/page/mainWeb">${login}</a>
+	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
+	<a href="${cp}/page/mainWeb"><img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg"></a>
 	</div>
+    </c:otherwise>
+</c:choose>
 	</div>
-<!-- ★TODO★ ::  로그인 상태에 따라 변화 되도록 추가로 짜야함(최)-->
-<!-- <pre> -->
-<%-- 서버 열린시간: ${serverTime} --%>
-<%-- <a href="${cp}/page/login">로그인</a> --%>
-
-<%-- ${login} --%>
-<%-- <a href="${cp}/page/logout">로그아웃</a> --%>
-<%-- <a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a> --%>
-<!-- </pre> -->
 </div><!-- 	<div id="top"> -->
-
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
 </body>
