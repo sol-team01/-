@@ -31,7 +31,7 @@
 	</div><!-- 	<div id="top"> -->
 	<h1></h1>
 	<pre>
-<a href="${cp}/sign/signIn">로그인</a>
+<a href="${cp}/page/login">로그인</a>
 <a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a>
 </pre>
 <div class="dropdown">
