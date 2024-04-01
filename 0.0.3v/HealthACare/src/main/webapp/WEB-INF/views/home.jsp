@@ -95,7 +95,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <div id="top">
 	<div id="Search">
 	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type">
+	<input placeholder="Event, Place or type" type="search">
 	</div>
 	<div>
 	<c:choose>
@@ -126,7 +126,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">
 		<a>운동</a>
-		<a>게시판</a>
+		<a href="${cp}/board/BoardList">게시판</a>
 		<a>고객지원</a>
 	</div>
 	<div class="Banner">
