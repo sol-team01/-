@@ -10,18 +10,18 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/NullMemberCommon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/loginCommon.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/error404.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/NullMemberCommon.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="${pageContext.request.contextPath}/resources/loginCommon.css"> --%>
 <style>
 </style>
 </head>
 <body>
 	<div id="warp">
 		<div id="Category">
-			<img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="로고" class="image">
+			<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="로고" class="image"></a>
 			<div id="customSelect">
 				<div class="SelectHealth">운동</div>
 				<div class="select-itemsHealth">
@@ -130,7 +130,7 @@
 					<h4 class="notFound">페이지를 찾을 수 없음!</h4>
 					<p class="notFoundContent">죄송합니다. 블로그에 찾고 계신 페이지가 없습니다</p>
 					<p class="notFoundContentLast">수정, 이동 또는 삭제되었을 수 있습니다.</p>
-					<button id="signUPBt"><a href="${pageContext.request.contextPath}/"></a>홈으로 돌아가기</button>
+					<a href="${pageContext.request.contextPath}/"><button id="signUPBt">홈으로 돌아가기</button></a>
 				</div>
 			</div>
 		</div>
