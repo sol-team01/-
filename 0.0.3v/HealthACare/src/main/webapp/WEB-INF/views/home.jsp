@@ -38,7 +38,7 @@
     <div class="SelectFood">식단</div>
   	<div class="select-itemsFood">
     <div>칼로리 계산</div>
-    <div>식품 영양 정보</div>
+    <div><a href="${cp}/food/list">식품 영양 정보</a></div>
     <div>질병 당 추천 음식</div>
   	</div>
 	</div>
