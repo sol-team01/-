@@ -137,17 +137,72 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div class="choiceTitle">리스트로 보기</div>
 	<div class="choiceTitleGray">영상으로 보기</div>
 	</div>
+	<div id="midAlign">
 	<div id="listBox">
 	<div class="list">
-	<a class="subtext"> 18, Thursday</a>
-	<div class="subTextBox">Few tickets </div>
+		<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
 	</div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	</div>
+		<div id="rankingBox">
+		<div class="realTime">ddddddd</div>
+		</div>
 	</div>
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
