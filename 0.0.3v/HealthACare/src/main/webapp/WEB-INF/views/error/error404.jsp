@@ -13,8 +13,6 @@
 	href="${pageContext.request.contextPath}/resources/error404.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/NullMemberCommon.css">
-<!-- <link rel="stylesheet" -->
-<%-- 	href="${pageContext.request.contextPath}/resources/loginCommon.css"> --%>
 <style>
 </style>
 </head>
