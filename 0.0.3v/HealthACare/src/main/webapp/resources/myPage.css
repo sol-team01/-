@@ -1,0 +1,192 @@
+@charset "UTF-8";
+img {
+	pointer-events: none; /* 이미지 드래그 막기 */
+}
+#Category img {
+	width: 200px;
+	height: 90px;
+	margin-bottom: 96px;
+}
+#myPage{
+	width: 1372px;
+	margin-top: 15px;
+}
+
+#myInfo{
+	margin-top: 5px;
+	margin: auto;
+	width: 1300px;
+	height: 187px;
+	border-radius: 28px;
+	padding: 25px 36px;
+	background-color: #03BDFF;
+}
+
+#infoName{
+	display: flex;
+	width: 1427px;
+	height: 50px;
+	margin-left: auto;
+	font-size: 40px;
+	justify-content: flex-start;
+}
+
+#log{
+	display: flex;
+	width: 1393px;
+	height: 150px;
+	margin: auto;
+	margin-left: auto;
+
+}
+
+.info{
+	display: flex;
+	width: 645.5px;
+	font-size: 26px;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	text-align: left;
+}
+
+#infoRe{
+	
+}
+
+#secondPage{
+	display: flex;
+	width: 1372px;
+	height: 1420px;
+}
+
+#myProfile{
+	width: 1372px;
+	height: 220px;
+}
+
+#myInfo{
+	width: 
+}
+
+#leftPage{
+	width: 751.5px;
+}
+
+#todayText{
+	width: 600px;
+	height: 130px;
+	margin: auto;
+	margin-top: 60px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+#aboutMe{
+	width: 600px;
+	height: 220px;
+	margin: auto;
+	margin-top: 60px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+#myFood{
+	width: 600px;
+	height: 830px;
+	margin: auto;
+	margin-top: 60px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+#foodList{
+	height: 730px;
+	width: 250px;
+	text-align: left;
+	margin-left: 30px;
+	overflow-y: scroll;
+}
+
+#foodd{
+	display: flex;
+}
+
+#week{
+	height: 730px;
+	width: 350px;
+	text-align: center;
+	align-content: center;
+}
+
+.weekDay{
+	height: 100px;
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: lightyellow;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바 색상 */
+    border-radius: 5px; /* 스크롤바 슬라이더의 둥근 모서리 */
+}
+
+#todayTextBar{
+	font: bold;
+	font-size: 36px;
+}
+
+#aboutMeText{
+	font: bold;
+	font-size: 36px;
+}
+
+#myFoodText{
+	width: 600px;
+	height: 50px;
+	font: bold;
+	font-size: 36px;
+}
+
+#rightPage{
+	width: 751.5px;
+}
+
+#rightTop{
+	height: 710px;
+	align-content: cetner;
+	text-align: cetner;
+}
+
+#chart{
+	width: 600px;
+	height: 430px;
+	margin: auto;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+	position: relative;
+	top: 60px;
+}
+
+#woo{
+	margin-top: 70px;	
+}
+
+#rightBottom{
+	height: 710px;
+}
+
+#calender{
+	margin: auto;
+}
+
+

@@ -40,7 +40,6 @@ img {
 #top {
 	height: 110px;
 	width: 1372px;
-	padding: 0px 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

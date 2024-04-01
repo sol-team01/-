@@ -25,7 +25,7 @@
 <body>
 <div id="warp">
 <div id="Category">
-	<img src="${cp}/resources/img/logo.png" alt="로고" class="image">
+	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"></a>
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
@@ -98,7 +98,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<input placeholder="Event, Place or type" type="search" >
 	</div>
 	<div>
-	<c:choose>
+	<c:choose>	
     <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
@@ -111,7 +111,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div id="user">	
     <a href="${cp}/page/logout" class="out">SIGNOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/mainWeb">
+	<a href="${cp}/page/myPage">
 	<div class="box">
 	${login}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
