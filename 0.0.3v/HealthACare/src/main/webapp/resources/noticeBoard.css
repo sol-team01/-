@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUIT-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.innerWrapK {
+	width: 100%;
+}
+
+.noticeWrap {
+	background: #FBF9F9;
+	padding: 46px 0 46px 32px;
+}
+
+.boardTotalWrap {
+	margin-bottom: 16px;
+	display: flex;
+	align-items: center;
+	height: 32px;
+	margin-top: 33px;
+}
+
+.boardTotalWrap .boardTotal {
+	font-size: 20px;
+	margin-right: 13px;
+}
+
+.boardTotalWrap .boardTotalCount {
+	font-size: 20px;
+	color: #18A4FF;
+	font-weight: 600;
+}
+
+.noticeBox {
+	display: flex;
+	margin-bottom: 38px;
+	margin-top: 38px;
+}
+
+.noticeBox:first-child {
+	margin-top: 0px;
+}
+
+.noticeBox:last-child {
+	margin-bottom: 0px;
+}
+
+.noticeHead {
+	border: 1px solid #4A4A4B;
+	border-radius: 5px;
+	color: #4A4A4B;
+	padding: 3px 10px;
+	margin-right: 54px;
+	font-size: 15px;
+}
+
+.noticeBody {
+	color: #000;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.flexK {
+	display: flex;
+}
+
+.titleLineK {
+	border: 1px solid #B4B4B4;
+}
+
+.titleBottomLineK {
+	border: 1px solid #B4B4B4;
+	margin-top: 46px;
+}
+
+.listNumber {
+	font-size: 20px;
+	color: #4A4A4B;
+	margin-right: 83px;
+	font-weight: 600;
+}
+
+.listContent {
+	font-size: 20px;
+	color: #000;
+	font-weight: 600;
+}
+
+.boardList {
+	padding: 28px 0 28px 55px;
+}
+
+.arrowBox {
+	border: 1px solid #ddd;
+	width: 45px;
+	height: 45px;
+	margin-right: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.arrowBigImage {
+	width: 16px;
+	height: 17px;
+}
+
+.arrowSmallImage {
+	width: 10px;
+	height: 17px;
+}
+
+.pageBox {
+	background: #03BDFF;
+	color: #fff;
+	width: 45px;
+	height: 45px;
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 18px;
+}
+
+.pagingBlock {
+	display: flex;
+	margin: 50px auto 0 auto;
+	width: 294px;
+}
