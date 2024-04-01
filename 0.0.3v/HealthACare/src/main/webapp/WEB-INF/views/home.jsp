@@ -48,6 +48,7 @@
   	<div>연령대별 질병</div>
   	</div>
 	</div>
+  	<div class="SelecNone">고객지원</div> 
 <script>
 $(document).ready(function(){ //운동 카테고리 버튼
   // 셀렉트 박스를 클릭했을 때 이벤트 처리
@@ -92,8 +93,10 @@ $(document).ready(function(){ //질병 카테고리 버튼
 
 <div id="main">
 <div id="top">
-<!-- ★TODO★ :: 로그인 if 문 추가하여 구분 하여야 함(최) -->
+	<div id="Search">
+	<img alt="" src="${cp}/resources/img/Magnifier.png">
 	<input placeholder="Event, Place or type">
+	</div>
 	<div>
 	<c:choose>
     <c:when test="${empty login}">
@@ -106,15 +109,46 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <%--         <p>${login}</p> --%>
 <!--         마이페이지(로그인 시 노출)</a> -->
 	<div id="user">	
-    <a href="${cp}/page/logout">로그아웃</a>
-	<a href="${cp}/page/mainWeb">${login}</a>
+    <a href="${cp}/page/logout" class="out">SIGNOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/mainWeb"><img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg"></a>
+	<a href="${cp}/page/mainWeb">
+	<div class="box">
+	${login}
+	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
+	</div>
+	</a>
 	</div>
     </c:otherwise>
 </c:choose>
 	</div>
 </div><!-- 	<div id="top"> -->
+<!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<div id="title">Trending categries</div>
+	<div id="buttonZONE">
+		<a>운동</a>
+		<a>게시판</a>
+		<a>고객지원</a>
+	</div>
+	<div class="Banner">
+	<a class="title">웨이트 트레이닝 순서, 근력운동 순서는?</a>
+	<a class="text">by hanClass</a>
+	</div>
+	<div id="optionTitle">
+	<div class="choiceTitle">리스트로 보기</div>
+	<div class="choiceTitleGray">영상으로 보기</div>
+	</div>
+	<div id="listBox">
+	<div class="list">
+	<a class="subtext"> 18, Thursday</a>
+	<div class="subTextBox">Few tickets </div>
+	</div>
+	<div class="list"></div>
+	<div class="list"></div>
+	<div class="list"></div>
+	<div class="list"></div>
+	<div class="list"></div>
+	<div class="list"></div>
+	</div>
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
 </body>

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+<<<<<<< HEAD
 @font-face {
     font-family: 'SUIT-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
@@ -9,19 +10,33 @@
 
 body{
 	background-color: #d0f5ff;	
+=======
+body {
+	background-color: #d0f5ff;
+>>>>>>> aac349e477962b42ed2fc60025287a31517902b7
 	margin: 0px;
 }
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+img {
+	pointer-events: none; /* 이미지 드래그 막기 */
+}
 /*기본 영역 세팅 (시작)*/
-#warp{
+#warp {
 	width: 1920px;
 	background-color: white;
 	margin: auto;
-	height:1770px;
-	display: flex; 
+	height: 1770px;
+	display: flex;
 }
-#Category{
+
+#Category {
 	width: 357px;
-	height:1750px;
+	height: 1750px;
 	background-color: #9FE2FA99;
 	display: flex;
 	justify-content: flex-start;
@@ -29,22 +44,23 @@ body{
 	padding: 10px 30px;
 	flex-direction: column;
 }
-#main{
+
+#main {
 	width: 1453px;
 	padding: 0px 50px;
 }
-#top{
+
+#top {
 	height: 110px;
-	width: 1433px;
-	padding: 0px 10px ; 
-	display:flex;
-	justify-content:space-between;
-	align-items:center;
-/* 	border-bottom: 1px solid #18A4FF ; */
+	width: 1372px;
+	padding: 0px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 /*기본 영역 세팅 (끝)*/
 /*CATEGORY 하위*/
-#Category img{
+#Category img {
 	width: 200px;
 	height: 90px;
 	margin-bottom: 100px;
@@ -52,124 +68,172 @@ body{
 /*CATEGORY 하위(끝)*/
 /*CATEGORY-셀렉트 박스~*/
 #customSelect {
-  position: relative;
-  width: 250px;
+	position: relative;
+	width: 250px;
+}
+
+.SelecNone {
+	padding: 10px;
+	cursor: pointer;
+	font-size: 35px;
 }
 
 .SelectHealth {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 35px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 35px;
 }
 
 .select-itemsHealth {
-  width: 100%;
-  display:none;
-  margin-left: 35px;
-  font-size: 26px;
+	width: 100%;
+	display: none;
+	margin-left: 35px;
+	font-size: 26px;
 }
 
 .select-itemsHealth div {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #9FE2FA99 ;
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid #9FE2FA99;
 }
+
 .select-itemsHealth div:hover {
-	border-bottom: 1px solid #18A4FF ;
+	border-bottom: 1px solid #18A4FF;
 }
 
 .select-show {
-  display: block;
+	display: block;
 }
 /*CATEGORY-셀렉트 박스~(끝)*/
 /*CATEGORY-셀렉트 박스 푸드~*/
 .SelectFood {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 35px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 35px;
 }
+
 .select-itemsFood {
-  width: 100%;
-  display:none;
-  margin-left: 35px;
-  font-size: 26px;
+	width: 100%;
+	display: none;
+	margin-left: 35px;
+	font-size: 26px;
 }
 
 .select-itemsFood div {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #9FE2FA99 ;
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid #9FE2FA99;
 }
+
 .select-itemsFood div:hover {
-	border-bottom: 1px solid #18A4FF ;
+	border-bottom: 1px solid #18A4FF;
 }
+
 .select-show {
-  display: block;
+	display: block;
 }
 /*CATEGORY-셀렉트 박스~(끝)*/
 /*CATEGORY-셀렉트 박스 질병~*/
 .SelectDisease {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 35px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 35px;
 }
+
 .select-itemsDisease {
-  width: 100%;
-  display:none;
-  margin-left: 35px;
-  font-size: 26px;
+	width: 100%;
+	display: none;
+	margin-left: 35px;
+	font-size: 26px;
 }
 
 .select-itemsDisease div {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #9FE2FA99 ;
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid #9FE2FA99;
 }
+
 .select-itemsDisease div:hover {
-	border-bottom: 1px solid #18A4FF ;
+	border-bottom: 1px solid #18A4FF;
 }
+
 .select-show {
-  display: block;
+	display: block;
 }
 /*CATEGORY-셀렉트 박스~(끝)*/
 /*TOP 하위*/
 /*SIGN UP ... 회원 로그인 화면*/
-#top div{
+#top div {
 	display: flex;
 }
-#top input {
+
+#top #Search {
 	height: 75px;
 	width: 501px;
+	background-color: #F3F3F3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#top #Search img {
+	height: 40px;
+	pointer-events: none; /* 이미지 드래그 막기 */
+}
+
+#top input {
+	height: 75px;
+	width: 401px;
 	background-color: #F3F3F3;
 	border: 0px;
 	font-size: 26px;
 	padding: 0px 30px;
 }
+
+#top input:focus {
+	outline: none; /* 클릭 시 테두리 없애기 */
+}
+
 #top input::placeholder {
 	color: #B4B4B4;
 }
-#top #user{
-display: flex;
-flex-direction: row;
-justify-content:space-between;
-align-items: center;
-width: 333.28px;
-height: 72px;
 
-font-size: 30px;
-font-weight: 700;
+#top #user {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 400px;
+	height: 72px;
+	font-size: 30px;
+	font-weight: 700;
+	font-size: 30px
 }
-#top #user .Profile{
+
+#top #user .box {
+	width: 150px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#top #user .Profile {
 	width: 72px;
 	height: 72px;
 	border-radius: 100%;
-    object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
+	object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
 }
-#top #user  .icon{
+
+#top #user  .icon {
 	height: 60px;
 }
+
+#top #user .out {
+	font-size: 23px;
+	color: #B4B4B4;
+}
 /*SIGN UP ... 비회원화면*/
-#top #signupBox{
+#top #signupBox {
 	width: 128px;
 	height: 65px;
 	border-radius: 14px;
@@ -183,9 +247,128 @@ font-weight: 700;
 }
 /*TOP 하위(끝)*/
 /*MAIN 하위*/
-#main #title{
-	background-color: red;
+#main #title {
 	font-size: 46px;
-	font-weight: 700;	
+	font-weight: 700;
+	margin-top: 50px;
+}
+
+#main #buttonZONE {
+	height: 55px;
+	margin: 20px 0px;
+	margin-right: 30px;
+}
+
+#main #buttonZONE a {
+	height: 100%;
+	border-radius: 26px;
+	padding: 3px 15px;
+	font-size: 26px;
+	cursor: pointer;
+	border: 1px solid #000000;
+	color: #000000;
+}
+
+#main #buttonZONE a:hover {
+	border: 1px solid #18A4FF;
+	color: #18A4FF;
+}
+
+#main .Banner {
+	background: rgba(66, 63, 63, 0.7);
+	background-image: url('/resources/img/banner.jpg');
+	width: 1372px;
+	height: 187px;
+	border-radius: 28px;
+	padding: 25px 36px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+#main .Banner .title {
+	color: white;
+	font-size: 46px;
+	font-weight: 700;
+}
+
+#main .Banner .text {
+	color: white;
+	font-size: 46px;
+	font-style: normal; font-weight : 400;
+	font-size: 28px;
+	line-height: 35px;
+	color: #FFFFFF;
+	position: absolute;
+	bottom: 36px;
+	font-weight: 400;
+}
+
+#main #optionTitle {
+	display: flex;
+}
+
+#main #optionTitle .choiceTitle {
+	font-weight: 700;
+	font-size: 46px;
+	line-height: 57px;
+	letter-spacing: -0.01em;
+	color: #000000;
+	margin: 50px 0px;
+	margin-right: 20px;
+}
+
+#main #optionTitle .choiceTitleGray {
+	font-weight: 700;
+	font-size: 46px;
+	line-height: 57px;
+	letter-spacing: -0.01em;
+	color: #000000;
+	margin: 50px 0px;
+	margin-right: 20px;
+	color: gray;
+}
+/**/
+#main #listBox{
+	width: 990px;
+	height:736px;
+	display: flex;
+	justify-content:space-between;
+	flex-wrap: wrap; /* 내부 요소들이 넘칠 때 자동으로 아래로 내려가도록 설정 */
+}
+#main #listBox .list{
+width: 419px;
+height: 193px;
+background: #F3F3F3;
+border-radius: 10px;
+margin-bottom: 25px;
+padding: 18px 28px;
+display: flex;
+justify-content: space-between;
+position: relative;
+}
+#main #listBox .list .subText{
+font-weight: 700;
+font-size: 20px;
+color: #B1B1B1;
+}
+#main #listBox .list .subTextBox{
+font-weight: 700;
+font-size: 20px;
+color: #B1B1B1;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 11px;
+gap: 10px;
+width: 120px;
+height: 35px;
+border: 1px solid #B1B1B1;
+border-radius: 25px;
+}
+#main #listBox .list:hover{
+background: #03BDFF;
+color: #ffffff;
 }
 /*MAIN 하위(끝)*/
