@@ -201,7 +201,14 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	</div>
 	</div>
 		<div id="rankingBox">
-		<div class="realTime">ddddddd</div>
+		<div class="realTime">	
+		<div class="realTitle">실시간 인기 주제</div>
+			<div class="realTextBox">
+			<c:forEach var="i" begin="1" end="10">
+  			  <div class="realText"><div><a class="num">${i}</a> 가나다</div>🧡</div>
+  			  </c:forEach>
+			</div>
+		</div>
 		</div>
 	</div>
 </div><!-- <div id="main"> -->
