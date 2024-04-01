@@ -95,7 +95,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <div id="top">
 	<div id="Search">
 	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type" type="search">
+	<input placeholder="Event, Place or type" type="search" >
 	</div>
 	<div>
 	<c:choose>
