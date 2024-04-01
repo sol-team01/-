@@ -1,3 +1,13 @@
+<!-- --------------------------------------------------------------- -->
+<!-- 
+0.0.0v - 팀프로젝트 시작
+0.0.1v - 기본 jsp, 로그인 백엔드 작업 시작, api 연결
+0.0.2v - 상세 jsp css, 로그인 1차 구현
+0.0.3v - 게시판, 메인, 로그인 회원가입 CSS 구현 / DB연결 버그 해결
+		  	 로그인 및 회원가입 백엔드 기본 구현
+		  	 이미지 업로드 및 다운로드 구현 / MY페이지 백엔드 작업 중
+ -->
+<!-- --------------------------------------------------------------- -->
 <%@ page session="true"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -17,60 +27,94 @@
 <div id="Category">
 	<img src="${cp}/resources/img/logo.png" alt="로고" class="image">
 	<div id="customSelect">
-  <div class="select-selected">옵션1</div>
-  <div class="select-items">
-    <div>옵션 1</div>
-    <div>옵션 2</div>
-    <div>옵션 3</div>
+  <div class="SelectHealth">운동</div>
+  <div class="select-itemsHealth">
+    <div><a href="${cp}/page/login">운동 하는 방법</a></div>
+    <div>오늘 운동 완료</div>
+    <div>이벤트</div>
   </div>
-</div>
-</div><!-- <div id="Category"> -->
-	<div id="main">
-	<div id="top">
-	<P>서버 열린시간: ${serverTime}.</P>
-	</div><!-- 	<div id="top"> -->
-	<h1></h1>
-	<pre>
-<a href="${cp}/page/login">로그인</a>
-<a href="${cp}/page/mainWeb">마이페이지(로그인 시 노출)</a>
-</pre>
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content1">
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <a href="#">Link 3</a>
   </div>
-</div>
+  	<div id="customSelect">
+    <div class="SelectFood">식단</div>
+  	<div class="select-itemsFood">
+    <div>칼로리 계산</div>
+    <div>식품 영양 정보</div>
+    <div>질병 당 추천 음식</div>
+  	</div>
+	</div>
+  	<div id="customSelect">
+    <div class="SelectDisease">질병</div>
+  	<div class="select-itemsDisease">
+  	<div>연령대별 질병</div>
+  	</div>
+	</div>
 <script>
-$(document).ready(function(){
+$(document).ready(function(){ //운동 카테고리 버튼
   // 셀렉트 박스를 클릭했을 때 이벤트 처리
-  $("#customSelect .select-selected").click(function(event) {
-//     event.stopPropagation(); // 이벤트 전파 방지
-    
+  $("#customSelect .SelectHealth").click(function(event) {
     // 다른 열려 있는 셀렉트 박스들을 닫음
-    $(".select-items").toggleClass("select-show");
+    $(".select-itemsHealth").toggleClass("select-show");
   });
-  
-  $("#customSelect .select-selected").hover(function(event) {
-//    event.stopPropagation(); // 이벤트 전파 방지
-   
-   // 다른 열려 있는 셀렉트 박스들을 닫음
-   $(".select-items").toggleClass("select-show");
- });
-  
-//옵션을 선택했을 때 이벤트 처리
-  $("#customSelect .select-items").on("click", "div", function() {
-    var selectedOption = $(this).text(); // 선택한 옵션의 텍스트
-
-    // 선택한 옵션을 선택된 옵션으로 표시
-    $(this).parent().siblings(".select-selected").text(selectedOption);
-
-    // 셀렉트 박스 닫기
-    $(this).parent().removeClass("select-show");
+  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
+  $(document).on("click", function(event) {
+    if (!$(event.target).closest("#customSelect").length) {
+//       $(".select-itemsHealth").removeClass("select-show");
+    }
   });
 });
+
+$(document).ready(function(){ //식단 카테고리 버튼
+	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+	  $("#customSelect .SelectFood").click(function(event) {
+	    // 다른 열려 있는 셀렉트 박스들을 닫음
+	    $(".select-itemsFood").toggleClass("select-show");
+	  });
+	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
+	  $(document).on("click", function(event) {
+	    if (!$(event.target).closest("#customSelect").length) {
+	    }
+	  });
+	});
+$(document).ready(function(){ //질병 카테고리 버튼
+	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+	  $("#customSelect .SelectDisease").click(function(event) {
+	    // 다른 열려 있는 셀렉트 박스들을 닫음
+	    $(".select-itemsDisease").toggleClass("select-show");
+	  });
+	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
+	  $(document).on("click", function(event) {
+	    if (!$(event.target).closest("#customSelect").length) {
+	    }
+	  });
+	});
 </script>
+</div><!-- <div id="Category"> -->
+
+<div id="main">
+<div id="top">
+<!-- ★TODO★ :: 로그인 if 문 추가하여 구분 하여야 함(최) -->
+	<input placeholder="Event, Place or type">
+	<div>
+	<c:choose>
+    <c:when test="${empty login}">
+<!--         <p>비회원</p> -->
+			<a href="${cp}/page/login">
+        	<div id="signupBox"> SIGN UP	</div>
+			</a>
+    </c:when>
+    <c:otherwise>
+<%--         <p>${login}</p> --%>
+<!--         마이페이지(로그인 시 노출)</a> -->
+	<div id="user">	
+    <a href="${cp}/page/logout">로그아웃</a>
+	<a href="${cp}/page/mainWeb">${login}</a>
+	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
+	<a href="${cp}/page/mainWeb"><img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg"></a>
+	</div>
+    </c:otherwise>
+</c:choose>
+	</div>
+</div><!-- 	<div id="top"> -->
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
 </body>

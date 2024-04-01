@@ -17,7 +17,7 @@ body{
 	background-color: white;
 	margin: auto;
 	height:1770px;
-	display: flex;
+	display: flex; 
 }
 #Category{
 	width: 357px;
@@ -30,12 +30,17 @@ body{
 	flex-direction: column;
 }
 #main{
-	width: 1503px;
-	text-align: center;
+	width: 1453px;
+	padding: 0px 50px;
 }
 #top{
 	height: 110px;
-	border-bottom: 1px solid #18A4FF ;
+	width: 1433px;
+	padding: 0px 10px ; 
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+/* 	border-bottom: 1px solid #18A4FF ; */
 }
 /*기본 영역 세팅 (끝)*/
 /*CATEGORY 하위*/
@@ -45,78 +50,142 @@ body{
 	margin-bottom: 100px;
 }
 /*CATEGORY 하위(끝)*/
-/*뭔지 모르겠어요~*/
+/*CATEGORY-셀렉트 박스~*/
 #customSelect {
   position: relative;
-  width: 200px;
-  margin: 20px;
+  width: 250px;
 }
 
-.select-selected {
-  background-color: #f1f1f1;
+.SelectHealth {
   padding: 10px;
-  border: 1px solid #ccc;
   cursor: pointer;
+  font-size: 35px;
 }
 
-.select-items {
-  position: absolute;
-  background-color: #fff;
+.select-itemsHealth {
   width: 100%;
-  border: 1px solid #ccc;
-  border-top: none;
   display:none;
+  margin-left: 35px;
+  font-size: 26px;
 }
 
-.select-items div {
+.select-itemsHealth div {
   padding: 10px;
   cursor: pointer;
+  border-bottom: 1px solid #9FE2FA99 ;
 }
-
-.select-items div:hover {
-  background-color: #ddd;
+.select-itemsHealth div:hover {
+	border-bottom: 1px solid #18A4FF ;
 }
 
 .select-show {
   display: block;
 }
-
-
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+/*CATEGORY-셀렉트 박스~(끝)*/
+/*CATEGORY-셀렉트 박스 푸드~*/
+.SelectFood {
+  padding: 10px;
   cursor: pointer;
+  font-size: 35px;
+}
+.select-itemsFood {
+  width: 100%;
+  display:none;
+  margin-left: 35px;
+  font-size: 26px;
+}
 
+.select-itemsFood div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #9FE2FA99 ;
 }
-.dropdown {
-  display: inline-block;
-  position:relative;
+.select-itemsFood div:hover {
+	border-bottom: 1px solid #18A4FF ;
 }
-
-.dropdown-content1 {
-/*   display: none; */
-display:none;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown-content1 a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
+.select-show {
   display: block;
 }
-.dropdown-content1 a:hover {background-color: #f1f1f1}
-.dropdown:hover .dropdown-content1 {
+/*CATEGORY-셀렉트 박스~(끝)*/
+/*CATEGORY-셀렉트 박스 질병~*/
+.SelectDisease {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 35px;
+}
+.select-itemsDisease {
+  width: 100%;
+  display:none;
+  margin-left: 35px;
+  font-size: 26px;
+}
+
+.select-itemsDisease div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #9FE2FA99 ;
+}
+.select-itemsDisease div:hover {
+	border-bottom: 1px solid #18A4FF ;
+}
+.select-show {
   display: block;
 }
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+/*CATEGORY-셀렉트 박스~(끝)*/
+/*TOP 하위*/
+/*SIGN UP ... 회원 로그인 화면*/
+#top div{
+	display: flex;
 }
-/*뭔지 모르겠어요~*/
+#top input {
+	height: 75px;
+	width: 501px;
+	background-color: #F3F3F3;
+	border: 0px;
+	font-size: 26px;
+	padding: 0px 30px;
+}
+#top input::placeholder {
+	color: #B4B4B4;
+}
+#top #user{
+display: flex;
+flex-direction: row;
+justify-content:space-between;
+align-items: center;
+width: 333.28px;
+height: 72px;
 
-
+font-size: 30px;
+font-weight: 700;
+}
+#top #user .Profile{
+	width: 72px;
+	height: 72px;
+	border-radius: 100%;
+    object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
+}
+#top #user  .icon{
+	height: 60px;
+}
+/*SIGN UP ... 비회원화면*/
+#top #signupBox{
+	width: 128px;
+	height: 65px;
+	border-radius: 14px;
+	border: 1px solid #03BDFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	font-weight: 700;
+	color: #03BDFF;
+}
+/*TOP 하위(끝)*/
+/*MAIN 하위*/
+#main #title{
+	background-color: red;
+	font-size: 46px;
+	font-weight: 700;	
+}
+/*MAIN 하위(끝)*/
