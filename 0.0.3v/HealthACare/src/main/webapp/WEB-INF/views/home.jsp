@@ -13,6 +13,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
+<%-- <%@ page errorPage="/error/error404.jsp" %> --%>
 <html>
 <head>
 <title>Home</title>

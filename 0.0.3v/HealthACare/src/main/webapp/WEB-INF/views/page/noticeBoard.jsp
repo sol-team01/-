@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
+<%@ page errorPage="/spring/resources/error404.html" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -198,7 +199,16 @@
 			<!-- 			내가 한 거 끝남 -->
 		</div>
 		<!-- 	<div id="top"> -->
-
 	</div>
+	<% String c=null;
+	c.equals("cat");
+	%>
+	<% try { %>
+		<%= request.getParameter("name").toUpperCase() %>
+	<%
+		} catch(Exception e) {
+	%>
+			name 파라미터가 올바르지 않습니다.
+	<% 	} %>
 </body>
 </html>
