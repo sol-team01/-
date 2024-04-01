@@ -38,7 +38,7 @@
     <div class="SelectFood">식단</div>
   	<div class="select-itemsFood">
     <div>칼로리 계산</div>
-    <div>식품 영양 정보</div>
+    <div><a href="${cp}/food/list">식품 영양 정보</a></div>
     <div>질병 당 추천 음식</div>
   	</div>
 	</div>
@@ -137,17 +137,79 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div class="choiceTitle">리스트로 보기</div>
 	<div class="choiceTitleGray">영상으로 보기</div>
 	</div>
+	<div id="midAlign">
 	<div id="listBox">
 	<div class="list">
-	<a class="subtext"> 18, Thursday</a>
-	<div class="subTextBox">Few tickets </div>
+		<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
 	</div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
-	<div class="list"></div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	<div class="list">
+			<div class="top">
+			<a class="subtext"> 18, Thursday</a>
+			<div class="subTextBox">Few tickets </div>
+		</div>
+		<div class="bottom">
+			<a class="title">Memory day of Boris Ryzhiy  </a>
+			Octover 18, Thursday
+		</div>  
+	</div>
+	</div>
+		<div id="rankingBox">
+		<div class="realTime">	
+		<div class="realTitle">실시간 인기 주제</div>
+			<div class="realTextBox">
+			<c:forEach var="i" begin="1" end="10">
+  			  <div class="realText"><div><a class="num">${i}</a> 가나다</div>🧡</div>
+  			  </c:forEach>
+			</div>
+		</div>
+		</div>
 	</div>
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
