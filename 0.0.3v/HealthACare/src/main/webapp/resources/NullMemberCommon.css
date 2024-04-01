@@ -18,13 +18,11 @@ img {
 	width: 1920px;
 	background-color: white;
 	margin: auto;
-	height: 1770px;
 	display: flex;
 }
 
 #Category {
 	width: 357px;
-	height: 1750px;
 	background-color: #9FE2FA99;
 	display: flex;
 	justify-content: flex-start;
@@ -34,14 +32,14 @@ img {
 }
 
 #main {
-	width: 1453px;
+	width: 1372px;
 	padding: 0px 50px;
+	padding-bottom: 50px;
 }
 
 #top {
 	height: 110px;
 	width: 1372px;
-	padding: 0px 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -238,7 +236,7 @@ img {
 #main #title {
 	font-size: 46px;
 	font-weight: 700;
-	margin-top: 50px;
+	margin-top: 5px;
 }
 
 #main #buttonZONE {
@@ -265,7 +263,7 @@ img {
 #main .Banner {
 	background: rgba(66, 63, 63, 0.7);
 	background-image: url('/resources/img/banner.jpg');
-	width: 1372px;
+	width: 1300px;
 	height: 187px;
 	border-radius: 28px;
 	padding: 25px 36px;
@@ -367,10 +365,11 @@ img {
 #main #listBox .list .bottom {
 	position: absolute;
 	bottom: 18px;
-		font-weight: 700;
+	font-weight: 700;
 	font-size: 20px;
 	color: #B1B1B1;
 }
+
 #main #listBox .list .bottom .title {
 	position: absolute;
 	bottom: 38px;
@@ -380,68 +379,94 @@ img {
 	width: 419px;
 	height: 50px;
 	white-space: nowrap; /* 텍스트를 한 줄로 고정합니다. */
-    overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
-    text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
+	overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
+	text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
 }
 
 #main #listBox .list:hover {
 	background: #03BDFF;
 	color: #ffffff;
 }
-#main #listBox .list:hover .bottom .title,
-#main #listBox .list:hover .bottom,
-#main #listBox .list:hover .subText,
-#main #listBox .list:hover .subTextBox {
-    color: #ffffff;
+
+#main #listBox .list:hover .bottom .title, #main #listBox .list:hover .bottom,
+	#main #listBox .list:hover .subText, #main #listBox .list:hover .subTextBox
+	{
+	color: #ffffff;
 }
+
 #main #listBox .list:hover .subTextBox {
 	color: #ffffff;
 	border: 1px solid #ffffff;
 }
 /**/
-#main #midAlign{
+#main #midAlign {
 	display: flex;
 	justify-content: space-between;
 }
-#main #rankingBox{
-width: 334px;
-height: 730px;
-background: #FFFFFF;
-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
+
+#main #rankingBox {
+	width: 334px;
+	height: 730px;
+	background: #FFFFFF;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 16px;
 }
 
-#main #rankingBox .realTime{
-width: 199px;
-height: 349px;
-background-color: red;
+#main #rankingBox .realTime {
+	width: 199px;
+	height: 349px;
+	padding: 40px 0px 0px 31px;
 }
 
-#main #rankingBox .realTime .realTitle{
-font-weight: 700;
-font-size: 18px;
-color: black;
-margin-bottom: 20px;
-}
-#main #rankingBox .realTime .realTextBox{
-margin-bottom: 13px;
-display: flex;
-justify-content: space-between;
-flex-direction: column;
-}
-#main #rankingBox .realTime .realText{
-font-weight: 700;
-font-size: 18px;
-color: black;
-margin-bottom: 13px;
-font-weight: 500;
-font-size: 12px;
-color: #000000;
-display: flex;
-justify-content: space-between;
-}
-#main #rankingBox .realTime .realText .num{
-	
+#main #rankingBox .realTime .realTitle {
+	font-weight: 700;
+	font-size: 18px;
+	color: black;
+	margin-bottom: 20px;
 }
 
+#main #rankingBox .realTime .realTextBox {
+	margin-bottom: 13px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+#main #rankingBox .realTime .realText {
+	font-weight: 700;
+	font-size: 18px;
+	color: black;
+	margin-bottom: 13px;
+	font-weight: 500;
+	font-size: 12px;
+	color: #000000;
+	display: flex;
+	justify-content: space-between;
+}
+
+#main #rankingBox .realTime .realText .num {
+	margin-right: 18px;
+	width: 30px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 15px;
+	color: #B5B1B1;
+}
+
+#main #rankingBox .realTime .realText .numBox {
+	display: flex;
+	width: 150px;
+	text-align: left;
+	justify-content: flex-start;
+}
+#main #store{
+width: 1372px;
+height: 300px;
+background-image: url('/resources/img/bottomBanner.png');
+background-color:aqua;
+border-radius: 28px;
+margin-top: 58px;
+/* background-image: url('/resources/img/banner.jpg'); */
+
+}
 /*MAIN 하위(끝)*/

@@ -26,6 +26,13 @@ public class SignController {
 	
 	
 	//로그인 페이지로 이동
+	@GetMapping("/myPage")
+	public String myPage() {
+		System.out.println("myPage 컨트롤러 진입");
+		return "/page/myPage";
+	}
+	
+	//로그인 페이지로 이동
 	@GetMapping("/login")
 	public String login() {
 		System.out.println("로그인 컨트롤러 진입");

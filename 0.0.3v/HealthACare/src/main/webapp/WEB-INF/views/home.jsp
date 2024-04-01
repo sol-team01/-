@@ -26,7 +26,7 @@
 <body>
 <div id="warp">
 <div id="Category">
-	<img src="${cp}/resources/img/logo.png" alt="로고" class="image">
+	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"></a>
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
@@ -96,10 +96,10 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <div id="top">
 	<div id="Search">
 	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type">
+	<input placeholder="Event, Place or type" type="search" >
 	</div>
 	<div>
-	<c:choose>
+	<c:choose>	
     <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
@@ -112,7 +112,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div id="user">	
     <a href="${cp}/page/logout" class="out">SIGNOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/mainWeb">
+	<a href="${cp}/page/myPage">
 	<div class="box">
 	${login}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
@@ -127,7 +127,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">
 		<a>운동</a>
-		<a>게시판</a>
+		<a href="${cp}/board/BoardList">게시판</a>
 		<a>고객지원</a>
 	</div>
 	<div class="Banner">
@@ -206,12 +206,24 @@ $(document).ready(function(){ //질병 카테고리 버튼
 		<div class="realTitle">실시간 인기 주제</div>
 			<div class="realTextBox">
 			<c:forEach var="i" begin="1" end="10">
-  			  <div class="realText"><div><a class="num">${i}</a> 가나다</div>🧡</div>
+  			  <div class="realText">
+  			  <div class="numBox"><div class="num">${i}</div> 가나다</div>🧡
+  			  </div>
   			  </c:forEach>
 			</div>
 		</div>
-		</div>
-	</div>
+		<div class="realTime">	
+		<div class="realTitle">실시간 인기글</div>
+			<div class="realTextBox">
+			<c:forEach var="i" begin="1" end="3">
+  			  <div class="realText">
+  			  <div class="numBox"><div class="num">${i}</div> 가나다</div>🧡
+  			  </div>
+  			  </c:forEach>
+			</div></div>
+		</div><!-- 	<div id="rankingBox"> -->
+</div>
+<div id="store"></div>
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
 </body>
