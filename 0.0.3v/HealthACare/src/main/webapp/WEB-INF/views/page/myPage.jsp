@@ -8,7 +8,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${myLogin}님의페이지</title>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
 <link rel="stylesheet" href="/resources/myPage.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,6 +17,7 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>${myLogin}님의페이지</title>
 </head>
 <body>
 <div id="warp">

@@ -295,7 +295,7 @@ img {
 	display: flex;
 }
 
-#main #optionTitle .choiceTitle {
+#main #optionTitle .choiceTitleList {
 	font-weight: 700;
 	font-size: 46px;
 	line-height: 57px;
@@ -303,17 +303,18 @@ img {
 	color: #000000;
 	margin: 50px 0px;
 	margin-right: 20px;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능함을 나타냄 */
 }
 
-#main #optionTitle .choiceTitleGray {
+#main #optionTitle .choiceTitleYotube {
 	font-weight: 700;
 	font-size: 46px;
 	line-height: 57px;
 	letter-spacing: -0.01em;
-	color: #000000;
+	color: #D0D0D2;
 	margin: 50px 0px;
 	margin-right: 20px;
-	color: gray;
+	cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능함을 나타냄 */
 }
 /**/
 #main #listBox {

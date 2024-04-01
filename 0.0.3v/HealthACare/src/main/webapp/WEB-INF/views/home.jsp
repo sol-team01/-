@@ -134,8 +134,8 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<a class="text">by hanClass</a>
 	</div>
 	<div id="optionTitle">
-	<div class="choiceTitle">리스트로 보기</div>
-	<div class="choiceTitleGray">영상으로 보기</div>
+	<div class="choiceTitleList">리스트로 보기</div>
+	<div class="choiceTitleYotube">영상으로 보기</div>
 	</div>
 	<div id="midAlign">
 	<div id="listBox">
@@ -200,6 +200,38 @@ $(document).ready(function(){ //질병 카테고리 버튼
 		</div>  
 	</div>
 	</div>
+	
+		<script type="text/javascript">
+		$(document).ready(function() {
+		    $(".choiceTitleYotube").click(function() {
+		        // '영상으로 보기' 버튼이 클릭되었을 때 실행되는 코드
+
+		        // list 영역의 내용을 변경합니다.
+		        $(".list").each(function() {
+		            $(this).html('새로운내용');
+		        });
+		        $(".choiceTitleList").each(function() {
+		        	$(this).css('color', '#D0D0D2');
+		        });
+		        $(this).css('color', 'black');
+		    });
+
+		    // '리스트로 보기' 버튼 클릭 시 리스트 영역의 내용을 다시 원래대로 보여주는 코드
+		    $(".choiceTitleList").click(function() {
+		        // '리스트로 보기' 버튼이 클릭되었을 때 실행되는 코드
+
+		        // list 영역의 내용을 기존의 내용으로 변경합니다.
+		        $(".list").each(function() {
+		            $(this).html('<div class="top"><a class="subtext"> 18, Thursday</a><div class="subTextBox">Few tickets </div></div><div class="bottom"><a class="title">Memory day of Boris Ryzhiy  </a>Octover 18, Thursday</div>');
+		        });
+		        $(".choiceTitleYotube").each(function() {
+		        	$(this).css('color', '#D0D0D2');
+		        });
+		        $(this).css('color', 'black');
+		    });
+		});
+		</script>
+	
 		<div id="rankingBox">
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기 주제</div>
