@@ -186,12 +186,12 @@
 					</div>
 					<div class="pageBox">1</div>
 					<div class="arrowBox">
-						<img src="${cp}/resources/img/rightdoublearrow.png" alt="오른쪽 화살표"
-							class="arrowBigImage">
+						<img src="${cp}/resources/img/rightarrow.png" alt="오른쪽 화살표"
+							class="arrowSmallImage">
 					</div>
 					<div class="arrowBox">
-						<img src="${cp}/resources/img/rightarrow.png" alt="오른쪽 연속 화살표"
-							class="arrowSmallImage">
+						<img src="${cp}/resources/img/rightdoublearrow.png" alt="오른쪽 연속 화살표"
+							class="arrowBigImage">
 					</div>
 				</div>
 			</div>
