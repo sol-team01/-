@@ -42,30 +42,30 @@
 						</div>
 						<label for="birth" class="text3">생일</label>
 						<div class="info" id="info__birth">
-							<select class="box_a" id="birth-year">
+							<select class="box_a" id="I_birthDate_y" name="I_birthDate_y">
 								<option disabled selected>출생 연도</option>
 							</select> 
-							<select class="box_a" id="birth-month">
+							<select class="box_a" id="I_birthDate_m" name="I_birthDate_m">
 								<option disabled selected>월</option>
 							</select> 
-							<select class="box_a" id="birth-day">
+							<select class="box_a" id="I_birthDate_d" name="I_birthDate_d">
 								<option disabled selected>일</option>
 							</select>
 						</div>
 						<label for="gender" class="text3">성별</label> 
-						<select class="box" name="gender">
+						<select class="box" name="I_gender">
 							<option value="남자">남자</option>
 							<option value="여자">여자</option>
 						</select> 
 						<label for="height" class="text3">키</label> 
-						<input type="text" name="height"> 
+						<input type="text" name="P_heightLog"> 
 						<label for="weight" class="text3">몸무게</label>
-						<input type="text" name="weight"> 
+						<input type="text" name="P_weightLog"> 
 						<label for="nickname" class="text3">닉네임</label> 
-						<input type="text" name="nickname">
+						<input type="text" name="I_name">
 						<label for="email" class="text3">이메일</label>
 						<div>
-							<input class="ebox" id="email" type="text" /> 
+							<input class="ebox" id="I_email" name="I_email" type="text" /> 
 							<a class="text4"> @ </a> 
 							<input class="ebox" id="domain-txt" type="text" /> 
 							<select class="ebox" id="domain-list">
@@ -77,10 +77,12 @@
 							</select>
 						</div>
 						<label for="securityQuestion" class="text3">비밀번호찾기 질문</label> 
-						<select class="passwordQuestion" id="question">
+						<select class="passwordQuestion" id="I_pwFinding">
 							<option value="q1">질문을 넣어주세요</option>
 							<option value="q2">질문을 넣어주세요2</option>
 						</select> 
+						<label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
+						<input id="I_hint" name="I_hint" type="text">
 						<input id="signUPBt" type="submit" value="회원가입">
 					</div>
 			</form>
@@ -171,6 +173,81 @@
 	        }
 	    }
 	});
+	
+	// '출생 연도' 셀렉트 박스 option 목록 동적 생성 
+	const birthYearEl = document.querySelector('#I_birthDate_y'); 
+	// option 목록 생성 여부 확인
+	isYearOptionExisted = false;
+	birthYearEl.addEventListener('focus', function () {
+	// year 목록 생성되지 않았을 때 (최초 클릭 시)
+	if(!isYearOptionExisted) {
+	isYearOptionExisted = true;
+	for(var i = 1940; i <= 2023; i++) {
+	// option element 생성
+	const YearOption = document.createElement('option');
+	YearOption.setAttribute('value', i);
+	YearOption.innerText = i;
+	// birthYearEl의 자식 요소로 추가 
+	this.appendChild(YearOption); 
+	} 
+	} 
+	 });
+	 
+	//'출생 월' 셀렉트 박스 option 목록 동적 생성 
+	const birthMonthEl = document.querySelector('#I_birthDate_m'); 
+	// option 목록 생성 여부 확인
+	isMonthOptionExisted = false;
+	birthMonthEl.addEventListener('focus', function () {
+	// Month 목록 생성되지 않았을 때 (최초 클릭 시)
+	if(!isMonthOptionExisted) {
+	isMonthOptionExisted = true;
+	for(var i = 1; i <= 12; i++) {
+	// option element 생성
+	const MonthOption = document.createElement('option');
+	MonthOption.setAttribute('value', i);
+	MonthOption.innerText = i;
+	// birthMonthEl의 자식 요소로 추가 
+	this.appendChild(MonthOption); 
+	} 
+	} 
+	 });
+	 
+	//'출생 월' 셀렉트 박스 option 목록 동적 생성 
+	const birthDayEl = document.querySelector('#I_birthDate_d'); 
+	// option 목록 생성 여부 확인
+	isDayOptionExisted = false;
+	birthDayEl.addEventListener('focus', function () {
+	// Day 목록 생성되지 않았을 때 (최초 클릭 시)
+	if(!isDayOptionExisted) {
+	isDayOptionExisted = true;
+	for(var i = 1; i <= 31; i++) {
+	// option element 생성
+	const DayOption = document.createElement('option');
+	DayOption.setAttribute('value', i);
+	DayOption.innerText = i;
+	// birthDayEl의 자식 요소로 추가 
+	this.appendChild(DayOption); 
+	} 
+	} 
+	 });
+
+	 // 도메인 직접 입력 or domain option 선택 
+	const domainListEl = document.querySelector('#domain-list');
+	const domainInputEl = document.querySelector('#domain-txt');
+	// select 옵션 변경 시
+	 domainListEl.addEventListener('change', (event) => {
+	// option에 있는 도메인 선택 시
+	if(event.target.value !== "type") {
+	 // 선택한 도메인을 input에 입력하고 disabled 
+	domainInputEl.value = event.target.value;
+	domainInputEl.disabled = true;
+	} else { // 직접 입력 시
+	 // input 내용 초기화 & 입력 가능하도록 변경 
+	 domainInputEl.value = ""; 
+	 domainInputEl.disabled = false;
+	 } 
+	}) 
+
 	</script>
 
 </body>

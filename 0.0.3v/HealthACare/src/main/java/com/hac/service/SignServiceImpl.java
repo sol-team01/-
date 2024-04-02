@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.mapper.SignMapper;
 
 import lombok.Setter;
@@ -17,10 +19,13 @@ public class SignServiceImpl implements SignService {
 	private SignMapper signMapper;
 
 	private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	
+	
 
 	// 암호화 해주는 함수
 	@Override
-	public String signUp(SignDto dto) {
+	public String signUp(SignDto dto,InfoDto infoDto, PhysicalDto phyDto) {
+
 		if (dto.getU_id() == null || dto.getU_id().trim().isEmpty()) {
 			System.out.println("빈 ID 회원가입");
 			return "redirect:/page/signUp"; // 회원가입 폼으로 이동
@@ -48,8 +53,37 @@ public class SignServiceImpl implements SignService {
 		} else {
 			dto.setU_pw(encoder.encode(dto.getU_pw()));
 			signMapper.signUp(dto); // 회원가입 진행
+			
+			infoDto.setU_no(signMapper.noSearch(dto.getU_id()).getU_no());
+			phyDto.setU_no(signMapper.noSearch(dto.getU_id()).getU_no());
+			signMapper.signUpInfo(infoDto);
+			signMapper.signUpPhy(phyDto);
+			
+//			dto.setU_no(signMapper.signIn(dto.getU_id(),dto.getU_pw()).getU_no());
+//			// 아이디 비번 인설트하고
+//			
+//			signMapper.signUpPhy(dto);
+//			INSERT 하는 MAPPER에 DTO 값넣고
+			// 아이디 비번 참조해서 유저넘버 가져오고
+//			DTO.SETU_no(SELECT MAPPER DTO)
+			// 유저 넘버로 유저 인포 인설트하고
+//			USER INFO(DTO)
+			// 유저 넘버로 유저 피지컬로그 인설트하고
+//			USER 피지컬(DTO)
 			return "redirect:/page/login";
 		}
+	}
+	
+	@Override
+	public String signUpInfo(InfoDto dto) {
+		signMapper.signUpInfo(dto);
+		return "redirect:/page/login";
+	}
+
+	@Override
+	public String signUpPhy(PhysicalDto dto) {
+		signMapper.signUpPhy(dto);
+		return "redirect:/page/login";
 	}
 
 	// 암호화 확인해주는 함수
