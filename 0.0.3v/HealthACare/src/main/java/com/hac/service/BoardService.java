@@ -11,4 +11,6 @@ public interface BoardService {
 	public ArrayList<BoardSDto> searchList(int currentPage, String word);
 	public int totalContent();
 	public PagingProcessor pageBlock(int currentPage,String word);
+
 }
+

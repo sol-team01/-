@@ -1,0 +1,12 @@
+diff a/0.0.3v/HealthACare/src/main/java/com/hac/controller/BoardController.java b/0.0.3v/HealthACare/src/main/java/com/hac/controller/BoardController.java	(rejected hunks)
+@@ -30,8 +30,6 @@
+ 		m.addAttribute("searchPaging", service.pageBlock(currentPage, word));
+ 	}
+ 	
+-<<<<<<< HEAD
+-}
+-=======
++
+ }
+->>>>>>> 454f7e3c60c455cd6645eeb145f0612c92c528f8
++
