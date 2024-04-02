@@ -54,6 +54,7 @@ public class SignController {
 	
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto, @ModelAttribute PhysicalDto phyDto) {
+		
 		signservice.signUp(signDto,infoDto, phyDto);
 		signDto.getU_no();
 		return "redirect:/page/login";
@@ -131,4 +132,10 @@ public class SignController {
 	      
 	      return new ResponseEntity<>(result, HttpStatus.OK);
 	   }
+	
+	@PostMapping("/searchId")
+	public void searchId() {
+		
+	}
+	
 }

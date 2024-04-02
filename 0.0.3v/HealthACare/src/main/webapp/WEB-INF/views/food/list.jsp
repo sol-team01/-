@@ -13,7 +13,6 @@
 <form action="${cp}/food/information">
 <input type="text" name=desc_kor autocomplete="off" placeholder="검색어를 입력하세요">
 </form>
-
 <div><a href="${cp}/food/detailList?category=nuts">견과류</a></div>
 <div><a href="${cp}/food/detailList?category=meat">고기(육류)</a></div>
 <div><a href="${cp}/food/detailList?category=fruit">과일</a></div>

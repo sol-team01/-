@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
+<%@ page errorPage="/spring/resources/error404.html" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
-<link rel="stylesheet" href="${cp}/resources/writeBoard.css">
+<link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 </head>
 <body>
 	<div id="warp">
@@ -111,34 +112,89 @@
 			</div>
 			<!-- 			내가 한 거 -->
 			<div>
-				<h1>게시글 작성</h1>
-				
-				<form action="${cp}/board/modify" method="post">
-					<input type="hidden" id="id" name="b_ID" value="${bId}">
-					<input type="hidden" id="no" name="b_NO" value="${read.b_NO}">
-					<label for="title">제목: </label>
-					<input type="text" width="400px" name="b_TITLE" value="${read.b_TITLE}" required>
-					<label for="category">분류: </label>
-					<select id="category" name="B_CATEGORY">
-						<option value="공지사항">공지사항</option>
-						<option value="일반">일반</option>
-						<option value="질문">질문</option>
-						<option value="답변">답변</option>
-					</select>
-					<br>
-					<br>
-					<label for="content">내용: </label>
-<<<<<<< HEAD
-					<textarea rows="5" cols="40" id="content" name="b_TEXT" required>${read.b_TEXT}</textarea>
-=======
-					<textarea rows="5" cols="40" id="content" name="b_TEXT"  required>${read.b_TEXT}</textarea>
->>>>>>> 295020fb9567452ce94731ceba0882f84ee8711c
-					<input type="submit" value="수정하기">
-				</form>
+				<div class="boardTotalWrap">
+					<h4 class="boardTotal">검색결과</h4>
+					<span class="boardTotalCount">${searchTotal}건</span>
+				</div>
+				<div class="titleLineK"></div>
+				<div class="noticeWrap">
+					<div class="noticeBox">
+						<div class="noticeHead">공지</div>
+						<div class="noticeBody">금융거래소 이용약관 개칭 안내</div>
+					</div>
+					<div class="noticeBox">
+						<div class="noticeHead">공지</div>
+						<div class="noticeBody"></div>
+					</div>
+					<div class="noticeBox">
+						<div class="noticeHead">공지</div>
+						<div class="noticeBody"></div>
+					</div>
+				</div>
+				<c:forEach var="list" items="${search}">
+					<div class="boardList">
+						<div class="flexK">
+							<div class="listNumber">${list.b_NO}</div>
+							<div class="listContent">
+								<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+									${list.b_TITLE}
+								</a>
+							</div>
+							<div class="listWriter">${list.b_ID}</div>
+							<div class="listCategory">${list.b_CATEGORY}</div>
+						</div>
+					</div>
+				</c:forEach>
+				<div class="titleBottomLineK"></div>
+				<!-- 				페이징 블럭 -->
+				<div class="pagingBlock">
+					<div class="arrowBox">
+<%-- 						<img id="leftDoubleArrow" src="${cp}/resources/img/leftdoublearrow.png" alt="왼쪽 연속 화살표" class="arrowBigImage"> --%>
+						${searchPaging.goToFirstPage()}
+					</div>
+					<div class="arrowBox">
+<%-- 						<img id="leftArrow" src="${cp}/resources/img/leftarrow.png" alt="왼쪽 화살표" class="arrowSmallImage"> --%>
+						${searchPaging.getPrevPageButton()}
+					</div>
+					<div class="pageBox">
+						 ${searchPaging.getHtmlPageList()}
+					</div>
+					<div class="arrowBox">
+						${searchPaging.getNextPageButton()}
+<%-- 						<img id="rightArrow" src="${cp}/resources/img/rightarrow.png" alt="오른쪽 화살표" class="arrowSmallImage"> --%>
+					</div>
+					<div class="arrowBox">
+						${searchPaging.goToLastPage()}
+<%-- 						<img id="rightDoubleArrow" src="${cp}/resources/img/rightdoublearrow.png" alt="오른쪽 연속 화살표" class="arrowBigImage"> --%>
+					</div>
+				</div>
 			</div>
 			<!-- 			내가 한 거 끝남 -->
+			<c:choose>
+				<c:when test="${empty login}">
+				</c:when>
+				<c:otherwise>
+					<button type="button" id="writeBtn">글쓰기</button>
+				</c:otherwise>
+			</c:choose>
+			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
+			    <input type="hidden" name="currentPage" value="1">
+			    <input type="text" name="word">
+			    <select id="searchInfo" name="searchInfo">
+			        <option value="title">제목</option>
+			        <option value="content">내용</option>
+			        <option value="titleOrContent">제목+내용</option>
+			        <option value="writer">글쓴이</option>
+			    </select>
+			    <input type="submit" value="검색">
+			</form>
 		</div>
 		<!-- 	<div id="top"> -->
 	</div>
+	<script>
+		writeBtn.addEventListener('click', function() {
+			window.location.href = '${cp}/board/writeBoard';
+		});
+	</script>
 </body>
 </html>
