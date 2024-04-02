@@ -2,7 +2,7 @@
 img {
 	pointer-events: none; /* 이미지 드래그 막기 */
 }
-#Category img {
+#Category #img96 {
 	width: 200px;
 	height: 90px;
 	margin-bottom: 96px;
@@ -130,14 +130,14 @@ img {
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
+/* ::-webkit-scrollbar { */
+/*     width: 5px; */
+/* } */
 
-::-webkit-scrollbar-thumb {
-    background-color: #888; /* 스크롤바 색상 */
-    border-radius: 5px; /* 스크롤바 슬라이더의 둥근 모서리 */
-}
+/* ::-webkit-scrollbar-thumb { */
+/*     background-color: #888; 스크롤바 색상 */
+/*     border-radius: 5px; 스크롤바 슬라이더의 둥근 모서리 */
+/* } */
 
 #todayTextBar{
 	font: bold;
