@@ -29,7 +29,4 @@ public class BoardController {
 		m.addAttribute("search", service.searchList(currentPage, word));
 		m.addAttribute("searchPaging", service.pageBlock(currentPage, word));
 	}
-	
-
 }
-
