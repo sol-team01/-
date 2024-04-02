@@ -131,4 +131,10 @@ public class SignController {
 	      
 	      return new ResponseEntity<>(result, HttpStatus.OK);
 	   }
+	
+	@PostMapping("/searchId")
+	public void searchId() {
+		
+	}
+	
 }

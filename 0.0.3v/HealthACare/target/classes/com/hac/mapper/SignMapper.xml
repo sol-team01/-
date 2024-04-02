@@ -51,10 +51,11 @@
 <!-- 		SELECT * FROM info WHERE U_no = #{U_no} -->
 <!-- 	</select> -->
 
-				<!-- 아이디 찾기 -->
-<!-- 	<select id="searchId" resultType="String"  parameterType="com.hac.dto.searchDto.SignDto"> -->
-<!-- 		SELECT user.U_id FROM info JOIN user ON info.U_no = user.U_no WHERE info.I_email = #{I_email} -->
-<!-- 	</select> -->
+	<!-- 아이디 찾기 -->
+	<select id="searchId" resultType="String"  parameterType="com.hac.dto.searchDto.SignDto">
+ 		SELECT user.U_id FROM info JOIN user ON info.U_no = user.U_no WHERE info.I_email = #{I_email}
+ 		<!-- info JOIN user 유저테이블을 인포테이블 붙이는데 기준이 info.U_no = user.U_no의 기준으로 -->
+ 	</select>
 
 
 				<!-- 비밀번호 찾기 -->

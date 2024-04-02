@@ -75,15 +75,13 @@ public class SignServiceImpl implements SignService {
 	}
 	
 	@Override
-	public String signUpInfo(InfoDto dto) {
+	public void signUpInfo(InfoDto dto) {
 		signMapper.signUpInfo(dto);
-		return "redirect:/page/login";
 	}
 
 	@Override
-	public String signUpPhy(PhysicalDto dto) {
+	public void signUpPhy(PhysicalDto dto) {
 		signMapper.signUpPhy(dto);
-		return "redirect:/page/login";
 	}
 
 	// 암호화 확인해주는 함수
