@@ -1,7 +1,5 @@
 package com.hac.mapper;
 
-import java.util.ArrayList;
-
 import com.hac.dto.searchDto.MyPageDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.dto.userDto.PhysicalLogDto;
@@ -13,10 +11,10 @@ public interface MyPageMapper {
 	public InfoDto myProfile(MyPageDto dto);
 	
 	// 유저 피지컬 정보(가장최신) 불러오기
-	public ArrayList<PhysicalLogDto>  myPhtsical(MyPageDto dto);
+	public PhysicalLogDto  myPhtsical(MyPageDto dto);
 	
 	//특정 항목의 업데이트 타임이 얼마나 되었는지 확인
-	public int updateTime(MyPageDto dto);
+//	public int updateTime(MyPageDto dto);
 	
 	//닉네임 업데이트
 	public void nameChange(MyPageDto dto);
