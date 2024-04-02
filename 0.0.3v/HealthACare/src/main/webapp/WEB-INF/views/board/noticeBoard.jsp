@@ -169,30 +169,21 @@
 				</div>
 			</div>
 			<!-- 			내가 한 거 끝남 -->
-			<button type="button" id="writeBtn">글쓰기</button>
+			<c:choose>
+				<c:when test="${empty login}">
+				</c:when>
+				<c:otherwise>
+					<button type="button" id="writeBtn">글쓰기</button>
+				</c:otherwise>
+			</c:choose>
 			
 		</div>
 		<!-- 	<div id="top"> -->
 	</div>
-<<<<<<< HEAD:0.0.3v/HealthACare/src/main/webapp/WEB-INF/views/board/noticeBoard.jsp
-	
 	<script>
 		writeBtn.addEventListener('click', function() {
 			window.location.href = '${cp}/board/writeBoard';
 		});
 	</script>
-	
-=======
-	<% String c=null;
-	c.equals("cat");
-	%>
-	<% try { %>
-		<%= request.getParameter("name").toUpperCase() %>
-	<%
-		} catch(Exception e) {
-	%>
-			name 파라미터가 올바르지 않습니다.
-	<% 	} %>
->>>>>>> 3721dc38d9a3621bccef62a819ef7b863136daa8:0.0.3v/HealthACare/src/main/webapp/WEB-INF/views/page/noticeBoard.jsp
 </body>
 </html>

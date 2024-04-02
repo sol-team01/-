@@ -113,7 +113,6 @@
 			<div>
 				<h1>게시글 작성</h1>
 				
-				${bId} (- 뜨는중임?
 				<form action="${cp}/board/write" method="post">
 					<input type="hidden" id="id" name="b_ID" value="${bId}">
 					<label for="title">제목: </label>
