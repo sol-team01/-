@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
-<%@ page errorPage="/spring/resources/error404.html" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
-<link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
+<link rel="stylesheet" href="${cp}/resources/writeBoard.css">
 </head>
 <body>
 	<div id="warp">
@@ -113,102 +111,30 @@
 			</div>
 			<!-- 			내가 한 거 -->
 			<div>
-				<div class="boardTotalWrap">
-					<h4 class="boardTotal">전체</h4>
-					<span class="boardTotalCount">7건</span>
-				</div>
-				<div class="titleLineK"></div>
-				<div class="noticeWrap">
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody">금융거래소 이용약관 개칭 안내</div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">7</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">6</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">5</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">4</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">3</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">2</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="boardList">
-					<div class="flexK">
-						<div class="listNumber">1</div>
-						<div class="listContent"></div>
-					</div>
-				</div>
-				<div class="titleBottomLineK"></div>
-				<!-- 				페이징 블럭 -->
-				<div class="pagingBlock">
-					<div class="arrowBox">
-						<img src="${cp}/resources/img/leftdoublearrow.png" alt="왼쪽 연속 화살표"
-							class="arrowBigImage">
-					</div>
-					<div class="arrowBox">
-						<img src="${cp}/resources/img/leftarrow.png" alt="왼쪽 화살표"
-							class="arrowSmallImage">
-					</div>
-					<div class="pageBox">1</div>
-					<div class="arrowBox">
-						<img src="${cp}/resources/img/rightarrow.png" alt="오른쪽 화살표"
-							class="arrowSmallImage">
-					</div>
-					<div class="arrowBox">
-						<img src="${cp}/resources/img/rightdoublearrow.png" alt="오른쪽 연속 화살표"
-							class="arrowBigImage">
-					</div>
-				</div>
+				<h1>게시글 작성</h1>
+				
+				<form action="${cp}/board/modify" method="post">
+					<input type="hidden" id="id" name="b_ID" value="${bId}">
+					<input type="hidden" id="no" name="b_NO" value="${read.b_NO}">
+					<label for="title">제목: </label>
+					<input type="text" width="400px" name="b_TITLE" required>
+					<label for="category">분류: </label>
+					<select id="category" name="B_CATEGORY">
+						<option value="공지사항">공지사항</option>
+						<option value="일반">일반</option>
+						<option value="질문">질문</option>
+						<option value="답변">답변</option>
+					</select>
+					<br>
+					<br>
+					<label for="content">내용: </label>
+					<textarea rows="5" cols="40" id="content" name="b_TEXT" required></textarea>
+					<input type="submit" value="수정하기">
+				</form>
 			</div>
 			<!-- 			내가 한 거 끝남 -->
 		</div>
 		<!-- 	<div id="top"> -->
 	</div>
-	<% String c=null;
-	c.equals("cat");
-	%>
-	<% try { %>
-		<%= request.getParameter("name").toUpperCase() %>
-	<%
-		} catch(Exception e) {
-	%>
-			name 파라미터가 올바르지 않습니다.
-	<% 	} %>
 </body>
 </html>
