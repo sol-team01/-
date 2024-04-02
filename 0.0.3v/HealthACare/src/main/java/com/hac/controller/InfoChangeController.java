@@ -71,7 +71,7 @@ public class InfoChangeController {
 			}
 		}
 		System.out.println("이미지 업로드 완료");
-		return "/myInfo/myInfoChange";
+		return "myInfo/myInfoChange";
 	}
 
 }
