@@ -21,9 +21,9 @@
 </head>
 <body>
 <div id="warp">
-<jsp:include page="/WEB-INF/views/board/homeDesign/category.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
 <div id="main">
-<jsp:include page="/WEB-INF/views/board/homeDesign/homeTop.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->

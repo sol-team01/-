@@ -13,11 +13,11 @@ public interface MyPageMapper {
 	// 유저 피지컬 정보(가장최신) 불러오기
 	public PhysicalLogDto  myPhtsical(MyPageDto dto);
 	
-	//특정 항목의 업데이트 타임이 얼마나 되었는지 확인
-//	public int updateTime(MyPageDto dto);
+	public void nameChange(MyPageDto dto); 
 	
-	//닉네임 업데이트
-	public void nameChange(MyPageDto dto);
+	public void emailChange(MyPageDto dto);
+	
+	public void pwFindingChange(MyPageDto dto);
 	
 	//프로필 사진 변경
 	public void profileImgChange(MyPageDto dto);
