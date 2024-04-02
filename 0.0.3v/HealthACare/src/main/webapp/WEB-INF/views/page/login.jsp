@@ -31,5 +31,6 @@
    <a class="text2" href="비밀먼호 찾기">비밀번호찾기</a>
 </div><!-- textContain -->
 </div><!-- loginBox -->
+<a href="${cp}/myInfo/myInfoChange">운동 하는 방법</a>
 </body>
 </html>
