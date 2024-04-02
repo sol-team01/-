@@ -13,6 +13,9 @@ a {
 img {
 	pointer-events: none; /* 이미지 드래그 막기 */
 }
+iframe {
+    border-radius: 10px;
+}
 /*기본 영역 세팅 (시작)*/
 #warp {
 	width: 1920px;

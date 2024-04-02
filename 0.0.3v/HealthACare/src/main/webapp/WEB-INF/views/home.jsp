@@ -140,7 +140,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	</div>
 	<div id="midAlign">
 	<div id="listBox">
-	<div class="list">
+	<div class="list" id="list00">
 		<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -150,7 +150,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list01">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -160,7 +160,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list02">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -170,7 +170,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list03">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -180,7 +180,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list04">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -190,7 +190,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list05">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -208,8 +208,23 @@ $(document).ready(function(){ //질병 카테고리 버튼
 		        // '영상으로 보기' 버튼이 클릭되었을 때 실행되는 코드
 
 		        // list 영역의 내용을 변경합니다.
-		        $(".list").each(function() {
-		            $(this).html('새로운내용');
+		        $("#list00").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic0 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list01").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic1 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list02").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic2 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list03").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic3 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list04").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic4 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list05").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic5 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
 		        $(".choiceTitleList").each(function() {
 		        	$(this).css('color', '#D0D0D2');

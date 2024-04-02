@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import com.hac.dto.youtubeApi.YoutubeApiDto;
+
 import lombok.extern.log4j.Log4j;
 
 /**
@@ -56,7 +58,17 @@ public class HomeController {
 		e.printStackTrace();								
 	}			
 	String s = restTemplate.getForObject(uri, String.class); 	
-	log.info(s);	
+	YoutubeApiDto youtube = restTemplate.getForObject(uri, YoutubeApiDto.class); // 자기 클래스로 바꾸시오..
+	model.addAttribute("YoutubeDtoBasic0", youtube.items.get(0).id.videoId);
+	model.addAttribute("YoutubeDtoBasic1", youtube.items.get(1).id.videoId);
+	model.addAttribute("YoutubeDtoBasic2", youtube.items.get(2).id.videoId);
+	model.addAttribute("YoutubeDtoBasic3", youtube.items.get(3).id.videoId);
+	model.addAttribute("YoutubeDtoBasic4", youtube.items.get(4).id.videoId);
+	model.addAttribute("YoutubeDtoBasic5", youtube.items.get(5).id.videoId);
+	log.info(youtube.items.get(5).id.videoId);
+	log.info(youtube.items.get(4).id.videoId);
+	log.info(youtube.items.get(3).id.videoId);
+	//	log.info(s);	
 		return "home";
 	}
 	
