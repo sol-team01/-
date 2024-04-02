@@ -117,7 +117,7 @@
 					<input type="hidden" id="id" name="b_ID" value="${bId}">
 					<input type="hidden" id="no" name="b_NO" value="${read.b_NO}">
 					<label for="title">제목: </label>
-					<input type="text" width="400px" name="b_TITLE" required>
+					<input type="text" width="400px" name="b_TITLE" value="${read.b_TITLE}" required>
 					<label for="category">분류: </label>
 					<select id="category" name="B_CATEGORY">
 						<option value="공지사항">공지사항</option>
@@ -128,7 +128,7 @@
 					<br>
 					<br>
 					<label for="content">내용: </label>
-					<textarea rows="5" cols="40" id="content" name="b_TEXT" required></textarea>
+					<textarea rows="5" cols="40" id="content" name="b_TEXT"  required>${read.b_TEXT}</textarea>
 					<input type="submit" value="수정하기">
 				</form>
 			</div>
