@@ -12,8 +12,7 @@
 	<select id="noSearch" resultType="com.hac.dto.userDto.InfoDto">
 	   select * from user where U_id = #{U_id}
 	</select>
-	
-				<!--  아이디 중복검사 0 true --> 
+ 	
  	<select id="countId" resultType="int" parameterType="com.hac.dto.searchDto.SignDto">
  		SELECT IFNULL(COUNT(*),0) FROM user WHERE U_id = #{U_id}
  	</select>
@@ -39,6 +38,11 @@
 	<!-- 중복 아이디 검사 -->
 	<select id="selectId" resultType="boolean">
 		select count(*) from user where U_id = #{U_id}
+	</select>
+	
+	<!-- 중복 닉네임 검사 -->
+	<select id="selectName" resultType="boolean">
+		select count(*) from info where I_name = #{I_name}
 	</select>
 	
 	
@@ -74,7 +78,7 @@
 
 				<!--  유저 번호로 정보를 불러옴 -->
 <!-- 	<select id = "searchInfo" resultType="com.hac.dto.userDto.InfoDto" > -->
-<!-- 		SELECT info.* FROM info WHERE U_no = #{U_no} -->
+<!-- 		SELECT * FROM info WHERE U_no = #{U_no} -->
 <!-- 	</select> -->
 
 				<!-- 아이디 찾기 -->

@@ -112,4 +112,11 @@ public class SignServiceImpl implements SignService {
 		System.out.println("아이디중복체크"+" "+U_id);
 		return signMapper.selectId(U_id);
 	}
+	
+	//닉네임 중복체크
+	@Override
+	public boolean selectName(String I_name) {
+		System.out.println("아이디중복체크"+" "+I_name);
+		return signMapper.selectName(I_name);
+	}
 }

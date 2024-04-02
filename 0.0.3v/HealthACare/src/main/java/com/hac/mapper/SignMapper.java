@@ -16,6 +16,8 @@ public interface SignMapper {
 	public SignDto signIn(@Param("U_id") String U_id, @Param("U_pw") String U_pw);
 	//중복 아이디 검사(아이디 갯수)
 	public boolean selectId(@Param("U_id") String U_id);
+	//중복 닉네임 검사
+	public boolean selectName(@Param("I_name") String I_name);
 	//회원가입 개인 정보 매퍼
 	public ArrayList<InfoDto> infoList();
 	//회원가입 개인 정보 매퍼
