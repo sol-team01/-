@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUIT-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.errorWrap{
+	height:989px;
+}
+
+.error404{
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title404{
+	font-size:100px;
+	color:#EBEBF0;
+	margin:0;
+}
+
+.blueTitle0{
+	color:#18A4FF;
+	font-size:100px;
+}
+
+.notFound{
+	font-size:24px;
+	margin:-45px 0 20px 0;
+}
+
+.notFoundContent{
+	font-size:18px;
+	margin:0 0 8px 0;
+}
+
+.notFoundContentLast {
+	font-size:18px;
+	margin:0 0 25px 0;
+}
+
+#signUPBt { /* 회원가입 버튼 */
+   font-size: 18px;
+   color: #6c7079;
+   font-weight: bold;
+   width: 425px;
+   height: 45px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   margin: 10px auto;
+   border: none;
+}
+
+#loginBt:hover, #signUPBt:hover { /* 로그인, 회원가입 버튼 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+   font-weight: bold;
+}

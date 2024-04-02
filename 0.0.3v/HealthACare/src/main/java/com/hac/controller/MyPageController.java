@@ -29,7 +29,6 @@ public class MyPageController {
 
 	String mag;
 	
-	
 	@GetMapping("/name")
 	public String nameChange(MyPageDto dto, Model model,HttpServletRequest request) {
 
