@@ -3,7 +3,6 @@ package com.hac.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +40,6 @@ public class BoardController {
 		m.addAttribute("search", service.searchList(currentPage, word));
 		m.addAttribute("searchPaging", service.pageBlock(currentPage, word));
 	}
-<<<<<<< HEAD
 	
 	@GetMapping("/writeBoard")
 	public void writeBoard(HttpServletRequest request, Model m) {
@@ -92,10 +90,4 @@ public class BoardController {
 		service.del(bno);
 		return "redirect:/board/noticeBoard";
 	}
-	
-	
-	
-
-=======
->>>>>>> 3721dc38d9a3621bccef62a819ef7b863136daa8
 }
