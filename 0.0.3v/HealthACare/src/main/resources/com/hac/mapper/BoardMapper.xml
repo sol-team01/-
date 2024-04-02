@@ -5,15 +5,48 @@
 <mapper namespace="com.hac.mapper.BoardMapper">
 
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
-		 select * from board order by B_NO desc limit #{limitIndex}, 7
+		select * from board order by B_NO desc limit #{limitIndex}, 7
 	</select>
-	
-	<select id="searchList" resultType="com.hac.dto.boardDto.BoardDto">
-		select * from board where B_TEXT like concat('%', #{word}, '%') limit #{limitIndex}, 5;
+		
+	<select id="searchList" resultType="com.hac.dto.boardDto.BoardDto" parameterType="com.hac.dto.boardDto.BoardSDto">
+	    SELECT *
+	    FROM board
+	    <where>
+	    	<choose>
+	    		<when test='column.equals("B_TITLE")'>
+	    			B_TITLE LIKE CONCAT('%', #{word}, '%')
+	    		</when>
+	    		<when test='column.equals("B_TEXT")'>
+		             B_TEXT LIKE CONCAT('%', #{word}, '%')
+	    		</when>
+	    		<when test='column.equals("B_TITLE_OR_B_TEXT")'>
+		             (B_TITLE LIKE CONCAT('%', #{word}, '%') OR B_TEXT LIKE CONCAT('%', #{word}, '%'))
+	    		</when>
+				<when test='column.equals("B_ID")'>
+		             B_ID LIKE CONCAT('%', #{word}, '%')
+				</when>
+	    	</choose>
+	    </where>
+	    order by B_NO desc
+	    LIMIT #{limitIndex}, 7;
 	</select>
-	
-	<select id="searchListCount" resultType="int">
-		select count(*) from board where B_TEXT like concat ('%',#{word},'%');
+
+	<select id="searchListCount" resultType="int" parameterType="com.hac.dto.boardDto.BoardSDto">
+	    select count(*) from board where 
+	        <choose>
+	    		<when test='column.equals("B_TITLE")'>
+	    			B_TITLE LIKE CONCAT('%', #{word}, '%')
+	    		</when>
+	    		<when test='column.equals("B_TEXT")'>
+		             B_TEXT LIKE CONCAT('%', #{word}, '%')
+	    		</when>
+	    		<when test='column.equals("B_TITLE_OR_B_TEXT")'>
+		             (B_TITLE LIKE CONCAT('%', #{word}, '%') OR B_TEXT LIKE CONCAT('%', #{word}, '%'))
+	    		</when>
+				<when test='column.equals("B_ID")'>
+		             B_ID LIKE CONCAT('%', #{word}, '%')
+				</when>
+	    	</choose>
 	</select>
 	
 	<select id="totalContent" resultType="int">

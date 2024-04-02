@@ -114,7 +114,13 @@
 			<div>
 				<div class="boardTotalWrap">
 					<h4 class="boardTotal">전체</h4>
-					<span class="boardTotalCount">7건</span>
+					<span class="boardTotalCount">${totalContent}건</span>
+				</div>
+				<div>
+					<select id="order">
+						<option value="upOrder">최신순</option>
+						<option value="downOrder">오래된순</option>
+					</select>
 				</div>
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
@@ -141,6 +147,7 @@
 								</a>
 							</div>
 							<div class="listWriter">${list.b_ID}</div>
+							<div class="listCategory">${list.b_CATEGORY}</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -176,7 +183,17 @@
 					<button type="button" id="writeBtn">글쓰기</button>
 				</c:otherwise>
 			</c:choose>
-			
+			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
+			    <input type="hidden" name="currentPage" value="1">
+			    <input type="text" name="word">
+			    <select id="searchInfo" name="searchInfo">
+			        <option value="title">제목</option>
+			        <option value="content">내용</option>
+			        <option value="titleOrContent">제목+내용</option>
+			        <option value="writer">글쓴이</option>
+			    </select>
+			    <input type="submit" value="검색">
+			</form>
 		</div>
 		<!-- 	<div id="top"> -->
 	</div>
