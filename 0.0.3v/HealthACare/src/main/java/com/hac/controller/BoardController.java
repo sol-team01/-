@@ -30,4 +30,8 @@ public class BoardController {
 		m.addAttribute("searchPaging", service.pageBlock(currentPage, word));
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 454f7e3c60c455cd6645eeb145f0612c92c528f8

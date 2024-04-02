@@ -13,6 +13,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
+<%-- <%@ page errorPage="/error/error404.jsp" %> --%>
 <html>
 <head>
 <title>Home</title>
@@ -25,7 +26,7 @@
 <body>
 <div id="warp">
 <div id="Category">
-	<img src="${cp}/resources/img/logo.png" alt="로고" class="image">
+	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"></a>
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
@@ -95,10 +96,10 @@ $(document).ready(function(){ //질병 카테고리 버튼
 <div id="top">
 	<div id="Search">
 	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type" type="search">
+	<input placeholder="Event, Place or type" type="search" >
 	</div>
 	<div>
-	<c:choose>
+	<c:choose>	
     <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
@@ -111,7 +112,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<div id="user">	
     <a href="${cp}/page/logout" class="out">SIGNOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/mainWeb">
+	<a href="${cp}/page/myPage">
 	<div class="box">
 	${login}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
@@ -134,12 +135,12 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	<a class="text">by hanClass</a>
 	</div>
 	<div id="optionTitle">
-	<div class="choiceTitle">리스트로 보기</div>
-	<div class="choiceTitleGray">영상으로 보기</div>
+	<div class="choiceTitleList">리스트로 보기</div>
+	<div class="choiceTitleYotube">영상으로 보기</div>
 	</div>
 	<div id="midAlign">
 	<div id="listBox">
-	<div class="list">
+	<div class="list" id="list00">
 		<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -149,7 +150,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list01">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -159,7 +160,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list02">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -169,7 +170,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list03">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -179,7 +180,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list04">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -189,7 +190,7 @@ $(document).ready(function(){ //질병 카테고리 버튼
 			Octover 18, Thursday
 		</div>  
 	</div>
-	<div class="list">
+	 <div class="list" id="list05">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
 			<div class="subTextBox">Few tickets </div>
@@ -200,6 +201,53 @@ $(document).ready(function(){ //질병 카테고리 버튼
 		</div>  
 	</div>
 	</div>
+	
+		<script type="text/javascript">
+		$(document).ready(function() {
+		    $(".choiceTitleYotube").click(function() {
+		        // '영상으로 보기' 버튼이 클릭되었을 때 실행되는 코드
+
+		        // list 영역의 내용을 변경합니다.
+		        $("#list00").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic0 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list01").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic1 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list02").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic2 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list03").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic3 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list04").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic4 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $("#list05").each(function() {
+		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic5 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
+		        });
+		        $(".choiceTitleList").each(function() {
+		        	$(this).css('color', '#D0D0D2');
+		        });
+		        $(this).css('color', 'black');
+		    });
+
+		    // '리스트로 보기' 버튼 클릭 시 리스트 영역의 내용을 다시 원래대로 보여주는 코드
+		    $(".choiceTitleList").click(function() {
+		        // '리스트로 보기' 버튼이 클릭되었을 때 실행되는 코드
+
+		        // list 영역의 내용을 기존의 내용으로 변경합니다.
+		        $(".list").each(function() {
+		            $(this).html('<div class="top"><a class="subtext"> 18, Thursday</a><div class="subTextBox">Few tickets </div></div><div class="bottom"><a class="title">Memory day of Boris Ryzhiy  </a>Octover 18, Thursday</div>');
+		        });
+		        $(".choiceTitleYotube").each(function() {
+		        	$(this).css('color', '#D0D0D2');
+		        });
+		        $(this).css('color', 'black');
+		    });
+		});
+		</script>
+	
 		<div id="rankingBox">
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기 주제</div>
