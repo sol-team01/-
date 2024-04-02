@@ -1,7 +1,6 @@
 CREATE DATABASE HAC DEFAULT CHARACTER SET UTF8MB4;
 USE HAC;
 DROP TABLE `user`;
-
  # 로그인 할때 필요한 정보
 CREATE TABLE `user`( 
 `U_no` INT PRIMARY KEY AUTO_INCREMENT, # 유저 고유번호
@@ -19,7 +18,9 @@ CREATE TABLE `info`(
 `I_nameUpdateTime` DATETIME NOT NULL DEFAULT now(), # 닉네임이 업데이트 된 시간
 `I_profileImg` BLOB, # 프로필 사진 업로드 정보
 `I_profileImgUpdateTime` DATETIME NOT NULL DEFAULT now(), # 닉네임이 업데이트 된 시간
-`I_birthDate` DATE NOT NULL,
+`I_birthDate_y` int NOT NULL,
+`I_birthDate_m` int NOT NULL,
+`I_birthDate_d` int NOT NULL,
 `I_gender` CHAR(5) NOT NULL,
 `I_email` CHAR(50) UNIQUE NOT NULL, # 유저 이메일, 이메일을 맞추면 아이디를 보여줌
 `I_pwFinding` INT NOT NULL DEFAULT 0, # 유저가 비밀번호 찾기할때 어떤질문을 선택했는지
@@ -54,5 +55,3 @@ SELECT YEAR(P_createdAt),MONTH(P_createdAt),AVG(P_weightLog) AS average_value_pe
 FROM physicalLog
 GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
 ORDER BY YEAR(P_createdAt), MONTH(P_createdAt);
-
-					
