@@ -13,16 +13,23 @@
 		SELECT * FROM info WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1
 	</select>
 
-	<!-- 닉네임 변경(시간제한 둬야함) -->
-		<!-- 코드를 재활용 하기위해 칼럼을 뚫어 놨고 사용할때 String 으로 칼럼을입력하면 됨 -->
-			<!-- 초단위로 빠져나옴, 닉네임, 프로필 사진은 하루에 한번, (몸무게, 키는 하루안에) -->
+	<!-- 닉네임 변경 -->
 	
 	<update id="nameChange" parameterType="com.hac.dto.searchDto.MyPageDto">
-		UPDATE info SET I_name = #{I_name},I_nameUpdateTime = now() WHERE U_no #{U_no}
+		UPDATE info SET I_name = #{I_name},I_nameUpdateTime = now() WHERE U_no = #{U_no}
 	</update>
 	
+	<!-- 이메일 변경 -->
+		<update id="emailChange" parameterType="com.hac.dto.searchDto.MyPageDto">
+			UPDATE info SET I_email = #{I_email} WHERE U_no = #{U_no}
+		</update>
 	
-	<!-- 프로필 사진 변경(시간제한 둬야함) -->
+	<!-- 비밀번호 찾기 질문 및 대답내용 변경 -->
+		<update id="pwFindingChange" parameterType="com.hac.dto.searchDto.MyPageDto">
+			UPDATE info SET I_pwFinding = #{I_pwFinding},I_hint = #{I_hint} WHERE U_no = #{U_no}
+		</update>
+	
+	<!-- 프로필 사진 변경 -->
 	<update id="profileImgChange" parameterType="com.hac.dto.searchDto.MyPageDto">
 		UPDATE info SET I_profileImg = #{I_profileImg}, I_profileImgUpdateTime = now() WHERE U_no = #{U_no}
 	</update>
@@ -56,7 +63,7 @@
 	FROM 
 			physicalLog
 	WHERE
-			U_no = #{U_no}
+			U_no = #{U_no} 
 			<if test="period == 'weekly'">
 				GROUP BY YEAR(P_createdAt), WEEK(P_createdAt)
 			</if>
@@ -81,15 +88,7 @@
 	<select id="physicalLogDay">
 		SELECT * FROM physicalLog;
 	</select>
-	<!-- 정보 삭제 -->
-	<delete id="physicalLogDell">
-		DELETE * FROM physicalLog WHERE 
-	</delete>
-	
-	<!-- 이메일 변경 -->
-	
-	
-	<!-- 비밀번호 찾기 질문 및 대답내용 변경 -->
+
 	
 	<!--  이미지 추출 -->
 	

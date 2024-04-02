@@ -29,6 +29,14 @@
 		<td> 트랜스지방산 </td>
 	</tr>
 	
+	<hr>
+        테스트입니다// ${food.body.items.get(0).DESC_KOR } </td>
+        테스트입니다// ${foodTEST.body.items.get(0).DESC_KOR } </td>
+        <hr>
+테스트입니다: ${food.body.items[0].DESC_KOR}
+<hr>
+	<hr>
+        
 	<c:forEach var="i" begin="0" end="9" varStatus="loop">
     <tr>
         <td> ${food.body.items.get(i).DESC_KOR } </td>

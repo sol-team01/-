@@ -66,8 +66,8 @@
 						<label id="checkName"></label>
 						<label for="email" class="text3">이메일</label>
 						<div>
-							<input class="ebox" id="I_email" name="I_email" type="text" /> 
-							<a class="text4"> @ </a> 
+							<input class="ebox" id="email" name="email" type="text" /> 
+							<a class="text4"><span id="middle">@</span></a> 
 							<input class="ebox" id="domain-txt" type="text" /> 
 							<select class="ebox" id="domain-list">
 								<option value="naver.com">naver.com</option>
@@ -76,6 +76,8 @@
 								<option value="nate.com">nate.com</option>
 								<option value="kakao.com">kakao.com</option>
 							</select>
+							<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
+							<input type="hidden" id="totalemail" name="I_email" value="">
 						</div>
 						<label for="securityQuestion" class="text3">비밀번호찾기 질문</label> 
 						<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
@@ -199,7 +201,7 @@
 	        if (idColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 165, 0)" || rePwColor === "rgb(255, 0, 0)") {
 	        	signUpBtn.prop("disabled", true);
 	        } else {
-	        	signUpBtn.prop("disabled", false);
+	            signUpBtn.prop("disabled", false);
 	        }
 	    }
 	});
@@ -276,7 +278,30 @@
 	 domainInputEl.value = ""; 
 	 domainInputEl.disabled = false;
 	 } 
-	}) 
+	});	
+	
+	 $(document).ready(function() {
+		    $("#email").blur(function(){
+		        updateEmail();    
+		    });
+
+		    $("#domain-txt").change(function(){
+		        updateEmail();    
+		    });
+
+		    $("#domain-list").change(function(){
+		        updateEmail();    
+		    });
+
+		    function updateEmail() {
+		        const email = $("#email").val();
+		        const middle = $("#middle").text();
+		        const address = $("#domain-txt").val();
+		        if(email != "" && address != "") {
+		            $("#totalemail").val(email + middle + address);
+		        }
+		    }
+		});
 
 	</script>
 

@@ -1,7 +1,6 @@
 package com.hac.controller;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -50,8 +49,8 @@ public class InfoChangeController {
 
 	}
 
-	@PostMapping("/profileImg")
-	public String profileImgUpdate(@RequestPart("imageFile") MultipartFile file, MyPageDto dto, Model model,
+	@PostMapping("/profile")
+	public String profileUpdate(@RequestPart("imageFile") MultipartFile file, MyPageDto dto, Model model,
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 
@@ -70,8 +69,25 @@ public class InfoChangeController {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("이미지 업로드 완료");
+		if(dto.getI_name() != null) {
+			service.nameChange(dto);
+		}
+		if(dto.getI_email() != null) {
+			service.emailChange(dto);
+		}
+		if(dto.getI_hint() != null) {
+			service.pwFindingChange(dto);	
+		}
 		return "myInfo/myInfoChange";
 	}
 
+	
+	
+	@PostMapping("/fixInfo")
+	public String myProfileInfoUpdate(MyPageDto dto,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		dto.setU_no((String) session.getAttribute("U_no"));
+
+		return "myInfo/myInfoChange";
+	}
 }

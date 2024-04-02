@@ -25,9 +25,9 @@
 </head>
 <body>
 <div id="warp">
-<jsp:include page="/WEB-INF/views/board/homeDesign/category.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
 <div id="main">
-<jsp:include page="/WEB-INF/views/board/homeDesign/homeTop.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
 <!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">

@@ -17,4 +17,5 @@ public interface BoardService {
 	public void modify(BoardDto dto);
 	public void del(long bno);
 	public int hit(long bno);
+
 }

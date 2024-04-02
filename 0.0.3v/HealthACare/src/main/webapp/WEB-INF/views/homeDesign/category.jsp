@@ -11,7 +11,11 @@
 </head>
 <body>
 <div id="Category">
-	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"></a>
+	<a href="/">
+	<div id="imgbox">
+	<img  src="${cp}/resources/img/logo.png" alt="로고">
+	</div>
+	</a>
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
