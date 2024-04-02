@@ -15,10 +15,9 @@
 </head>
 <body>
 	<div id="warp">
-<jsp:include page="/WEB-INF/views/board/homeDesign/category.jsp"></jsp:include>
-		<!--  -->
-		<div id="main">
-<jsp:include page="/WEB-INF/views/board/homeDesign/homeTop.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
+<div id="main">
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
 						<!-- 			내가 한 거 -->
 			<div>
 				<div class="boardTotalWrap">
