@@ -57,8 +57,6 @@ public class SignController {
 		
 		signservice.signUp(signDto,infoDto, phyDto);
 		signDto.getU_no();
-//		signservice.signIn().getU_no());
-//		signservice.signUpInfo();
 		return "redirect:/page/login";
 	}
 	

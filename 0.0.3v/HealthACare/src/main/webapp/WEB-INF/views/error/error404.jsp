@@ -18,11 +18,9 @@
 </head>
 <body>
 	<div id="warp">
-<jsp:include page="/WEB-INF/views/board/homeDesign/category.jsp"></jsp:include>
-		<!-- <div id="Category"> -->
-		<div id="main">
-<jsp:include page="/WEB-INF/views/board/homeDesign/homeTop.jsp"></jsp:include>
-			<!-- 	<div id="top"> -->
+<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
+<div id="main">
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
 			<div class="errorWrap">
 				<div class="error404">
 					<h3 class="title404">404</h3>
