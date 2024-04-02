@@ -1,8 +1,6 @@
 package com.hac.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 import org.springframework.stereotype.Controller;
@@ -62,7 +60,8 @@ public class FoodController {
 			    RestTemplate restTemplate = new RestTemplate();
 			    FoodDto food = restTemplate.getForObject(API_URL, FoodDto.class);
 			    log.info("food json: " + food);
-
+			    String a = food.body.items.get(0).DESC_KOR;
+			    log.info("food json: " + a);
 			    model.addAttribute("food", food);
 			    log.info("LIST: API 호출 완료");
 			 
@@ -80,6 +79,7 @@ public class FoodController {
 		    log.info("food json: " + food);
 
 		    model.addAttribute("food", food);
+		    model.addAttribute("foodTEST", food);
 		    log.info("DETAILLIST: API 호출 완료");
 			 
 			log.info("==== DEDAILLIST ==== : ============================ : ");	
@@ -105,6 +105,7 @@ public class FoodController {
 		// API URL 생성 메서드
 		private String createApiUrl(String descKor) {
 		    try {
+		    	log.info("API URL 생성 메서드 통과");
 		        String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
 		        return "http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="
 		                + API_KEY + "&desc_kor=" + encodedSearchId + "&pageNo=1&numOfRows=10&type=json";
