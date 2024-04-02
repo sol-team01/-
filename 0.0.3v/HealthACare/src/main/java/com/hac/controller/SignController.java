@@ -56,8 +56,6 @@ public class SignController {
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto, @ModelAttribute PhysicalDto phyDto) {
 		signservice.signUp(signDto,infoDto, phyDto);
 		signDto.getU_no();
-//		signservice.signIn().getU_no());
-//		signservice.signUpInfo();
 		return "redirect:/page/login";
 	}
 	
