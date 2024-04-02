@@ -31,7 +31,7 @@
 <!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">
-		<a>운동</a>
+		<a href="${cp}/myInfo/myInfoChange">운동 하는 방법</a>
 		<a href="${cp}/board/noticeBoard">게시판</a>
 		<a>고객지원</a>
 	</div>
