@@ -15,11 +15,9 @@ public interface SignService {
 	
 	public boolean selectId(String U_id);
 	
-//	public ArrayList<InfoDto> infoList();
+	public boolean selectName(String I_name);
 	
 	public String signUpInfo(InfoDto dto);
-	
-//	public ArrayList<PhysicalDto> phyList();
 	
 	public String signUpPhy(PhysicalDto dto);
 	

@@ -62,7 +62,8 @@
 						<label for="weight" class="text3">몸무게</label>
 						<input type="text" name="P_weightLog"> 
 						<label for="nickname" class="text3">닉네임</label> 
-						<input type="text" name="I_name">
+						<input id="nickname" type="text" name="I_name">
+						<label id="checkName"></label>
 						<label for="email" class="text3">이메일</label>
 						<div>
 							<input class="ebox" id="I_email" name="I_email" type="text" /> 
@@ -77,9 +78,10 @@
 							</select>
 						</div>
 						<label for="securityQuestion" class="text3">비밀번호찾기 질문</label> 
-						<select class="passwordQuestion" id="I_pwFinding">
-							<option value="q1">질문을 넣어주세요</option>
-							<option value="q2">질문을 넣어주세요2</option>
+						<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
+							<option value="1">질문을 넣어주세요</option>
+							<option value="2">질문을 넣어주세요2</option>
+							<option value="3">질문을 넣어주세요3</option>
 						</select> 
 						<label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
 						<input id="I_hint" name="I_hint" type="text">
@@ -119,7 +121,7 @@
 	                    $("#checkText").css("color", "green").text("사용 가능한 ID 입니다.");
 	                } else {
 	                    $("#checkText").css("color", "red").text("사용 불가능한 ID 입니다.");
-	                    $("#id").val('');
+	                    $("#userId").val('');
 	                    checkSignUpButtonState();
 	                }
 	            }
@@ -127,6 +129,34 @@
 
 	        checkSignUpButtonState();
 	    });
+	    
+	    //닉네임 입력시
+	    $("#nickname").on("focusout", function() {
+	        var name = $(this).val();
+	        console.log(name);
+	        if (name === '' || name.length === 0) {
+	            $("#checkName").css("color", "red").text("공백은 닉네임으로 사용할 수 없습니다.");
+	            checkSignUpButtonState();
+	            return false;
+	        }
+	        
+	        $.ajax({
+	            url : '/page/ConfirmName',
+	            data : { name : name },
+	            type : 'POST',
+	            dataType : 'json',
+	            success : function(result) {
+	                if (result == true) {
+	                    $("#checkName").css("color", "green").text("사용 가능한 닉네임 입니다.");
+	                } else {
+	                    $("#checkName").css("color", "red").text("사용 불가능한 닉네임 입니다.");
+	                    $("#nickname").val('');
+	                    checkSignUpButtonState();
+	                }
+	            }
+	        });
+	        checkSignUpButtonState();
+	     });
 
 	    // 비밀번호 입력 시
 	    $("#userPw, #userRePw").on("focusout", function() {
@@ -167,9 +197,9 @@
 	        var rePwColor = $("#checkRePw").css("color");
 
 	        if (idColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 165, 0)" || rePwColor === "rgb(255, 0, 0)") {
-	            signUpBtn.prop("disabled", true);
+	        	signUpBtn.prop("disabled", true);
 	        } else {
-	            signUpBtn.prop("disabled", false);
+	        	signUpBtn.prop("disabled", false);
 	        }
 	    }
 	});
