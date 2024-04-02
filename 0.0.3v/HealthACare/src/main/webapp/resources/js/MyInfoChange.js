@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log("ㅋㅋ");
     $.ajax({
         url: "/RestsController/ImgEncoding",
         method: "POST",
@@ -12,6 +11,10 @@ $(document).ready(function(){
             
         }
     });
+    
+    
+    
+    
 });
 
 
