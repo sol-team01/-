@@ -111,4 +111,26 @@ public class SignController {
 	      
 	      return new ResponseEntity<>(result, HttpStatus.OK);
 	   }
+	
+	@PostMapping("/ConfirmName")
+	   @ResponseBody
+	   public ResponseEntity<Boolean> confirmName(String name) {
+	      System.out.println("confirmName 컨트롤러 진입...................");
+	      System.out.println("name : " + name);
+	      boolean result = true;
+	      
+	      
+	      if(name.trim().isEmpty()) {
+	         System.out.println("name : " + name);
+	         result = false;
+	      } else {
+	         if (signservice.selectName(name)) {
+	            result = false;
+	         } else {
+	            result = true;
+	         }
+	      }
+	      
+	      return new ResponseEntity<>(result, HttpStatus.OK);
+	   }
 }
