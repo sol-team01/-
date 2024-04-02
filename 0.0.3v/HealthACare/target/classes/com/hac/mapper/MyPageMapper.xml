@@ -4,36 +4,48 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hac.mapper.MyPageMapper">
 
-
-	<!-- 닉네임 변경(시간제한 둬야함) -->
-		<!-- 코드를 재활용 하기위해 칼럼을 뚫어 놨고 사용할때 String 으로 칼럼을입력하면 됨 -->
-			<!-- 초단위로 빠져나옴, 닉네임, 프로필 사진은 하루에 한번, (몸무게, 키는 하루안에) -->
-	<select id="updateTime" resultType="int">
-		SELECT DATEDIFF(now(),#{calumName}) AS timeDifference FROM info WHERE U_no = #{U_no}
+	<!-- 내정보 조회 -->
+	<select id = "myProfile" resultType="com.hac.dto.userDto.InfoDto" parameterType="com.hac.dto.searchDto.MyPageDto" >
+		SELECT * FROM info WHERE U_no = #{U_no}
 	</select>
 	
-	<update id="nameChange">
-		UPDATE info SET I_name = #{I_name},I_nameUpdateTime = now() WHERE U_no #{U_no}
+	<select id = "myPhtsical" resultType="com.hac.dto.userDto.PhysicalLogDto" parameterType="com.hac.dto.searchDto.MyPageDto" >
+		SELECT * FROM info WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1
+	</select>
+
+	<!-- 닉네임 변경 -->
+	
+	<update id="nameChange" parameterType="com.hac.dto.searchDto.MyPageDto">
+		UPDATE info SET I_name = #{I_name},I_nameUpdateTime = now() WHERE U_no = #{U_no}
 	</update>
 	
+	<!-- 이메일 변경 -->
+		<update id="emailChange" parameterType="com.hac.dto.searchDto.MyPageDto">
+			UPDATE info SET I_email = #{I_email} WHERE U_no = #{U_no}
+		</update>
 	
-	<!-- 프로필 사진 변경(시간제한 둬야함) -->
-	<update id="profileImgChange">
+	<!-- 비밀번호 찾기 질문 및 대답내용 변경 -->
+		<update id="pwFindingChange" parameterType="com.hac.dto.searchDto.MyPageDto">
+			UPDATE info SET I_pwFinding = #{I_pwFinding},I_hint = #{I_hint} WHERE U_no = #{U_no}
+		</update>
+	
+	<!-- 프로필 사진 변경 -->
+	<update id="profileImgChange" parameterType="com.hac.dto.searchDto.MyPageDto">
 		UPDATE info SET I_profileImg = #{I_profileImg}, I_profileImgUpdateTime = now() WHERE U_no = #{U_no}
 	</update>
 		
 	<!-- 몸무게, 키 수정(당일만 수정 가능하게) -->
 		<!--  지금 날짜과 맨 마지막 인설트 했던 날짜의 차 확인. 1이 넘어가면 날짜가 지났다는것임.-->
-	<select id="physicalUpdateTime">
+	<select id="physicalUpdateTime" parameterType="com.hac.dto.searchDto.MyPageDto">
 		SELECT DATEDIFF(NOW(),P_createdAt) FROM physicalLog WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1;
 	</select>
 	
 		<!--  위의 select 한 값에서 1이 넘게 나왔을경우 인설트 -->
-	<insert id="physical">
+	<insert id="physical" parameterType="com.hac.dto.searchDto.MyPageDto">
 		INSERT INTO physicalLog(U_no,I_weight,I_height,) value (#{U_no},#{I_weight},#{I_height})
 	</insert>
 	
-	<update id="physicalUpdate">
+	<update id="physicalUpdate" parameterType="com.hac.dto.searchDto.MyPageDto">
 		UPDATE physicalLog SET I_weight = #{I_weight}, I_height = #{I_height}, I_physicalUpdateTime = now() WHERE U_no = #{U_no} 
 	</update>
 
@@ -41,7 +53,7 @@
 	<!-- 그레프 정보 뽑아오기 -->
 		<!--  필요한 정보별로 데이터 줄력, 주간, 월간, 연간  -->
 			<!-- period 에 넣는 값에 따라 결과값이 달라짐,-->
-	<select id="physicalLog">
+	<select id="physicalLog" resultType="com.hac.dto.userDto.PhysicalLogDto" parameterType="com.hac.dto.searchDto.MyPageDto">
 	SELECT 
 			YEAR(P_createdAt) AS year, 
 			MONTH(P_createdAt) AS month,
@@ -50,7 +62,8 @@
 			AVG(P_heightLog) AS P_heightLog
 	FROM 
 			physicalLog
-		<where>
+	WHERE
+			U_no = #{U_no} 
 			<if test="period == 'weekly'">
 				GROUP BY YEAR(P_createdAt), WEEK(P_createdAt)
 			</if>
@@ -60,10 +73,8 @@
 			<if test="period == 'yearly'">
 				GROUP BY YEAR(P_createdAt)
 			</if>
-		</where>
 	ORDER BY 
 			YEAR(P_createdAt)
-		<where>
 
 			<if test="period == 'weekly'">
 				,WEEK(P_createdAt);
@@ -71,24 +82,19 @@
 			<if test="period == 'monthly'">
 				,MONTH(P_createdAt);
 			</if>
-		</where>
 			
 	</select>
 		<!-- 일간 -->
 	<select id="physicalLogDay">
 		SELECT * FROM physicalLog;
 	</select>
-	<!-- 정보 삭제 -->
-	<delete id="physicalLogDell">
-		DELETE * FROM physicalLog WHERE 
-	</delete>
-	
-	<!-- 이메일 변경 -->
-	
-	
-	<!-- 비밀번호 찾기 질문 및 대답내용 변경 -->
-	
 
+	
+	<!--  이미지 추출 -->
+	
+	<select id="getByteImg" resultType="com.hac.dto.userDto.InfoDto">
+		SELECT * FROM info WHERE U_no = #{U_no}
+	</select>
 		
 
 </mapper>

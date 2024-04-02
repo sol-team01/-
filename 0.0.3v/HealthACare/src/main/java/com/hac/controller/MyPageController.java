@@ -1,15 +1,13 @@
 package com.hac.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.hac.dto.searchDto.MyPageDto;
 import com.hac.service.MyPageService;
@@ -29,63 +27,25 @@ public class MyPageController {
 
 	String mag;
 	
-	@GetMapping("/name")
+	//마이페이지로 이동
+	@GetMapping("/myPage")
 	public String nameChange(MyPageDto dto, Model model,HttpServletRequest request) {
 
-//		HttpSession session = request.getSession();
-		// 닉네임 길이 검사
-		if (dto.getI_name() != null && !dto.getI_name().equals(null)) {
-			// 중복 닉네임 검사해줌
-			if (service.nameCount(dto.getI_name())) {
-
-				// 닉네임 시간 검사 통과못하면 else 로 빠지고 통과되면 변경완료됨.
-				if (service.nameChange(dto)) {
-					model.addAttribute("mag", "닉네임 변경 완료");
-					return "닉네임 변경 완료";
-				} else {
-
-					return "하루에 한번만 닉네임 변경이 가능합니다.";
-				}
-
-			} else {
-
-				return "중복 닉네임이 있습니다.";
-			}
-		} else {
-
-			return "값이 null임";
-		}
+	HttpSession session = request.getSession();
+	
+	return "/page/myPage";
 	}
 
-	 //이건 추후에 수정해야함
-	@PostMapping("/profileImg")
-	public String profileImgChange(@RequestPart("imageFile") MultipartFile file, Model model,HttpServletRequest request) {
-
-		// 이미지를 첨부중인지 확인하는 함수
-		if (file != null && !file.isEmpty()) {
-			// 프로필 시간 검사 통과못하면 else 로 빠지고 통과되면 변경완료됨.
-			if (service.profileImgChange(new MyPageDto())) {
-
-				return "프로필 사진 변경 완료";
-			} else {
-
-				return "하루에 한번만 프로필사진 변경이 가능합니다.";
-			}
-
-		} else {
-			return "값이 null임";
-		}
-	}
-
+	 // 신체 정보 변경
 	@GetMapping("/physical")
-	public String physical(MyPageDto dto, Model model,HttpServletRequest request) {
+	public String physical(MyPageDto dto, Model model, HttpServletRequest request) {
 
 		// 신체정보 입력
-		if (dto.getI_height() != null && dto.getI_weight() != null &&!dto.getI_height().equals(null) && !dto.getI_weight().equals(null)) {
+		if (dto.getP_height() != null && dto.getP_weight() != null && !dto.getP_height().equals(null)
+				&& !dto.getP_weight().equals(null)) {
 			// 업데이트 or 인설트 함. 그 결과값이 String 으로 리턴이 됨
 			String mag = service.physical(dto);
-			
-			
+
 			return mag;
 		} else {
 

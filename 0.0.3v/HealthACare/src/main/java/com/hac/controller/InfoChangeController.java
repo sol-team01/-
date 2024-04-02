@@ -1,0 +1,93 @@
+package com.hac.controller;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.hac.dto.searchDto.MyPageDto;
+import com.hac.service.MyPageService;
+
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+@RequestMapping("/myInfo/*") // 프로젝트 루트 경로 이하 /guest 상위폴더로 진입 시 여기로 진입하게 됨.
+// 필드 값을 매개변수로 하는 생성자를 스프링이 알아서 만들어 줌. 그리고 그런 형태의 생성자를 추가하면 스프링이 알아서 객체관리
+//					// 해줌(@Auto.. 처럼)
+@Controller
+public class InfoChangeController {
+
+	@Setter(onMethod_ = @Autowired)
+	private MyPageService service;
+
+	String mag;
+
+	// 이건 추후에 수정해야함
+	@GetMapping("/myInfoChange")
+	public String change(MyPageDto dto, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		// 임시 유저 넘버 로그인 기능 완성시 삭제
+		session.setAttribute("U_no", "1");
+
+		// 유저 넘버 dto에 저장
+//		dto.setU_no((String) session.getAttribute("U_no"));
+		dto.setU_no("1");
+
+		// 저장되어있는 기본 정보 출력
+		model.addAttribute("myInfo", service.myProfile(dto));
+		return "page/myInfoChange";
+
+	}
+
+	@PostMapping("/profile")
+	public String profileUpdate(@RequestPart("imageFile") MultipartFile file, MyPageDto dto, Model model,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+
+		dto.setU_no((String) session.getAttribute("U_no"));
+		// 이미지 변환후 저장
+		// 이미지 파일 선택되있을때 구분
+		if (file != null && !file.isEmpty()) {
+			try {
+				// file.getBytes() 부분이 이미지 파일을 바이트로 쪼개는 역할을함.
+				// dto 바이트 배열에 저장
+				dto.setI_profileImg(file.getBytes());
+
+				// 이미지 파일을 info에 저장
+				service.profileImgChange(dto);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		if(dto.getI_name() != null) {
+			service.nameChange(dto);
+		}
+		if(dto.getI_email() != null) {
+			service.emailChange(dto);
+		}
+		if(dto.getI_hint() != null) {
+			service.pwFindingChange(dto);	
+		}
+		return "myInfo/myInfoChange";
+	}
+
+	
+	
+	@PostMapping("/fixInfo")
+	public String myProfileInfoUpdate(MyPageDto dto,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		dto.setU_no((String) session.getAttribute("U_no"));
+
+		return "myInfo/myInfoChange";
+	}
+}

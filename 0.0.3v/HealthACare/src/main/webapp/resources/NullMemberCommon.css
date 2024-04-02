@@ -18,7 +18,7 @@ iframe {
 }
 /*기본 영역 세팅 (시작)*/
 #warp {
-	width: 1920px;
+	width: 1820px;
 	background-color: white;
 	margin: auto;
 	display: flex;
@@ -49,13 +49,20 @@ iframe {
 }
 /*기본 영역 세팅 (끝)*/
 /*CATEGORY 하위*/
-#Category img {
+#Category #imgbox{
 	width: 200px;
 	height: 90px;
 	margin-bottom: 100px;
+    position: relative; /* 부모 요소를 기준으로 자식 요소의 위치를 지정하기 위해 필요 */
 }
-/*CATEGORY 하위(끝)*/
-/*CATEGORY-셀렉트 박스~*/
+#imgbox img {
+    width: 100%; /* 이미지의 너비를 부모 요소의 너비와 동일하게 설정 */
+    height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지 */
+    display: block; /* 이미지를 블록 요소로 표시하여 수직 정렬 문제 해결 */
+    position: absolute; /* 이미지를 절대 위치로 지정하여 부모 요소 내에 배치 */
+    top: 0; /* 부모 요소의 맨 위에 이미지를 배치 */
+    left: 0; /* 부모 요소의 맨 왼쪽에 이미지를 배치 */
+}
 #customSelect {
 	position: relative;
 	width: 250px;
