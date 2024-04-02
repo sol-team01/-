@@ -54,6 +54,7 @@ public class SignController {
 	
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto, @ModelAttribute PhysicalDto phyDto) {
+		
 		signservice.signUp(signDto,infoDto, phyDto);
 		signDto.getU_no();
 //		signservice.signIn().getU_no());

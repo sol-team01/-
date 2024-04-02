@@ -7,7 +7,7 @@ $(document).ready(function(){
             $('#myImg').html('<img src="' + imageDataURI + '" alt="Image">');
         },
         error: function(xhr, status, error) {
-            console.error("AJAX 요청 실패:", error,status,xhr);
+          	$('#myImg').html('<img src="../resources/img/profile.jsp" alt="image">');
             
         }
     });
