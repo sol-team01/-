@@ -17,7 +17,7 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>${myLogin}님의페이지</title>
+<title>${login}님의페이지</title>
 </head>
 <body>
 <div id="warp">
@@ -31,7 +31,7 @@
 				<div id="myProfile">
 					<div id="myInfo">
 						<div id="infoName">
-							${myLogin} 님! 어서오세요.
+							${login} 님! 어서오세요.
 						</div>
 						<div id="log">
 							<div id="infolog"  class="info">

@@ -10,7 +10,10 @@ public interface BoardService {
 	public ArrayList<BoardSDto> searchList(int currentPage, String word);
 	public int totalContent();
 	public PagingProcessor pageBlock(int currentPage,String word);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 295020fb9567452ce94731ceba0882f84ee8711c
 	public BoardDto read(long bno);
 	public void write(BoardDto dto);
 	public void modify(BoardDto dto);
