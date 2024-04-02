@@ -8,12 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
@@ -41,9 +44,13 @@ public class SignController {
 	}
 	
 	//회원가입
+	
 	@PostMapping("/createId")
-	public String createId(SignDto dto) {
-		signservice.signUp(dto);
+	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto, @ModelAttribute PhysicalDto phyDto) {
+		signservice.signUp(signDto,infoDto, phyDto);
+		signDto.getU_no();
+//		signservice.signIn().getU_no());
+//		signservice.signUpInfo();
 		return "redirect:/page/login";
 	}
 	
@@ -63,10 +70,12 @@ public class SignController {
 		}
 	}
 	
+	//로그인
 	@GetMapping("/signIn")
 	public void signIn(SignDto dto) {	
 	}
 	
+	//로그아웃
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
