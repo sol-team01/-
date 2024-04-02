@@ -1,7 +1,5 @@
 package com.hac.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +20,16 @@ public class MyPageServiceImpl implements MyPageService{
 	@Setter(onMethod_ = @Autowired)
 	private SignMapper SignMapper;	
 
-	
+	 // 프로필 정보 불러오기
 	@Override 
-	public InfoDto myProfile(MyPageDto dto) { // 프로필 정보 불러오기
+	public InfoDto myProfile(MyPageDto dto) {
 		InfoDto info = mapper.myProfile(dto);
 		return info;
 	}
 	
-	@Override 
-	public ArrayList<PhysicalLogDto>  myPhysical(MyPageDto dto) { // 최근 피지컬 정보 불러오기 < -- 이건 굳이?
+	@Override
+	// 가장최근 피지컬 정보 불러오기
+	public PhysicalLogDto  myPhysical(MyPageDto dto) {
 	
 		return mapper.myPhtsical(dto);
 	}
@@ -40,12 +39,6 @@ public class MyPageServiceImpl implements MyPageService{
 	public void nameChange(MyPageDto dto) {
 			mapper.nameChange(dto);
 
-	}
-	
-	@Override //프로필사진 체인지
-	public void profileImgChange(MyPageDto dto) {
-		
-			mapper.profileImgChange(dto); // 프로필 사진 변경 
 	}
 	
 	@Override  // 신체정보 수정
@@ -61,7 +54,13 @@ public class MyPageServiceImpl implements MyPageService{
 		
 	}
 	
-	@Override
+	@Override //프로필사진 체인지
+	public void profileImgChange(MyPageDto dto) {
+		
+		mapper.profileImgChange(dto); // 프로필 사진 변경 
+	}
+	
+	@Override // 이미지 바이트불러오기
 	public byte[] getByteImg(String U_no) {
 		
 		return mapper.getByteImg(U_no).getI_profileImg();
