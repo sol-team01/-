@@ -1,6 +1,5 @@
 package com.hac.service;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 import com.hac.dto.boardDto.BoardDto;
@@ -12,7 +11,9 @@ public interface BoardService {
 	public ArrayList<BoardSDto> searchList(int currentPage, String word);
 	public int totalContent();
 	public PagingProcessor pageBlock(int currentPage,String word);
-=======
-public class BoardService {
->>>>>>> c4e62d34593752906926764d73c4cf0d310ab7de
+	public BoardDto read(long bno);
+	public void write(BoardDto dto);
+	public void modify(BoardDto dto);
+	public void del(long bno);
+	public int hit(long bno);
 }
