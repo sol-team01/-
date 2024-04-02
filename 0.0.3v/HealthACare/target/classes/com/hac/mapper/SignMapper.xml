@@ -9,20 +9,15 @@
 	   select * from user
 	</select>
 	
+	<!-- 회원가입시 필요한 고유넘버 불러오기 -->
 	<select id="noSearch" resultType="com.hac.dto.userDto.InfoDto">
 	   select * from user where U_id = #{U_id}
 	</select>
- 	
- 	<select id="countId" resultType="int" parameterType="com.hac.dto.searchDto.SignDto">
- 		SELECT IFNULL(COUNT(*),0) FROM user WHERE U_id = #{U_id}
- 	</select>
 	
-				<!-- 회원가입 회원정보 -->
+	<!-- 회원가입 회원정보 -->
 	<insert id="signUp" parameterType="com.hac.dto.searchDto.SignDto">
 		INSERT INTO user(U_id,U_pw) value (#{U_id},#{U_pw})
 	</insert>
-	
-	
 	
 	<!-- 회원가입 마이정보 -->
 	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.InfoDto">
@@ -45,36 +40,11 @@
 		select count(*) from info where I_name = #{I_name}
 	</select>
 	
-	
 	<!-- 로그인 -->			
 	<select id = "signIn" resultType="com.hac.dto.searchDto.SignDto">
-	SELECT * FROM user WHERE U_id = #{U_id}
+	    SELECT * FROM user WHERE U_id = #{U_id}
  	</select>
-				<!--  닉네임 중복검사 0 true -->
-<!-- 	<select id="countName" parameterType="com.hac.dto.searchDto.SignDto"> -->
-<!-- 		SELECT IFNULL(COUNT(*),0) FROM info WHERE I_name = #{I_name} -->
-<!-- 	</select>	 -->
 
-
-				<!--  회원가입할때 유저 번호를 불러옴-->	
-<!-- 	<select id="searchUser" parameterType="com.hac.dto.searchDto.SignDto"> -->
-<!-- 		SELECT U_no FROM user WHERE U_id = #{U_id} AND U_pw = #{U_pw} -->
-<!-- 	</select> -->
-
-				<!--  회원정보 생성 -->
-<!-- 	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.InfoDto"> -->
-<!-- 		INSERT INTO info -->
-<!-- 			(U_no,I_name,I_weight,I_height,I_email,I_pwFinding,I_hint) -->
-<!-- 		VALUE  -->
-<!-- 			(#{U_no},#{I_name},#{I_weight},#{I_height},#{I_email},#{I_pwFinding},#{I_hint}) -->
-<!-- 	</insert> -->
-
-				<!-- 로그인 -->
-<!-- 	<select id="idPwCheck" parameterType="com.hac.dto.searchDto.SignDto"> -->
-<!-- 	SELECT IFNULL(COUNT(*),0) FROM user WHERE U_id = #{U_id} and U_pw = #{U_pw} -->
-<!-- 	</select> -->
-
-				<!--  유저 로그인 -->
 
 				<!--  유저 번호로 정보를 불러옴 -->
 <!-- 	<select id = "searchInfo" resultType="com.hac.dto.userDto.InfoDto" > -->

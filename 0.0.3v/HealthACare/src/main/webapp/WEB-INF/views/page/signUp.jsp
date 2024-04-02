@@ -67,7 +67,7 @@
 						<label for="email" class="text3">이메일</label>
 						<div>
 							<input class="ebox" id="I_email" name="I_email" type="text" /> 
-							<a class="text4"> @ </a> 
+							<a class="text4"><span id="middle">@</span></a> 
 							<input class="ebox" id="domain-txt" type="text" /> 
 							<select class="ebox" id="domain-list">
 								<option value="naver.com">naver.com</option>
@@ -199,7 +199,7 @@
 	        if (idColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 165, 0)" || rePwColor === "rgb(255, 0, 0)") {
 	        	signUpBtn.prop("disabled", true);
 	        } else {
-	        	signUpBtn.prop("disabled", false);
+	            signUpBtn.prop("disabled", false);
 	        }
 	    }
 	});
@@ -276,7 +276,7 @@
 	 domainInputEl.value = ""; 
 	 domainInputEl.disabled = false;
 	 } 
-	}) 
+	});
 
 	</script>
 
