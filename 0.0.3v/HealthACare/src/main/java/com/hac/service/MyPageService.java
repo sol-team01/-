@@ -12,6 +12,10 @@ public interface MyPageService {
 
 	public void nameChange(MyPageDto dto); 
 	
+	public void emailChange(MyPageDto dto);
+	
+	public void pwFindingChange(MyPageDto dto);
+	
 	public String physical(MyPageDto dto);
 	
 	public void profileImgChange(MyPageDto dto);

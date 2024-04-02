@@ -41,6 +41,15 @@ public class MyPageServiceImpl implements MyPageService{
 
 	}
 	
+	@Override  //이메일 체인지
+	public void emailChange(MyPageDto dto) {
+		
+	}
+	@Override  // 비밀번호 찾기 질문 체인지
+	public void pwFindingChange(MyPageDto dto) {
+		
+	}
+	
 	@Override  // 신체정보 수정
 	public String physical(MyPageDto dto) {
 		
