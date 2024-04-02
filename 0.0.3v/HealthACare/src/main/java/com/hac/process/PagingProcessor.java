@@ -54,10 +54,10 @@ public class PagingProcessor {
 	public int getPageCount() {
 		int totalPageCount = 0;
 		int count = mapper.totalContent();
-		if(count % 5 == 0) {
-			totalPageCount = count / 5;
+		if(count % 7 == 0) {
+			totalPageCount = count / 7;
 		} else {
-			totalPageCount = count / 5 + 1;
+			totalPageCount = count / 7 + 1;
 		}
 		return totalPageCount;
 	}
@@ -65,39 +65,59 @@ public class PagingProcessor {
 	public int getSearchCount(String word) {
 		int totalPageCount = 0;
 		int count = mapper.searchListCount(word);
-		if (count % 5 == 0) {
-			totalPageCount = count / 5;
+		if (count % 7 == 0) {
+			totalPageCount = count / 7;
 		} else {
-			totalPageCount = count / 5 + 1;
+			totalPageCount = count / 7 + 1;
 		}
 		return totalPageCount;
 	}
 	
 	public String getHtmlPageList() {
-		String html = "";
-		if(totalPage == getPageCount()) {
-			if(ablePrev) {
-				html = html + String.format("<a href='/board/BoardList?currentPage=%d'>이전</a>&nbsp;",prevPage);
-			}
-			for(int i = blockStartNo; i<=blockEndNo; i++) {
-				html = html + String.format("<a href='/board/BoardList?&currentPage=%d'>%d</a>&nbsp;&nbsp;",i,i);
-			}
-			if(ableNext) {
-				html = html + String.format("<a href='/board/BoardList?currentPage=%d'>다음</a>",nextPage);
-			}
-		}else {
-			if(ablePrev) {
-				html=html+String.format("<a href='/board/BoardSearch?currentPage=%d&word=%s'>이전</a>",prevPage,word);
-			}
-			for(int i = blockStartNo;i<=blockEndNo;i++) {
-				html = html + String.format("<a href='/board/BoardSearch?&currentPage=%d&word=%s'>%d</a>&nbsp;&nbsp;",i,word,i);
-			}
-			if(ableNext) {
-				html=html+String.format("<a href='/board/BoardSearch?currentPage=%d&word=%s'>다음</a>",nextPage,word);
-			}
-			
-		}
-		return html;
+	    String html = "";
+	    // 페이지 목록 생성
+	    for (int i = blockStartNo; i <= blockEndNo; i++) {
+	        html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>&nbsp;&nbsp;", i, i);
+	    }
+	    return html;
 	}
+	
+	public String getPrevPageButton() {
+	    String prevPageButton = "";
+	    // 이전 페이지 버튼 생성
+	    if (ablePrev) {
+	    	prevPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/leftarrow.png' alt='왼쪽 화살표' class='arrowSmallImage'></a>", prevPage);
+	    }
+	    return prevPageButton;
+	}
+	
+
+	
+	public String getNextPageButton() {
+	    String nextPageButton = "";
+	    // 다음 페이지 버튼 생성
+	    if (ableNext) {
+	    	nextPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/rightarrow.png' alt='오른쪽 화살표' class='arrowSmallImage'></a>", nextPage);
+	    }
+	    return nextPageButton;
+	}
+	    
+    public String goToFirstPage() {
+        String firstPageButton = "";
+        // 첫 번째 페이지로 이동하는 버튼 생성
+        if (currentPage != 1) {
+            firstPageButton = "<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/leftdoublearrow.png' alt='왼쪽 연속 화살표' class='arrowSmallImage'></a>";
+        }
+        return firstPageButton;
+    }
+    
+    public String goToLastPage() {
+        String lastPageButton = "";
+        // 마지막 페이지로 이동하는 버튼 생성
+        if (currentPage != totalPage) {
+            lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'><img src='${cp}/resources/img/rightdoublearrow.png' alt='오른쪽 연속 화살표' class='arrowSmallImage'></a>";
+        }
+        return lastPageButton;
+    }
 
 }

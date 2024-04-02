@@ -5,7 +5,7 @@
 <mapper namespace="com.hac.mapper.BoardMapper">
 
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
-		select * from board limit #{limitIndex} , 5
+		 select * from board order by B_NO desc limit #{limitIndex}, 7
 	</select>
 	
 	<select id="searchList" resultType="com.hac.dto.boardDto.BoardDto">
@@ -19,5 +19,34 @@
 	<select id="totalContent" resultType="int">
 		select count(*) from board;
 	</select>
+	
+	<select id="read" resultType="com.hac.dto.boardDto.BoardDto">
+		select * from board where B_NO = #{bno}
+	</select>
+	
+	<delete id="del">
+		delete from board where B_NO = #{bno}
+	</delete>
+	
+	<insert id="write">
+		insert into board (B_ID, B_TITLE, B_CATEGORY, B_TEXT) 
+		values 
+		(#{b_ID},
+		#{b_TITLE},
+		#{b_CATEGORY},
+		#{b_TEXT})
+	</insert>
+	
+	<update id="hit">
+		update board set b_hit = b_hit + 1 where b_no = #{bno}
+	</update>
+	
+	<update id="modify">
+		update board set B_ID = #{b_ID},
+		B_TITLE = #{b_TITLE},
+		B_CATEGORY = #{b_CATEGORY},
+		B_TEXT = #{b_TEXT}
+		where B_NO = #{b_NO}
+	</update>
 
 </mapper>

@@ -25,109 +25,14 @@
 </head>
 <body>
 <div id="warp">
-<div id="Category">
-	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"></a>
-	<div id="customSelect">
-  <div class="SelectHealth">운동</div>
-  <div class="select-itemsHealth">
-    <div><a href="${cp}/page/login">운동 하는 방법</a></div>
-    <div>오늘 운동 완료</div>
-    <div>이벤트</div>
-  </div>
-  </div>
-  	<div id="customSelect">
-    <div class="SelectFood">식단</div>
-  	<div class="select-itemsFood">
-    <div>칼로리 계산</div>
-    <div><a href="${cp}/food/list">식품 영양 정보</a></div>
-    <div>질병 당 추천 음식</div>
-  	</div>
-	</div>
-  	<div id="customSelect">
-    <div class="SelectDisease">질병</div>
-  	<div class="select-itemsDisease">
-  	<div>연령대별 질병</div>
-  	</div>
-	</div>
-  	<div class="SelecNone">고객지원</div> 
-<script>
-$(document).ready(function(){ //운동 카테고리 버튼
-  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-  $("#customSelect .SelectHealth").click(function(event) {
-    // 다른 열려 있는 셀렉트 박스들을 닫음
-    $(".select-itemsHealth").toggleClass("select-show");
-  });
-  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
-  $(document).on("click", function(event) {
-    if (!$(event.target).closest("#customSelect").length) {
-//       $(".select-itemsHealth").removeClass("select-show");
-    }
-  });
-});
-
-$(document).ready(function(){ //식단 카테고리 버튼
-	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-	  $("#customSelect .SelectFood").click(function(event) {
-	    // 다른 열려 있는 셀렉트 박스들을 닫음
-	    $(".select-itemsFood").toggleClass("select-show");
-	  });
-	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
-	  $(document).on("click", function(event) {
-	    if (!$(event.target).closest("#customSelect").length) {
-	    }
-	  });
-	});
-$(document).ready(function(){ //질병 카테고리 버튼
-	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-	  $("#customSelect .SelectDisease").click(function(event) {
-	    // 다른 열려 있는 셀렉트 박스들을 닫음
-	    $(".select-itemsDisease").toggleClass("select-show");
-	  });
-	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
-	  $(document).on("click", function(event) {
-	    if (!$(event.target).closest("#customSelect").length) {
-	    }
-	  });
-	});
-</script>
-</div><!-- <div id="Category"> -->
-
+<jsp:include page="/WEB-INF/views/board/homeDesign/category.jsp"></jsp:include>
 <div id="main">
-<div id="top">
-	<div id="Search">
-	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type" type="search" >
-	</div>
-	<div>
-	<c:choose>	
-    <c:when test="${empty login}">
-<!--         <p>비회원</p> -->
-			<a href="${cp}/page/login">
-        	<div id="signupBox"> SIGN UP	</div>
-			</a>
-    </c:when>
-    <c:otherwise>
-<%--         <p>${login}</p> --%>
-<!--         마이페이지(로그인 시 노출)</a> -->
-	<div id="user">	
-    <a href="${cp}/page/logout" class="out">SIGNOUT</a>
-	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/myPage">
-	<div class="box">
-	${login}
-	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
-	</div>
-	</a>
-	</div>
-    </c:otherwise>
-</c:choose>
-	</div>
-</div><!-- 	<div id="top"> -->
+<jsp:include page="/WEB-INF/views/board/homeDesign/homeTop.jsp"></jsp:include>
 <!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">
 		<a>운동</a>
-		<a href="${cp}/board/BoardList">게시판</a>
+		<a href="${cp}/board/noticeBoard">게시판</a>
 		<a>고객지원</a>
 	</div>
 	<div class="Banner">

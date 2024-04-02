@@ -18,13 +18,13 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public ArrayList<BoardDto> getList(int currentPage) {
-		int limitIndex = (currentPage-1) * 5;
+		int limitIndex = (currentPage-1) * 7;
 		return mapper.getList(limitIndex);
 	}
 	
 	@Override
 	public ArrayList<BoardSDto> searchList(int currentPage, String word) {
-		int limitIndex = (currentPage - 1) * 5;
+		int limitIndex = (currentPage - 1) * 7;
 		BoardSDto search = new BoardSDto();
 		search.setLimitIndex(limitIndex);
 		search.setWord(word);
@@ -41,6 +41,31 @@ public class BoardServiceImpl implements BoardService {
 	public int totalContent() {
 		int totalContent = mapper.totalContent();
 		return totalContent;
+	}
+	
+	@Override
+	public BoardDto read(long bno) {
+		return mapper.read(bno);
+	}
+	
+	@Override
+	public void del(long bno) {
+		mapper.del(bno);
+	}
+	
+	@Override
+	public void write(BoardDto dto) {
+		mapper.write(dto);
+	}
+	
+	@Override
+	public void modify(BoardDto dto) {
+		mapper.modify(dto);
+	}
+	
+	@Override
+	public int hit(long bno) {
+		return mapper.hit(bno);
 	}
 
 }
