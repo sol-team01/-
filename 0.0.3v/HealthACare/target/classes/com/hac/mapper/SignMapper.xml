@@ -9,16 +9,32 @@
 	   select * from user
 	</select>
 	
+	<select id="noSearch" resultType="com.hac.dto.userDto.InfoDto">
+	   select * from user where U_id = #{U_id}
+	</select>
+	
 				<!--  아이디 중복검사 0 true --> 
  	<select id="countId" resultType="int" parameterType="com.hac.dto.searchDto.SignDto">
  		SELECT IFNULL(COUNT(*),0) FROM user WHERE U_id = #{U_id}
  	</select>
 	
-				<!-- 아이디 생성 -->
+				<!-- 회원가입 회원정보 -->
 	<insert id="signUp" parameterType="com.hac.dto.searchDto.SignDto">
 		INSERT INTO user(U_id,U_pw) value (#{U_id},#{U_pw})
 	</insert>
 	
+	
+	
+	<!-- 회원가입 마이정보 -->
+	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.InfoDto">
+		INSERT INTO info(U_no, I_name, I_birthDate_y, I_birthDate_m, I_birthDate_d, I_gender, I_email, I_pwFinding, I_hint) 
+		values (#{U_no}, #{I_name}, #{I_birthDate_y}, #{I_birthDate_m}, #{I_birthDate_d}, #{I_gender}, #{I_email}, #{I_pwFinding}, #{I_hint})
+	</insert>
+	
+	<!-- 회원가입 시 기본건강정보 -->
+	<insert id="signUpPhy" parameterType="com.hac.dto.searchDto.PhysicalDto">
+	    Insert into physicalLog(U_no, P_weightLog, P_heightLog) values(#{U_no}, #{P_weightLog}, #{P_heightLog})
+	</insert>
 	
 	<!-- 중복 아이디 검사 -->
 	<select id="selectId" resultType="boolean">

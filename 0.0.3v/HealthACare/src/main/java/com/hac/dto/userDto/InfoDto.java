@@ -11,7 +11,9 @@ public class InfoDto {
 	private String I_nameUpdateTime; // 유저 이름 마지막 변경시간
 	private byte[] I_profileImg; // 프로필 사진
 	private String I_profileImgUpdateTime; // 프로필 사진 마지막 변경시간
-	private String I_birthDate; // 생년월일
+	private String I_birthDate_y; // 생년월일
+	private String I_birthDate_m; // 생년월일
+	private String I_birthDate_d; // 생년월일
 	private String I_gender; // 성별
 	private String I_email; // 이메일
 	private int I_pwFinding; //질의 종류

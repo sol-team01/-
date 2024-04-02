@@ -49,6 +49,13 @@
       <filter-name>encoding</filter-name>
       <servlet-name>appServlet</servlet-name>
    </filter-mapping>
-	<!-- 20240322 -->
-	
+<!-- 	20240322 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/error404</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/error404</location>
+	</error-page>
 </web-app>

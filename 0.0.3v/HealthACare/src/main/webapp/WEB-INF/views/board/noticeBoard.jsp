@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
+<%@ page errorPage="/spring/resources/error404.html" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,6 +174,7 @@
 		</div>
 		<!-- 	<div id="top"> -->
 	</div>
+<<<<<<< HEAD:0.0.3v/HealthACare/src/main/webapp/WEB-INF/views/board/noticeBoard.jsp
 	
 	<script>
 		writeBtn.addEventListener('click', function() {
@@ -180,5 +182,17 @@
 		});
 	</script>
 	
+=======
+	<% String c=null;
+	c.equals("cat");
+	%>
+	<% try { %>
+		<%= request.getParameter("name").toUpperCase() %>
+	<%
+		} catch(Exception e) {
+	%>
+			name 파라미터가 올바르지 않습니다.
+	<% 	} %>
+>>>>>>> 3721dc38d9a3621bccef62a819ef7b863136daa8:0.0.3v/HealthACare/src/main/webapp/WEB-INF/views/page/noticeBoard.jsp
 </body>
 </html>
