@@ -49,7 +49,7 @@
 								bmi: ???
 							</div>
 							<div id="infoRe">
-								<button id="infoM">개인정보 수정</button>
+							<a href="${cp}/myInfo/myInfoChange"><button id="infoM">개인정보 수정</button></a>
 							</div>
 						</div>
 					</div>
