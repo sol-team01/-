@@ -23,17 +23,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public ArrayList<BoardSDto> searchList(int currentPage, String word) {
+	public ArrayList<BoardSDto> searchList(int currentPage, String word, String column) {
 		int limitIndex = (currentPage - 1) * 7;
 		BoardSDto search = new BoardSDto();
 		search.setLimitIndex(limitIndex);
 		search.setWord(word);
+		search.setColumn(column);
 		return mapper.searchList(search);
 	}
 	
 	@Override
-	public PagingProcessor pageBlock(int currentPage, String word) {
-		PagingProcessor paging = new PagingProcessor(currentPage, mapper, word);
+	public PagingProcessor pageBlock(int currentPage, BoardSDto dto) {
+		PagingProcessor paging = new PagingProcessor(currentPage, mapper,dto);
 		return paging;
 	}
 	
@@ -41,6 +42,13 @@ public class BoardServiceImpl implements BoardService {
 	public int totalContent() {
 		int totalContent = mapper.totalContent();
 		return totalContent;
+	}
+	
+	@Override
+	public int searchTotalContent(BoardSDto dto) {
+		int searchTotalContent = mapper.searchListCount(dto);
+		System.out.println(searchTotalContent);
+		return searchTotalContent;
 	}
 	
 	@Override

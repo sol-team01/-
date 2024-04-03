@@ -67,7 +67,7 @@ public class SignController {
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
-			session.setAttribute("login", dto.getU_id());
+			session.setAttribute("U_no", dto.getU_no());
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -85,7 +85,7 @@ public class SignController {
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
-	    session.removeAttribute("login");
+	    session.removeAttribute("U_no");
 	    return "redirect:/";
 	}
 	

@@ -27,7 +27,7 @@
   	<div id="customSelect">
     <div class="SelectFood">식단</div>
   	<div class="select-itemsFood">
-    <div>칼로리 계산</div>
+    <div><a href="${cp}/food/calorieCounting">칼로리 계산</a></div>
     <div><a href="${cp}/food/list">식품 영양 정보</a></div>
     <div>질병 당 추천 음식</div>
   	</div>
@@ -77,8 +77,10 @@ $(document).ready(function(){ //질병 카테고리 버튼
 	    if (!$(event.target).closest("#customSelect").length) {
 	    }
 	  });
-	});
+	
+});
 </script>
+
 </div><!-- <div id="Category"> -->
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.hac.process;
 
+import com.hac.dto.boardDto.BoardSDto;
 import com.hac.mapper.BoardMapper;
 
 public class PagingProcessor {
@@ -18,16 +19,14 @@ public class PagingProcessor {
 	boolean ablePrev = true;
 	boolean ableNext = true;
 	
-	public PagingProcessor(int currentPage,BoardMapper mapper,String word) {
+	public PagingProcessor(int currentPage,BoardMapper mapper,BoardSDto dto) {
 		this.mapper = mapper;
 		this.currentPage = currentPage;
-		this.word = word;
-		if(word == null) {
+		if(dto.getWord().equals("")) {
 			this.totalPage = getPageCount();
 		} else {
-			this.totalPage = getSearchCount(word);
+			this.totalPage = getSearchCount(dto);
 		}
-		
 		totalBlock = (int) Math.ceil((double) totalPage / 5);
 		currentBlockNo = (int) Math.ceil((double) currentPage / 5);
 		blockStartNo = (currentBlockNo - 1) * 5 + 1;
@@ -62,9 +61,9 @@ public class PagingProcessor {
 		return totalPageCount;
 	}
 	
-	public int getSearchCount(String word) {
+	public int getSearchCount(BoardSDto dto) {
 		int totalPageCount = 0;
-		int count = mapper.searchListCount(word);
+		int count = mapper.searchListCount(dto);
 		if (count % 7 == 0) {
 			totalPageCount = count / 7;
 		} else {
@@ -86,7 +85,7 @@ public class PagingProcessor {
 	    String prevPageButton = "";
 	    // 이전 페이지 버튼 생성
 	    if (ablePrev) {
-	    	prevPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/leftarrow.png' alt='왼쪽 화살표' class='arrowSmallImage'></a>", prevPage);
+	    	prevPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>이전</a>", prevPage);
 	    }
 	    return prevPageButton;
 	}
@@ -97,7 +96,7 @@ public class PagingProcessor {
 	    String nextPageButton = "";
 	    // 다음 페이지 버튼 생성
 	    if (ableNext) {
-	    	nextPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/rightarrow.png' alt='오른쪽 화살표' class='arrowSmallImage'></a>", nextPage);
+	    	nextPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>다음</a>", nextPage);
 	    }
 	    return nextPageButton;
 	}
@@ -106,7 +105,7 @@ public class PagingProcessor {
         String firstPageButton = "";
         // 첫 번째 페이지로 이동하는 버튼 생성
         if (currentPage != 1) {
-            firstPageButton = "<a href='/board/noticeBoard?currentPage=%d'><img src='${cp}/resources/img/leftdoublearrow.png' alt='왼쪽 연속 화살표' class='arrowSmallImage'></a>";
+            firstPageButton = "<a href='/board/noticeBoard?currentPage=%d'>첫페이지</a>";
         }
         return firstPageButton;
     }
@@ -115,7 +114,7 @@ public class PagingProcessor {
         String lastPageButton = "";
         // 마지막 페이지로 이동하는 버튼 생성
         if (currentPage != totalPage) {
-            lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'><img src='${cp}/resources/img/rightdoublearrow.png' alt='오른쪽 연속 화살표' class='arrowSmallImage'></a>";
+            lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
         }
         return lastPageButton;
     }

@@ -25,8 +25,6 @@ public class RestsController {
 	public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("U_no", "1");
-		// 이미지 파일을 byte 배열로 변환
 		String U_no = (String) session.getAttribute("U_no");
 		byte[] imageData = service.getByteImg(U_no);
 

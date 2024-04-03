@@ -33,6 +33,7 @@ public class MyPageController {
 
 	HttpSession session = request.getSession();
 	
+	
 	return "/page/myPage";
 	}
 
