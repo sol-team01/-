@@ -35,13 +35,10 @@ public class InfoChangeController {
 	// 이건 추후에 수정해야함
 	@GetMapping("/myInfoChange")
 	public String change(MyPageDto dto, Model model, HttpServletRequest request) {
+		System.out.println("화면진입");
 		HttpSession session = request.getSession();
-		// 임시 유저 넘버 로그인 기능 완성시 삭제
-		session.setAttribute("U_no", "1");
 
-		// 유저 넘버 dto에 저장
-//		dto.setU_no((String) session.getAttribute("U_no"));
-		dto.setU_no("1");
+		dto.setU_no((String) session.getAttribute("U_no"));
 
 		// 저장되어있는 기본 정보 출력
 		model.addAttribute("myInfo", service.myProfile(dto));
@@ -78,7 +75,8 @@ public class InfoChangeController {
 		if(dto.getI_hint() != null) {
 			service.pwFindingChange(dto);	
 		}
-		return "myInfo/myInfoChange";
+		System.out.println("쿠쿠루삥뽕");
+		return "redirect:/myInfo/myInfoChange";
 	}
 
 	

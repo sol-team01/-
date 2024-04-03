@@ -2,13 +2,21 @@ package com.hac.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hac.dto.searchDto.MyPageDto;
+import com.hac.service.MyPageService;
+
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 /**
@@ -20,11 +28,15 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@Setter(onMethod_ = @Autowired)
+	private MyPageService service;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(MyPageDto dto,Locale locale, Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String U_no = (String) session.getAttribute("U_no");
 //		logger.info("Welcome home! The client locale is {}.", locale);
 //		Date date = new Date();
 //		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -64,6 +76,10 @@ public class HomeController {
 //	log.info(youtube.items.get(4).id.videoId);
 //	log.info(youtube.items.get(3).id.videoId);
 	//	log.info(s);	
+		if(U_no != null && !U_no.equals(null)) {
+			dto.setU_no(U_no);
+			model.addAttribute("myInfo",service.myProfile(dto));
+		}
 		return "home";
 	}
 	
