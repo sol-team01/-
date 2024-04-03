@@ -26,9 +26,9 @@
 </form>
 <a href="${cp}/page/signUp"><button id="signUPBt">회원가입</button></a>
 <div id=textContain>
-   <a class="text2" href="${cp}/page/searchId">아이디찾기</a> 
+   <a class="text2" href="${cp}/page/searchIdPw">아이디찾기</a> 
    &nbsp;<a class="text2"> | </a> &nbsp;
-   <a class="text2" href="비밀먼호 찾기">비밀번호찾기</a>
+   <a class="text2" href="${cp}/page/searchPwId">비밀번호찾기</a>
 </div><!-- textContain -->
 </div><!-- loginBox -->
 </body>
