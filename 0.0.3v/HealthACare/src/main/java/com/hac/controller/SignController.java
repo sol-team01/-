@@ -133,9 +133,38 @@ public class SignController {
 	      return new ResponseEntity<>(result, HttpStatus.OK);
 	   }
 	
+	//아이디 찾기	
 	@PostMapping("/searchId")
-	public void searchId() {
-		
+	@ResponseBody
+	public String searchId(@RequestParam("I_email") String I_email) {
+	    String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
+	    String result;
+	    if (userId != null) {
+	    	System.out.println("아이디 잘 찾았어?" + " " + userId);
+	        result = userId;
+	    } else {
+	        result = "";
+	    } // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
+	    
+	    return result;
+	}
+	
+	//비밀번호 찾기
+	@PostMapping
+	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션
+
+	//아이디 찾기 jsp 진입
+	@GetMapping("/searchIdPw")
+	public String searchId() {
+		System.out.println("아이디 찾기 진입");
+		return "/page/searchId";
+	}
+	
+	//비밀번호 찾기 jsp 진입
+	@GetMapping("/searchPwId")
+	public String searchPw() {
+		System.out.println("비밀번호 찾기 진입");
+		return "/page/searchPw";
 	}
 	
 }

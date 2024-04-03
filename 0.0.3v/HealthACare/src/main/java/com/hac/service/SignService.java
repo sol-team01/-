@@ -21,4 +21,6 @@ public interface SignService {
 	
 	public void signUpPhy(PhysicalDto dto);
 	
+	public String searchId(String I_email);
+	
 }

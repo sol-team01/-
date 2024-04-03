@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div>
-		<form action="${cp}/page/searchId" method="post">
+		<form id=findUserIdForm action="${cp}/page/searchId" method="post">
 			<input class="ebox" id="email" name="email" type="text" /> 
 			<a class="text4"><span id="middle">@</span></a> 
 			<input class="ebox" id="domain-txt" type="text" /> 
@@ -25,8 +25,10 @@
 			</select>
 			<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
 			<input type="hidden" id="totalemail" name="I_email" value="">
+			<input id="SearchBt" type="submit" name="searchId" value="찾기">
 		</form>
 	</div>
+	<label id="jotest">찾은 아이디: <span id="userIdResult"></span></label>
 	<script>
 	 // 도메인 직접 입력 or domain option 선택 
 	const domainListEl = document.querySelector('#domain-list');
@@ -66,7 +68,34 @@
 		            $("#totalemail").val(email + middle + address);
 		        }
 		    }
+		    
+		    
 		});
+	 
+	 $(document).ready(function() {
+		    $("#findUserIdForm").submit(function(event) {
+		        event.preventDefault(); // 기본 제출 동작을 막음
+
+		        var formData = $(this).serialize(); // 폼 데이터를 시리얼라이즈하여 가져옴
+
+		        $.ajax({
+		            type: 'POST',
+		            url: $(this).attr('action'),
+		            data: formData,
+		            success: function(data) {
+		                if (data) {
+		                    $("#userIdResult").text(data); // 찾은 아이디를 결과 영역에 표시
+		                } else {
+		                    alert('아이디를 찾을 수 없습니다.');
+		                }
+		            },
+		            error: function() {
+		                alert("서버 에러");
+		            }
+		        });
+		    });
+		});
+	 
 	 </script>
 	 
 </body>

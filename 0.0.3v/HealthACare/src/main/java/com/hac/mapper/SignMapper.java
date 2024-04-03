@@ -28,4 +28,6 @@ public interface SignMapper {
 	public ArrayList<PhysicalDto> phyList();
 	//유저 정보로 유저 넘버 가져오기
 	public InfoDto noSearch(String U_id);
+	//아이디 찾기
+	public String searchId(String I_email);
 }
