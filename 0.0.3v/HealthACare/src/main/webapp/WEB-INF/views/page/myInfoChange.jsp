@@ -34,7 +34,7 @@
 		<div class="contentPimgLayout">
 			<!-- 현제 나의 img파일이 저장됨 -->
 			<div class="contentPimgImgLayout">
-				<div id="myImg"></div>
+				<div class="myImg"></div>
 				<div class="textBox">현재 프로필</div>	
 			</div>
 			<!--  바꾸고싶은 이미지 파일 임시 출력 -->
@@ -53,7 +53,10 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
-		${myInfo.getI_email()}<input name="I_email" onchange="previewImage(event)">
+		<div class="contentTEXTLayout">
+		<a class="text">${myInfo.getI_email()}</a>
+		<input name="I_email" onchange="previewImage(event)">
+		</div>
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 재설정</div>
@@ -61,15 +64,21 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
+		<div class="contentPWLayout">
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
 			<option value="1">질문을 넣어주세요</option>
 			<option value="2">질문을 넣어주세요2</option>
 			<option value="3">질문을 넣어주세요3</option>
-		</select> 
-		비밀번호찾기답 <input name="I_hint" onchange="previewImage(event)">
+		</select>
+			<a class="text">정답 바꾸기</a>
+			<input name="I_hint" onchange="previewImage(event)">
+		</div> 
 	</div>
 <!-- 		<input type="submit" value="이미지 업로드" > -->
+	<div class="contentIndex">
+	<div class="submitLayout"></div>
 		<input id="signUPBt" type="submit" value="수정하기">
+	</div>
 	</form>
 	
 <!-- 	위에까지 작업하세요 -->
@@ -78,11 +87,14 @@
 	</div>
 	<!-- <div id="warp"> -->
 	<script>
-    window.onload = function() {
-        var contentIndex = document.querySelector('.contentIndex');
-        var contentText = document.querySelector('.contentText');
-        contentText.style.height = getComputedStyle(contentIndex).height;
-    }
+	window.onload = function() {
+	    var contentTexts = document.querySelectorAll('.contentText');
+	    var contentIndexes = document.querySelectorAll('.contentIndex');
+	    for (var i = 0; i < contentTexts.length; i++) {
+	        contentTexts[i].style.height = getComputedStyle(contentIndexes[i]).height;
+	    }
+	}
+
 </script>
 </body>
 </html>
