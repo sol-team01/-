@@ -30,3 +30,4 @@ function previewImage(event) {
     reader.readAsDataURL(input.files[0]);
 }
 
+
