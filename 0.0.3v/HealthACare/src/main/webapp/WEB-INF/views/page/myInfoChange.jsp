@@ -51,7 +51,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">닉네임</div>
-		${myInfo.getI_name()}<input name="I_name">
+		<input name="I_name" value="${myInfo.getI_name()}">
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
@@ -66,7 +66,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
-		<div class="contentPWLayout">
+		<div class="contentTEXTLayout">
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
 			<option value="1">질문을 넣어주세요</option>
 			<option value="2">질문을 넣어주세요2</option>
