@@ -35,7 +35,7 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage">
 	<div class="box">
-	${myInfo.getI_name()}
+	${login.i_name}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
 	</div>
 	</a>
