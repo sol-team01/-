@@ -26,32 +26,50 @@
 				</div>
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody">금융거래소 이용약관 개칭 안내</div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
+					<c:forEach var="list" items="${noticeList}">
+						<c:if test="${list.b_CATEGORY eq '공지사항'}">
+							<div class="noticeBox">
+								<div class="noticeHead">공지</div>
+								<div class="noticeBody">
+									<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+										${list.b_TITLE}
+									</a>
+								</div>
+							</div>
+						</c:if>
+					</c:forEach>
 				</div>
 				<c:forEach var="list" items="${search}">
-					<div class="boardList">
-						<div class="flexK">
-							<div class="listNumber">${list.b_NO}</div>
-							<div class="listContent">
-								<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
-									${list.b_TITLE}
-								</a>
+					<c:choose>
+						<c:when test="${list.b_CATEGORY eq '일반' || list.b_CATEGORY eq '질문' }">
+							<div class="boardList">
+								<div class="flexK">
+									<div class="listNumber">${list.b_NO}</div>
+									<div class="listContent">
+										<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+											${list.b_TITLE}
+										</a>
+									</div>
+									<div class="listWriter">${list.b_ID}</div>
+									<div class="listCategory">${list.b_CATEGORY}</div>
+								</div>
 							</div>
-							<div class="listWriter">${list.b_ID}</div>
-							<div class="listCategory">${list.b_CATEGORY}</div>
-						</div>
-					</div>
+						</c:when>
+						<c:when test="${list.b_CATEGORY eq '공지사항' }">
+							<div class="boardList">
+								<div class="flexK">
+									<div class="listNumber">공지사항</div>
+									<div class="listContent">
+										<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+											${list.b_TITLE}
+										</a>
+									</div>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 				<div class="titleBottomLineK"></div>
 				<!-- 				페이징 블럭 -->
@@ -103,6 +121,20 @@
 		writeBtn.addEventListener('click', function() {
 			window.location.href = '${cp}/board/writeBoard';
 		});
+		
+		document.addEventListener('DOMContentLoaded', function() {
+	        document.getElementById("searchForm").onsubmit = function() {
+	            var word = document.getElementsByName("word")[0].value.trim();
+	            var searchInfo = document.getElementById("searchInfo").value;
+
+	            // 검색어가 2글자 이상인지 확인하고 공백이 아닌지 검사
+	            if (word.length < 2 || /\s/.test(word)) {
+	                alert("검색어는 2글자 이상이어야 하며, 공백을 포함해서는 안됩니다.");
+	                return false; // 검색 취소
+	            }
+	            return true; // 검색 진행
+	        };
+	    });
 	</script>
 </body>
 </html>

@@ -34,7 +34,7 @@
 					${read.b_HIT}
 				</fieldset>
 				<c:choose>
-					<c:when test="${read.b_ID eq user.I_name}">
+					<c:when test="${read.u_NO eq user.u_no}">
 						<form action="${cp}/board/del">
 							<input type="hidden" name="b_NO" value="${read.b_NO}">
 							<input type="submit" value="글 삭제">
