@@ -68,7 +68,6 @@ public class SignController {
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
 			session.setAttribute("login", dto);
-			System.out.println(dto);
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
