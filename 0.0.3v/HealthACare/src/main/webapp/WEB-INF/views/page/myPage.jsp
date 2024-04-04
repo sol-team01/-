@@ -15,9 +15,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
 	integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<scr
-ipt
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>${login.getI_name()}님의페이지</title>
 </head>
 <body>
@@ -50,7 +48,7 @@ ipt
 								bmi: ???
 							</div>
 							<div id="infoRe">
-							<a href="${cp}/myInfo/myInfoChange" target="_blank"><button id="infoM">개인정보 수정</button></a>
+							<a href="${cp}/myInfo/myInfoChange" ><button id="infoM">개인정보 수정</button></a>
 							</div>
 						</div>
 					</div>
