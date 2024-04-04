@@ -33,5 +33,7 @@ public interface SignMapper {
 	//아이디 찾기
 	public String searchId(String I_email);
 	//비밀번호 찾기에 필요한 힌트 질문 찾기
-	public InfoDto searchFinding(@Param("U_id") String U_id, @Param("I_email") String I_email);
+	public InfoDto searchFinding(SignDto dto);
+	//비밀번호 힌트 작성한거 비교
+	public SignDto searchPwHint(SignDto dto);
 }
