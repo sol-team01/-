@@ -93,11 +93,13 @@ html, body {
 #container {
 	display: none; /* 처음에 숨김 처리 */
     align-items: center; /* 요소들을 세로 방향 가운데로 정렬합니다. */
+    width: 400px;
+    justify-content: space-between;
+    margin: auto;
 }
 
 #checkImage{ /* 체크 이미지 */
     width: 40px;
-   margin-left: 33px;
 }
 
 #userIdResult { /* 찾은 아이디 */
@@ -110,14 +112,10 @@ html, body {
    color: #4A4A4B;
    font-size: 15px;
    font-weight: bold;
-   text-align: left; /* 텍스트를 왼쪽으로 정렬합니다. */
-   margin-left: 30px;
 }
 .bText { /* 입니다 */
    flex: 1;
    color: #4A4A4B;
    font-size: 15px;
    font-weight: bold;
-   text-align: right; /* 텍스트를 오른쪽으로 정렬합니다. */
-   margin-right: 40px;
 }

@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
+<link rel="stylesheet" href="${cp}/resources/searchPw.css">
 </head>
 <body>
+
 <form action="${cp}/page/searchPw" method="post">
 <label for="securityQuestion" class="text3">비밀번호찾기 질문</label>
 	<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
@@ -16,7 +18,8 @@
 	</select>
 <label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
 <input id="I_hint" name="I_hint" type="text">
-<input id="signUPBt" type="submit" value="회원가입">
+<input id="signUPBt" type="submit" value="비밀번호 찾기">
 </form>
+
 </body>
 </html>
