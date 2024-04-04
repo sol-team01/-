@@ -90,11 +90,11 @@ select {
 }
 /**/
 /* 이미지 수정하기 */
-.myImg{
+.a{
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-/* 	border: 2px solid rgba(0, 0, 0, 0.3); */
+	border: 2px solid rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	display: flex;
 	justify-content: center; /* 수평 가운데 정렬 */

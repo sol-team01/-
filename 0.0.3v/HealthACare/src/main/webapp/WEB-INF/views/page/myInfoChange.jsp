@@ -34,7 +34,9 @@
 		<div class="contentPimgLayout">
 			<!-- 현제 나의 img파일이 저장됨 -->
 			<div class="contentPimgImgLayout">
+			<div class="a">
 				<div class="myImg"></div>
+			</div>
 				<div class="textBox">현재 프로필</div>	
 			</div>
 			<!--  바꾸고싶은 이미지 파일 임시 출력 -->
