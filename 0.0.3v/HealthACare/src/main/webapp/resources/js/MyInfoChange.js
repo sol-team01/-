@@ -4,10 +4,10 @@ $(document).ready(function(){
         method: "POST",
         success: function(response){
             var imageDataURI = 'data:image/jpeg;base64,' + response;
-            $('#myImg').html('<img src="' + imageDataURI + '" alt="Image">');
+            $('.myImg').html('<img src="' + imageDataURI + '" alt="Image">');
         },
         error: function(xhr, status, error) {
-          	$('#myImg').html('<img src="${cp}/resources/img/profile.jsp" alt="image">');
+          	$('.myImg').html('<img src="${cp}/resources/img/profile.jsp" alt="image">');
             
         }
     });

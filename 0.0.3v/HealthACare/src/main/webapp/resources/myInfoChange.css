@@ -23,19 +23,38 @@ input { /* input */
 	padding: 10px;
 	border: 1px solid #ddd;
 }
+select {
+	font-size: 18px;
+	border-radius: 3px;
+	width: 473px;
+	height:50.015px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	margin-bottom: 13px;
+}
+.text{
+	margin-bottom: 5px;
+}
 /**/
 /* 칸 나누기 프리셋 */
 .contentIndex{
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
-		padding: 10px 0px;
+		padding: 15px 0px;
 		height: auto; /* 변경된 부분 */
+		font-size: 23px;
 }
 .contentText{
 	width: 250px;
 	border-right: 2px solid rgba(0, 0, 0, 0.3);
-	font-size: 26px;
+	margin-right: 50px;
+    display: flex; /* 추가: flexbox 사용 */
+    justify-content: flex-start; /* 추가: 수평 가운데 정렬 */
+    align-items: center; /* 추가: 수직 가운데 정렬 */
+}
+.submitLayout{
+	width: 250px;
 	margin-right: 50px;
     display: flex; /* 추가: flexbox 사용 */
     justify-content: flex-start; /* 추가: 수평 가운데 정렬 */
@@ -65,13 +84,17 @@ input { /* input */
 	height: 30px;
 	font-size: 23px;
 }
+.contentTEXTLayout{
+	display: flex;
+	flex-direction: column;
+}
 /**/
 /* 이미지 수정하기 */
-#myImg {
+.myImg{
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	border: 2px solid rgba(0, 0, 0, 0.3);
+/* 	border: 2px solid rgba(0, 0, 0, 0.3); */
 	overflow: hidden;
 	display: flex;
 	justify-content: center; /* 수평 가운데 정렬 */

@@ -36,7 +36,7 @@
 	<a href="${cp}/page/myPage">
 	<div class="box">
 	${login.getI_name()}
-	<div  id="myImg"></div>
+	<div  class="myImg"></div>
 	</div>
 	</a>
 	</div>

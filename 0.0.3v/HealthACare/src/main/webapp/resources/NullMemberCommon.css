@@ -218,7 +218,8 @@ iframe {
 	height: 72px;
 	border-radius: 100%;
 	object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
-}
+	border: 0px;
+	}
 
 #top #user  .icon {
 	height: 60px;
