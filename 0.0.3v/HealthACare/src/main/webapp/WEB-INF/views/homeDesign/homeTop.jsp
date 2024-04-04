@@ -20,7 +20,7 @@
 	</div>
 	<div>
 	<c:choose>	
-    <c:when test="${empty U_no}">
+    <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
         	<div id="signupBox"> SIGN UP	</div>

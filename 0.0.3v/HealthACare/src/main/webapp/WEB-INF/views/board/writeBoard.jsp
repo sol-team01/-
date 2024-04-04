@@ -21,7 +21,7 @@
 			<div>
 				<h1>게시글 작성</h1>
 				<form action="${cp}/board/write" method="post">
-					<input type="hidden" id="id" name="b_ID" value="${bId}">
+					<input type="hidden" id="id" name="b_ID" value="${user.i_name}">
 					<label for="title">제목: </label>
 					<input type="text" width="400px" name="b_TITLE" required>
 					<label for="category">분류: </label>

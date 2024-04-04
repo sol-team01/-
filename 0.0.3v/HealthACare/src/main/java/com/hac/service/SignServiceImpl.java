@@ -92,14 +92,16 @@ public class SignServiceImpl implements SignService {
 
 	 //로그인
 	@Override
-	public SignDto signIn(String U_id, String U_pw) {
-	    SignDto user = signMapper.signIn(U_id, U_pw); // DB에서 사용자 정보를 가져옴
+	public InfoDto signIn(String U_id, String U_pw) {
+		// U_pw 는 user 정보 조회할때 참조하지않아 지움
+		SignDto user = signMapper.signIn(U_id); // DB에서 사용자 정보를 가져옴
 	    System.out.println(U_pw);
 	    System.out.println(user.getU_pw());
 	    
 	    if (user != null && encoder.matches(U_pw, user.getU_pw())) {
 	        // 비밀번호가 일치하면 로그인 성공
-	        return user;
+	    	// 인포dto 를 리턴하게 변경, U_no 로 조회
+	        return signMapper.userInfo(user.getU_no());
 	    }
 	    return null;
 	}

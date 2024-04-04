@@ -63,11 +63,12 @@ public class SignController {
 	//로그인
 	@PostMapping("/signIn")
 	public String signIn(HttpServletRequest request, @RequestParam("U_id") String U_id, @RequestParam("U_pw") String U_pw) {
-		SignDto dto = signservice.signIn(U_id, U_pw);
+		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
-			session.setAttribute("U_no", dto.getU_no());
+			session.setAttribute("login", dto);
+			System.out.println(dto);
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -85,7 +86,7 @@ public class SignController {
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
-	    session.removeAttribute("U_no");
+	    session.removeAttribute("login");
 	    return "redirect:/";
 	}
 	
@@ -148,11 +149,6 @@ public class SignController {
 	    
 	    return result;
 	}
-	
-	//비밀번호 찾기
-	@PostMapping
-	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
-	public String
 
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")
