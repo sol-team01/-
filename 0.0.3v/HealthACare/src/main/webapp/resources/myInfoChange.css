@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+body {
+	background-color: #d0f5ff;
+	margin: 0px;
+}
+
+.mainTitle {
+	font-size: 46px;
+	font-weight: 700;
+	margin-top: 5px;
+}
+
+hr {
+	opacity: 30%;
+}
+
+input { /* input */
+	font-size: 18px;
+	border-radius: 3px;
+	width: 450px;
+	height: 28px;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+select {
+	font-size: 18px;
+	border-radius: 3px;
+	width: 473px;
+	height:50.015px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	margin-bottom: 13px;
+}
+.text{
+	margin-bottom: 5px;
+}
+/**/
+/* 칸 나누기 프리셋 */
+.contentIndex{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 15px 0px;
+		height: auto; /* 변경된 부분 */
+		font-size: 23px;
+}
+.contentText{
+	width: 250px;
+	border-right: 2px solid rgba(0, 0, 0, 0.3);
+	margin-right: 50px;
+    display: flex; /* 추가: flexbox 사용 */
+    justify-content: flex-start; /* 추가: 수평 가운데 정렬 */
+    align-items: center; /* 추가: 수직 가운데 정렬 */
+}
+.submitLayout{
+	width: 250px;
+	margin-right: 50px;
+    display: flex; /* 추가: flexbox 사용 */
+    justify-content: flex-start; /* 추가: 수평 가운데 정렬 */
+    align-items: center; /* 추가: 수직 가운데 정렬 */
+}
+.contentPimgLayout{
+	display:flex;
+	justify-content: space-between;
+	width: 400px;
+	margin-bottom: 20px;
+}
+.contentPimgImgLayout{
+	width: 180px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	border-bottom: 0px;
+}
+.contentPimgImgLayout .textBox{
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+	font-size: 23px;
+}
+.contentTEXTLayout{
+	display: flex;
+	flex-direction: column;
+}
+/**/
+/* 이미지 수정하기 */
+.a{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	display: flex;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	object-fit: cover; /* 이미지를 요소에 맞게 자동 조절하여 채웁니다. */
+	margin: 10px 0px;
+}
+#preview{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	display: flex;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	object-fit: cover; /* 이미지를 요소에 맞게 자동 조절하여 채웁니다. */
+	margin: 10px 0px;
+}
+/**/
+#signUPBt { /* 회원가입 버튼 */
+	font-size: 18px;
+	color: #6c7079;
+	font-weight: bold;
+	width: 460px;
+	height: 45px;
+	cursor: pointer;
+	background-color: #C1E7FF;
+	border-radius: 3px;
+	margin: 10px;
+	border: none;
+}
+#signUPBt:hover { /* 로그인, 회원가입 버튼 클릭 시 */
+	background-color: #03BDFF;
+	color: #ffffff;
+	font-weight: bold;
+}

@@ -7,33 +7,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Display Image</title>
+<title>개인정보 수정</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="${cp}/resources/js/MyInfoChange.js"></script>
+<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="stylesheet" href="${cp}/resources/myInfoChange.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+	integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
-	<!-- 현제 나의 img파일이 저장됨 -->
-	<div id="myImg"></div>
-
-
-	<!--  바꾸고싶은 이미지 파일 임시 출력 -->
-	<div id="preview"></div>
-
-	<!--  이미지 파일 서버로 전송 -->
-	<form action="/myInfo/profile" enctype="multipart/form-data"	method="post">
-		<input type="file" name="imageFile" accept="image/*" onchange="previewImage(event)"><br>
-		${myInfo.getI_name()}<input name="I_name"><br>
-		${myInfo.getI_email()}<input name="I_email" onchange="previewImage(event)"><br> 
-		비밀번호찾기 질문 
+<body id="BG">
+<div id="warp">
+<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
+<div id="main">
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>	
+<!-- 아래부터 작업하세요 -->
+	<form   action="/myInfo/profile" enctype="multipart/form-data"	method="post">
+	<div class="mainTitle">나의 정보 수정하기</div>
+	<hr>
+	<div class="contentIndex">
+	<div class="contentText">프로필 이미지</div>
+	<div>
+		<div class="contentPimgLayout">
+			<!-- 현제 나의 img파일이 저장됨 -->
+			<div class="contentPimgImgLayout">
+			<div class="a">
+				<div class="myImg"></div>
+			</div>
+				<div class="textBox">현재 프로필</div>	
+			</div>
+			<!--  바꾸고싶은 이미지 파일 임시 출력 -->
+			<div class="contentPimgImgLayout">
+				<div id="preview"></div>
+				<div class="textBox">바뀐 프로필</div>	
+			</div>
+		</div>
+		<!--  이미지 파일 서버로 전송 -->
+		<input type="file" name="imageFile" accept="image/*" onchange="previewImage(event)">
+	</div>
+	</div>
+	<div class="contentIndex">
+	<div class="contentText">닉네임</div>
+		${myInfo.getI_name()}<input name="I_name">
+	</div>
+	<div class="contentIndex">
+	<div class="contentText">이메일</div>
+		<div class="contentTEXTLayout">
+		<a class="text">${myInfo.getI_email()}</a>
+		<input name="I_email" onchange="previewImage(event)">
+		</div>
+	</div>
+	<div class="contentIndex">
+	<div class="contentText">비밀번호 재설정</div>
+		비밀번호 찾기로 날아가기
+	</div>
+	<div class="contentIndex">
+	<div class="contentText">비밀번호 찾기 질의</div>
+		<div class="contentPWLayout">
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
 			<option value="1">질문을 넣어주세요</option>
 			<option value="2">질문을 넣어주세요2</option>
 			<option value="3">질문을 넣어주세요3</option>
-		</select> 
-		비밀번호찾기답 <input name="I_hint" onchange="previewImage(event)"><br>
-		<input type="submit" value="이미지 업로드">
+		</select>
+			<a class="text">정답 바꾸기</a>
+			<input name="I_hint" onchange="previewImage(event)">
+		</div> 
+	</div>
+<!-- 		<input type="submit" value="이미지 업로드" > -->
+	<div class="contentIndex">
+	<div class="submitLayout"></div>
+		<input id="signUPBt" type="submit" value="수정하기">
+	</div>
 	</form>
+	
+<!-- 	위에까지 작업하세요 -->
+		</div>
+		<!-- <div id="main"> -->
+	</div>
+	<!-- <div id="warp"> -->
+	<script>
+	window.onload = function() {
+	    var contentTexts = document.querySelectorAll('.contentText');
+	    var contentIndexes = document.querySelectorAll('.contentIndex');
+	    for (var i = 0; i < contentTexts.length; i++) {
+	        contentTexts[i].style.height = getComputedStyle(contentIndexes[i]).height;
+	    }
+	}
 
-
+</script>
 </body>
 </html>

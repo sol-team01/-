@@ -68,7 +68,6 @@ public class SignController {
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
 			session.setAttribute("login", dto);
-			System.out.println(dto);
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -166,10 +165,6 @@ public class SignController {
 		}
 		return null;
 	}
-//	//비밀번호 찾기
-//	@PostMapping
-//	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
-//	public String
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")
 	public String searchId() {

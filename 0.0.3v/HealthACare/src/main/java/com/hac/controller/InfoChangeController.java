@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hac.dto.searchDto.MyPageDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
@@ -30,6 +31,7 @@ public class InfoChangeController {
 	@Setter(onMethod_ = @Autowired)
 	private MyPageService service;
 
+	
 	String mag;
 
 	// 이건 추후에 수정해야함
@@ -38,7 +40,7 @@ public class InfoChangeController {
 		System.out.println("화면진입");
 		HttpSession session = request.getSession();
 
-		dto.setU_no((String) session.getAttribute("U_no"));
+		dto.setU_no(((InfoDto) session.getAttribute("login")).getU_no());
 
 		// 저장되어있는 기본 정보 출력
 		model.addAttribute("myInfo", service.myProfile(dto));
@@ -51,7 +53,7 @@ public class InfoChangeController {
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 
-		dto.setU_no((String) session.getAttribute("U_no"));
+		dto.setU_no(((InfoDto) session.getAttribute("login")).getU_no());
 		// 이미지 변환후 저장
 		// 이미지 파일 선택되있을때 구분
 		if (file != null && !file.isEmpty()) {
@@ -66,7 +68,7 @@ public class InfoChangeController {
 				e.printStackTrace();
 			}
 		}
-		if(dto.getI_name() != null) {
+		if(dto.getI_name() != null && dto.getI_name().length() > 0) {
 			service.nameChange(dto);
 		}
 		if(dto.getI_email() != null) {
@@ -76,6 +78,7 @@ public class InfoChangeController {
 			service.pwFindingChange(dto);	
 		}
 		System.out.println("쿠쿠루삥뽕");
+		session.setAttribute("login",service.getInfoDto(dto.getU_no()));
 		return "redirect:/myInfo/myInfoChange";
 	}
 
