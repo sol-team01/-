@@ -70,7 +70,6 @@ public class SignController {
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if (dto != null) {
 			session.setAttribute("login", dto);
-			System.out.println(dto);
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -165,8 +164,12 @@ public class SignController {
 			return "/page/searchPw";
 		}
 	}
+<<<<<<< HEAD
 
 	// 아이디 찾기 jsp 진입
+=======
+	//아이디 찾기 jsp 진입
+>>>>>>> 48f92db2e2b90f8f130741562e9d6d074e1f3986
 	@GetMapping("/searchIdPw")
 	public String searchId() {
 		System.out.println("아이디 찾기 진입");
