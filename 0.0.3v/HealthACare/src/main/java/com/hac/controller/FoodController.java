@@ -160,6 +160,19 @@ public class FoodController {
 		}
 		
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
+>>>>>>> 41af2e85d843b3336ed1f58b6fdc39de21628f6a
+>>>>>>> f8edeb3f84edd505f84b8a146ed8503f8898fa3b
+>>>>>>> cea81eba18172bd6fdfe6ffdd3f6ed7eedf5d0a6
 		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
 	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
 	    public void favicon(HttpServletResponse response) {
@@ -167,4 +180,21 @@ public class FoodController {
 	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 	    }
 }
+=======
+<<<<<<< HEAD
+}
+=======
+<<<<<<< HEAD
+}
 
+<<<<<<< HEAD
+=======
+    
+      
+
+=======
+}
+>>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
+>>>>>>> 41af2e85d843b3336ed1f58b6fdc39de21628f6a
+>>>>>>> f8edeb3f84edd505f84b8a146ed8503f8898fa3b
+>>>>>>> cea81eba18172bd6fdfe6ffdd3f6ed7eedf5d0a6

@@ -44,6 +44,10 @@
 	<select id = "signIn" resultType="com.hac.dto.searchDto.SignDto">
 	    SELECT * FROM user WHERE U_id = #{U_id}
  	</select>
+ 	<!-- userInfo 를 U_no 로 조회하는 xml -->
+ 	<select id = "userInfo" resultType="com.hac.dto.userDto.InfoDto">
+ 		SELECT * FROM info WHERE U_no = #{U_no}
+ 	</select>
 
 	<!-- 아이디 찾기 -->
 	<select id="searchId" resultType="String"  parameterType="com.hac.dto.searchDto.SignDto">

@@ -1,7 +1,5 @@
 package com.hac.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
+import com.hac.dto.searchDto.SignDto;
 import com.hac.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -28,11 +27,12 @@ public class BoardController {
 
 	@GetMapping("/noticeBoard")
 	public void BoardList(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model m, HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		BoardSDto dtos = new BoardSDto();
 		System.out.println("..................BoardList 진입");
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		SignDto user = (SignDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 		m.addAttribute("list", service.getList(currentPage));
 		m.addAttribute("totalContent", service.totalContent());
 		m.addAttribute("paging", service.pageBlock(currentPage, dtos));
@@ -70,8 +70,8 @@ public class BoardController {
 	public void writeBoard(HttpServletRequest request, Model m) {
 		System.out.println("..................writeBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		SignDto user = (SignDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 	}
 	
 	@PostMapping("/write")
@@ -89,8 +89,8 @@ public class BoardController {
 	public void read(@RequestParam("b_NO") long bno, Model m,HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		SignDto user = (SignDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(bno));
 		service.hit(bno);
 	}
@@ -99,8 +99,8 @@ public class BoardController {
 	public void modifyBoard(@RequestParam("b_NO") long b_NO, Model m,HttpServletRequest request) {
 		System.out.println("..................modifyBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		SignDto user = (SignDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(b_NO));
 	}
 	
