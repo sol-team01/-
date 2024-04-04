@@ -57,7 +57,8 @@
 			<td> 열량 </td>
 			<td> 버튼 </td>
 		</tr>
-		
+		<tr>
+		</tr>		
 		</table>
 	</div>
 	<button id="clearSessionButton">세션 클리어</button>
