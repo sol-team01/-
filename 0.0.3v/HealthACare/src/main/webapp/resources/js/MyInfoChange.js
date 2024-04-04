@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url: "/RestsController/ImgEncoding",
+        url: "/RestsController/myImgEncoding",
         method: "POST",
         success: function(response){
             var imageDataURI = 'data:image/jpeg;base64,' + response;

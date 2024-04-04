@@ -21,5 +21,7 @@ public interface MyPageService {
 	public void profileImgChange(MyPageDto dto);
 
 	public byte[] getByteImg(String U_no);
+	
+	public InfoDto getInfoDto(String U_no);
 
 }
