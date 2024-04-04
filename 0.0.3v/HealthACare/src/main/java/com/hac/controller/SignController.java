@@ -155,10 +155,28 @@ public class SignController {
 	    return result;
 	}
 	
+<<<<<<< HEAD
+	//비밀번호 찾기
+	@PostMapping("/searchPw")
+	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+	public String searchPw(HttpServletRequest request, Model model,
+			@RequestParam("U_id") String U_id, @RequestParam("I_email") String I_email,
+			SignDto signDto, InfoDto infoDto) {
+		try {
+			signDto.setU_id(U_id);
+			infoDto.setI_email(I_email);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+=======
 //	//비밀번호 찾기
 //	@PostMapping
 //	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
 //	public String
+>>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
 
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")
