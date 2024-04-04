@@ -71,6 +71,7 @@ public class SignController {
 			user.setU_no(dto.getU_no());
 			user.setI_name(dto.getI_name());
 			user.setU_id(dto.getU_id());
+			session.setAttribute("U_no", dto.getU_no());
 			session.setAttribute("login", user);
 			System.out.println("로그인 성공");
 			return "redirect:/";
@@ -90,6 +91,7 @@ public class SignController {
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
 	    session.removeAttribute("login");
+	    session.removeAttribute("U_no");
 	    return "redirect:/";
 	}
 	
