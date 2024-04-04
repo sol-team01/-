@@ -23,4 +23,5 @@ public interface SignService {
 	
 	public String searchId(String I_email);
 	
+	public InfoDto searchFinding(String U_id, String I_email);
 }

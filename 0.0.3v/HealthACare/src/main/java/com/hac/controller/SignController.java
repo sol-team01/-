@@ -67,8 +67,17 @@ public class SignController {
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
+<<<<<<< HEAD
 			session.setAttribute("login", dto);
 			System.out.println(dto);
+=======
+			SignDto user = new SignDto();
+			user.setU_no(dto.getU_no());
+			user.setI_name(dto.getI_name());
+			user.setU_id(dto.getU_id());
+			session.setAttribute("U_no", dto.getU_no());
+			session.setAttribute("login", user);
+>>>>>>> 41af2e85d843b3336ed1f58b6fdc39de21628f6a
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -87,6 +96,10 @@ public class SignController {
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
 	    session.removeAttribute("login");
+<<<<<<< HEAD
+=======
+	    session.removeAttribute("U_no");
+>>>>>>> 41af2e85d843b3336ed1f58b6fdc39de21628f6a
 	    return "redirect:/";
 	}
 	
@@ -149,6 +162,32 @@ public class SignController {
 	    
 	    return result;
 	}
+<<<<<<< HEAD
+=======
+	
+<<<<<<< HEAD
+	//비밀번호 찾기
+	@PostMapping("/searchPw")
+	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+	public String searchPw(HttpServletRequest request, Model model,
+			@RequestParam("U_id") String U_id, @RequestParam("I_email") String I_email,
+			SignDto signDto, InfoDto infoDto) {
+		try {
+			signDto.setU_id(U_id);
+			infoDto.setI_email(I_email);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+=======
+//	//비밀번호 찾기
+//	@PostMapping
+//	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+//	public String
+>>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
+>>>>>>> 41af2e85d843b3336ed1f58b6fdc39de21628f6a
 
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")

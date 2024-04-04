@@ -125,4 +125,17 @@ public class SignServiceImpl implements SignService {
 	public String searchId(String I_email) {
 		return signMapper.searchId(I_email);
 	}
+	
+	//비밀번호 찾기위해 필요한 힌트 건져 오는 함수
+	@Override
+	public InfoDto searchFinding(String U_id, String I_email) {
+		InfoDto pwFinding = signMapper.searchFinding(U_id, I_email);
+		System.out.println("U_id: "+U_id);
+		System.out.println("I_email: "+I_email);
+		if(pwFinding != null) {
+			//일치하는 힌트가 존재한다면 찾은 힌트 번호 출력
+			return pwFinding;
+		}
+		return null;
+	}
 }
