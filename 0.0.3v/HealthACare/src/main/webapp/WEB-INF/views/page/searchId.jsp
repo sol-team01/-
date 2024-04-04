@@ -36,12 +36,12 @@
 		</form>
 		
 	<label id="jotest">
-		고객님의 아이디는
 		<div id="container">
-		<img src="${cp}/resources/img/checkBox.png" id="checkImage">
-		<span id="userIdResult">아이디dhkddddddd</span>
-		</div>
-		 입니다.
+		<a class="aText">고객님의 아이디는</a>
+		<img src="" id="checkImage">
+		<span id="userIdResult"></span>
+		<a class="bText">입니다.</a>
+		</div><!-- container -->
 	</label>
 		</div><!-- inBox -->
 	
@@ -103,6 +103,7 @@
 		                if (data) {
 		                	$("#checkImage").attr("src", "${cp}/resources/img/checkBox.png"); // 이미지를 표시
 		                    $("#userIdResult").text(data); // 찾은 아이디를 결과 영역에 표시
+		                    $("#container").show(); // container 영역을 보이도록 함
 		                } else {
 		                    alert('아이디를 찾을 수 없습니다.');
 		                }
