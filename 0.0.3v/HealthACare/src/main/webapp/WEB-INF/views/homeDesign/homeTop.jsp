@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="${cp}/resources/js/ImgEncoding.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -20,7 +21,7 @@
 	</div>
 	<div>
 	<c:choose>	
-    <c:when test="${empty U_no}">
+    <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
         	<div id="signupBox"> SIGN UP	</div>
