@@ -63,15 +63,12 @@ public class SignController {
 	//로그인
 	@PostMapping("/signIn")
 	public String signIn(HttpServletRequest request, @RequestParam("U_id") String U_id, @RequestParam("U_pw") String U_pw) {
-		SignDto dto = signservice.signIn(U_id, U_pw);
+		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
 		if(dto != null) {
-			SignDto user = new SignDto();
-			user.setU_no(dto.getU_no());
-			user.setI_name(dto.getI_name());
-			user.setU_id(dto.getU_id());
-			session.setAttribute("login", user);
+			session.setAttribute("login", dto);
+			System.out.println(dto);
 			System.out.println("로그인 성공");
 			return "redirect:/";
 		} else {
@@ -90,6 +87,7 @@ public class SignController {
 	public String logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession();
 	    session.removeAttribute("login");
+	    session.removeAttribute("U_no");
 	    return "redirect:/";
 	}
 	
