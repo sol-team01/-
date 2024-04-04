@@ -37,10 +37,9 @@ public class RestsController {
 	
 	@PostMapping("/myImgEncoding")
 	public ResponseEntity<String> imgEncoding(InfoDto dto) {
-		byte[] imageData = dto.getI_profileImg();
 		
 		// byte 배열을 Base64로 인코딩
-		String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+		String base64Image = java.util.Base64.getEncoder().encodeToString(dto.getI_profileImg());
 		// 인코딩된 이미지 데이터를 클라이언트에게 반환
 		return ResponseEntity.ok().body(base64Image);
 		
