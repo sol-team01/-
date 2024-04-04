@@ -17,11 +17,11 @@
 <div class="textbox">
 <a class="text">아이디</a> 
 <input id="idInput" type="text" maxlength="20" name="U_id" placeholder="아이디를 입력해주세요">
-</div>
+</div><!-- textbox -->
 <div class="textbox">
 <a class="text">비밀번호 </a>
 <input id="pwInput" type="password" maxlength="20" name="U_pw" placeholder="패스워드를 입력해주세요">
-</div>
+</div><!-- textbox -->
 <input id="loginBt" type="submit" name="signIn" value="로그인">
 </form>
 <a href="${cp}/page/signUp"><button id="signUPBt">회원가입</button></a>

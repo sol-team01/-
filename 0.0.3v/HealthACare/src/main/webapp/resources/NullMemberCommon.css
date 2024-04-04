@@ -207,7 +207,8 @@ iframe {
 }
 
 #top #user .box {
-	width: 200px;
+	min-width: 200px;
+	max-width:1000px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -218,7 +219,7 @@ iframe {
 	height: 72px;
 	border-radius: 100%;
 	object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
-	border: 0px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
 	}
 
 #top #user  .icon {

@@ -34,7 +34,9 @@
 		<div class="contentPimgLayout">
 			<!-- 현제 나의 img파일이 저장됨 -->
 			<div class="contentPimgImgLayout">
+			<div class="a">
 				<div class="myImg"></div>
+			</div>
 				<div class="textBox">현재 프로필</div>	
 			</div>
 			<!--  바꾸고싶은 이미지 파일 임시 출력 -->
@@ -49,7 +51,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">닉네임</div>
-		${myInfo.getI_name()}<input name="I_name">
+		<input name="I_name" value="${myInfo.getI_name()}">
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
@@ -64,7 +66,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
-		<div class="contentPWLayout">
+		<div class="contentTEXTLayout">
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
 			<option value="1">질문을 넣어주세요</option>
 			<option value="2">질문을 넣어주세요2</option>
