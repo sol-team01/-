@@ -149,9 +149,15 @@ public class SignController {
 	    return result;
 	}
 	
+<<<<<<< HEAD
 	//비밀번호 찾기
 	@PostMapping
 	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+=======
+//	//비밀번호 찾기
+//	@PostMapping
+//	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+>>>>>>> d096e665aaeeb31c73139bf6d745a3754de9e2b0
 //	public String
 
 	//아이디 찾기 jsp 진입
