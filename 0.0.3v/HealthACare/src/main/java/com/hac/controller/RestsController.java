@@ -21,7 +21,7 @@ public class RestsController {
 	@Setter(onMethod_ = @Autowired)
 	private MyPageService service;
 
-	@PostMapping("/ImgEncoding")
+	@PostMapping("/ImgEncodming")
 	public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
