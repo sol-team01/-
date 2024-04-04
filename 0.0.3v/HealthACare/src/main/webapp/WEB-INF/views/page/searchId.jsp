@@ -9,12 +9,18 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="${cp}/resources/searchId.css">
 </head>
 <body>
-	<div>
+	<div id="searchIdBox">
+		<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
+		<div id="inBox">
+		<a class="idText">아이디 찾기</a>
+	
 		<form id=findUserIdForm action="${cp}/page/searchId" method="post">
+			<div class="binBox">
 			<input class="ebox" id="email" name="email" type="text" /> 
-			<a class="text4"><span id="middle">@</span></a> 
+			<a class="text"><span id="middle">@</span></a> 
 			<input class="ebox" id="domain-txt" type="text" /> 
 			<select class="ebox" id="domain-list">
 				<option value="naver.com">naver.com</option>
@@ -23,12 +29,23 @@
 				<option value="nate.com">nate.com</option>
 				<option value="kakao.com">kakao.com</option>
 			</select>
+			</div><!-- binBox -->
 			<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
 			<input type="hidden" id="totalemail" name="I_email" value="">
-			<input id="SearchBt" type="submit" name="searchId" value="찾기">
+			<input id="SearchBt" type="submit" name="searchId" value="아이디 찾기">
 		</form>
-	</div>
-	<label id="jotest">찾은 아이디: <span id="userIdResult"></span></label>
+		
+	<label id="jotest">
+		고객님의 아이디는
+		<div id="container">
+		<img src="${cp}/resources/img/checkBox.png" id="checkImage">
+		<span id="userIdResult">아이디dhkddddddd</span>
+		</div>
+		 입니다.
+	</label>
+		</div><!-- inBox -->
+	
+	</div><!-- searchIdBox -->
 	<script>
 	 // 도메인 직접 입력 or domain option 선택 
 	const domainListEl = document.querySelector('#domain-list');
@@ -84,6 +101,7 @@
 		            data: formData,
 		            success: function(data) {
 		                if (data) {
+		                	$("#checkImage").attr("src", "${cp}/resources/img/checkBox.png"); // 이미지를 표시
 		                    $("#userIdResult").text(data); // 찾은 아이디를 결과 영역에 표시
 		                } else {
 		                    alert('아이디를 찾을 수 없습니다.');
