@@ -20,7 +20,7 @@
 	</div>
 	<div>
 	<c:choose>	
-    <c:when test="${empty login}">
+    <c:when test="${empty U_no}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
         	<div id="signupBox"> SIGN UP	</div>
@@ -34,7 +34,7 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage">
 	<div class="box">
-	${login}
+	${myInfo.getI_name()}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
 	</div>
 	</a>

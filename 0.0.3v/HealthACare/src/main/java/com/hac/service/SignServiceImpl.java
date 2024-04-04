@@ -75,15 +75,13 @@ public class SignServiceImpl implements SignService {
 	}
 	
 	@Override
-	public String signUpInfo(InfoDto dto) {
+	public void signUpInfo(InfoDto dto) {
 		signMapper.signUpInfo(dto);
-		return "redirect:/page/login";
 	}
 
 	@Override
-	public String signUpPhy(PhysicalDto dto) {
+	public void signUpPhy(PhysicalDto dto) {
 		signMapper.signUpPhy(dto);
-		return "redirect:/page/login";
 	}
 
 	// 암호화 확인해주는 함수
@@ -118,5 +116,11 @@ public class SignServiceImpl implements SignService {
 	public boolean selectName(String I_name) {
 		System.out.println("아이디중복체크"+" "+I_name);
 		return signMapper.selectName(I_name);
+	}
+	
+	//아이디 찾기
+	@Override
+	public String searchId(String I_email) {
+		return signMapper.searchId(I_email);
 	}
 }
