@@ -18,7 +18,7 @@
 <scr
 ipt
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>${login}님의페이지</title>
+<title>${login.getI_name()}님의페이지</title>
 </head>
 <body>
 <div id="warp">
@@ -32,7 +32,7 @@ ipt
 				<div id="myProfile">
 					<div id="myInfo">
 						<div id="infoName">
-							${login} 님! 어서오세요.
+							${login.getI_name()} 님! 어서오세요.
 						</div>
 						<div id="log">
 							<div id="infolog"  class="info">
@@ -50,7 +50,7 @@ ipt
 								bmi: ???
 							</div>
 							<div id="infoRe">
-							<a href="${cp}/myInfo/myInfoChange"><button id="infoM">개인정보 수정</button></a>
+							<a href="${cp}/myInfo/myInfoChange" target="_blank"><button id="infoM">개인정보 수정</button></a>
 							</div>
 						</div>
 					</div>
@@ -112,7 +112,7 @@ ipt
 							</div>
 							<div id="woo">
 								<div id="chartText">
-									${myLogin} 님의 체중변화 그래프
+									${login.getI_name()} 님의 체중변화 그래프
 								</div>
 								<div id="chartList">
 									<select id="graphSelect">
