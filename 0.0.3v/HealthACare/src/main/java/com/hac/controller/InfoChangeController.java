@@ -79,13 +79,5 @@ public class InfoChangeController {
 		return "redirect:/myInfo/myInfoChange";
 	}
 
-	
-	
-	@PostMapping("/fixInfo")
-	public String myProfileInfoUpdate(MyPageDto dto,HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		dto.setU_no((String) session.getAttribute("U_no"));
 
-		return "myInfo/myInfoChange";
-	}
 }

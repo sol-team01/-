@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
@@ -30,10 +30,19 @@ public class RestsController {
 
 		// byte 배열을 Base64로 인코딩
 		String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
-
 		// 인코딩된 이미지 데이터를 클라이언트에게 반환
 		return ResponseEntity.ok().body(base64Image);
 
+	}
+	
+	@PostMapping("/myImgEncoding")
+	public ResponseEntity<String> imgEncoding(InfoDto dto) {
+		
+		// byte 배열을 Base64로 인코딩
+		String base64Image = java.util.Base64.getEncoder().encodeToString(dto.getI_profileImg());
+		// 인코딩된 이미지 데이터를 클라이언트에게 반환
+		return ResponseEntity.ok().body(base64Image);
+		
 	}
 
 }

@@ -128,11 +128,8 @@
 					<br>
 					<br>
 					<label for="content">내용: </label>
-<<<<<<< HEAD
 					<textarea rows="5" cols="40" id="content" name="b_TEXT" required>${read.b_TEXT}</textarea>
-=======
 					<textarea rows="5" cols="40" id="content" name="b_TEXT"  required>${read.b_TEXT}</textarea>
->>>>>>> 295020fb9567452ce94731ceba0882f84ee8711c
 					<input type="submit" value="수정하기">
 				</form>
 			</div>

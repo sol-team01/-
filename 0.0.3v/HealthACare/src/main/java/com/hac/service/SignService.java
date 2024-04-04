@@ -11,7 +11,7 @@ public interface SignService {
 	
 	public ArrayList<SignDto> loginList();
 	
-	public SignDto signIn(String U_id, String U_pw);
+	public InfoDto signIn(String U_id, String U_pw);
 	
 	public boolean selectId(String U_id);
 	
@@ -23,4 +23,5 @@ public interface SignService {
 	
 	public String searchId(String I_email);
 	
+	public InfoDto searchFinding(String U_id, String I_email);
 }
