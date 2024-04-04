@@ -125,7 +125,7 @@ public class FoodController {
 			HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 
 		    // 세션에 로그인 정보가 없으면 로그인 페이지로 리다이렉트
-		    if (session == null || session.getAttribute("login") == null) {
+		    if (session == null || session.getAttribute("U_no") == null) {
 		    	
 		        return "redirect:/page/login";
 		    }
@@ -160,6 +160,9 @@ public class FoodController {
 		}
 		
 <<<<<<< HEAD
+=======
+
+>>>>>>> 12e3d7248affddd4ce432da58166fb8364d18fee
 		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
 	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
 	    public void favicon(HttpServletResponse response) {
@@ -167,8 +170,10 @@ public class FoodController {
 	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 	    }
 }
-=======
+<<<<<<< HEAD
     
       
-}
->>>>>>> 518b0a07e3cbf3cef3d25a063b4180d767e39016
+=======
+
+
+>>>>>>> 12e3d7248affddd4ce432da58166fb8364d18fee
