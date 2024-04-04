@@ -6,11 +6,13 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
@@ -56,6 +58,7 @@ public class FoodController {
 			 
 		}
 		
+		// 식품정보 세부 리스트 보기
 		@RequestMapping("/detailList")
 		public void detailList(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) {
 //			//인코딩 인증키	
@@ -85,6 +88,7 @@ public class FoodController {
 			 model.addAttribute("food", food);  
 		}
 		
+		// 식품정보
 		@RequestMapping("/information")
 		public void information(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) {
 //			//인코딩 인증키	
@@ -118,12 +122,10 @@ public class FoodController {
 		@RequestMapping("/calorieCounting")
 		public String calorieCounting(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model, HttpServletRequest request) {
 			
-			log.info("====여기까진 들어오긴 하나?==== : ");							
 			HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 
 		    // 세션에 로그인 정보가 없으면 로그인 페이지로 리다이렉트
 		    if (session == null || session.getAttribute("login") == null) {
-		    	log.info("====여기까진 들어오긴 하나?2222222222==== : ");							
 		    	
 		        return "redirect:/page/login";
 		    }
@@ -157,6 +159,16 @@ public class FoodController {
 			 return "/food/calorieCounting";
 		}
 		
+<<<<<<< HEAD
+		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
+	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
+	    public void favicon(HttpServletResponse response) {
+	        // favicon 요청에 대한 응답을 404로 설정하여 무시합니다.
+	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+	    }
+}
+=======
     
       
 }
+>>>>>>> 518b0a07e3cbf3cef3d25a063b4180d767e39016

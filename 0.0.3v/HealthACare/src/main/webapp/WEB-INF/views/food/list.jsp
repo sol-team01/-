@@ -11,7 +11,7 @@
 <body>
 <a>리스트에 없는 것이 궁금하다면 검색해 주세요</a>
 <form action="${cp}/food/information">
-<input type="text" name=desc_kor autocomplete="off" placeholder="검색어를 입력하세요">
+ <input type="text" name=desc_kor autocomplete="off" placeholder="검색어를 입력하세요">
 </form>
 <div><a href="${cp}/food/detailList?category=nuts">견과류</a></div>
 <div><a href="${cp}/food/detailList?category=meat">고기(육류)</a></div>
