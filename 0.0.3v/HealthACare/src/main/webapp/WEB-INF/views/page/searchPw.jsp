@@ -7,8 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
+<link rel="stylesheet" href="${cp}/resources/searchPw.css">
 </head>
 <body>
+<<<<<<< HEAD
+
+<form action="${cp}/page/searchPw" method="post">
+<label for="securityQuestion" class="text3">비밀번호찾기 질문</label>
+	<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
+		<option value="1">질문을 넣어주세요</option>
+		<option value="2">질문을 넣어주세요2</option>
+		<option value="3">질문을 넣어주세요3</option>
+	</select>
+<label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
+<input id="I_hint" name="I_hint" type="text">
+<input id="signUPBt" type="submit" value="비밀번호 찾기">
+</form>
+
+=======
 <div>
 <form action="${cp}/page/searchPw" method="post" name="PwSearch">
 <a>아이디</a>
@@ -16,5 +32,6 @@
 <input id="signUPBt" type="submit" value="비밀번호 찾기">
 </form>
 </div>
+>>>>>>> 09d31b2f3188273d428aebe404a85d5333c4c1bd
 </body>
 </html>

@@ -35,7 +35,10 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage">
 	<div class="box">
+<<<<<<< HEAD
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
+=======
+>>>>>>> 9d8e434c15940a4733488c51b2c712f12e131882
 	${login.getI_name()}
 	<div  class="myImg"></div>
 	</div>

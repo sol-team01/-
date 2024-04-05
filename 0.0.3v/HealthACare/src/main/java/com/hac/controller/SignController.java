@@ -1,7 +1,6 @@
 package com.hac.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -138,6 +137,7 @@ public class SignController {
 	@PostMapping("/searchId")
 	@ResponseBody
 	public String searchId(@RequestParam("I_email") String I_email) {
+<<<<<<< HEAD
 		String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
 		String result;
 		if (userId != null) {
@@ -167,6 +167,67 @@ public class SignController {
 	}
 
 	// 아이디 찾기 jsp 진입
+=======
+	    String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
+	    String result;
+	    if (userId != null) {
+	    	System.out.println("아이디 잘 찾았어?" + " " + userId);
+	        result = userId;
+	    } else {
+	        result = "";
+	    } // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
+	    
+	    return result;
+	}
+	
+	//비밀번호 찾기
+	@PostMapping("/searchPw")
+	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+//	public String
+	public String searchPw(HttpServletRequest request, Model model,
+			@RequestParam("U_id") String U_id, @RequestParam("I_email") String I_email,
+			SignDto signDto, InfoDto infoDto) {
+		try {
+			signDto.setU_id(U_id);
+			infoDto.setI_email(I_email);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+//	//비밀번호 찾기
+//	@PostMapping
+//	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
+//	public String
+//		String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
+//		String result;
+//		if (userId != null) {
+//			System.out.println("아이디 잘 찾았어?" + " " + userId);
+//			result = userId;
+//		} else {
+//			result = "";
+//		} // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
+//
+//		return result;
+//	}
+
+//	// 비밀번호 찾기 질문 가져오기
+//	@PostMapping("/searchPw")
+//	public String searchPw(SignDto dto, Model model) {
+//		System.out.println(dto);
+//		InfoDto pwFinding = signservice.searchFinding(dto);
+//		if (pwFinding != null) {
+//			System.out.println("pwFinding: " + pwFinding);
+//			model.addAttribute("pwFinding", pwFinding);
+//			return "/page/searchPwHint"; // 뷰 이름 반환
+//		} else {
+//			System.out.println("일치하는 아이디가 없다. " + pwFinding);
+//			return "/page/searchPw";
+//		}
+//	}
+	//아이디 찾기 jsp 진입
+>>>>>>> 9d8e434c15940a4733488c51b2c712f12e131882
 	@GetMapping("/searchIdPw")
 	public String searchId() {
 		System.out.println("아이디 찾기 진입");
