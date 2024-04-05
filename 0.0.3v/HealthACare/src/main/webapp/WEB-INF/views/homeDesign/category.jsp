@@ -19,7 +19,7 @@
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
-    <div><a href="${cp}/page/login">운동 하는 방법</a></div>
+    <div><a href="${cp}/sports/howtoSports">운동 하는 방법</a></div>
     <div>오늘 운동 완료</div>
     <div>이벤트</div>
   </div>
