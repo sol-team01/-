@@ -36,5 +36,15 @@
 	</div><!-- inBox -->
 </div><!-- searchPwBox -->
 
+<<<<<<< HEAD
+=======
+<div>
+<form action="${cp}/page/searchPw" method="post" name="PwSearch">
+<a>아이디</a>
+<input type="text" maxlength="20" name="U_id">
+<input id="signUPBt" type="submit" value="비밀번호 찾기">
+</form>
+</div>
+>>>>>>> 35f4434f6e514abfa2c8b0f61da52787f24d7e01
 </body>
 </html>

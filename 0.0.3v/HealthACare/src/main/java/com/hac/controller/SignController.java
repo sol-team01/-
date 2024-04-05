@@ -133,6 +133,7 @@ public class SignController {
       return new ResponseEntity<>(result, HttpStatus.OK);
    }
 
+<<<<<<< HEAD
    // 아이디 찾기
    @PostMapping("/searchId")
    @ResponseBody
@@ -148,8 +149,39 @@ public class SignController {
 
       return result;
    }
+=======
+	// 아이디 찾기
+	@PostMapping("/searchId")
+	@ResponseBody
+	public String searchId(@RequestParam("I_email") String I_email) {
+		String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
+		String result;
+		if (userId != null) {
+			System.out.println("아이디 잘 찾았어?" + " " + userId);
+			result = userId;
+		} else {
+			result = "";
+		} // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
+		return result;
+	}
+>>>>>>> 35f4434f6e514abfa2c8b0f61da52787f24d7e01
 
+   // 비밀번호 찾기 질문 가져오기
+   @PostMapping("/searchPw")
+   public String searchPw(SignDto dto, Model model) {
+      System.out.println(dto);
+      InfoDto pwFinding = signservice.searchFinding(dto);
+      if (pwFinding != null) {
+         System.out.println("pwFinding: " + pwFinding);
+         model.addAttribute("pwFinding", pwFinding);
+         return "/page/searchPwHint"; // 뷰 이름 반환
+      } else {
+         System.out.println("일치하는 아이디가 없다. " + pwFinding);
+         return "/page/searchPw";
+      }
+   }
 
+<<<<<<< HEAD
    // 비밀번호 찾기 질문 가져오기
    @PostMapping("/searchPw")
    public String searchPw(SignDto dto, Model model) {
@@ -179,6 +211,22 @@ public class SignController {
       return "/page/searchPw";
    }
 
+=======
+	//아이디 찾기 jsp 진입
+	@GetMapping("/searchIdPw")
+	public String searchId() {
+		System.out.println("아이디 찾기 진입");
+		return "/page/searchId";
+	}
+
+   // 비밀번호 찾기 jsp 진입
+   @GetMapping("/searchPwId")
+   public String searchPw() {
+      System.out.println("비밀번호 찾기 진입");
+      return "/page/searchPw";
+   }
+
+>>>>>>> 35f4434f6e514abfa2c8b0f61da52787f24d7e01
    // 비밀번호 힌트 비교
    @PostMapping("/searchHint")
    public String searchHint(SignDto dto, Model model) {
@@ -192,6 +240,11 @@ public class SignController {
          System.out.println("힌트가 잘못됨 " + hint);
          return "/page/searchPwHint";
       }
+<<<<<<< HEAD
    } 
 		   
+=======
+   }
+
+>>>>>>> 35f4434f6e514abfa2c8b0f61da52787f24d7e01
 }

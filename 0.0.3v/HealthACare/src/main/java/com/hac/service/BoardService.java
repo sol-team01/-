@@ -17,5 +17,7 @@ public interface BoardService {
 	public void modify(BoardDto dto);
 	public void del(long bno);
 	public int hit(long bno);
+	public int replyCount(long bno);
+	public int delReplyCount(long bno);
 
 }

@@ -60,7 +60,9 @@
 											</a>
 										</div>
 										<div class="listWriter">${list.b_ID}</div>
-										<div class="listCategory">${list.b_CATEGORY}</div>
+										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
 									</div>
 								</div>
 							</c:when>
@@ -74,7 +76,9 @@
 											</a>
 										</div>
 										<div class="listWriter">${list.b_ID}</div>
-										<div class="listCategory">${list.b_CATEGORY}</div>
+										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
 									</div>
 								</div>
 							</c:when>
