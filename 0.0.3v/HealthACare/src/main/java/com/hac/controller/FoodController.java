@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.hac.dto.foodDto.FoodDto;
-import com.hac.dto.foodDto.Item;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -136,10 +134,7 @@ public class FoodController {
 			
 			 return "/food/calorieCounting";
 		}
-<<<<<<< HEAD
-=======
-		
->>>>>>> 35f4434f6e514abfa2c8b0f61da52787f24d7e01
+
 		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
 	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
 	    public void favicon(HttpServletResponse response) {
