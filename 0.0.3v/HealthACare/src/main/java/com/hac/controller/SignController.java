@@ -166,18 +166,13 @@ public class SignController {
 		}
 		return null;
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> a86b06288e0e1f23a92e4ce12dd6b69ff07071b8
 //	//비밀번호 찾기
 //	@PostMapping
 //	@ResponseBody //Spring 프레임워크에서 컨트롤러 메소드가 HTTP 응답 본문을 직접 반환하도록 지시하는 어노테이션.
 
 //	public String
-<<<<<<< HEAD
 
-=======
 //		String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
 //		String result;
 //		if (userId != null) {
@@ -189,7 +184,6 @@ public class SignController {
 //
 //		return result;
 //	}
->>>>>>> a86b06288e0e1f23a92e4ce12dd6b69ff07071b8
 
 	// 비밀번호 찾기 질문 가져오기
 	@PostMapping("/searchPw")
