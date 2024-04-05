@@ -36,12 +36,11 @@
 	<a href="${cp}/page/myPage">
 	<div class="box">
 <<<<<<< HEAD
-	${login.i_name}
 	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
 =======
+>>>>>>> 9d8e434c15940a4733488c51b2c712f12e131882
 	${login.getI_name()}
 	<div  class="myImg"></div>
->>>>>>> 8a3fb008dda62577b5046d20ca91be41867f577b
 	</div>
 	</a>
 	</div>

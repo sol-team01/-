@@ -25,7 +25,6 @@ public class RestsController {
 	@PostMapping("/myImgEncoding")
 	public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
 
-		System.out.println("하이");
 		HttpSession session = request.getSession();
 		if ((InfoDto) session.getAttribute("login") != null) {
 			String U_no = ((InfoDto) session.getAttribute("login")).getU_no();
@@ -36,7 +35,6 @@ public class RestsController {
 			// 인코딩된 이미지 데이터를 클라이언트에게 반환
 			return ResponseEntity.ok().body(base64Image);
 		}
-		System.out.println("하이");
 		return null;
 	}
 

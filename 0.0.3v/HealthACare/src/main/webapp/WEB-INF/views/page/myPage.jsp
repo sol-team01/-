@@ -26,7 +26,6 @@
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
-			<div id="myPage">
 					<!-- 상단 내정보 -->
 					<div id="myInfo">
 						<div id="infoName">
@@ -42,16 +41,16 @@
 										<div id="infoName">
 										체중변화를 그래프로 알아볼까요?
 										</div>
+							<div id="chartLayout">
 							<div id="chart">
 								<div id="chartContainer" style="position: relative; width: 900px; height: 400px;">
 									<canvas id="myChart" width="600" height="430"></canvas>
 								</div>
 							</div>
-								<div id="woo">
-								<div id="chartText">
+								<div id="chartInfoTextBox">
+								<div class="chartText">
 									체중변화 그래프
 								</div>
-								<div id="chartList">
 									<select id="graphSelect">
 										<c:forEach var="graph" items="${graph}">
 											<option value="${graph.no}">
@@ -60,30 +59,23 @@
 										</c:forEach>
 									</select>
 									<button type="button" id="delBtn">삭제</button>
-								</div>
 								<div id="weightWrite">
 									<input type="number" name="weight" placeholder="몸무게" maxlength="5">
 									<input type="number" name="height" placeholder="신장" maxlength="5">
 									<button type="button" id="weightSubmit">입력</button>
 								</div>
 							</div>
+							</div><!-- <div id="chartLayout"> -->
 				</div>
 				<!-- 그래프 -->
 				<div id="secondPage">
-					<div id="leftPage">
-						<div id="todayText">
-							<div id="todayTextBar">
-								오늘의 한마디를 적어주세요.
-							</div>
-						</div>
-						<div id="aboutMe">
-							<div id="aboutMeText">
-								자기소개를 적어주세요.
-							</div>
-						</div>
 						<div id="myFood">
 							<div id="myFoodText">
-								식단 목록을 정해주세요
+								당신의 권장 칼로리
+								<div>
+								<div class="kaclBox">150,00</div>
+								<a class="textKcal"> kcal</a>
+								</div> 
 							</div>
 							<div id="foodd">
 								<div id="foodList">
@@ -116,42 +108,13 @@
 								</div>
 							</div>
 						</div>
-					</div>
 					<div id="rightPage">
-						<div id="rightTop">
-							<div id="chart">
-								<div id="chartContainer" style="position: relative; width: 580px; height: 400px;">
-									<canvas id="myChart" width="600" height="430"></canvas>
-								</div>
-							</div>
-							<div id="woo">
-								<div id="chartText">
-									${login.getI_name()} 님의 체중변화 그래프
-								</div>
-								<div id="chartList">
-									<select id="graphSelect">
-										<c:forEach var="graph" items="${graph}">
-											<option value="${graph.no}">
-												일자: ${graph.datetime} / 체중: ${graph.weight} kg / 신장: ${graph.height} cm
-											</option>
-										</c:forEach>
-									</select>
-									<button type="button" id="delBtn">삭제</button>
-								</div>
-								<div id="weightWrite">
-									<input type="number" name="weight" placeholder="몸무게" maxlength="5">
-									<input type="number" name="height" placeholder="신장" maxlength="5">
-									<button type="button" id="weightSubmit">입력</button>
-								</div>
-							</div>
-						</div>
 						<div id="rightBottom">
 							<div id="calender">
 								<img src="https://img.freepik.com/free-vector/simple-calendar-2017-template_1057-1892.jpg?w=740&t=st=1711696973~exp=1711697573~hmac=e43835881b4a67cab0ca8eddbe6941b40b317bfa57b9b378182f9481e3403697">
 							</div>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 		<!-- <div id="main"> -->
