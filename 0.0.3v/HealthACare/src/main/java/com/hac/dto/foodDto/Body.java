@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 public class Body {
 
-    public Integer pageNo;
-    public Integer totalCount;
-    public Integer numOfRows;
-    public List<Item> items;
+	private Integer pageNo;
+	private Integer totalCount;
+	private Integer numOfRows;
+	private List<Item> items;
 
 }

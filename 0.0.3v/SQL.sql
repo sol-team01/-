@@ -57,8 +57,10 @@ GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
 ORDER BY YEAR(P_createdAt), MONTH(P_createdAt);
 
 SELECT B_TITLE, B_ID, B_DATETIME FROM board;
+drop table board;
 CREATE TABLE `board` (
 		`B_NO` INT PRIMARY KEY AUTO_INCREMENT, 			#글번호
+        `U_NO` INT NOT NULL DEFAULT 0,                  #유저번호
 		`B_TITLE` CHAR(100) NOT NULL DEFAULT "",			#글제목
 	    `B_ID` CHAR(50) NOT NULL,							#작성자ID
 		`B_DATETIME` DATETIME NOT NULL DEFAULT now(),		#작성시간
@@ -67,4 +69,14 @@ CREATE TABLE `board` (
         `B_CATEGORY` TEXT NOT NULL,						#카테고리
 	    `B_REPLY_COUNT` INT NOT NULL DEFAULT 0,			#댓글수
 	    `B_REPLY_ORI` INT	NOT NULL DEFAULT -1				#댓글의 원글 번호
+	);
+    
+CREATE TABLE `reply_board` (
+		`R_NO` INT PRIMARY KEY AUTO_INCREMENT, 			#댓글번호
+        `U_NO` INT NOT NULL DEFAULT 0,                  #유저번호
+        `B_NO` INT NOT NULL DEFAULT 0,					#글번호
+	    `R_ID` CHAR(50) NOT NULL,							#작성자ID
+		`R_DATETIME` DATETIME NOT NULL DEFAULT now(),		#작성시간
+	    `R_HIT` INT NOT NULL DEFAULT 0,					#추천수    
+	    `R_TEXT` TEXT	NOT NULL							#댓글내용
 	);

@@ -1,5 +1,7 @@
 package com.hac.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hac.dto.searchDto.MyFoodDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 
@@ -21,6 +24,8 @@ public class RestsController {
 	@Setter(onMethod_ = @Autowired)
 	private MyPageService service;
 
+	
+	
 	// 세션에 저장되어있는 이미지 데이터를 불러와 반환해주는 방식
 	@PostMapping("/myImgEncoding")
 	public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
@@ -51,5 +56,10 @@ public class RestsController {
 		return null;
 
 	}
+	
+	
+	
+	
 
+	
 }

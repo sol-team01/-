@@ -39,7 +39,7 @@ html, body {
 }
 
 #findUserIdForm{
-   margin-top: 30px;
+   margin-top: 2px;
    margin-bottom: 30px;
 }
 
@@ -64,11 +64,29 @@ html, body {
    text-align: left; /* 왼쪽 정렬 */
 }
 
+.cText { /* 구문 text */
+   margin-top: 20px;
+   color: #ff8080;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: center; /* 왼쪽 정렬 */
+}
+
+.text3 { /* 아이디 비밀번호 등 다양한 text */
+   height: 20px;
+   color: #4A4A4B;
+   font-size: 13px;
+   font-weight: bold;
+   text-align: left; /* 왼쪽 정렬 */
+   margin-top: 5px;
+}
+
 .text { /* . text */
    color: #4A4A4B;
    font-size: 15px;
    font-weight: bold;
 }
+
 
 #SearchBt { /* 찾기 버튼 */
    font-size: 18px;
