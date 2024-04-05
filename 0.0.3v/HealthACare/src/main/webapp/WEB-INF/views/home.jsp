@@ -17,8 +17,7 @@
 <html>
 <head>
 <title>Home</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
 <style>
 </style>
@@ -31,7 +30,7 @@
 <!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<div id="title">Trending categries</div>
 	<div id="buttonZONE">
-		<a href="${cp}/sports/howtoSports">운동 하는 방법</a>
+		<a href="#" class="howToHealth">운동 하는 방법</a>
 		<a href="${cp}/board/noticeBoard">게시판</a>
 		<a>고객지원</a>
 	</div>
@@ -178,5 +177,9 @@
 <div id="store"></div>
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
+
+<script>
+	
+</script>
 </body>
 </html>
