@@ -16,16 +16,32 @@ public class PagingProcessor {
 	int prevPage = 0;
 	int nextPage = 0;
 	String word = "";
+	String column = "";
+	String searchInfo = "";
 	boolean ablePrev = true;
 	boolean ableNext = true;
+	
+
 	
 	public PagingProcessor(int currentPage,BoardMapper mapper,BoardSDto dto) {
 		this.mapper = mapper;
 		this.currentPage = currentPage;
+		word = dto.getWord();
+		searchInfo = dto.getColumn();
+		
 		if(dto.getWord().equals("")) {
 			this.totalPage = getPageCount();
 		} else {
 			this.totalPage = getSearchCount(dto);
+			if (searchInfo.equals("B_TITLE")) {
+				column = "title";
+		    } else if (searchInfo.equals("B_TEXT")) {
+		        column = "content";
+		    } else if (searchInfo.equals("B_TITLE_OR_B_TEXT")) {
+		        column = "titleOrContent";
+		    } else if (searchInfo.equals("B_ID")) {
+		        column = "writer";
+		    }
 		}
 		totalBlock = (int) Math.ceil((double) totalPage / 5);
 		currentBlockNo = (int) Math.ceil((double) currentPage / 5);
@@ -75,8 +91,14 @@ public class PagingProcessor {
 	public String getHtmlPageList() {
 	    String html = "";
 	    // 페이지 목록 생성
-	    for (int i = blockStartNo; i <= blockEndNo; i++) {
-	        html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>&nbsp;&nbsp;", i, i);
+	    if (totalPage == getPageCount()) {
+	    	for (int i = blockStartNo; i <= blockEndNo; i++) {
+	    		html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>&nbsp;&nbsp;", i, i);
+	    	}
+	    } else {
+	    	for (int i = blockStartNo; i <= blockEndNo; i++) {
+	    		html = html + String.format("<a href='/board/searchBoard?&currentPage=%d&word=%s&searchInfo=%s'>%d</a>&nbsp;&nbsp;", i, word, column, i);
+	    	}
 	    }
 	    return html;
 	}
@@ -85,7 +107,11 @@ public class PagingProcessor {
 	    String prevPageButton = "";
 	    // 이전 페이지 버튼 생성
 	    if (ablePrev) {
-	    	prevPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>이전</a>", prevPage);
+	    	if (totalPage == getPageCount()) {
+	    		prevPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>이전</a>", prevPage);
+	    	} else {
+	    		prevPageButton += String.format("<a href='/board/searchBoard?currentPage=%d&word=%s&searchInfo=%s'>이전</a>", prevPage, word, column);
+	    	}
 	    }
 	    return prevPageButton;
 	}
@@ -96,7 +122,11 @@ public class PagingProcessor {
 	    String nextPageButton = "";
 	    // 다음 페이지 버튼 생성
 	    if (ableNext) {
-	    	nextPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>다음</a>", nextPage);
+	    	if (totalPage == getPageCount()) {
+	    		nextPageButton += String.format("<a href='/board/noticeBoard?currentPage=%d'>다음</a>", nextPage);
+	    	} else {
+	    		nextPageButton += String.format("<a href='/board/searchBoard?currentPage=%d&word=%s&searchInfo=%s'>다음</a>", nextPage, word, column);
+	    	}
 	    }
 	    return nextPageButton;
 	}
@@ -104,8 +134,14 @@ public class PagingProcessor {
     public String goToFirstPage() {
         String firstPageButton = "";
         // 첫 번째 페이지로 이동하는 버튼 생성
-        if (currentPage != 1) {
-            firstPageButton = "<a href='/board/noticeBoard?currentPage=%d'>첫페이지</a>";
+        if (totalPage == getPageCount()) {
+        	if (currentPage != 1) {
+        		firstPageButton = "<a href='/board/noticeBoard?currentPage=%d'>첫페이지</a>";
+        	}
+        } else {
+        	if (currentPage != 1) {
+        		firstPageButton += String.format("<a href='/board/searchBoard?currentPage=%d&word=%s&searchInfo=%s'>첫페이지</a>", 1, word, column);
+        	}
         }
         return firstPageButton;
     }
@@ -113,9 +149,17 @@ public class PagingProcessor {
     public String goToLastPage() {
         String lastPageButton = "";
         // 마지막 페이지로 이동하는 버튼 생성
-        if (!ableNext) {
-        	if (currentPage != totalPage) {
-        		lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        if (totalPage == getPageCount()) {
+        	if (!ableNext) {
+        		if (currentPage != totalPage) {
+        			lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        		}
+        	}
+        } else {
+        	if (!ableNext) {
+        		if (currentPage != totalPage) {
+        			lastPageButton += String.format("<a href='/board/searchBoard?currentPage=" + totalPage + "&word=%s&searchInfo=%s'>끝페이지</a>", word, column);
+        		}
         	}
         }
         return lastPageButton;
