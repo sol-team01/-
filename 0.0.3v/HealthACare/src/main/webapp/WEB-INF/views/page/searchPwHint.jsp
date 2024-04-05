@@ -30,7 +30,7 @@
  			</c:when>
  		</c:choose>
  
- 	<input id="I_hint" name="I_hint" type="text">
+ 	<input id="I_hint" name="I_hint" type="text" placeholder="답변을 입력해주세요?">
  	<input id="U_no" name="U_no" type="hidden" value="${pwFinding.getU_no()}">
  	<input id="searchPwHint" type="submit" value="비밀번호재설정">
  
