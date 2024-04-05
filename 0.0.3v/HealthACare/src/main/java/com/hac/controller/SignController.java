@@ -133,7 +133,6 @@ public class SignController {
       return new ResponseEntity<>(result, HttpStatus.OK);
    }
 
-<<<<<<< HEAD
 	// 아이디 찾기
 	@PostMapping("/searchId")
 	@ResponseBody
@@ -146,24 +145,8 @@ public class SignController {
 		} else {
 			result = "";
 		} // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
-=======
-   // 아이디 찾기
-   @PostMapping("/searchId")
-   @ResponseBody
-   public String searchId(@RequestParam("I_email") String I_email) {
-      String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
-      String result;
-      if (userId != null) {
-         System.out.println("아이디 잘 찾았어?" + " " + userId);
-         result = userId;
-      } else {
-         result = "";
-      } // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
->>>>>>> c25ecde5518ad051f068fa177a5e241b532ba659
-
-      return result;
-   }
-
+		return result;
+	}
 
    // 비밀번호 찾기 질문 가져오기
    @PostMapping("/searchPw")
@@ -180,20 +163,12 @@ public class SignController {
       }
    }
 
-<<<<<<< HEAD
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")
 	public String searchId() {
 		System.out.println("아이디 찾기 진입");
 		return "/page/searchId";
 	}
-=======
-   //아이디 찾기 jsp 진입
-   @GetMapping("/searchIdPw")
-   public String searchId() {
-      System.out.println("아이디 찾기 진입");
-      return "/page/searchId";
-   }
 
    // 비밀번호 찾기 jsp 진입
    @GetMapping("/searchPwId")
@@ -201,7 +176,6 @@ public class SignController {
       System.out.println("비밀번호 찾기 진입");
       return "/page/searchPw";
    }
->>>>>>> c25ecde5518ad051f068fa177a5e241b532ba659
 
    // 비밀번호 힌트 비교
    @PostMapping("/searchHint")
