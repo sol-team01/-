@@ -1,4 +1,3 @@
-<!-- [최] 컨트롤러 연결은 임의로 MyPageController에 있습니다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -26,93 +25,31 @@
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
-			<div id="myPage">
-				<div id="myProfile">
+					<!-- 상단 내정보 -->
 					<div id="myInfo">
 						<div id="infoName">
-							${login.getI_name()} 님! 어서오세요.
+							<a class="nameColor">${login.getI_name()}</a> 님! 어서오세요.
 						</div>
-						<div id="log">
-							<div id="infolog"  class="info">
-								생년월일: 
-								<br>
-								나이: 
-								<br>
-								혈액형: 
-							</div>
-							<div id="infoWegiht"  class="info">
-								체중: 000 kg
-								<br>
-								신장: 000 cm
-								<br>
-								bmi: ???
-							</div>
-							<div id="infoRe">
-							<a href="${cp}/myInfo/myInfoChange" ><button id="infoM">개인정보 수정</button></a>
-							</div>
-						</div>
+									<a href="${cp}/myInfo/myInfoChange" >
+										<button>개인정보 수정</button>	
+									</a>
 					</div>
-				</div>
-				<div id="secondPage">
-					<div id="leftPage">
-						<div id="todayText">
-							<div id="todayTextBar">
-								오늘의 한마디를 적어주세요.
-							</div>
-						</div>
-						<div id="aboutMe">
-							<div id="aboutMeText">
-								자기소개를 적어주세요.
-							</div>
-						</div>
-						<div id="myFood">
-							<div id="myFoodText">
-								식단 목록을 정해주세요
-							</div>
-							<div id="foodd">
-								<div id="foodList">
-									<c:forEach var="test" begin="0" end="100" step="1">
-									음식이름 칼로리량 영양정보<br>
-									</c:forEach>
-								</div>
-								<div id="week">
-									<div id="mon" class="weekDay">
-									월요일 식단
-									</div>
-									<div id="tue" class="weekDay">
-									화요일 식단
-									</div>
-									<div id="wed" class="weekDay">
-									수요일 식단
-									</div>
-									<div id="thu" class="weekDay">
-									목요일 식단
-									</div>
-									<div id="fri" class="weekDay">
-									금요일 식단
-									</div>
-									<div id="sat" class="weekDay">
-									토요일 식단
-									</div>
-									<div id="sun" class="weekDay">
-									일요일 식단
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="rightPage">
-						<div id="rightTop">
+					<!-- 상단 내정보 -->
+				<!-- 그래프 -->
+				<div id="graphLayout">
+										<div id="infoName">
+										체중변화를 그래프로 알아볼까요?
+										</div>
+							<div id="chartLayout">
 							<div id="chart">
-								<div id="chartContainer" style="position: relative; width: 580px; height: 400px;">
+								<div id="chartContainer" style="position: relative; width: 900px; height: 400px;">
 									<canvas id="myChart" width="600" height="430"></canvas>
 								</div>
 							</div>
-							<div id="woo">
-								<div id="chartText">
-									${login.getI_name()} 님의 체중변화 그래프
+								<div id="chartInfoTextBox">
+								<div class="chartText">
+									체중변화 그래프
 								</div>
-								<div id="chartList">
 									<select id="graphSelect">
 										<c:forEach var="graph" items="${graph}">
 											<option value="${graph.no}">
@@ -121,21 +58,25 @@
 										</c:forEach>
 									</select>
 									<button type="button" id="delBtn">삭제</button>
-								</div>
 								<div id="weightWrite">
 									<input type="number" name="weight" placeholder="몸무게" maxlength="5">
 									<input type="number" name="height" placeholder="신장" maxlength="5">
 									<button type="button" id="weightSubmit">입력</button>
 								</div>
 							</div>
-						</div>
+							</div><!-- <div id="chartLayout"> -->
+				</div>
+				<!-- 그래프 -->
+				<div id="secondPage">
+<!-- 칼로리 jsp 따로 뺴놓았슴다~ (최) -->
+<jsp:include page="/WEB-INF/views/page/myPageDesign/myFoodKcal.jsp"></jsp:include>						
+					<div id="rightPage">
 						<div id="rightBottom">
 							<div id="calender">
 								<img src="https://img.freepik.com/free-vector/simple-calendar-2017-template_1057-1892.jpg?w=740&t=st=1711696973~exp=1711697573~hmac=e43835881b4a67cab0ca8eddbe6941b40b317bfa57b9b378182f9481e3403697">
 							</div>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 		<!-- <div id="main"> -->

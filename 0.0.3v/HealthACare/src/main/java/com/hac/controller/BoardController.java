@@ -3,6 +3,7 @@ package com.hac.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
-import com.hac.dto.searchDto.SignDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.BoardService;
+import com.hac.service.ReplyService;
 
 import lombok.AllArgsConstructor;
 
@@ -22,20 +24,40 @@ import lombok.AllArgsConstructor;
 @Controller
 public class BoardController {
 	private final BoardService service;
+	private final ReplyService rService;
 	
 	
 
 	@GetMapping("/noticeBoard")
-	public void BoardList(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model m, HttpServletRequest request) {
+	public void BoardList(
+			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
+			@RequestParam(value = "sort", required = false) String sort,
+			Model m,
+			HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
+		String sessionSort = (String) session.getAttribute("sort");
 		BoardSDto dtos = new BoardSDto();
+		int sortValue = 0;
+		if (sort != null) {
+	        // AJAX 요청으로 받은 선택한 정렬 방식을 세션에 저장
+	        session.setAttribute("sort", sort);
+	        if (sort.equals("asc")) {
+	            sortValue = 1;
+	        }
+	    } else if (sessionSort != null) {
+	        // 세션에 저장된 정렬 방식 사용
+	        if (sessionSort.equals("asc")) {
+	            sortValue = 1;
+	        }
+	    }
 		System.out.println("..................BoardList 진입");
-		SignDto user = (SignDto) session.getAttribute("login");
+		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
-		m.addAttribute("list", service.getList(currentPage));
+		m.addAttribute("list", service.getList(currentPage,sortValue));
 		m.addAttribute("totalContent", service.totalContent());
 		m.addAttribute("paging", service.pageBlock(currentPage, dtos));
+		m.addAttribute("noticeList", service.getNoticeList());
 	}
 
 	@GetMapping("/searchBoard")
@@ -64,13 +86,14 @@ public class BoardController {
 	    m.addAttribute("search", service.searchList(currentPage, word, column));
 	    m.addAttribute("searchPaging", service.pageBlock(currentPage,dtos));
 	    m.addAttribute("searchTotal", service.searchTotalContent(dtos));
+	    m.addAttribute("noticeList", service.getNoticeList());
 	}	
 	
 	@GetMapping("/writeBoard")
 	public void writeBoard(HttpServletRequest request, Model m) {
 		System.out.println("..................writeBoard 진입");
 		HttpSession session = request.getSession();
-		SignDto user = (SignDto) session.getAttribute("login");
+		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
 	}
 	
@@ -86,12 +109,19 @@ public class BoardController {
 	}
 	
 	@GetMapping("/readBoard")
-	public void read(@RequestParam("b_NO") long bno, Model m,HttpServletRequest request) {
+	public void read(
+			@RequestParam(value = "replyCurrentPage", defaultValue = "1") long replyCurrentPage,
+			@RequestParam("b_NO") long bno,
+			Model m,
+			HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
-		SignDto user = (SignDto) session.getAttribute("login");
+		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(bno));
+		m.addAttribute("reply", rService.replyList(replyCurrentPage,bno));
+		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, bno));
+		m.addAttribute("totalReply", rService.totalReply(bno));
 		service.hit(bno);
 	}
 	
@@ -99,7 +129,7 @@ public class BoardController {
 	public void modifyBoard(@RequestParam("b_NO") long b_NO, Model m,HttpServletRequest request) {
 		System.out.println("..................modifyBoard 진입");
 		HttpSession session = request.getSession();
-		SignDto user = (SignDto) session.getAttribute("login");
+		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(b_NO));
 	}

@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class BoardDto {
 	private Long b_NO;
+	private Long u_NO;
 	private String b_TITLE;
 	private String b_TEXT;
 	private String b_ID;

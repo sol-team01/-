@@ -17,7 +17,7 @@
 	<div id="warp">
 <jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
 <div id="main">
-<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
+<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>
 						<!-- 			내가 한 거 -->
 			<div>
 				<div class="boardTotalWrap">
@@ -25,40 +25,69 @@
 					<span class="boardTotalCount">${totalContent}건</span>
 				</div>
 				<div>
-					<select id="order">
-						<option value="upOrder">최신순</option>
-						<option value="downOrder">오래된순</option>
-					</select>
+				    <label for="sort">정렬 순서:</label>
+				    <select id="sort" name="sort">
+				        <option value="desc">최신순</option>
+				        <option value="asc">오래된순</option>
+				    </select>
 				</div>
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody">금융거래소 이용약관 개칭 안내</div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
-					<div class="noticeBox">
-						<div class="noticeHead">공지</div>
-						<div class="noticeBody"></div>
-					</div>
-				</div>
-				<c:forEach var="list" items="${list}">
-					<div class="boardList">
-						<div class="flexK">
-							<div class="listNumber">${list.b_NO}</div>
-							<div class="listContent">
-								<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
-									${list.b_TITLE}
-								</a>
+					<c:forEach var="list" items="${noticeList}">
+						<c:if test="${list.b_CATEGORY eq '공지사항'}">
+							<div class="noticeBox">
+								<div class="noticeHead">공지</div>
+								<div class="noticeBody">
+									<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+										${list.b_TITLE}
+									</a>
+								</div>
 							</div>
-							<div class="listWriter">${list.b_ID}</div>
-							<div class="listCategory">${list.b_CATEGORY}</div>
-						</div>
-					</div>
-				</c:forEach>
+						</c:if>
+					</c:forEach>
+				</div>
+				
+				<div id="ttt">
+					<c:forEach var="list" items="${list}">
+						<c:choose>
+							<c:when test="${list.b_CATEGORY eq '일반'}">
+								<div class="boardList">
+									<div class="flexK">
+										<div class="listNumber">${list.b_NO}</div>
+										<div class="listContent">
+											<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+												${list.b_TITLE}
+											</a>
+										</div>
+										<div class="listWriter">${list.b_ID}</div>
+										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
+									</div>
+								</div>
+							</c:when>
+								<c:when test="${list.b_CATEGORY eq '질문'}">
+								<div class="boardList">
+									<div class="flexK">
+										<div class="listNumber">${list.b_NO}</div>
+										<div class="listContent">
+											<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
+												${list.b_TITLE}
+											</a>
+										</div>
+										<div class="listWriter">${list.b_ID}</div>
+										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
+							
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</div>
 				<div class="titleBottomLineK"></div>
 				<!-- 				페이징 블럭 -->
 				<div class="pagingBlock">
@@ -86,6 +115,7 @@
 			<!-- 			내가 한 거 끝남 -->
 			<c:choose>
 				<c:when test="${empty login}">
+					<button type="button" id="writeBtn" style="display: none">글쓰기</button>
 				</c:when>
 				<c:otherwise>
 					<button type="button" id="writeBtn">글쓰기</button>
@@ -105,9 +135,88 @@
 		</div>
 	</div>
 	<script>
-		writeBtn.addEventListener('click', function() {
-			window.location.href = '${cp}/board/writeBoard';
-		});
+	    writeBtn.addEventListener('click', function() {
+	        window.location.href = '${cp}/board/writeBoard';
+	    });
+		
+	   document.addEventListener('DOMContentLoaded', function() {
+	        document.getElementById("searchForm").onsubmit = function() {
+	            var word = document.getElementsByName("word")[0].value.trim();
+	            var searchInfo = document.getElementById("searchInfo").value;
+
+	            // 검색어가 2글자 이상인지 확인하고 공백이 아닌지 검사
+	            if (word.length < 2 || /\s/.test(word)) {
+	                alert("검색어는 2글자 이상이어야 하며, 공백을 포함해서는 안됩니다.");
+	                return false; // 검색 취소
+	            }
+	            return true; // 검색 진행
+	        };
+	    });
+	   
+	    // JSP 코드를 사용하여 JavaScript 변수에 현재 페이지 값 할당
+	    var currentPage = 1;
+
+	    $(document).ready(function() {
+	        console.log("문서가 준비되었습니다.");
+	        $('#sort').change(function() {
+	            $('#ttt').load('/board/noticeBoard #ttt');
+	            var sortValue = $(this).val(); // 선택한 정렬 순서
+	            console.log(sortValue);
+	            // 현재 페이지 변수를 사용하여 AJAX 요청 전달
+	            $.ajax({
+	                type: 'GET',
+	                url: '/board/noticeBoard',
+	                data: {
+	                    sort: sortValue, // 선택한 정렬 순서를 매개변수로 전달
+	                    currentPage: currentPage // 현재 페이지 정보를 함께 전달
+	                },
+	                success: function(data) {
+	                    // Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
+	                    // 예를 들어, 게시글 목록을 업데이트하는 등의 작업 수행
+	                    // data 변수에는 서버에서 전달한 HTML 또는 JSON 데이터가 포함됩니다.
+	                    // 아래는 간단한 예시
+	                    var newData = $(data).find('#ttt').html();
+	                    $('#ttt').html(newData);
+	                },
+	                error: function(xhr, status, error) {
+	                    console.log('AJAX 요청 실패');
+	                }
+	            });
+	        });
+	        
+	        var savedSort = getCookie("sort");
+	        if (savedSort) {
+	            $('#sort').val(savedSort);
+	        }
+
+	        $('#sort').change(function() {
+	            var sortValue = $(this).val();
+	            setCookie("sort", sortValue, 30); // 쿠키 유효기간을 30일로 설정
+	        });
+
+	        function setCookie(cname, cvalue, exdays) {
+	            var d = new Date();
+	            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	            var expires = "expires="+d.toUTCString();
+	            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	        }
+
+	        function getCookie(cname) {
+	            var name = cname + "=";
+	            var decodedCookie = decodeURIComponent(document.cookie);
+	            var ca = decodedCookie.split(';');
+	            for(var i = 0; i < ca.length; i++) {
+	                var c = ca[i];
+	                while (c.charAt(0) == ' ') {
+	                    c = c.substring(1);
+	                }
+	                if (c.indexOf(name) == 0) {
+	                    return c.substring(name.length, c.length);
+	                }
+	            }
+	            return "";
+	        }
+	    });
 	</script>
 </body>
 </html>

@@ -31,7 +31,7 @@
 <%--         <p>${login}</p> --%>
 <!--         마이페이지(로그인 시 노출)</a> -->
 	<div id="user">	
-    <a href="${cp}/page/logout" class="out">SIGNOUT</a>
+    <a href="${cp}/page/logout" class="out">LOGOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage">
 	<div class="box">

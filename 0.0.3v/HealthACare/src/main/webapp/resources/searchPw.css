@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+html, body {
+   height: 100%;
+   margin: 0;
+   display: flex;
+   justify-content: center; /* 수평 가운데 정렬 */
+   align-items: center; /* 수직 가운데 정렬 */
+   background-color: #F3F3F3;
+}
+
+#searchPwBox { /* 비번찾기 박스 */
+   display: flex;
+   flex-direction: column;
+   align-items : center; /* 수직 가운데 정렬 */
+   width: 600px;
+   border-radius: 10px;
+   background-color: #ffffff;
+   text-align: center;
+   box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.2);
+}
+
+.image { /* 로고 */
+   margin-top: 20px;
+    width: 150px;
+    padding: 10px;
+}
+
+#inBox{
+	margin: auto;
+   display: flex;
+   width: 480px;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   margin: 0px auto;
+   margin-top: 10px;
+   margin-bottom: 30px;
+}
+
+form{
+	width: 480px;
+  display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align:left;
+   flex-direction: column;
+}
+
+.idText { /* 아이디 찾기 text */
+   color: #4A4A4B;
+   font-size: 22px;
+   font-weight: bold;
+   text-align: left; /* 왼쪽 정렬 */
+}
+
+.cText { /* 구문 text */
+   margin-top: 20px;
+   color: #ff8080;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: center; /* 왼쪽 정렬 */
+}
+
+.text3 { /* 아이디 text */
+   height: 20px;
+   color: #4A4A4B;
+   font-size: 13px;
+   font-weight: bold;
+   text-align: left; /* 왼쪽 정렬 */
+   margin-top: 5px;
+}
+
+#idInput, #I_hint { /* input */
+   font-weight: bold;
+   font-size: 15px;
+   border-radius: 3px;
+   width: 455px;
+   height: 30px;
+   padding: 10px;
+   border: 1px solid #ddd;
+   margin-top: 2px;
+}
+
+/* select box  */
+select.box , select.passwordQuestion {
+  width: 477px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+#searchPwBt { /* 비밀번호 찾기 버튼 */
+   font-size: 18px;
+   color: #6c7079;
+   font-weight: bold;
+   width: 477px;
+   height: 45px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   border: none;
+}
+
+#searchPwBt:hover{ /* 비밀번호 찾기 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+   font-weight: bold;
+}

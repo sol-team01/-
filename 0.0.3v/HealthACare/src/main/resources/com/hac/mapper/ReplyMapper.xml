@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hac.mapper.ReplyMapper">
+
+	<select id="replyList" resultType="com.hac.dto.boardDto.ReplyDto">
+	    select * from reply_board where B_NO = #{bno} order by R_NO desc
+	    limit #{replyLimitIndex}, 10
+	</select>
+	
+	<select id="totalReply" resultType="long">
+		select count(*) from reply_board where B_NO = #{bno}
+	</select>
+	
+	<delete id="replyDel">
+		delete from reply_board where R_NO = #{rno}
+	</delete>
+	
+	<insert id="replyWrite">
+		insert into reply_board (R_ID, U_NO, B_NO, R_TEXT) 
+		values 
+		(#{r_ID},
+		#{u_NO},
+		#{b_NO},
+		#{r_TEXT})
+	</insert>
+	
+	<update id="replyHit">
+		update reply_board set r_hit = r_hit + 1 where r_no = #{rno}
+	</update>
+	
+	<update id="replyModify">
+		update reply_board set r_ID = #{r_ID},
+		r_TEXT = #{r_TEXT}
+		where r_NO = #{r_NO}
+	</update>
+
+</mapper>
