@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="${cp}/resources/searchPw.css">
 </head>
 <body>
-<<<<<<< HEAD
 
 <form action="${cp}/page/searchPw" method="post">
 <label for="securityQuestion" class="text3">비밀번호찾기 질문</label>
@@ -24,7 +23,6 @@
 <input id="signUPBt" type="submit" value="비밀번호 찾기">
 </form>
 
-=======
 <div>
 <form action="${cp}/page/searchPw" method="post" name="PwSearch">
 <a>아이디</a>
@@ -32,6 +30,5 @@
 <input id="signUPBt" type="submit" value="비밀번호 찾기">
 </form>
 </div>
->>>>>>> 09d31b2f3188273d428aebe404a85d5333c4c1bd
 </body>
 </html>

@@ -158,10 +158,7 @@ public class FoodController {
 			
 			 return "/food/calorieCounting";
 		}
-<<<<<<< HEAD
 		
-=======
->>>>>>> 9d8e434c15940a4733488c51b2c712f12e131882
 		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
 	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
 	    public void favicon(HttpServletResponse response) {

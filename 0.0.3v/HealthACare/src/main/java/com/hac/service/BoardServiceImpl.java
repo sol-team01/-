@@ -80,5 +80,15 @@ public class BoardServiceImpl implements BoardService {
 	public int hit(long bno) {
 		return mapper.hit(bno);
 	}
+	
+	@Override
+	public int replyCount(long bno) {
+		return mapper.replyCount(bno);
+	}
+	
+	@Override
+	public int delReplyCount(long bno) {
+		return mapper.delReplyCount(bno);
+	}
 
 }

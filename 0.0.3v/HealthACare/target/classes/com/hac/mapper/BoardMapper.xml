@@ -89,6 +89,14 @@
 		update board set b_hit = b_hit + 1 where b_no = #{bno}
 	</update>
 	
+	<update id="replyCount">
+		update board set b_REPLY_COUNT = b_REPLY_COUNT + 1 where b_no = #{bno}
+	</update>
+	
+	<update id="delReplyCount">
+		update board set b_REPLY_COUNT = b_REPLY_COUNT - 1 where b_no = #{bno}
+	</update>
+	
 	<update id="modify">
 		update board set B_ID = #{b_ID},
 		B_TITLE = #{b_TITLE},

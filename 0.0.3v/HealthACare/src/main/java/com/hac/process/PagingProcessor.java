@@ -149,16 +149,22 @@ public class PagingProcessor {
     public String goToLastPage() {
         String lastPageButton = "";
         // 마지막 페이지로 이동하는 버튼 생성
-        if (totalPage == getPageCount()) {
-        	if (!ableNext) {
-        		if (currentPage != totalPage) {
-        			lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        if(totalPage != 1 && totalPage > 0) {
+        	if (totalPage == getPageCount()) {
+        		if (!ableNext) {
+        			if(totalPage != 1) {
+        				if (currentPage != totalPage) {
+        					lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        				}
+        			}
         		}
-        	}
-        } else {
-        	if (!ableNext) {
-        		if (currentPage != totalPage) {
-        			lastPageButton += String.format("<a href='/board/searchBoard?currentPage=" + totalPage + "&word=%s&searchInfo=%s'>끝페이지</a>", word, column);
+        	} else {
+        		if (!ableNext) {
+        			if(totalPage != 1) {
+        				if (currentPage != totalPage) {
+        					lastPageButton += String.format("<a href='/board/searchBoard?currentPage=" + totalPage + "&word=%s&searchInfo=%s'>끝페이지</a>", word, column);
+        				}
+        			}
         		}
         	}
         }
