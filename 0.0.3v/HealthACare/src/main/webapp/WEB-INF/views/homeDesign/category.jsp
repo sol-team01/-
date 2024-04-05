@@ -12,6 +12,7 @@
 <body>
 <div id="Category">
 	<a href="/">
+	
 	<div id="imgbox">
 	<img  src="${cp}/resources/img/logo.png" alt="로고">
 	</div>
