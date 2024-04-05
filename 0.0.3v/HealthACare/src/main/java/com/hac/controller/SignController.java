@@ -1,7 +1,6 @@
 package com.hac.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -182,20 +181,20 @@ public class SignController {
 //		return result;
 //	}
 
-	// 비밀번호 찾기 질문 가져오기
-	@PostMapping("/searchPw")
-	public String searchPw(SignDto dto, Model model) {
-		System.out.println(dto);
-		InfoDto pwFinding = signservice.searchFinding(dto);
-		if (pwFinding != null) {
-			System.out.println("pwFinding: " + pwFinding);
-			model.addAttribute("pwFinding", pwFinding);
-			return "/page/searchPwHint"; // 뷰 이름 반환
-		} else {
-			System.out.println("일치하는 아이디가 없다. " + pwFinding);
-			return "/page/searchPw";
-		}
-	}
+//	// 비밀번호 찾기 질문 가져오기
+//	@PostMapping("/searchPw")
+//	public String searchPw(SignDto dto, Model model) {
+//		System.out.println(dto);
+//		InfoDto pwFinding = signservice.searchFinding(dto);
+//		if (pwFinding != null) {
+//			System.out.println("pwFinding: " + pwFinding);
+//			model.addAttribute("pwFinding", pwFinding);
+//			return "/page/searchPwHint"; // 뷰 이름 반환
+//		} else {
+//			System.out.println("일치하는 아이디가 없다. " + pwFinding);
+//			return "/page/searchPw";
+//		}
+//	}
 	//아이디 찾기 jsp 진입
 	@GetMapping("/searchIdPw")
 	public String searchId() {
