@@ -22,6 +22,7 @@
 				<h1>게시글 작성</h1>
 				<form action="${cp}/board/write" method="post">
 					<input type="hidden" id="id" name="b_ID" value="${user.i_name}">
+					<input type="hidden" id="no" name="u_NO" value="${user.u_no}">
 					<label for="title">제목: </label>
 					<input type="text" width="400px" name="b_TITLE" required>
 					<label for="category">분류: </label>
@@ -29,7 +30,6 @@
 						<option value="공지사항">공지사항</option>
 						<option value="일반">일반</option>
 						<option value="질문">질문</option>
-						<option value="답변">답변</option>
 					</select>
 					<br>
 					<br>

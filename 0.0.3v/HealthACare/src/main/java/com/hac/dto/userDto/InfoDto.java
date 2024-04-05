@@ -19,7 +19,7 @@ public class InfoDto {
 	private String I_birthDate_d; // 생년월일
 	private String I_gender; // 성별
 	private String I_email; // 이메일
-	private int I_pwFinding; //질의 종류
+	private String I_pwFinding; //질의 종류
 	private String I_hint; // 질문 대답
 	private Date I_createdAt; // 계정생성시간
 	private Date I_updatedAt; // 마지막 업데이트 시간
