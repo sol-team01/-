@@ -159,26 +159,20 @@ public class FoodController {
 			 return "/food/calorieCounting";
 		}
 		
-<<<<<<< HEAD
 
-=======
->>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
 		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
 	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
 	    public void favicon(HttpServletResponse response) {
 	        // favicon 요청에 대한 응답을 404로 설정하여 무시합니다.
 	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 	    }
-<<<<<<< HEAD
+
 	}
-=======
-<<<<<<< HEAD
-}
+
+
 
     
       
 
-=======
-}
->>>>>>> 074622aa370a11aff6a68502b35026d24ada6710
->>>>>>> bb910e625dd922b8648ed3f4f6f74181df70f578
+
+

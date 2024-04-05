@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUIT-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.dietTitle {
+	height: 70px;
+	box-shadow: 1px 2px 4px #eee;
+	margin-bottom: 10px;
+	line-height: 70px;
+}
+
+.flexK {
+	display: flex;
+}
+
+.salad {
+	width: 50px;
+	height: 50px;
+}
+
+.dietSearch {
+	height: 100px;
+	display: flex;
+	background: linear-gradient(45deg, rgba(3, 189, 255, 1) 0%,
+		rgba(159, 226, 250, 1) 49%, rgba(149, 251, 171, 1) 98%);
+	padding: 10px 20px;
+	border-radius: 10px;
+	color: #fff;
+	margin-bottom: 10px;
+	align-items: center;
+}
+
+.dietSearch img {
+	margin: 15px 15px 15px 0;
+}
+
+.dietSearchBottom {
+	height: 1px;
+	background: #ddd;
+	margin-top: 15px;
+}
+
+.wrapperK {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapperK .wrapperKFlex {
+	display: flex;
+	padding: 10px 20px;
+}
+
+.wrapperK div img {
+	width: 70px;
+	height: 64px;
+	margin-right: 20px;
+}
+
+.wrapperK div a {
+	color: #03BDFF;
+	font-weight: 600;
+}
+
+.listLeft {
+	width: 65%;
+	margin-right: 30px;
+}
+
+.listRight {
+	width: 35%;
+}
+
+.wrapperK .oneK img {
+	width: 70px;
+	height: 62px;
+}
+
+.wrapperK .threeK img {
+	width: 80px;
+	height: 76px;
+}
+
+.wrapperK .fourK img {
+	width: 85px;
+	height: 60px;
+}
+
+.wrapperK .eightK img {
+	width: 80px;
+	height: 72px;
+}
+
+.wrapperK .nineK img {
+	height: 62px;
+	width: 75px;
+}
+
+.wrapperK .tenK img {
+	width: 80px;
+	height: 82px;
+}
+
+.wrapperK .twelveK img {
+	width: 80px;
+	height: 58px;
+}
+
+.wrapperK .elevenK img {
+	width: 69px;
+	height: 58px;
+}
+
+.wrapperK .thirdteenK img {
+	width: 63px;
+	height: 54px;
+}
+
+.wrapperK .forteenK img {
+	width: 137px;
+	height: 72px;
+	margin-left: -30px;
+}
+
+.wrapperK .forteenK a {
+	margin-left: -30px;
+}
+
+.dietCategoryDetail {
+	display: flex;
+}
+
+.dietCategoryDetail div {
+	border: 1px solid #03BDFF;
+	border-radius: 10px;
+}
+
+.wrapperKText{
+	display:flex;
+	flex-direction:column;
+}
