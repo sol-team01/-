@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hac.dto.searchDto.MyPageDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
@@ -34,9 +35,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(MyPageDto dto,Locale locale, Model model,HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String U_no = (String) session.getAttribute("U_no");
+	public String home(Locale locale, Model model) {
 //		logger.info("Welcome home! The client locale is {}.", locale);
 //		Date date = new Date();
 //		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -76,10 +75,6 @@ public class HomeController {
 //	log.info(youtube.items.get(4).id.videoId);
 //	log.info(youtube.items.get(3).id.videoId);
 	//	log.info(s);	
-		if(U_no != null && !U_no.equals(null)) {
-			dto.setU_no(U_no);
-			model.addAttribute("myInfo",service.myProfile(dto));
-		}
 		return "home";
 	}
 	

@@ -113,8 +113,10 @@ public class PagingProcessor {
     public String goToLastPage() {
         String lastPageButton = "";
         // 마지막 페이지로 이동하는 버튼 생성
-        if (currentPage != totalPage) {
-            lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        if (!ableNext) {
+        	if (currentPage != totalPage) {
+        		lastPageButton = "<a href='/board/noticeBoard?currentPage=" + totalPage + "'>끝페이지</a>";
+        	}
         }
         return lastPageButton;
     }

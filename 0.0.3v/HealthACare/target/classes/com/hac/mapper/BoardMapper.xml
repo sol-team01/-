@@ -5,7 +5,21 @@
 <mapper namespace="com.hac.mapper.BoardMapper">
 
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
-		select * from board order by B_NO desc limit #{limitIndex}, 7
+	    select * from board where B_CATEGORY != '공지사항' 
+	    order by B_NO
+	    <choose>
+	    	<when test='sort == 0'>
+	    	desc
+	    	</when>
+	    	<otherwise>
+	    	asc
+	    	</otherwise>
+	    </choose>
+	    limit #{limitIndex}, 7
+	</select>
+	
+	<select id="getNoticeList" resultType="com.hac.dto.boardDto.BoardDto">
+		select * from board where B_CATEGORY = '공지사항' order by B_NO desc limit 3
 	</select>
 		
 	<select id="searchList" resultType="com.hac.dto.boardDto.BoardDto" parameterType="com.hac.dto.boardDto.BoardSDto">
@@ -50,7 +64,7 @@
 	</select>
 	
 	<select id="totalContent" resultType="int">
-		select count(*) from board;
+		select count(*) from board where B_CATEGORY != '공지사항'
 	</select>
 	
 	<select id="read" resultType="com.hac.dto.boardDto.BoardDto">
@@ -62,9 +76,10 @@
 	</delete>
 	
 	<insert id="write">
-		insert into board (B_ID, B_TITLE, B_CATEGORY, B_TEXT) 
+		insert into board (B_ID, U_NO, B_TITLE, B_CATEGORY, B_TEXT) 
 		values 
 		(#{b_ID},
+		#{u_NO},
 		#{b_TITLE},
 		#{b_CATEGORY},
 		#{b_TEXT})

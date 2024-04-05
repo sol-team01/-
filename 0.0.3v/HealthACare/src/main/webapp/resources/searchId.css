@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+html, body {
+   height: 100%;
+   margin: 0;
+   display: flex;
+   justify-content: center; /* 수평 가운데 정렬 */
+   align-items: center; /* 수직 가운데 정렬 */
+   background-color: #F3F3F3;
+}
+
+#searchIdBox { /* 아이디 찾기 박스 */
+   display: flex;
+   flex-direction: column;
+   align-items : center; /* 수직 가운데 정렬 */
+   width: 600px;
+   border-radius: 10px;
+   background-color: #ffffff;
+   text-align: center;
+   box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.2);
+}
+
+.image { /* 로고 */
+   margin-top: 20px;
+    width: 150px;
+    padding: 10px;
+}
+
+#inBox{
+	margin: auto;
+   display: flex;
+   width: 480px;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   margin: 0px auto;
+   margin-top: 10px;
+   margin-bottom: 30px;
+}
+
+#findUserIdForm{
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+
+.ebox { /* 이메일 input */
+   font-weight: bold;
+   font-size: 15px;
+   border-radius: 3px;
+   width: 134px;
+   padding: 10px;
+   border: 1px solid #ddd;
+   margin: auto;
+}
+
+.binBox { /* 이메일 input 가로형 담은 박스 */
+   margin-bottom: 30px;
+}
+
+.idText { /* 아이디 찾기 text */
+   color: #4A4A4B;
+   font-size: 22px;
+   font-weight: bold;
+   text-align: left; /* 왼쪽 정렬 */
+}
+
+.text { /* . text */
+   color: #4A4A4B;
+   font-size: 15px;
+   font-weight: bold;
+}
+
+#SearchBt { /* 찾기 버튼 */
+   font-size: 18px;
+   color: #6c7079;
+   font-weight: bold;
+   width: 480px;
+   height: 45px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   margin-top: 30px;
+   margin: 0px;
+   border: none;
+}
+
+#SearchBt:hover { /* 찾기 버튼 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+   font-weight: bold;
+}
+
+#container {
+	display: none; /* 처음에 숨김 처리 */
+    align-items: center; /* 요소들을 세로 방향 가운데로 정렬합니다. */
+    width: 400px;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#checkImage{ /* 체크 이미지 */
+    width: 40px;
+}
+
+#userIdResult { /* 찾은 아이디 */
+   color: #007dc8;
+   font-size: 25px;
+   font-weight: bold;
+}
+.aText { /* 고객님의 아이디는 */
+    flex: 1;
+   color: #4A4A4B;
+   font-size: 15px;
+   font-weight: bold;
+}
+.bText { /* 입니다 */
+   flex: 1;
+   color: #4A4A4B;
+   font-size: 15px;
+   font-weight: bold;
+}

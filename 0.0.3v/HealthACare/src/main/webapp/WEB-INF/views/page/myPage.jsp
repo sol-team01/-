@@ -15,9 +15,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
 	integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<scr
-ipt
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>${login.getI_name()}님의페이지</title>
 </head>
 <body>
@@ -29,32 +27,48 @@ ipt
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 <!-- 상단 및 네비 고정 이후 메인 페이지 -->
 			<div id="myPage">
-				<div id="myProfile">
+					<!-- 상단 내정보 -->
 					<div id="myInfo">
 						<div id="infoName">
-							${login.getI_name()} 님! 어서오세요.
+							<a class="nameColor">${login.getI_name()}</a> 님! 어서오세요.
 						</div>
-						<div id="log">
-							<div id="infolog"  class="info">
-								생년월일: 
-								<br>
-								나이: 
-								<br>
-								혈액형: 
-							</div>
-							<div id="infoWegiht"  class="info">
-								체중: 000 kg
-								<br>
-								신장: 000 cm
-								<br>
-								bmi: ???
-							</div>
-							<div id="infoRe">
-							<a href="${cp}/myInfo/myInfoChange" target="_blank"><button id="infoM">개인정보 수정</button></a>
-							</div>
-						</div>
+									<a href="${cp}/myInfo/myInfoChange" >
+										<button>개인정보 수정</button>	
+									</a>
 					</div>
+					<!-- 상단 내정보 -->
+				<!-- 그래프 -->
+				<div id="graphLayout">
+										<div id="infoName">
+										체중변화를 그래프로 알아볼까요?
+										</div>
+							<div id="chart">
+								<div id="chartContainer" style="position: relative; width: 900px; height: 400px;">
+									<canvas id="myChart" width="600" height="430"></canvas>
+								</div>
+							</div>
+								<div id="woo">
+								<div id="chartText">
+									체중변화 그래프
+								</div>
+								<div id="chartList">
+									<select id="graphSelect">
+										<c:forEach var="graph" items="${graph}">
+											<option value="${graph.no}">
+												일자: ${graph.datetime} / 체중: ${graph.weight} kg / 신장: ${graph.height} cm
+											</option>
+										</c:forEach>
+									</select>
+									<button type="button" id="delBtn">삭제</button>
+								</div>
+								<div id="weightWrite">
+									<input type="number" name="weight" placeholder="몸무게" maxlength="5">
+									<input type="number" name="height" placeholder="신장" maxlength="5">
+									<button type="button" id="weightSubmit">입력</button>
+								</div>
+							</div>
 				</div>
+				<!-- 그래프 -->
 				<div id="secondPage">
 					<div id="leftPage">
 						<div id="todayText">

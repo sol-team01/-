@@ -18,7 +18,7 @@ public class MyPageServiceImpl implements MyPageService{
 	private MyPageMapper mapper;	
 	
 	@Setter(onMethod_ = @Autowired)
-	private SignMapper SignMapper;	
+	private SignMapper signMapper;	
 
 	 // 프로필 정보 불러오기
 	@Override 
@@ -74,6 +74,11 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		return mapper.getByteImg(U_no).getI_profileImg();
 		
+	}
+	
+	@Override
+	public InfoDto getInfoDto(String U_no) {
+		return signMapper.userInfo(U_no);
 	}
 	
 }

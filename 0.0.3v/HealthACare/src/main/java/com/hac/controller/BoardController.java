@@ -1,7 +1,5 @@
 package com.hac.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -27,15 +26,35 @@ public class BoardController {
 	
 
 	@GetMapping("/noticeBoard")
-	public void BoardList(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model m, HttpServletRequest request) {
+	public void BoardList(
+			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
+			@RequestParam(value = "sort", required = false) String sort,
+			Model m,
+			HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
+		String sessionSort = (String) session.getAttribute("sort");
 		BoardSDto dtos = new BoardSDto();
+		int sortValue = 0;
+		if (sort != null) {
+	        // AJAX 요청으로 받은 선택한 정렬 방식을 세션에 저장
+	        session.setAttribute("sort", sort);
+	        if (sort.equals("asc")) {
+	            sortValue = 1;
+	        }
+	    } else if (sessionSort != null) {
+	        // 세션에 저장된 정렬 방식 사용
+	        if (sessionSort.equals("asc")) {
+	            sortValue = 1;
+	        }
+	    }
 		System.out.println("..................BoardList 진입");
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
-		m.addAttribute("list", service.getList(currentPage));
+		InfoDto user = (InfoDto) session.getAttribute("login");
+		m.addAttribute("user", user);
+		m.addAttribute("list", service.getList(currentPage,sortValue));
 		m.addAttribute("totalContent", service.totalContent());
 		m.addAttribute("paging", service.pageBlock(currentPage, dtos));
+		m.addAttribute("noticeList", service.getNoticeList());
 	}
 
 	@GetMapping("/searchBoard")
@@ -64,14 +83,15 @@ public class BoardController {
 	    m.addAttribute("search", service.searchList(currentPage, word, column));
 	    m.addAttribute("searchPaging", service.pageBlock(currentPage,dtos));
 	    m.addAttribute("searchTotal", service.searchTotalContent(dtos));
+	    m.addAttribute("noticeList", service.getNoticeList());
 	}	
 	
 	@GetMapping("/writeBoard")
 	public void writeBoard(HttpServletRequest request, Model m) {
 		System.out.println("..................writeBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		InfoDto user = (InfoDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 	}
 	
 	@PostMapping("/write")
@@ -89,8 +109,8 @@ public class BoardController {
 	public void read(@RequestParam("b_NO") long bno, Model m,HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		InfoDto user = (InfoDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(bno));
 		service.hit(bno);
 	}
@@ -99,8 +119,8 @@ public class BoardController {
 	public void modifyBoard(@RequestParam("b_NO") long b_NO, Model m,HttpServletRequest request) {
 		System.out.println("..................modifyBoard 진입");
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("login");
-		m.addAttribute("bId", userId);
+		InfoDto user = (InfoDto) session.getAttribute("login");
+		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(b_NO));
 	}
 	
