@@ -139,13 +139,16 @@ img {
 	font: bold;
 	font-size: 36px;
 }
-
+/**/
+/**/
+/**/
 #myFoodText{
 	width: 570px;
 	height: 50px;
 	font: bold;
 	font-size: 28px;
 	padding: 15px;
+	color:white;
 	background-color:#03BDFF; 
 	border-radius: 18px;
 	display: flex;
@@ -162,6 +165,7 @@ img {
 #myFoodText .textKcal{
 	font-size: 14px;
 	margin-left: 5px;
+	color: white;
 }
 #myFoodText .kaclBox{
 	width: 230px;
@@ -174,6 +178,92 @@ img {
 	align-items: center;
 	padding: 0px 10px;
 }
+
+#myFoodListBox{
+	height:730px;
+	 overflow-y: auto; /* 세로 방향으로만 스크롤이 생성됩니다. */
+	 overflow-x: hidden; /* 가로 스크롤을 숨김 */
+	}
+#myFoodList{
+	width: 570px;
+	padding:20px 5px;
+	font: bold;
+	font-size: 18px;
+	padding: 15px;
+	border-radius: 18px;
+/* 	background-color:#D0D0D2; */
+	background-color:#F3F3F3;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	}
+#myFoodList .mainBox{
+	border-radius: 18px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+#myFoodList .mainBox .dateBox{
+	font-size: 23px;
+}
+#myFoodList .mainBox .dateBox .time{
+	background-color: #9FE2FA99;
+	width: 100px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-radius: 8px;
+	padding: 15px 5px;
+	margin-bottom: 10px;
+}
+#myFoodList .mainBox .myEatBox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+#myFoodList .mainBox .myEatBox div{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+#myFoodList .mainBox .myEatBox .myEatLog{
+	width: 430px;
+	background-color: white;
+	border:1px solid #03BDFF;
+	padding: 10px 10px;
+	display:flex;
+	justify-content:flex-start;
+	align-items:flex-start;
+	border-radius: 8px;
+	font-size: 20px;
+}
+#myFoodList .mainBox .myEatBox .totalBox{
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+	font-size: 26px;
+	margin-top: 10px;
+}
+#myFoodList .mainBox .myEatBox .totalBox .totalSum{
+	width: 200px;
+	background-color: #03BDFF;
+	color:white;
+	padding: 10px 10px;
+	display:flex;
+	align-items:center;
+	border-radius: 8px;
+	margin: 0px 10px;
+	text-align: right;
+}
+#myFoodList .mainBox .myEatBox .totalBox .textKcal{
+		font-size: 14px;
+	}
+/**/
+/**/
+/**/
 #rightPage{
 	width: 620px;
 	background-color: red;

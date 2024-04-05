@@ -56,7 +56,7 @@ FROM physicalLog
 GROUP BY YEAR(P_createdAt), MONTH(P_createdAt)
 ORDER BY YEAR(P_createdAt), MONTH(P_createdAt);
 
-
+SELECT B_TITLE, B_ID, B_DATETIME FROM board;
 CREATE TABLE `board` (
 		`B_NO` INT PRIMARY KEY AUTO_INCREMENT, 			#글번호
 		`B_TITLE` CHAR(100) NOT NULL DEFAULT "",			#글제목
