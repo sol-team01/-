@@ -12,6 +12,7 @@
 <body>
 <div id="Category">
 	<a href="/">
+	
 	<div id="imgbox">
 	<img  src="${cp}/resources/img/logo.png" alt="로고">
 	</div>
@@ -19,7 +20,7 @@
 	<div id="customSelect">
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
-    <div><a href="${cp}/sports/howtoSports">운동 하는 방법</a></div>
+    <div><a href="#" class="howToHealth">운동 하는 방법</a></div>
     <div>오늘 운동 완료</div>
     <div>이벤트</div>
   </div>
@@ -40,45 +41,71 @@
 	</div>
   	<div class="SelecNone">고객지원</div> 
 <script>
-$(document).ready(function(){ //운동 카테고리 버튼
-  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-  $("#customSelect .SelectHealth").click(function(event) {
-    // 다른 열려 있는 셀렉트 박스들을 닫음
-    $(".select-itemsHealth").toggleClass("select-show");
-  });
-  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
-  $(document).on("click", function(event) {
-    if (!$(event.target).closest("#customSelect").length) {
-//       $(".select-itemsHealth").removeClass("select-show");
-    }
-  });
-});
-
-$(document).ready(function(){ //식단 카테고리 버튼
+	$(document).ready(function(){ //운동 카테고리 버튼
 	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-	  $("#customSelect .SelectFood").click(function(event) {
+	  $("#customSelect .SelectHealth").click(function(event) {
 	    // 다른 열려 있는 셀렉트 박스들을 닫음
-	    $(".select-itemsFood").toggleClass("select-show");
+	    $(".select-itemsHealth").toggleClass("select-show");
 	  });
 	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
 	  $(document).on("click", function(event) {
 	    if (!$(event.target).closest("#customSelect").length) {
+	//       $(".select-itemsHealth").removeClass("select-show");
 	    }
 	  });
 	});
-$(document).ready(function(){ //질병 카테고리 버튼
-	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
-	  $("#customSelect .SelectDisease").click(function(event) {
-	    // 다른 열려 있는 셀렉트 박스들을 닫음
-	    $(".select-itemsDisease").toggleClass("select-show");
-	  });
-	  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
-	  $(document).on("click", function(event) {
-	    if (!$(event.target).closest("#customSelect").length) {
-	    }
-	  });
 	
-});
+	$(document).ready(function(){ //식단 카테고리 버튼
+		  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+		  $("#customSelect .SelectFood").click(function(event) {
+		    // 다른 열려 있는 셀렉트 박스들을 닫음
+		    $(".select-itemsFood").toggleClass("select-show");
+		  });
+		  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
+		  $(document).on("click", function(event) {
+		    if (!$(event.target).closest("#customSelect").length) {
+		    }
+		  });
+		});
+	$(document).ready(function(){ //질병 카테고리 버튼
+		  // 셀렉트 박스를 클릭했을 때 이벤트 처리
+		  $("#customSelect .SelectDisease").click(function(event) {
+		    // 다른 열려 있는 셀렉트 박스들을 닫음
+		    $(".select-itemsDisease").toggleClass("select-show");
+		  });
+		  // 문서의 어느 곳을 클릭하든 셀렉트 박스가 닫히지 않도록 설정
+		  $(document).on("click", function(event) {
+		    if (!$(event.target).closest("#customSelect").length) {
+		    }
+		  });
+		
+	});
+
+	$(document).ready(function() {
+		console.log("ajax 사용중");
+		
+		$('.howToHealth').click(function() {
+			const options = 'width=700, height=600, top=50, left=50, scrollbars=yes';
+			var cp = "${cp}";
+			$.ajax({
+				type: 'GET',
+				url: '/checkSession',
+				success: function(data){
+					console.log(data);
+					var isSessionValid = $(data).find('Boolean').text();
+					console.log(isSessionValid);
+					if (isSessionValid === 'true') {
+						window.location.href = cp + "/sports/howtoSports";
+					} else {
+						window.open(cp + '/page/login','_blank',options);
+					}
+				},
+				error: function(xhr, status, error) {
+					console.log('AJAX 요청 실패')	
+				}
+			});
+		});
+	});
 </script>
 
 </div><!-- <div id="Category"> -->

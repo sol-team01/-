@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class FoodDto {
 
-    public Header header;
-    public Body body;
+    private Header header;
+    private Body body;
 
 }

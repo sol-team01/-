@@ -102,7 +102,7 @@ public class ApiController {
 		BufferedReader rd;
 		if(con.getResponseCode() >= 200 && con.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		} else {
+		} else {	
 			rd = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 		}
 		StringBuilder sb = new StringBuilder();
