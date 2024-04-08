@@ -90,7 +90,8 @@ public class SignController {
 		session.removeAttribute("U_no");
 		return "redirect:/";
 	}
-
+	
+	//아이디 찾기
 	@PostMapping("/ConfirmId")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmId(String id) {
@@ -111,7 +112,8 @@ public class SignController {
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-
+	
+	//중복 닉네임 검사
 	@PostMapping("/ConfirmName")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmName(String name) {
