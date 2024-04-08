@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
+import com.hac.service.PhysicalService;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
@@ -26,11 +27,13 @@ import lombok.AllArgsConstructor;
 @Controller
 public class SignController {
 	private final SignService signservice;
+	private final PhysicalService pService;
 
 	// 로그인 페이지로 이동
 	@GetMapping("/myPage")
-	public String myPage() {
+	public String myPage(@RequestParam("uno") String uno, Model model) {
 		System.out.println("myPage 컨트롤러 진입");
+		model.addAttribute("physical", pService.searchPhysical(uno));
 		return "/page/myPage";
 	}
 
