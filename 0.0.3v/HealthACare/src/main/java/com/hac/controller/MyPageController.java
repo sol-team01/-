@@ -39,6 +39,12 @@ public class MyPageController {
 			HttpServletRequest request) {
 
 	HttpSession session = request.getSession();
+<<<<<<< HEAD
+=======
+	
+
+	
+>>>>>>> 48e00d35c6a152e4a20d24d542d4ce586ecc5440
 	return "/page/myPage";
 	}
 

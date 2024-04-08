@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var foodList = [];
-    var storedFoodList = JSON.parse(localStorage.getItem('foodList'));
+var storedFoodList = JSON.parse(localStorage.getItem('foodList'));
     if(storedFoodList != null){
         foodList = storedFoodList;
         updateList();
@@ -41,6 +41,7 @@ $(document).ready(function(){
 	        $('#cartDiv table tr').remove();
         // cartDiv에 이동된 정보를 표시합니다.
         var cartTable = document.querySelector('#cartDiv table');
+        var calorie = 0;
         foodList.forEach(function(item){        
             // 새로운 행을 생성하여 이동된 정보를 추가합니다.
             var newRow = cartTable.insertRow();
@@ -49,7 +50,9 @@ $(document).ready(function(){
                 <td>${item.servingAmount}</td>
                 <td>${item.calorie}</td>
                 <td><button class="removeButton">삭제</button></td>`;
+calorie += parseInt(item.calorie);
         });
+	$('#caloriePlus').html(`<p>총 칼로리: ${calorie}</p>`);
 	}
 
 

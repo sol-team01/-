@@ -7,12 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="${cp}/resources/js/rePwCk.js"></script>
 </head>
 <body>
 
     암호 변경<br>
-    ${hint.getU_id()}
-    <form action="${cp}/page/?????" method="post">
+    ${U_no}
+    <form action="${cp}/page/pwChange" method="post">
+    	<input type = "hidden" value="${U_no}" name ="U_no">
         <div>
             <label for="newPassword">새 암호:</label>
             <input type="password" id="userPw" name="U_pw" required>
@@ -21,7 +23,8 @@
             <label for="confirmPassword">새 암호 확인:</label>
             <input type="password" id="userRePw" name="U_repw" required>
         </div>
-        <div>
+        <label id="checkTextPw"></label> 
+        <div id="rePwCk">
             <input type="submit" value="암호 변경">
         </div>
     </form>
