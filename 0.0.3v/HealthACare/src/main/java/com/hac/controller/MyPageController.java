@@ -8,10 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.searchDto.MyPageDto;
-import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.service.MyPageService;
 import com.hac.service.PhysicalService;
 
@@ -27,7 +25,6 @@ public class MyPageController {
 
 @Setter(onMethod_ = @Autowired)
 	private MyPageService service;
-	private PhysicalService pService;
 
 	String mag;
 	
@@ -39,12 +36,6 @@ public class MyPageController {
 			HttpServletRequest request) {
 
 	HttpSession session = request.getSession();
-<<<<<<< HEAD
-=======
-	
-
-	
->>>>>>> 48e00d35c6a152e4a20d24d542d4ce586ecc5440
 	return "/page/myPage";
 	}
 

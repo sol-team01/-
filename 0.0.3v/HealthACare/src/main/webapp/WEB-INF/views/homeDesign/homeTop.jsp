@@ -35,19 +35,7 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage?uno=${login.getU_no()}">
 	<div class="box">
-<<<<<<< HEAD
-	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
 	${login.getI_name()}
-=======
-<<<<<<< HEAD
-
-	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
-	${login.getI_name()}
-
-=======
-	${login.getI_name()}
->>>>>>> 4658aa8b20a89a788332ab83f3266adfa31f6803
->>>>>>> 48e00d35c6a152e4a20d24d542d4ce586ecc5440
 	<div  class="myImg"></div>
 	</div>
 	</a>
