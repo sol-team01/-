@@ -62,8 +62,8 @@
 						</tr>
 					</table>
 				</div>
-				<button id="clearSessionButton">세션 클리어</button>
-				계산된 칼로리 (a+a+a+a+a+a+a+...) -> 권장 칼로리 보다 높으면 빨간색, 낮으면 초록색
+				<button id="clearSessionButton">저장</button>
+				<div id = "caloriePlus"></div>
 				&nbsp;&nbsp;&nbsp;/
 				<div>선택 - 육체활동이 거의 없는 경우 표준체중 X 30(kcal) - 보통의 활동을 하는 경우 표준체중
 					X 35(kcal) - 심한 육체활동을 하는 경우 표준체중 X 40(kcal) 표준체중 구하는 법 - 신장이 150cm
@@ -77,10 +77,6 @@
 		<!-- <div id="main"> -->
 	</div>
 	<!-- <div id="warp"> -->
-
-	<script>
-
-</script>
 
 </body>
 </html>
