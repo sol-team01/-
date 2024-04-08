@@ -5,14 +5,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hac.dto.searchDto.MyPageDto;
 import com.hac.dto.searchDto.PhysicalDto;
-import com.hac.service.MyPageService;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.PhysicalService;
 
 import lombok.Setter;
@@ -23,41 +25,31 @@ import lombok.extern.log4j.Log4j;
 // 필드 값을 매개변수로 하는 생성자를 스프링이 알아서 만들어 줌. 그리고 그런 형태의 생성자를 추가하면 스프링이 알아서 객체관리
 //					// 해줌(@Auto.. 처럼)
 @Controller
-public class MyPageController {
+public class PhysicalController {
 
 @Setter(onMethod_ = @Autowired)
-	private MyPageService service;
-	private PhysicalService pService;
+	private PhysicalService service;
 
-	String mag;
-	
-	//마이페이지로 이동
-	@GetMapping("/myPage")
-	public String nameChange(
-			MyPageDto dto,
-			Model model,
-			HttpServletRequest request) {
-
-	HttpSession session = request.getSession();
-	return "/page/myPage";
+	@DeleteMapping("/delete/{uno}")
+	@ResponseBody
+	public String delete(@PathVariable Long uno) {
+		System.out.println("데이터삭제");
+		service.delPhysical(uno);
+		return "success";
 	}
-
-	 // 신체 정보 변경
-	@GetMapping("/physical")
-	public String physical(MyPageDto dto, Model model, HttpServletRequest request) {
-
-		// 신체정보 입력
-		if (dto.getP_height() != null && dto.getP_weight() != null && !dto.getP_height().equals(null)
-				&& !dto.getP_weight().equals(null)) {
-			// 업데이트 or 인설트 함. 그 결과값이 String 으로 리턴이 됨
-			String mag = service.physical(dto);
-
-			return mag;
-		} else {
-
-			return "입력한 신체정보가 없습니다.";
-		}
-
+	
+	@PostMapping("/physicalSumbit")
+	public String physicalSumbit(@RequestParam("uno")String uno,
+			@RequestParam("weight")String weight,
+			@RequestParam("height")String height) {
+		System.out.println("체중입력 진입................");
+		service.setterPhysical(uno,weight,height);
+		return "/page/myPage";
+	}
+	
+	@GetMapping("/physicalSumbit")
+	public void physicalSumbit() {
+		
 	}
 
 }

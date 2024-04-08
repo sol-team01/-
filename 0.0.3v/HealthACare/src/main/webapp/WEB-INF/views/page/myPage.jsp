@@ -37,36 +37,37 @@
 					<!-- 상단 내정보 -->
 				<!-- 그래프 -->
 				<div id="graphLayout">
-										<div id="infoName">
-										체중변화를 그래프로 알아볼까요?
-										</div>
-							<div id="chartLayout">
-							<div id="chart">
-								<div id="chartContainer" style="position: relative; width: 900px; height: 400px;">
-									<canvas id="myChart" width="600" height="430"></canvas>
-								</div>
-							</div>
-								<div id="chartInfoTextBox">
-								<div class="chartText">
-									체중변화 그래프
-								</div>
-									<select id="graphSelect">
-										<c:forEach var="graph" items="${graph}">
-											<option value="${graph.no}">
-												일자: ${graph.datetime} / 체중: ${graph.weight} kg / 신장: ${graph.height} cm
-											</option>
-										</c:forEach>
-									</select>
-									<button type="button" id="delBtn">삭제</button>
-								<div id="weightWrite">
-									<input type="number" name="weight" placeholder="몸무게" maxlength="5">
-									<input type="number" name="height" placeholder="신장" maxlength="5">
-									<button type="button" id="weightSubmit">입력</button>
-								</div>
-							</div>
-							</div><!-- <div id="chartLayout"> -->
+					<div id="infoName">
+					체중변화를 그래프로 알아볼까요?
+					</div>
+				<div id="chartLayout">
+				<div id="chart">
+					<div id="chartContainer" style="position: relative; width: 900px; height: 400px;">
+						<canvas id="myChart" width="600" height="430"></canvas>
+					</div>
 				</div>
-				<!-- 그래프 -->
+					<div id="chartInfoTextBox">
+					<div class="chartText">
+						체중변화 그래프
+					</div>
+						<select id="graphSelect">
+							<c:forEach var="graph" items="${physical}">
+								<option value="${graph.p_no}">
+									일자: ${graph.p_createdAt} / 체중: ${graph.p_weightLog} kg / 신장: ${graph.p_heightLog} cm
+								</option>
+							</c:forEach>
+						</select>
+						<button type="button" id="delBtn">삭제</button>
+					<div id="weightWrite">
+						<input type="hidden" id="sessionUno" value="${login.u_no}">
+						<input type="number" name="weight" placeholder="몸무게" maxlength="5">
+						<input type="number" name="height" placeholder="신장" maxlength="5">
+						<button type="button" id="weightSubmit">입력</button>
+					</div>
+				</div>
+				</div><!-- <div id="chartLayout"> -->
+			</div>
+<!-- 그래프 -->
 				<div id="secondPage">
 <!-- 칼로리 jsp 따로 뺴놓았슴다~ (최) -->
 <jsp:include page="/WEB-INF/views/page/myPageDesign/myFoodKcal.jsp"></jsp:include>						
@@ -117,15 +118,15 @@
 							});
 					
 					$('#delBtn').click(function(){
-						var selectedId = $('#graphSelect').val();
-						console.log(selectedId);
-						if (!selectedId) {
+						var selectedUno = $('#graphSelect').val();
+						console.log(selectedUno);
+						if (!selectedUno) {
 							alert('삭제할 항목을 선택해주세요.');
 							return;
 						}
 						
 						$.ajax({
-							url: '/page/delete/' + selectedId,
+							url: '/myPage/delete/' + selectedUno,
 							type: 'DELETE',
 							success: function(response) {
 								console.log('데이터 삭제 완료');
@@ -137,23 +138,31 @@
 						});
 					});
 					
-					$('#weightSubmit').click(function(){
-						var id = $('sessionId').val();
-						var weight = $('input[name="weight"]').val();
-						var height = $('input[name="height"]').val();
-						
-						$.ajax({
-							url: '/page/weight',
-							method: 'POST',
-							data: { id: id, weight: weight, height: height},
-							success: function(response){
-								console.log("데이터 들어감")
-								window.location.reload();
-							},
-							error: function(xhr, status, error) {
-								console.log("데이터 안들어감")
-							}
-						});
+					$('#weightSubmit').click(function() {
+					    var uno = $('#sessionUno').val();
+					    var weight = $('input[name="weight"]').val();
+					    var height = $('input[name="height"]').val();
+					    console.log(uno); // 변수명을 U_no에서 uno로 변경
+					    console.log(weight);
+					    console.log(height);
+					    
+					    
+					    $.ajax({
+					        url: '/myPage/physicalSumbit',
+					        method: 'POST',
+					        data: {
+					            'uno': uno,
+					            'weight': weight,
+					            'height': height
+					        },
+					        success: function(response){
+					            console.log("데이터들어감");
+					            location.reload();
+					        },
+					        error: function(xhr, status, error) {
+					            console.log("데이터안들어감");
+					        }
+					    });
 					});
 				});
 		
@@ -169,10 +178,10 @@
         const down = (ctx, value) => ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined;
         
         
-        <c:forEach var="graph" items="${graph}">
-            dates.push('${graph.datetime}');
-            weights.push('${graph.weight}');
-            heights.push('${graph.height}');
+        <c:forEach var="graph" items="${physical}">
+            dates.push('${graph.p_createdAt}');
+            weights.push('${graph.p_weightLog}');
+            heights.push('${graph.p_heightLog}');
         </c:forEach>
 
         function calculateBMI(weight, height) {

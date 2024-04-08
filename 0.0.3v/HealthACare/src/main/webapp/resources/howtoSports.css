@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+#useKcal{
+	margin-top: 5px;
+	margin: auto;
+	width: 1300px;
+	border-radius: 28px;
+	padding: 25px 36px;
+	background-color: green;
+	color:white;
+	display: flex;
+	flex-direction:column;
+	justify-content: space-between;
+	align-items: center;
+	color: #0475a6;
+}
+#choiceSportsBox{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+#choiceSportsBox .choiceSports{
+	width: 100px;
+	height: 50px;
+	font-size: 26px;
+	background-color: pink;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 16px;
+	cursor: pointer;
+}
+/**/
+/* 상단 메인*/
+/**/
+#useKcalMainBox{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	background-color: pink;
+	margin: 20px 0px;
+}
+#useKcalMainBox .inputBox{
+	width: 350px;
+	background-color:white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/**/
+#useKcalMainBox .sumKcalBox{
+	width: 350px;
+	background-color:yellow;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: 30px;
+}
+/**/
+#useKcalMainBox .dayKcalBox{
+	width: 600px;
+	background-color:#00ff80;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: 30px;
+}
+/**/
+#useKcalMainBox .inputBox .bodyInfoBox{
+	display: flex;	
+	justify-content: space-between;
+	align-items: center; 
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+#useKcalMainBox .inputBox .bodyInfoBox a{
+	font-size: 18px;
+	line-height:40px; 
+	}
+#useKcalMainBox .inputBox .bodyInfoBox .Box{
+	width: 200px;
+	display: flex;
+	align-items: flex-end;
+	justify-content:space-between; 
+}
+#useKcalMainBox .inputBox .bodyInfoBox .bodyInfo{
+	width: 140px;
+	height: 32px; 
+	background-color: red;
+	font-size: 28px;
+	text-align: right;
+	padding: 10px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+/**/
+/* 상단 메인*/
+/**/
