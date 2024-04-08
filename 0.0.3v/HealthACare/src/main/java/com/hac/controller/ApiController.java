@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -15,11 +18,15 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import com.hac.dto.foodDto.FoodDto;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -30,8 +37,7 @@ import lombok.extern.log4j.Log4j;
 					// 해줌(@Auto.. 처럼)
 @Controller
 public class ApiController {
-<<<<<<< HEAD
-	
+
 	// 칼로리 쪽 api인데 dto 이쪽에 안 갖고 와서 전체 주석 쳐둠 - 박남희
 	// WOW - 최지은
 	@RequestMapping("/BbsFood")
@@ -75,9 +81,8 @@ public class ApiController {
 		 model.addAttribute("kw", kw);
 		 
 	}
+
 	
-=======
->>>>>>> 4658aa8b20a89a788332ab83f3266adfa31f6803
 	@RequestMapping("/c")
 	public void c(Model model) throws IOException, ParserConfigurationException, SAXException {
 		
