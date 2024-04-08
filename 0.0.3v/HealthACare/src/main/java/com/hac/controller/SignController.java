@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -53,7 +56,6 @@ public class SignController {
 	}
 
 	// 회원가입
-
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
 			@ModelAttribute PhysicalDto phyDto) {
@@ -65,18 +67,20 @@ public class SignController {
 
 	// 로그인
 	@PostMapping("/signIn")
-	public String signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
+	public ResponseEntity<Map<String, Object>> signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
 			@RequestParam("U_pw") String U_pw) {
 		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
+		
+		Map<String, Object> response = new HashMap<>();
 		if (dto != null) {
 			session.setAttribute("login", dto);
-			System.out.println("로그인 성공");
-			return "redirect:/";
+			response.put("success", true);
+			return ResponseEntity.ok(response);
 		} else {
-			System.out.println("로그인 실패");
-			return "redirect:/page/login";
+		    response.put("success", false);
+		    return ResponseEntity.ok(response);
 		}
 	}
 

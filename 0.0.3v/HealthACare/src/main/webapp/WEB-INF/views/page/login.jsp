@@ -8,11 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${cp}/resources/loginCommon.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <div id="loginBox">
 <a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
-<form action="${cp}/page/signIn" method="post">
+<form id="loginForm" method="post">
 
 <div class="textbox">
 <a class="text">아이디</a> 
@@ -31,5 +32,34 @@
    <a class="text2" href="${cp}/page/searchPwId">비밀번호찾기</a>
 </div><!-- textContain -->
 </div><!-- loginBox -->
+<script>
+$(document).ready(function() {
+	$("#loginForm").submit(function(event) {
+	    event.preventDefault(); // 기본 동작 방지
+	    var formData = $(this).serialize(); // 폼 데이터 직렬화
+
+	    $.ajax({
+	        type: "POST",
+	        url: "/page/signIn",
+	        data: formData,
+	        dataType: "json", // 반환되는 데이터 타입을 JSON으로 지정
+	        success: function(response) {
+	        	console.log(response);
+	            if(response.success === true) { // JSON 데이터에서 success 값 확인
+	                // 로그인 성공 시 처리
+	                window.location.href = "/"; // 성공 페이지로 이동
+	            } else {
+	                // 로그인 실패 시 처리
+	                alert("로그인에 실패했습니다."); // 실패 팝업 표시
+	            }
+	        },
+	        error: function(xhr, status, error) {
+	            // AJAX 오류 시 처리
+	            alert("존재하지 않는 계정입니다.");
+	        }
+	    });
+	});
+});
+</script>
 </body>
 </html>

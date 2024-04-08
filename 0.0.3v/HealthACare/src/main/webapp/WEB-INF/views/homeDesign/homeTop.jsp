@@ -35,19 +35,13 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage?uno=${login.getU_no()}">
 	<div class="box">
-<<<<<<< HEAD
-
-
-	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
-=======
->>>>>>> 024aa1a4ab5fb3a768be25fb1482df9d17e4610e
 	${login.getI_name()}
 	<div  class="myImg"></div>
 	</div>
 	</a>
 	</div>
     </c:otherwise>
-</c:choose>
+    </c:choose>
 	</div>
 </div>
 
