@@ -25,5 +25,7 @@ public interface SignService {
 	
 	public InfoDto searchFinding(SignDto dto);
 	
-	public SignDto searchPwHint(SignDto dto);
+	public boolean searchPwHint(SignDto dto);
+	
+	public void pwChange(SignDto dto);
 }

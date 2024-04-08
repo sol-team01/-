@@ -72,7 +72,7 @@ public class ApiController {
 		
 		FoodDto kw = restTemplate.getForObject(uri, FoodDto.class); // 자기 클래스로 바꾸시오..							
 		log.info("==== json ==== : ============================ : ");							
-		String name = kw.body.items.get(0).DESC_KOR;							
+		String name = kw.body.items.get(0).DESC_KOR;	
 		String kcal = kw.body.items.get(0).NUTR_CONT1;							
 		String g = kw.body.items.get(0).NUTR_CONT2;							
 		String ddara = String.format("==== json ==== : 음식, %s이고 칼로리는 %s kcal, 탄백질은 %s g이다.", name, kcal, g);							

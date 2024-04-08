@@ -153,6 +153,12 @@ public class SignController {
 	@PostMapping("/searchPw")
 	public String searchPw(SignDto dto, Model model) {
 		System.out.println(dto);
+		if(dto.getDomainList().length()>0) {
+		dto.setI_email(dto.getEmail()+"@"+dto.getDomainList());
+		} else {
+			dto.setI_email(dto.getEmail()+"@"+dto.getDomain());
+		}
+		System.out.println(dto.getI_email());
 		InfoDto pwFinding = signservice.searchFinding(dto);
 		if (pwFinding != null) {
 			System.out.println("pwFinding: " + pwFinding);
@@ -182,14 +188,21 @@ public class SignController {
 	@PostMapping("/searchHint")
 	public String searchHint(SignDto dto, Model model) {
 		System.out.println(dto);
-		SignDto hint = signservice.searchPwHint(dto);
-		if (hint != null) {
-			System.out.println("hint: " + hint);
-			model.addAttribute("hint", hint);
-			return "redirect:/page/login";
-		} else {
-			System.out.println("힌트가 잘못됨 " + hint);
+	
+		if(signservice.searchPwHint(dto)) {
+			model.addAttribute("U_no",dto.getU_no());
+			return "/page/resetPw";
+		} else {			
+			model.addAttribute("mag","이거 틀렸어요");
 			return "/page/searchPwHint";
 		}
+	}
+	
+	//비밀번호 재설정
+	@PostMapping("/pwChange")
+	public String pwChange(SignDto dto) {
+		System.out.println("비밀번호 변경 진입");
+		signservice.pwChange(dto);
+		return "/page/login";
 	}
 }
