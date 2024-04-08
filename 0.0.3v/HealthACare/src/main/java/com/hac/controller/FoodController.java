@@ -26,6 +26,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor 
 @Controller
 public class FoodController {
+<<<<<<< HEAD
       
       // 식품정보 리스트 보기
       @RequestMapping("/list")
@@ -123,6 +124,81 @@ public class FoodController {
       public String calorieCounting(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model, HttpServletRequest request) {
          
          HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
+=======
+		
+		// 식품정보 리스트 보기
+		@RequestMapping("/list")
+		public void list(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) throws UnsupportedEncodingException {
+			//인코딩 인증키	
+			String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";					
+			String API_URL = null;
+			
+			try {
+				String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
+				API_URL = "http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=10&type=json" ;			
+				log.info("========" + API_URL);
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			
+			RestTemplate restTemplate = new RestTemplate();					
+			URI uri = null; 				
+			try {	
+				uri = new URI(API_URL);				
+			} catch (URISyntaxException e) {					
+				e.printStackTrace();				
+			}
+								
+			FoodDto food = restTemplate.getForObject(uri, FoodDto.class); 	
+			
+			log.info("==== food list ==== : ============================ : ");							
+			
+			 model.addAttribute("food", food);
+			 
+		}
+		
+		// 식품정보 세부 리스트 보기
+		@RequestMapping("/detailList")
+		public void detailList(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) {
+
+		}
+		
+		// 식품정보
+		@RequestMapping("/information")
+		public void information(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) {
+//			//인코딩 인증키	
+			String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";					
+			String API_URL = null;
+			
+			try {
+				String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
+				API_URL = "http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=10&type=json" ;			
+				log.info("========" + API_URL);
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			
+			RestTemplate restTemplate = new RestTemplate();					
+			URI uri = null; 				
+			try {	
+				uri = new URI(API_URL);				
+			} catch (URISyntaxException e) {					
+				e.printStackTrace();				
+			}
+								
+			FoodDto food = restTemplate.getForObject(uri, FoodDto.class); 	
+			
+			log.info("==== food json ==== : ============================ : ");							
+			
+			 model.addAttribute("food", food); 
+			
+		}
+		
+		@RequestMapping("/calorieCounting")
+		public String calorieCounting(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model, HttpServletRequest request) {
+			
+			HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
+>>>>>>> 16264756911bae565b376636e1dbe9ef2dcb30bc
 
           // 세션에 로그인 정보가 없으면 로그인 페이지로 리다이렉트
           if (session == null || session.getAttribute("login") == null) {
@@ -130,6 +206,7 @@ public class FoodController {
               return "redirect:/page/login";
           }
 
+<<<<<<< HEAD
          //인코딩 인증키   
          String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";               
          String API_URL = null;
@@ -166,3 +243,41 @@ public class FoodController {
            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
        }
 }
+=======
+			//인코딩 인증키	n
+			String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";					
+			String API_URL = null;
+		
+			try {
+				String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
+				API_URL = "http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=20&type=json" ;			
+			log.info("========" + API_URL);
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			
+			RestTemplate restTemplate = new RestTemplate();					
+			URI uri = null; 				
+			try {	
+				uri = new URI(API_URL);				
+			} catch (URISyntaxException e) {					
+				e.printStackTrace();				
+			}
+								
+			FoodDto food = restTemplate.getForObject(uri, FoodDto.class); 	
+			
+			log.info("==== food json ==== : ============================ : ");							
+			
+			 model.addAttribute("food", food); 
+			
+			 return "/food/calorieCounting";
+		}
+
+		// /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
+	    @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)
+	    public void favicon(HttpServletResponse response) {
+	        // favicon 요청에 대한 응답을 404로 설정하여 무시합니다.
+	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+	    }
+}
+>>>>>>> 16264756911bae565b376636e1dbe9ef2dcb30bc

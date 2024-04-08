@@ -14,6 +14,7 @@ import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.BoardService;
+import com.hac.service.ReplyService;
 
 import lombok.AllArgsConstructor;
 
@@ -22,6 +23,7 @@ import lombok.AllArgsConstructor;
 @Controller
 public class BoardController {
 	private final BoardService service;
+	private final ReplyService rService;
 	
 	
 
@@ -106,12 +108,19 @@ public class BoardController {
 	}
 	
 	@GetMapping("/readBoard")
-	public void read(@RequestParam("b_NO") long bno, Model m,HttpServletRequest request) {
+	public void read(
+			@RequestParam(value = "replyCurrentPage", defaultValue = "1") long replyCurrentPage,
+			@RequestParam("b_NO") long bno,
+			Model m,
+			HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
 		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
 		m.addAttribute("read", service.read(bno));
+		m.addAttribute("reply", rService.replyList(replyCurrentPage,bno));
+		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, bno));
+		m.addAttribute("totalReply", rService.totalReply(bno));
 		service.hit(bno);
 	}
 	

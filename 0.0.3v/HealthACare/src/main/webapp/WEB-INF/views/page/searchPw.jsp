@@ -10,28 +10,31 @@
 <link rel="stylesheet" href="${cp}/resources/searchPw.css">
 </head>
 <body>
-<<<<<<< HEAD
 
-<form action="${cp}/page/searchPw" method="post">
-<label for="securityQuestion" class="text3">비밀번호찾기 질문</label>
-	<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
-		<option value="1">질문을 넣어주세요</option>
-		<option value="2">질문을 넣어주세요2</option>
-		<option value="3">질문을 넣어주세요3</option>
-	</select>
-<label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
-<input id="I_hint" name="I_hint" type="text">
-<input id="signUPBt" type="submit" value="비밀번호 찾기">
-</form>
+<div id="searchPwBox">
+	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
+	<div id="inBox">
+	<a class="idText">비밀번호 찾기</a>
+	<a class="cText">**** 아이디와 답을 입력해주시면 비밀번호를 찾을 수 있어요! ****</a>
+	
+	<form action="${cp}/page/searchPw" method="post" name="PwSearch">
+	<label class="text3">아이디</label>
+		<input id="idInput" type="text" maxlength="20" name="U_id" placeholder="아이디를 입력해주세요.">
+		
+	<label for="securityQuestion" class="text3">비밀번호 찾기 질문</label>
+   		<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
+     		<option value="1">질문입니다. 당신의 대답은?</option>
+			<option value="2">학원 근처에서 가장 맛있었던 식당은?</option>
+			<option value="3">학원에서 처음으로 갔던 단체회식 장소는?</option>
+			<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
+   		</select>
+	<label for="QuestionAnswer" class="text3">비밀번호 찾기 답변</label>
+	<input id="I_hint" name="I_hint" type="text" placeholder="답을 입력해주세요.">
+	
+		<input id="searchPwBt" type="submit" value="비밀번호 찾기">
+	</form>
+	</div><!-- inBox -->
+</div><!-- searchPwBox -->
 
-=======
-<div>
-<form action="${cp}/page/searchPw" method="post" name="PwSearch">
-<a>아이디</a>
-<input type="text" maxlength="20" name="U_id">
-<input id="signUPBt" type="submit" value="비밀번호 찾기">
-</form>
-</div>
->>>>>>> 09d31b2f3188273d428aebe404a85d5333c4c1bd
 </body>
 </html>

@@ -38,50 +38,6 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class ApiController {
 	
-	// 칼로리 쪽 api인데 dto 이쪽에 안 갖고 와서 전체 주석 쳐둠 - 박남희
-	// WOW - 최지은
-	@RequestMapping("/BbsFood")
-	public void a(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) {
-		//// 우리나라 공공 api ////					
-		//인코딩 인증키					
-		String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";					
-		String API_URL = null;
-		
-		try {
-			String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
-			API_URL = "https://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=10&type=json" ;			
-			log.info("========" + API_URL);
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
-				// * 주의 * https 아님 http 임. https 는 인증관련 복잡한 처리를 해야함.	
-		
-//	        descKor="%EB%B0%B0";
-		
-		RestTemplate restTemplate = new RestTemplate();					
-		//// **** 중요 **** uri					
-		URI uri = null; //java.net.URI 임포트 하셈					
-		try {					
-			uri = new URI(API_URL);				
-		} catch (URISyntaxException e) {					
-			e.printStackTrace();				
-		}
-							
-//		String s = restTemplate.getForObject(uri, String.class); 			
-//		log.info("====== 잘 나오나? "+s);	
-		
-		FoodDto kw = restTemplate.getForObject(uri, FoodDto.class); // 자기 클래스로 바꾸시오..							
-		log.info("==== json ==== : ============================ : ");							
-		String name = kw.body.items.get(0).DESC_KOR;							
-		String kcal = kw.body.items.get(0).NUTR_CONT1;							
-		String g = kw.body.items.get(0).NUTR_CONT2;							
-		String ddara = String.format("==== json ==== : 음식, %s이고 칼로리는 %s kcal, 탄백질은 %s g이다.", name, kcal, g);							
-		log.info(ddara);	
-		
-		 model.addAttribute("kw", kw);
-		 
-	}
-	
 	@RequestMapping("/c")
 	public void c(Model model) throws IOException, ParserConfigurationException, SAXException {
 		
@@ -102,7 +58,7 @@ public class ApiController {
 		BufferedReader rd;
 		if(con.getResponseCode() >= 200 && con.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		} else {
+		} else {	
 			rd = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 		}
 		StringBuilder sb = new StringBuilder();

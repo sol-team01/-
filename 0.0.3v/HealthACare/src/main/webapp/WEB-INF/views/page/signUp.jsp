@@ -70,6 +70,7 @@
 							<a class="text4"><span id="middle">@</span></a> 
 							<input class="ebox" id="domain-txt" type="text" /> 
 							<select class="ebox" id="domain-list">
+								<option value="">직접입력</option>
 								<option value="naver.com">naver.com</option>
 								<option value="google.com">google.com</option>
 								<option value="hanmail.net">hanmail.net</option>
@@ -79,14 +80,15 @@
 							<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
 							<input type="hidden" id="totalemail" name="I_email" value="">
 						</div>
-						<label for="securityQuestion" class="text3">비밀번호찾기 질문</label> 
+						<label for="securityQuestion" class="text3">비밀번호 찾기 질문</label> 
 						<select class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
-							<option value="1">질문을 넣어주세요</option>
-							<option value="2">질문을 넣어주세요2</option>
-							<option value="3">질문을 넣어주세요3</option>
+							<option value="1">질문입니다. 당신의 대답은?</option>
+							<option value="2">학원 근처에서 가장 맛있었던 식당은?</option>
+							<option value="3">학원에서 처음으로 갔던 단체회식 장소는?</option>
+							<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
 						</select> 
-						<label for="QuestionAnswer" class="text3">비밀번호찾기답</label>
-						<input id="I_hint" name="I_hint" type="text">
+						<label for="QuestionAnswer" class="text3">비밀번호 찾기 답변</label>
+						<input id="I_hint" name="I_hint" type="text" placeholder="답을 입력해주세요.">
 						<input id="signUPBt" type="submit" value="회원가입">
 					</div>
 			</form>
@@ -269,13 +271,13 @@
 	// select 옵션 변경 시
 	 domainListEl.addEventListener('change', (event) => {
 	// option에 있는 도메인 선택 시
-	if(event.target.value !== "type") {
+	if(event.target.value !== "") {
 	 // 선택한 도메인을 input에 입력하고 disabled 
 	domainInputEl.value = event.target.value;
 	domainInputEl.disabled = true;
 	} else { // 직접 입력 시
 	 // input 내용 초기화 & 입력 가능하도록 변경 
-	 domainInputEl.value = ""; 
+	 domainInputEl.value = " "; 
 	 domainInputEl.disabled = false;
 	 } 
 	});	

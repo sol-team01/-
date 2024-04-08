@@ -19,4 +19,6 @@ public interface BoardMapper {
 	public void write(BoardDto dto);
 	public void modify(BoardDto dto);
 	public int hit(long bno);
+	public int replyCount(long bno);
+	public int delReplyCount(long bno);
 }

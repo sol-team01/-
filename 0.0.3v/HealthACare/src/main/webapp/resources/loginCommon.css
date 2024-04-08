@@ -43,7 +43,6 @@ form{
    margin-top: 10px;
    text-align: left; /* 왼쪽 정렬 */
    margin-bottom: 5px;
-/*     max-width: 400px; 최대 너비 설정 */
 }
 .textbox{
    display: flex;

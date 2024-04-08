@@ -1,4 +1,3 @@
-<!-- [최] 컨트롤러 연결은 임의로 MyPageController에 있습니다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -69,45 +68,8 @@
 				</div>
 				<!-- 그래프 -->
 				<div id="secondPage">
-						<div id="myFood">
-							<div id="myFoodText">
-								당신의 권장 칼로리
-								<div>
-								<div class="kaclBox">150,00</div>
-								<a class="textKcal"> kcal</a>
-								</div> 
-							</div>
-							<div id="foodd">
-								<div id="foodList">
-									<c:forEach var="test" begin="0" end="100" step="1">
-									음식이름 칼로리량 영양정보<br>
-									</c:forEach>
-								</div>
-								<div id="week">
-									<div id="mon" class="weekDay">
-									월요일 식단
-									</div>
-									<div id="tue" class="weekDay">
-									화요일 식단
-									</div>
-									<div id="wed" class="weekDay">
-									수요일 식단
-									</div>
-									<div id="thu" class="weekDay">
-									목요일 식단
-									</div>
-									<div id="fri" class="weekDay">
-									금요일 식단
-									</div>
-									<div id="sat" class="weekDay">
-									토요일 식단
-									</div>
-									<div id="sun" class="weekDay">
-									일요일 식단
-									</div>
-								</div>
-							</div>
-						</div>
+<!-- 칼로리 jsp 따로 뺴놓았슴다~ (최) -->
+<jsp:include page="/WEB-INF/views/page/myPageDesign/myFoodKcal.jsp"></jsp:include>						
 					<div id="rightPage">
 						<div id="rightBottom">
 							<div id="calender">
