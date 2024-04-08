@@ -78,9 +78,5 @@
 	</div>
 	<!-- <div id="warp"> -->
 
-	<script>
-
-</script>
-
 </body>
 </html>

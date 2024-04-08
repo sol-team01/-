@@ -10,11 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hac.dto.searchDto.MyPageDto;
-import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
@@ -76,6 +76,15 @@ public class HomeController {
 //	log.info(youtube.items.get(3).id.videoId);
 	//	log.info(s);	
 		return "home";
+	}
+	
+	@GetMapping("/checkSession")
+	@ResponseBody
+	public boolean checkSession(HttpServletRequest request) {
+		System.out.println("들어옴?");
+		HttpSession session = request.getSession(false);
+		System.out.println(session);
+		return session != null && session.getAttribute("login") != null;
 	}
 	
 }
