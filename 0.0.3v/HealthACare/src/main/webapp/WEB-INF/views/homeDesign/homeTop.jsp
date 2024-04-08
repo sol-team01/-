@@ -35,7 +35,11 @@
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
 	<a href="${cp}/page/myPage">
 	<div class="box">
+<<<<<<< HEAD
+	<img class="Profile"  alt="사용자 프로필" src="${cp}/resources/img/profile.jpg">
+=======
 	${login.getI_name()}
+>>>>>>> e97b4498b37451eeb3053c60bc5c4c8fc484ebec
 	<div  class="myImg"></div>
 	</div>
 	</a>
@@ -44,6 +48,7 @@
 </c:choose>
 	</div>
 </div>
+
 
 </body>
 </html>
