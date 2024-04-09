@@ -44,16 +44,23 @@
 	</div>
 	<div id="midAlign">
 	<div id="listBox">
-	<div class="list" id="list00">
-		<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
+	
+	<c:forEach var="board" items="${boardHomeList}" begin="0" end="3">
+		<div class="list">
+		<form action="${cp}/board/readBoard" method="get">
+			<div class="top">
+				<a class="subtext"> ${board.b_datetime}</a>
+				<div class="subTextBox">${board.i_name}</div>
+			</div>
+			<div class="bottom">
+				<a class="title">${board.b_title}  </a>
+				조회수 : ${board.b_hit}[${board.b_replyCount}]
+			</div>
+		</form>  
 		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
+	</c:forEach>
+	
+	
 	 <div class="list" id="list01">
 			<div class="top">
 			<a class="subtext"> 18, Thursday</a>
@@ -64,46 +71,7 @@
 			Octover 18, Thursday
 		</div>  
 	</div>
-	 <div class="list" id="list02">
-			<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
-		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
-	 <div class="list" id="list03">
-			<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
-		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
-	 <div class="list" id="list04">
-			<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
-		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
-	 <div class="list" id="list05">
-			<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
-		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
+
 	</div>
 	
 		<script type="text/javascript">

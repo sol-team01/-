@@ -30,7 +30,7 @@ public class BoardController {
 	private final ReplyService rService;
 	
 	
-
+	//글리스트
 	@GetMapping("/noticeBoard")
 	public void BoardList(
 			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,

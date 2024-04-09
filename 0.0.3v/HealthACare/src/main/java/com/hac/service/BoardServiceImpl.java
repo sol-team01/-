@@ -16,6 +16,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardMapper mapper;
+	
+	@Override
+	public ArrayList<BoardDto> getListHome(){
+		return mapper.getListHome();
+	}
 
 	@Override
 	public ArrayList<BoardDto> getList(int currentPage,int sort) {
