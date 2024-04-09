@@ -265,15 +265,57 @@ img {
 /**/
 /**/
 #rightPage{
-	width: 620px;
-	background-color: red;
-}
-#rightTop{
-	height: 710px;
-	align-content: cetner;
-	text-align: cetner;
+	width: 570px;
+	
+	height: 830px;
+	margin-top: 20px;
+	border-radius: 28px;
+	border: 1px solid #dbdbdb;
+	padding: 25px 36px;
+	display: flex;
+	justify-content: center;
+	align-content:center;
+	flex-direction: column;
 }
 
+#myActivity{
+	width: 540px;
+	height: 50px;
+	font: bold;
+	font-size: 28px;
+	padding: 15px;
+	background-color:#dbdbdb;
+/* 	border:1px solid #dbdbdb ; */
+	border-radius: 18px;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	margin-bottom: 20px;
+	}
+#myActivityListBox{
+	height:730px;
+	 overflow-y: auto; /* 세로 방향으로만 스크롤이 생성됩니다. */
+	 overflow-x: hidden; /* 가로 스크롤을 숨김 */
+	}
+#myActivityList{
+	width: 540px;
+	padding:20px 5px;
+	font: bold;
+	font-size: 18px;
+	padding: 15px;
+	border-radius: 18px;
+	background-color:#D0D0D2;
+/* 	background-color:#F3F3F3; */
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	line-height: 28px;
+	}
+/**/
+/**/
+/**/
 #chartLayout{
 	display: flex;
 	justify-content: space-between;
@@ -303,12 +345,6 @@ img {
 	margin: 5px 0px;
 }
 
-#rightBottom{
-	height: 710px;
-}
 
-#calender{
-	margin: auto;
-}
 
 

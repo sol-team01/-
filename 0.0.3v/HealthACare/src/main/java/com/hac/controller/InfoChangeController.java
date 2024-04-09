@@ -37,7 +37,7 @@ public class InfoChangeController {
 	// 이건 추후에 수정해야함
 	@GetMapping("/myInfoChange")
 	public String change(MyPageDto dto, Model model, HttpServletRequest request) {
-		System.out.println("화면진입");
+		System.out.println("나의정보수정 화면진입");
 		HttpSession session = request.getSession();
 
 		dto.setU_no(((InfoDto) session.getAttribute("login")).getU_no());
@@ -79,7 +79,7 @@ public class InfoChangeController {
 		}
 		System.out.println("쿠쿠루삥뽕");
 		session.setAttribute("login",service.getInfoDto(dto.getU_no()));
-		return "redirect:/myInfo/myInfoChange";
+		return "redirect:/myPage/myInfo";
 	}
 
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
+import com.hac.dto.searchDto.WriteDto;
 import com.hac.mapper.BoardMapper;
 import com.hac.process.PagingProcessor;
 
@@ -67,7 +68,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void write(BoardDto dto) {
+	public void write(WriteDto dto) {
 		mapper.write(dto);
 	}
 

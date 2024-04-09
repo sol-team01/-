@@ -9,8 +9,8 @@
 		SELECT * FROM info WHERE U_no = #{U_no}
 	</select>
 	
-	<select id = "myPhtsical" resultType="com.hac.dto.userDto.PhysicalLogDto" parameterType="com.hac.dto.searchDto.MyPageDto" >
-		SELECT * FROM info WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1
+		<select id = "myPhtsical" resultType="com.hac.dto.userDto.PhysicalLogDto">
+		SELECT * FROM physicalLog WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1
 	</select>
 
 	<!-- 닉네임 변경 -->
@@ -34,20 +34,6 @@
 		UPDATE info SET I_profileImg = #{I_profileImg}, I_profileImgUpdateTime = now() WHERE U_no = #{U_no}
 	</update>
 		
-	<!-- 몸무게, 키 수정(당일만 수정 가능하게) -->
-		<!--  지금 날짜과 맨 마지막 인설트 했던 날짜의 차 확인. 1이 넘어가면 날짜가 지났다는것임.-->
-	<select id="physicalUpdateTime" parameterType="com.hac.dto.searchDto.MyPageDto">
-		SELECT DATEDIFF(NOW(),P_createdAt) FROM physicalLog WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1;
-	</select>
-	
-		<!--  위의 select 한 값에서 1이 넘게 나왔을경우 인설트 -->
-	<insert id="physical" parameterType="com.hac.dto.searchDto.MyPageDto">
-		INSERT INTO physicalLog(U_no,I_weight,I_height,) value (#{U_no},#{I_weight},#{I_height})
-	</insert>
-	
-	<update id="physicalUpdate" parameterType="com.hac.dto.searchDto.MyPageDto">
-		UPDATE physicalLog SET I_weight = #{I_weight}, I_height = #{I_height}, I_physicalUpdateTime = now() WHERE U_no = #{U_no} 
-	</update>
 
 
 	<!-- 그레프 정보 뽑아오기 -->

@@ -29,9 +29,9 @@ public class MyPageServiceImpl implements MyPageService{
 	
 	@Override
 	// 가장최근 피지컬 정보 불러오기
-	public PhysicalLogDto  myPhysical(MyPageDto dto) {
+	public PhysicalLogDto  myPhysical(String U_no) {
 	
-		return mapper.myPhtsical(dto);
+		return mapper.myPhtsical(U_no);
 	}
 	
 
@@ -50,18 +50,6 @@ public class MyPageServiceImpl implements MyPageService{
 		
 	}
 	
-	@Override  // 신체정보 수정
-	public String physical(MyPageDto dto) {
-		
-		if(mapper.physicalUpdateTime(dto) > 0) {
-			mapper.nameChange(dto);
-			return "당일 신체정보를 입력하였습니다.";
-		} else {
-			mapper.physicalUpdate(dto);
-			return "신체정보를 수정하였습니다.";
-		}
-		
-	}
 	
 	@Override //프로필사진 체인지
 	public void profileImgChange(MyPageDto dto) {

@@ -33,7 +33,7 @@
 <input type="text" name="B_title" class="form-control" id = "B_title" placeholder="제목">
 
 					<label for="category">분류: </label>
-					<select id="category" name="B_CATEGORY">
+					<select id ="B_category" name="B_category">
 						<option value="공지사항">공지사항</option>
 						<option value="일반">일반</option>
 						<option value="질문">질문</option>

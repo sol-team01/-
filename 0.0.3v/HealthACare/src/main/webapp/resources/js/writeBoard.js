@@ -12,20 +12,25 @@ $(document).ready(function(){
             alert('내용을 입력해야 합니다.');
             return false;
         }
-            $.ajax({
-                url: "/board/write",
-                method: "POST",
-                data: {
-                    B_TITLE : B_title,
-                    B_TEXT : markupStr
-                },
-                success: function(response){
-                   alert('글 작성이 완료되었습니다.');
-                   window.location.href = "/board/noticeBoard";
+        var B_category = $('#B_category').val();
+        alert(B_category);
+        $('#btnSubmit').prop('disabled', true);
+        $.ajax({
+            url: "/board/write",
+            method: "POST",
+            data: {
+                B_category : B_category,
+                B_title : B_title,
+                B_text : markupStr
+            },
+            success: function(response){
+                alert('글 작성이 완료되었습니다.');
+                window.location.href = "/board/noticeBoard";
                 },
                 error: function(xhr, status, error) {
                     alert('글 등록 중 오류가 발생했습니다.');
                     console.error(xhr, status, error);
+                    $('#btnSubmit').prop('disabled', false);
                 }
 
         });

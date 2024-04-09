@@ -65,10 +65,34 @@
 				<button id="clearSessionButton">저장</button>
 				<div id = "caloriePlus"></div>
 				&nbsp;&nbsp;&nbsp;/
-				<div>선택 - 육체활동이 거의 없는 경우 표준체중 X 30(kcal) - 보통의 활동을 하는 경우 표준체중
-					X 35(kcal) - 심한 육체활동을 하는 경우 표준체중 X 40(kcal) 표준체중 구하는 법 - 신장이 150cm
-					미만 : 신장 -100 - 신장이 150cm 이상 -160cm 미만인 경우 : (신장-150) /2 +50 - 신장이
-					160cm 이상인 경우 : (신장-100)X0.9 권장칼로리 선택</div>
+${physical.p_heightLog}
+				<div>
+
+
+				<c:choose>
+					<c:when test="${physical.p_heightLog < 150}">
+				 <c:set var="recommendedCalories" value="${(physical.p_heightLog - 100) * 30}" />
+					</c:when>
+					<c:when test="${150 <= physical.p_heightLog && physical.p_heightLog < 160}">
+				 <c:set var="recommendedCalories" value="${((physical.p_heightLog - 100)/2 + 50)*30}" />
+					</c:when>
+					<c:when test="${160 <= physical.p_heightLog}">
+				 <c:set var="recommendedCalories" value="${(physical.p_heightLog - 100) * 0.9*30}" />
+					</c:when>
+					
+				</c:choose>
+				권장 칼로리 : ${recommendedCalories}
+				<br>
+				
+<!-- 				선택 - 육체활동이 거의 없는 경우 표준체중 X 30(kcal) - 
+				
+				보통의 활동을 하는 경우 표준체중
+					X 35(kcal) - 심한 육체활동을 하는 경우 표준체중 X 40(kcal) 
+
+					표준체중 구하는 법 - 신장이 150cm	미만 : 신장 -100 - 신장이 
+					                                         150cm 이상 -160cm 미만인 경우 : (신장-150) /2 +50 -   <- 이거 우선
+					                               신장이 160cm 이상인 경우 : (신장-100)X0.9 권장칼로리 선택 -->
+					                               </div>
 			</div>
 
 
