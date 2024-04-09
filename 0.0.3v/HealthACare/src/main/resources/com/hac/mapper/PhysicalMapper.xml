@@ -9,15 +9,28 @@
 	</select>
 	
 	<select id="searchPhysical" resultType="com.hac.dto.userDto.PhysicalLogDto">
-    	select * from physicalLog where U_no = #{uno}
+    	select * from physicalLog where U_no = #{U_no}
 	</select>
 	
 	<insert id="setterPhysical">
-		insert into physicalLog (U_no,P_weightLog,P_heightLog) values (#{uno},#{weight},#{height})
+		insert into physicalLog (U_no,P_weightLog,P_heightLog) values (#{U_no},#{weight},#{height})
+	</insert>
+
+
+	<!-- 몸무게, 키 수정(당일만 수정 가능하게) -->
+		<!--  지금 날짜과 맨 마지막 인설트 했던 날짜의 차 확인. 1이 넘어가면 날짜가 지났다는것임.-->
+	<select id="physicalUpdateTime" resultType="Integer">
+		SELECT IFNULL(DATEDIFF(NOW(),P_createdAt),1) FROM physicalLog WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1;
+	</select>
+	
+		<!--  위의 select 한 값에서 1이 넘게 나왔을경우 인설트 -->
+	<insert id="physical">
+		INSERT INTO physicalLog(U_no,P_weightLog,P_heightLog) value (#{U_no},#{weight},#{height})
 	</insert>
 	
-	<delete id="delPhysical">
-		delete from physicalLog where P_no = #{uno}
-	</delete>
+	<update id="physicalUpdate">
+		UPDATE physicalLog SET P_weightLog = #{weight}, P_heightLog = #{height} WHERE U_no = #{U_no} ORDER BY P_no DESC LIMIT 1
+	</update>
+
 
 </mapper>

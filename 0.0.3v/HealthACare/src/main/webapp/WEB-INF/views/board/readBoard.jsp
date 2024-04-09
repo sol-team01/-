@@ -19,27 +19,27 @@
 			<!-- 			내가 한 거 -->
 			<div>
 				<fieldset>
-					<legend>글제목: :${read.b_TITLE}</legend>
+					<legend>글제목: :${read.b_title}</legend>
 					<label for="id">작성자: </label>
-					${read.b_ID}
+					${read.b_id}
 					<br>
 					<label for="content">내용: </label>
-					${read.b_TEXT}
+					${read.b_text}
 					<br>
 					<label for="date">작성일: </label>
-					${read.b_DATETIME}
+					${read.b_datetime}
 					<br>
 					<label for="hit">조회수: </label>
-					${read.b_HIT}
+					${read.b_hit}
 				</fieldset>
 				<c:choose>
-					<c:when test="${read.u_NO eq user.u_no}">
+					<c:when test="${read.u_no eq user.u_no}">
 						<form action="${cp}/board/del">
-							<input type="hidden" name="b_NO" value="${read.b_NO}">
+							<input type="hidden" name="B_no" value="${read.b_no}">
 							<input type="submit" value="글 삭제">
 						</form>
 						<form action="${cp}/board/modifyBoard">
-							<input type="hidden" name="b_NO" value="${read.b_NO}">
+							<input type="hidden" name="B_no" value="${read.b_no}">
 							<input type="submit" value="글 수정">
 						</form>
 					</c:when>
@@ -57,13 +57,13 @@
 								댓글이 비어있습니다.
 							</c:when>
 							<c:otherwise>
-								작성자: ${replyList.r_ID} 작성시간: ${replyList.r_DATETIME}
+								작성자: ${replyList.r_id} 작성시간: ${replyList.r_datetime}
 								&nbsp;
-								<c:if test="${replyList.u_NO eq user.u_no}">
-									<button type="button" class="deleteBtn" data-reply-id="${replyList.r_NO}">삭제</button>
+								<c:if test="${replyList.u_no eq user.u_no}">
+									<button type="button" class="deleteBtn" data-reply-id="${replyList.r_no}">삭제</button>
 								</c:if>
 								<br>
-								내용: ${replyList.r_TEXT}								
+								내용: ${replyList.r_text}								
 								<hr>
 							</c:otherwise>
 						</c:choose>
@@ -87,31 +87,31 @@
 	<script>
 		$(document).ready(function() {
 		    console.log("ajax 사용중");
-		    var b_no = "${read.b_NO}";
+		    var B_no = "${read.b_no}";
 		    $('#replySubmit').click(function() {
 		        var textValue = $('#replyText').val(); // 댓글창 입력값 설정
-		        var u_no = "${user.u_no}";
-		        var u_id = "${user.i_name}";
-		        if(u_id === "" || u_id === null){
+		        var U_no = "${user.u_no}";
+		        var U_id = "${user.i_name}";
+		        if(U_id === "" || U_id === null){
 		            var random = Math.floor(Math.random() * 1000) + 1;
-		            u_id = '비회원' + random;
+		            U_id = '비회원' + random;
 		        }
-		        if(u_no === "" || u_no === null){
-		            u_no = 0;
+		        if(U_no === "" || U_no === null){
+		            U_no = 0;
 		        }
 		        console.log(textValue);
-		        console.log(u_no);
-		        console.log(u_id);
-		        console.log(b_no);
+/* 		        console.log(U_no);
+		        console.log(U_id);
+		        console.log(B_no); */
 		        // 현재 페이지 변수를 사용하여 AJAX 요청 전달
 		        $.ajax({
 		            type: 'GET',
 		            url: '/board/replyWrite',
 		            data: {
 		                textValue: textValue, // 선택한 정렬 순서를 매개변수로 전달
-		                uno: u_no, // 현재 페이지 정보를 함께 전달
-		                uid: u_id,
-		                bno: b_no
+		                uno: U_no, // 현재 페이지 정보를 함께 전달
+		                uid: U_id,
+		                bno: B_no
 		            },
 		            success: function(data) {
 		                // Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
@@ -134,7 +134,7 @@
 		            url: '/board/delReply',
 		            data: { 
 		            	rno: replyNo,
-		            	bno: b_no	
+		            	bno: B_no	
 		            },
 		            success: function(response) {
 		                window.location.reload();

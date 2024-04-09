@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hac.dto.searchDto.MyPageDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 import com.hac.service.PhysicalService;
 
@@ -26,35 +27,18 @@ public class MyPageController {
 @Setter(onMethod_ = @Autowired)
 	private MyPageService service;
 
+@Setter(onMethod_ = @Autowired)
+	private PhysicalService pService;
+
 	String mag;
 	
 	//마이페이지로 이동
-	@GetMapping("/myPage")
-	public String nameChange(
-			MyPageDto dto,
-			Model model,
-			HttpServletRequest request) {
-
+	@GetMapping("/myInfo")
+	public String myPage(Model model,HttpServletRequest request) {
+		System.out.println("myPage 컨트롤러 진입");
 	HttpSession session = request.getSession();
+	model.addAttribute("physical",pService.searchPhysical(((InfoDto) session.getAttribute("login")).getU_no()));
 	return "/page/myPage";
-	}
-
-	 // 신체 정보 변경
-	@GetMapping("/physical")
-	public String physical(MyPageDto dto, Model model, HttpServletRequest request) {
-
-		// 신체정보 입력
-		if (dto.getP_height() != null && dto.getP_weight() != null && !dto.getP_height().equals(null)
-				&& !dto.getP_weight().equals(null)) {
-			// 업데이트 or 인설트 함. 그 결과값이 String 으로 리턴이 됨
-			String mag = service.physical(dto);
-
-			return mag;
-		} else {
-
-			return "입력한 신체정보가 없습니다.";
-		}
-
 	}
 
 }
