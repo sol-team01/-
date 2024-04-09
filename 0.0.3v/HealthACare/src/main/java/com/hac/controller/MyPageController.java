@@ -41,22 +41,4 @@ public class MyPageController {
 	return "/page/myPage";
 	}
 
-	 // 신체 정보 변경
-	@GetMapping("/physical")
-	public String physical(MyPageDto dto, Model model, HttpServletRequest request) {
-
-		// 신체정보 입력
-		if (dto.getP_height() != null && dto.getP_weight() != null && !dto.getP_height().equals(null)
-				&& !dto.getP_weight().equals(null)) {
-			// 업데이트 or 인설트 함. 그 결과값이 String 으로 리턴이 됨
-			String mag = service.physical(dto);
-
-			return mag;
-		} else {
-
-			return "입력한 신체정보가 없습니다.";
-		}
-
-	}
-
 }

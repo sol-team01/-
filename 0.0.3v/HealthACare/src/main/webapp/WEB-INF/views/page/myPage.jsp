@@ -53,11 +53,10 @@
 						<select id="graphSelect">
 							<c:forEach var="graph" items="${physical}">
 								<option value="${graph.p_no}">
-									일자: ${graph.p_createdAt} / 체중: ${graph.p_weightLog} kg / 신장: ${graph.p_heightLog} cm
+									일자: ${graph.p_updatedAt} / 체중: ${graph.p_weightLog} kg / 신장: ${graph.p_heightLog} cm
 								</option>
 							</c:forEach>
 						</select>
-						<button type="button" id="delBtn">삭제</button>
 					<div id="weightWrite">
 						<input type="hidden" id="sessionUno" value="${login.u_no}">
 						<input type="number" name="weight" placeholder="몸무게" maxlength="5">
@@ -121,26 +120,7 @@
 								$(this).parent().removeClass("select-show");
 							});
 					
-					$('#delBtn').click(function(){
-						var selectedUno = $('#graphSelect').val();
-						console.log(selectedUno);
-						if (!selectedUno) {
-							alert('삭제할 항목을 선택해주세요.');
-							return;
-						}
-						
-						$.ajax({
-							url: '/myPage/delete/' + selectedUno,
-							type: 'DELETE',
-							success: function(response) {
-								console.log('데이터 삭제 완료');
-								window.location.reload();
-							},
-							error: function(xhr, status, error) {
-								console.error("데이터 삭제 오류");
-							}
-						});
-					});
+
 					
 					$('#weightSubmit').click(function() {
 					    var uno = $('#sessionUno').val();
@@ -155,7 +135,7 @@
 					        url: '/myPage/physicalSumbit',
 					        method: 'POST',
 					        data: {
-					            'uno': uno,
+					            'U_no': uno,
 					            'weight': weight,
 					            'height': height
 					        },

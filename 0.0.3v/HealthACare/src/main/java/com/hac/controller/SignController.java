@@ -220,6 +220,9 @@ public class SignController {
 		return "redirect:/page/login";
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 	
 	@GetMapping("/resetPw")
 	public void resetPw() {
@@ -227,3 +230,4 @@ public class SignController {
 	
 }
 	
+>>>>>>> 6a326f937375073f764b6c95727748c23c58fbb7
