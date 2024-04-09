@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.foodInformationCategory {
+	font-size: 14px;
+	text-decoration: underline;
+	color: #9BA1AA;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+
+.foodInformationTitle {
+	padding: 60px 40px;
+	background: #fff;
+	border: 1px solid #E6E9ED;
+	border-radius: 20px;
+	    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: #101219;
+}
+
+.foodInformationTable{
+	border-collapse: collapse
+	
+}
+
+.tableBorderTop{
+	border:1px solid red !important;
+
+}
+
+.tableBorderTop .left-col{
+	    background: #F8F8FA;
+	    text-align:left;
+}
+
+.tableBorderTop .right-col{
+	   	    text-align:right;
+}
+
+.tableBorderTop td{
+	    padding: 20px;
+}

@@ -253,9 +253,9 @@
 								<a href="${cp}/food/detailList?category=pasta">파스타,쌀&국수</a>
 								<div class="dietCategoryDetail">
 									<div>스파게티</div>
-									<div>마카로니</div>
-									<div>라비올리</div>
-									<div>라자냐</div>
+									<div>볶음밥</div>
+									<div>국수</div>
+									<div>쌀귀리</div>
 								</div>
 							</div>
 							<div class="wrapperKArrow">

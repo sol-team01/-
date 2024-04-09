@@ -133,20 +133,6 @@ public class SignController {
       return new ResponseEntity<>(result, HttpStatus.OK);
    }
 
-<<<<<<< HEAD
-   // 아이디 찾기
-   @PostMapping("/searchId")
-   @ResponseBody
-   public String searchId(@RequestParam("I_email") String I_email) {
-      String userId = signservice.searchId(I_email); // 해당 이메일 주소에 대한 아이디를 찾음
-      String result;
-      if (userId != null) {
-         System.out.println("아이디 잘 찾았어?" + " " + userId);
-         result = userId;
-      } else {
-         result = "";
-      } // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
-=======
 	// 아이디 찾기
 	@PostMapping("/searchId")
 	@ResponseBody
@@ -159,12 +145,10 @@ public class SignController {
 		} else {
 			result = "";
 		} // 아이디를 찾은 경우 해당 아이디를 반환, 찾지 못한 경우 빈 문자열 반환
->>>>>>> 16264756911bae565b376636e1dbe9ef2dcb30bc
 
       return result;
    }
 
-<<<<<<< HEAD
 
    // 비밀번호 찾기 질문 가져오기
    @PostMapping("/searchPw")
@@ -194,29 +178,6 @@ public class SignController {
       System.out.println("비밀번호 찾기 진입");
       return "/page/searchPw";
    }
-=======
-	// 비밀번호 찾기 질문 가져오기
-	@PostMapping("/searchPw")
-	public String searchPw(SignDto dto, Model model) {
-		System.out.println(dto);
-		InfoDto pwFinding = signservice.searchFinding(dto);
-		if (pwFinding != null) {
-			System.out.println("pwFinding: " + pwFinding);
-			model.addAttribute("pwFinding", pwFinding);
-			return "/page/searchPwHint"; // 뷰 이름 반환
-		} else {
-			System.out.println("일치하는 아이디가 없다. " + pwFinding);
-			return "/page/searchPw";
-		}
-	}
-
-	// 아이디 찾기 jsp 진입
-	@GetMapping("/searchIdPw")
-	public String searchId() {
-		System.out.println("아이디 찾기 진입");
-		return "/page/searchId";
-	}
->>>>>>> 16264756911bae565b376636e1dbe9ef2dcb30bc
 
    // 비밀번호 힌트 비교
    @PostMapping("/searchHint")
@@ -233,22 +194,4 @@ public class SignController {
       }
    }
 
-<<<<<<< HEAD
 }
-=======
-	// 비밀번호 힌트 비교
-	@PostMapping("/searchHint")
-	public String searchHint(SignDto dto, Model model) {
-		System.out.println(dto);
-		SignDto hint = signservice.searchPwHint(dto);
-		if (hint != null) {
-			System.out.println("hint: " + hint);
-			model.addAttribute("hint", hint);
-			return "redirect:/page/login";
-		} else {
-			System.out.println("힌트가 잘못됨 " + hint);
-			return "/page/searchPwHint";
-		}
-	}
-}
->>>>>>> 16264756911bae565b376636e1dbe9ef2dcb30bc
