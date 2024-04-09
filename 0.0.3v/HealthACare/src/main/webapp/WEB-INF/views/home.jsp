@@ -45,7 +45,7 @@
 	<div id="midAlign">
 	<div id="listBox">
 	
-	<c:forEach var="board" items="${boardHomeList}" begin="0" end="3">
+ 	<c:forEach var="board" items="${boardHomeList}" begin="0" end="3">
 		<div class="list">
 		<form action="${cp}/board/readBoard" method="get">
 			<div class="top">
