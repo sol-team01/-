@@ -1,9 +1,7 @@
 package com.hac.mapper;
 
-import java.util.List;
-
-import com.hac.dto.searchDto.MyFoodDto;
+import com.hac.dto.searchDto.MyFoodDtoList;
 
 public interface CalorieMapper {
-	public void addFoodList(List<MyFoodDto> list);
+	public void insertFoodList(MyFoodDtoList list);
 }
