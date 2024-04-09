@@ -2,12 +2,14 @@ package com.hac.service;
 
 import java.util.ArrayList;
 
+import org.springframework.ui.Model;
+
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
 
 public interface SignService {
-	public String signUp(SignDto signdto,InfoDto infoDto, PhysicalDto phydto);
+	public String signUp(SignDto signdto,InfoDto infoDto, PhysicalDto phydto, Model model);
 	
 	public ArrayList<SignDto> loginList();
 	

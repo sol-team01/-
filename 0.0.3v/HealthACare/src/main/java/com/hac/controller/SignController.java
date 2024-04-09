@@ -1,5 +1,7 @@
 package com.hac.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,11 +60,18 @@ public class SignController {
 	// 회원가입
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
-			@ModelAttribute PhysicalDto phyDto) {
+			@ModelAttribute PhysicalDto phyDto, Model model) throws UnsupportedEncodingException {
 
-		signservice.signUp(signDto, infoDto, phyDto);
-		signDto.getU_no();
-		return "redirect:/page/login";
+		String result = signservice.signUp(signDto, infoDto, phyDto, model);
+
+		// 오류 메시지 확인 후 리다이렉트
+		if (!result.isEmpty()) {
+		    return "redirect:/page/signUp?error=" + URLEncoder.encode(result, "UTF-8");
+		} else {
+			signservice.signUp(signDto, infoDto, phyDto, model);
+			signDto.getU_no();
+			return "redirect:/page/login";
+		}
 	}
 
 	// 로그인
