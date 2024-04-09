@@ -82,30 +82,30 @@
 	});
 
 	$(document).ready(function() {
-		console.log("ajax 사용중");
-		
-		$('.howToHealth').click(function() {
-			const options = 'width=700, height=600, top=50, left=50, scrollbars=yes';
-			var cp = "${cp}";
-			$.ajax({
-				type: 'GET',
-				url: '/checkSession',
-				success: function(data){
-					console.log(data);
-					var isSessionValid = $(data).find('Boolean').text();
-					console.log(isSessionValid);
-					if (isSessionValid === 'true') {
-						window.location.href = cp + "/sports/howtoSports";
-					} else {
-						window.open(cp + '/page/login','_blank',options);
-					}
-				},
-				error: function(xhr, status, error) {
-					console.log('AJAX 요청 실패')	
-				}
-			});
-		});
-	});
+	    console.log("ajax 사용중");
+	    
+	    $('.howToHealth').click(function() {
+	       const options = 'width=700, height=600, top=50, left=50, scrollbars=yes';
+	       var cp = "${cp}";
+	       $.ajax({
+	          type: 'GET',
+	          url: '/checkSession',
+	          success: function(data){
+	             console.log(data);
+	             var isSessionValid = $(data).find('Boolean').text();
+	             console.log(isSessionValid);
+	             if (isSessionValid === 'true') {
+	                window.location.href = cp + "/sports/howtoSports";
+	             } else {
+	                window.open(cp + '/page/login','_blank',options);
+	             }
+	          },
+	          error: function(xhr, status, error) {
+	             console.log('AJAX 요청 실패')   
+	          }
+	       });
+	    });
+	 });
 </script>
 
 </div><!-- <div id="Category"> -->

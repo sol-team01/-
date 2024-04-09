@@ -22,9 +22,9 @@ public interface SignMapper {
 	public ArrayList<InfoDto> infoList();
 	//회원가입 개인 정보 매퍼
 	public InfoDto userInfo(String U_no);
-	//
+	//회원가입 회원 정보
 	public void signUpInfo(InfoDto dto);
-	//신체 정보
+	//회원가입 신체 정보
 	public void signUpPhy(PhysicalDto dto);
 	//피지컬 리스트
 	public ArrayList<PhysicalDto> phyList();
@@ -35,5 +35,7 @@ public interface SignMapper {
 	//비밀번호 찾기에 필요한 힌트 질문 찾기
 	public InfoDto searchFinding(SignDto dto);
 	//비밀번호 힌트 작성한거 비교
-	public SignDto searchPwHint(SignDto dto);
+	public int searchPwHint(SignDto dto);
+	//비밀번호 재설정
+	public void pwChange(SignDto dto);
 }

@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
+import com.hac.service.PhysicalService;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
@@ -26,11 +30,13 @@ import lombok.AllArgsConstructor;
 @Controller
 public class SignController {
 	private final SignService signservice;
+	private final PhysicalService pService;
 
 	// 로그인 페이지로 이동
 	@GetMapping("/myPage")
-	public String myPage() {
+	public String myPage(@RequestParam("uno") String uno, Model model) {
 		System.out.println("myPage 컨트롤러 진입");
+		model.addAttribute("physical", pService.searchPhysical(uno));
 		return "/page/myPage";
 	}
 
@@ -50,7 +56,6 @@ public class SignController {
 	}
 
 	// 회원가입
-
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
 			@ModelAttribute PhysicalDto phyDto) {
@@ -62,18 +67,20 @@ public class SignController {
 
 	// 로그인
 	@PostMapping("/signIn")
-	public String signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
+	public ResponseEntity<Map<String, Object>> signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
 			@RequestParam("U_pw") String U_pw) {
 		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
+		
+		Map<String, Object> response = new HashMap<>();
 		if (dto != null) {
 			session.setAttribute("login", dto);
-			System.out.println("로그인 성공");
-			return "redirect:/";
+			response.put("success", true);
+			return ResponseEntity.ok(response);
 		} else {
-			System.out.println("로그인 실패");
-			return "redirect:/page/login";
+		    response.put("success", false);
+		    return ResponseEntity.ok(response);
 		}
 	}
 
@@ -90,7 +97,8 @@ public class SignController {
 		session.removeAttribute("U_no");
 		return "redirect:/";
 	}
-
+	
+	//아이디 찾기
 	@PostMapping("/ConfirmId")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmId(String id) {
@@ -111,7 +119,8 @@ public class SignController {
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-
+	
+	//중복 닉네임 검사
 	@PostMapping("/ConfirmName")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmName(String name) {
@@ -153,6 +162,12 @@ public class SignController {
 	@PostMapping("/searchPw")
 	public String searchPw(SignDto dto, Model model) {
 		System.out.println(dto);
+		if(dto.getDomainList().length()>0) {
+		dto.setI_email(dto.getEmail()+"@"+dto.getDomainList());
+		} else {
+			dto.setI_email(dto.getEmail()+"@"+dto.getDomain());
+		}
+		System.out.println(dto.getI_email());
 		InfoDto pwFinding = signservice.searchFinding(dto);
 		if (pwFinding != null) {
 			System.out.println("pwFinding: " + pwFinding);
@@ -182,14 +197,21 @@ public class SignController {
 	@PostMapping("/searchHint")
 	public String searchHint(SignDto dto, Model model) {
 		System.out.println(dto);
-		SignDto hint = signservice.searchPwHint(dto);
-		if (hint != null) {
-			System.out.println("hint: " + hint);
-			model.addAttribute("hint", hint);
-			return "redirect:/page/login";
-		} else {
-			System.out.println("힌트가 잘못됨 " + hint);
+	
+		if(signservice.searchPwHint(dto)) {
+			model.addAttribute("U_no",dto.getU_no());
+			return "/page/resetPw";
+		} else {			
+			model.addAttribute("mag","이거 틀렸어요");
 			return "/page/searchPwHint";
 		}
+	}
+	
+	//비밀번호 재설정
+	@PostMapping("/pwChange")
+	public String pwChange(SignDto dto) {
+		System.out.println("비밀번호 변경 진입");
+		signservice.pwChange(dto);
+		return "/page/login";
 	}
 }

@@ -65,17 +65,17 @@
 				
 	<!-- 등록한 질문 찾기 -->
  	<select id="searchFinding" resultType = "com.hac.dto.userDto.InfoDto" parameterType="com.hac.dto.searchDto.SignDto">
- 		SELECT info.* FROM user JOIN info ON user.U_no = info.U_no WHERE user.U_id = #{U_id}
+ 		SELECT info.* FROM user JOIN info ON user.U_no = info.U_no WHERE user.U_id = #{U_id} AND info.I_email = #{I_email}
  	</select>
  	
 	<!-- 등록한 질문을 맞추면 비밀번호 바꿀수있게. -->
- 	<select id="searchpw"  resultType = "int" parameterType="com.hac.dto.searchDto.SignDto">
+ 	<select id="searchPwHint"  resultType = "int" parameterType="com.hac.dto.searchDto.SignDto">
  		SELECT IFNULL(count(*),0) FROM info WHERE I_hint = #{I_hint} AND U_no = #{U_no}
  	</select>
 	
 	<!-- 비밀번호 재설정 업데이트 -->
- 	<update id="pwChange" parameterType="com.hac.dto.searchDto.SignDto"> -->
- 		UPDATE user SET U_pw = #{U_pw} WHERE U_no = #{U_no} -->
+ 	<update id="pwChange" parameterType="com.hac.dto.searchDto.SignDto">
+ 		UPDATE user SET U_pw = #{U_pw} WHERE U_no = #{U_no}
  	</update>
 	
 	
