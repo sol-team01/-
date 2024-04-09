@@ -1,21 +1,12 @@
 package com.hac.service;
 
-import java.util.List;
-
 import com.hac.dto.foodDto.FoodDto;
-import com.hac.dto.searchDto.MyFoodDto;
+import com.hac.dto.searchDto.MyFoodDtoList;
 
 public interface FoodService {
 
-	public void addFood(MyFoodDto food);
 
-	public void removeFood(int index);
-	
-	public List<MyFoodDto> getFood();
-	
-	public void insertFoodList();
-	
-	public void resetFood();
-	
+	public void insertFoodList(MyFoodDtoList list);
+
 	public FoodDto foodList(String descKor);
 }

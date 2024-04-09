@@ -9,9 +9,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.xml.sax.SAXException;
 
 import com.hac.dto.diseaseDto.DiseaseDto;
@@ -28,22 +28,17 @@ public class DiseaseController {
 
     private final DiseaseService diseaseService;
     
-    @GetMapping("/form")
-    public String showForm() {
-        return "disease/form";
-    }
-
-    @PostMapping("/list")
-    public String list(@RequestParam String sickCd, Model model) throws IOException, ParserConfigurationException, SAXException {
+    @GetMapping("/list")
+    public String list(@RequestParam(name = "sickCd", defaultValue = "A00") String sickCd, Model model) throws IOException, ParserConfigurationException, SAXException {
     	List<DiseaseDto> diseaseList = diseaseService.getDiseaseList(sickCd);
         model.addAttribute("itemList", diseaseList);
         return "/disease/list";
     }
 
-    // /favicon.ico 경로에 대한 요청을 처리하는 핸들러 메서드
-    @RequestMapping("/favicon.ico")
-    public void favicon(HttpServletResponse response) {
-        // favicon 요청에 대한 응답을 404로 설정하여 무시합니다.
-        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+    @GetMapping("/favicon.ico")
+    public String favicon() {
+        // favicon.ico 요청에 대한 처리를 수행합니다.
+        // 이 메서드가 아무런 동작을 하지 않고 빈 문자열을 반환하여 요청을 처리합니다.
+        return "";
     }
 }

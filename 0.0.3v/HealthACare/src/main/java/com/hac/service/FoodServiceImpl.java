@@ -4,15 +4,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.hac.dto.foodDto.FoodDto;
-import com.hac.dto.searchDto.MyFoodDto;
+import com.hac.dto.searchDto.MyFoodDtoList;
 import com.hac.mapper.CalorieMapper;
 
 import lombok.Setter;
@@ -26,36 +24,14 @@ public class FoodServiceImpl implements FoodService{
 	private CalorieMapper mapper;	
 	
 
-	private List<MyFoodDto> foodList = new ArrayList<>();
 	
+
 	@Override
-	public void addFood(MyFoodDto list) {
-		list.setIntServingAmount(Integer.parseInt(list.getServingAmount()));
-		list.setIntCalorie(Double.parseDouble(list.getCalorie()));
-		foodList.add(list);
-	}
-	@Override
-	public void removeFood(int index) {
-		foodList.remove(index);
-		
-	}
-	
-	@Override
-	public List<MyFoodDto> getFood(){
-		return foodList;
-	}
-	
-	@Override
-	public void insertFoodList() {
-		mapper.addFoodList(foodList);
-		foodList = new ArrayList<>();
+	public void insertFoodList(MyFoodDtoList list) {
+		mapper.insertFoodList(list);
 	 }
 	
-	@Override
-	public void resetFood() {
-		foodList = new ArrayList<>();
-	}
-	
+
 	@Override
 	public FoodDto foodList(String descKor) {
 	    

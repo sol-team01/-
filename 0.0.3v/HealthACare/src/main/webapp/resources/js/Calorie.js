@@ -18,12 +18,34 @@ var storedFoodList = JSON.parse(localStorage.getItem('foodList'));
         removeFood(row);
         saveFood();
     });
+    
+        $('#clearSessionButton').click(function(){
+       //	var meal = $('#meal').val();
+   
+        $.ajax({
+            url:"/foodRest/insertFoodList",
+            method: "POST",
+            contentType: "application/json",
+            data:   JSON.stringify({
+            U_no : '1',
+            meal : '1',
+            list : foodList
+            }),
+            success: function(response){
+                alert('음식 목록이 성공적으로 저장되었습니다.');
+            },
+            error: function(xhr, status, error) {
+                alert('음식 목록 저장 중 오류가 발생했습니다.');
+                console.error(xhr, status, error);
+            }
+        });
+    });
 
     function addFood(row){
         var food = {
             foodName : row.find("td:nth-child(1)").text(),
             servingAmount : row.find("td:nth-child(2)").text(),
-            calorie : row.find("td:nth-child(3)").text()
+            calorie : row.find("td:nth-child(3)").text() 
         };
         foodList.push(food);
         updateList();

@@ -4,10 +4,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hac.mapper.CalorieMapper">
 
-<insert id="addFoodList" parameterType = "java.util.List">
+<insert id="insertFoodList" parameterType = "com.hac.dto.searchDto.MyFoodDtoList">
 	INSERT INTO calorieLog(U_no,C_foodName,C_servingAmount,C_calorie,C_meal) values
-    <foreach collection="com.hac.dto.searchDto.MyFoodDto" item="food" open="(" close=")" separator=",">
-        #{food.U_no},#{food.foodName},#{food.servingAmount},#{food.calorie},#{food.meal}
+    <foreach collection="list" item="food"  separator=",">
+        (#{U_no},#{food.foodName},#{food.servingAmount},#{food.calorie},#{meal})
     </foreach>
 </insert>
 </mapper>
