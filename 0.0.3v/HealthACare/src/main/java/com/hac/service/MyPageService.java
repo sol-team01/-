@@ -8,15 +8,13 @@ public interface MyPageService {
 	
 	public InfoDto myProfile(MyPageDto dto);
 	
-	public PhysicalLogDto myPhysical(MyPageDto dto);
+	public PhysicalLogDto myPhysical(String U_no);
 
 	public void nameChange(MyPageDto dto); 
 	
 	public void emailChange(MyPageDto dto);
 	
 	public void pwFindingChange(MyPageDto dto);
-	
-	public String physical(MyPageDto dto);
 	
 	public void profileImgChange(MyPageDto dto);
 

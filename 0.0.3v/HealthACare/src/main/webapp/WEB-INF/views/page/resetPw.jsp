@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>비밀번호 변경하기</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="${cp}/resources/js/rePwCk.js"></script>
 <link rel="stylesheet" href="${cp}/resources/resetPw.css">
 </head>
 <body>
@@ -37,5 +36,44 @@
 	<!-- inBox -->
  </div>
  <!-- searchPwBox -->
+ <script>
+ // 비밀번호 입력 시
+ $(document).ready(function() {
+     // 회원가입 버튼
+ var changePwBt = $("#changePwBt");
+     var item = true;
+$("#userPw, #userRePw").on("focusout", function() {
+    var pw = $("#userPw").val();
+    var rePw = $("#userRePw").val();
+    
+    if (pw != rePw) {
+        $("#checkTextPw").css("color", "red").text("비밀번호가 다릅니다.");
+    item = false;
+    } else {
+          $("#checkTextPw").css("color", "green").text("비밀번호가 일치합니다..");
+    item = true;
+    }
+    
+});
+
+function getParameterByName(name, url) {
+ if (!url) url = window.location.href;
+ name = name.replace(/[\[\]]/g, "\\$&");
+ var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+     results = regex.exec(url);
+ if (!results) return null;
+ if (!results[2]) return '';
+ return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// error 파라미터에서 오류 메시지 가져오기
+var errorMessage = getParameterByName('error');
+
+// 오류 메시지가 존재하면 알림창으로 표시
+if (errorMessage) {
+    alert(errorMessage);
+}
+});
+ </script>
 </body>
 </html>

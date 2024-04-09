@@ -3,9 +3,18 @@
 img {
 	overflow: hidden;
 	height: 100%;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
+ 	background-repeat: no-repeat;
+    background-position: center; /* 이미지를 가로 및 세로로 중앙에 배치 */
+}
+h2{
+	font-size: 30px;
+	margin: 0px;
+	margin-top: 20px;
+}
+.mainTextBox h2{
+	font-size:46px;
+	margin-top: 0px;
+	margin-bottom: 20px;
 }
 
 hr {
@@ -17,14 +26,17 @@ hr {
 
 .mainOverflowBox {
 	width: 100%;
-	position: relative;
+/* 	position: relative; */
+		overflow: hidden;
 	z-index: 100;
+	background-color: blue;
 }
 
 .overflow {
 	width: 100%;
 	/* 	padding: 20px 10px; */
-	overflow: hidden;
+/* 	overflow: hidden; */
+	position: relative;
 	z-index: 100;
 }
 
@@ -37,6 +49,24 @@ hr {
 
 .slideshow-container {
 	position: relative;
+/* 	width: 100%; */
+	width: 300px;
+	overflow: hidden;
+	margin: 10px;
+	z-index: 100;
+	background-color: red;
+}
+
+.slideshow-container2 {
+	position: relative;
+	width: 300px;
+	overflow: hidden;
+	margin: 10px;
+	z-index: 100;
+}
+
+.slideshow-container3 {
+	position: relative;
 	width: 300px;
 	overflow: hidden;
 	margin: 10px;
@@ -44,7 +74,22 @@ hr {
 }
 
 .slide {
-	width: 300px;
+/* 	width: 40px; */
+	width: 100%;
+	padding-bottom: 30px;
+	float: left;
+	z-index: 100;
+}
+
+.slide2 {
+	width: 100%;
+	padding-bottom: 30px;
+	float: left;
+	z-index: 100;
+}
+
+.slide3 {
+	width: 100%;
 	padding-bottom: 30px;
 	float: left;
 	z-index: 100;
@@ -61,19 +106,37 @@ hr {
 }
 /**/
 .mainTextBox{
-	display: none; width : 1352px;
-	height: 300px;
-	padding: 10px;
+	display: none; width : 1322px;
+	height: 280px;
+	padding: 20px 10px;
 	background-color: white;
-	border: 1px solid #03BDFF;
+	border: 1px solid #c0c0c0;
+	border-radius:20px;
 	position: absolute; /* 절대 위치 지정 */
 	top: 75%;
 	z-index: 9999;
 	width: 1352px; /* 다른 요소보다 앞에 오도록 설정 */
+	
+	font-size: 26px;
+	
+	 /* 이미지가 가로로 늘어나지 않고 원래 크기로 유지됨 */
+	    background-size: cover;
+    /* 이미지를 페이지의 오른쪽에서 시작하도록 설정 */
+    background-position: right center;
+    /* 배경 이미지가 페이지 내에서 반복되지 않음 */
+    background-repeat: no-repeat;
+}
+.noneText{
+	display: none;
+}
+.noneImg{
+	display: none;
+}
+.dtext{
+	font-size: 20px;
 }
 .a {
 	display:none;
 	height:0px;
-	margin-bottom: 135px;
-	
+	margin-bottom: 240px;
 }

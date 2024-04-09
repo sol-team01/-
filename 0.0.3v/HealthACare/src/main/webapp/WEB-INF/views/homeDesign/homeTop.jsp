@@ -33,9 +33,10 @@
 	<div id="user">	
     <a href="${cp}/page/logout" class="out">LOGOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/myPage?uno=${login.getU_no()}">
+	<a href="${cp}/myPage/myInfo">
 	<div class="box">
 	${login.getI_name()}
+
 	<div  class="myImg"></div>
 	</div>
 	</a>

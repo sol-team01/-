@@ -1,0 +1,323 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUIT-Regular',;
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-Medium';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SUIT-Medium.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-SemiBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-ExtraBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+.dietTitle {
+	height: 70px;
+	box-shadow: 1px 2px 4px #eee;
+	margin-bottom: 20px;
+	/* 	line-height: 70px; */
+	padding: 0 20px;
+	font-weight: 600;
+	border-radius: 10px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+}
+
+.dietTitleImg img {
+	margin-top: 9px;
+	margin-right: 10px;
+}
+
+.flexK {
+	display: flex;
+}
+
+.salad {
+	width: 50px;
+	height: 50px;
+}
+
+.dietSearch {
+	height: 100px;
+	display: flex;
+	background: linear-gradient(45deg, rgba(3, 189, 255, 1) 0%,
+		rgba(159, 226, 250, 1) 49%, rgba(149, 251, 171, 1) 98%);
+	padding: 10px 20px;
+	border-radius: 10px;
+	color: #616161;
+	margin-bottom: 10px;
+	align-items: center;
+}
+
+.dietSearch img {
+	margin: 15px 15px 15px 0;
+}
+
+.dietSearchBottom {
+	height: 1px;
+	background: #ddd;
+	margin-top: 15px;
+}
+
+.wrapperK {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapperK .wrapperKFlex {
+	display: flex;
+	padding: 10px 20px;
+	box-shadow: 2px 2px 4px #D9D9D9;
+	border-radius: 16px;
+	align-items: center;
+}
+
+.wrapperK .wrapperKFlex .wrapperKImage img {
+	width: 70px;
+	height: 61px;
+	margin-right: 20px;
+}
+
+.wrapperK .wrapperKFlex .wrapperKText a {
+	font-size: 14px;
+	font-family: 'SUIT-Bold';
+	margin-bottom: 10px;
+}
+
+.listLeft {
+	width: 72%;
+	margin-right: 30px;
+}
+
+.wrapperK .oneK .wrapperKImage img {
+	width: 69px;
+	height: 62px;
+}
+
+.wrapperK .threeK .wrapperKText {
+	margin-left: -10px;
+}
+
+.wrapperK .threeK .wrapperKImage img {
+	width: 80px;
+	height: 77px;
+}
+
+.wrapperK .fourK .wrapperKImage img {
+	width: 85px;
+	height: 60px;
+}
+
+.wrapperK .fourK .wrapperKText {
+	margin-left: -10px;
+}
+
+.wrapperK .eightK .wrapperKImage img {
+	width: 80px;
+	height: 72px;
+}
+
+.wrapperK .nineK .wrapperKImage img {
+	height: 62px;
+	width: 75px;
+}
+
+.wrapperK .tenK .wrapperKImage img {
+	width: 80px;
+	height: 82px;
+}
+
+.wrapperK .twelveK .wrapperKImage img {
+	width: 80px;
+	height: 58px;
+}
+
+.wrapperK .elevenK .wrapperKImage img {
+	width: 62px;
+	height: 58px;
+}
+
+.wrapperK .thirdteenK .wrapperKImage img {
+	width: 63px;
+	height: 54px;
+}
+
+.wrapperK .forteenK .wrapperKImage img {
+	width: 137px;
+	height: 72px;
+	margin-left: -30px;
+}
+
+.wrapperK .forteenK .wrapperKText {
+	margin-left: -30px;
+}
+
+.dietCategoryDetail {
+	display: flex;
+}
+
+.dietCategoryDetail div {
+	border-radius: 10px;
+	padding: 3px 4px;
+	font-size: 12px;
+	background: #03BDFF;
+	color: #fff;
+	margin-right: 4px;
+}
+
+.wrapperKText {
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapperKFlex .wrapperKArrow {
+	margin-left: auto;
+}
+
+.dietList {
+	display: flex;
+	margin-bottom: 40px;
+}
+
+.dietSearchText h2 {
+	margin: 0;
+	font-family: 'SUIT-Bold';
+}
+
+.dietSearchText div {
+	margin-top: 13px;
+	font-family: 'SUIT-Medium';
+}
+
+.dietForm {
+	height: 115px;
+	width: 300px;
+	padding: 20px;
+	border: 1px solid #03BDFF;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+
+.dietForm input {
+	border: none;
+	height: 45px;
+	width: 100%;
+	font-family: 'SUIT-Medium';
+}
+
+.dietForm h3 {
+	font-size: 16px;
+	margin: 0px 0 10px 0;
+	font-family: 'SUIT-Bold';
+}
+
+.dietFormBottom img {
+	width: 300px;
+	height: 180px;
+}
+
+.middle {
+	margin-right: 30px;
+}
+
+.dietBanner img {
+	width: 236px;
+	height: 430px;
+	border-radius: 16px;
+}
+
+.rightBannerTextK {
+	padding: 40px 0;
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	box-shadow: 1px 2px 4px #eee;
+	color: #03BDFF;
+	line-height: 29px;
+	font-family: 'SUIT-Bold';
+}
+
+.listRight {
+	width: 30%;
+}
+
+.dietTitleText {
+	color: #bbb;
+	font-family: 'SUIT-SemiBold';
+}
+
+.listRight div {
+	margin: auto;
+}
+
+.videoWrapK {
+	border-radius: 16px;
+	margin-top: 20px;
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+
+.videoWrapK iframe {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.backArrowWrap {
+	display: flex;
+	align-items: center;
+}
+
+.backArrowWrap p {
+	font-family: 'SUIT-Bold';
+}
+
+.backArrowK {
+	margin-right: 20px;
+}
+
+.listLeft h3{
+		font-family: 'SUIT-Bold';
+}

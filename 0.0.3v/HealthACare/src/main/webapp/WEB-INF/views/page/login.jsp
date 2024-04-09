@@ -48,6 +48,8 @@ $(document).ready(function() {
 	            if(response.success === true) { // JSON 데이터에서 success 값 확인
 	                // 로그인 성공 시 처리
 	                window.location.href = "/"; // 성공 페이지로 이동
+	                self.close(); //현재 자신 창 닫는 명령어
+	                opener.location.reload(); //팝업창 열게하는 창을 부모로 지정해서 부모창을 다시 뜨게 리로드 한다
 	            } else {
 	                // 로그인 실패 시 처리
 	                alert("로그인에 실패했습니다."); // 실패 팝업 표시

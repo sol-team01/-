@@ -20,31 +20,22 @@ public class PhysicalServiceImpl implements PhysicalService {
 		return mapper.getPhysical();
 	}
 	
+
 	@Override
-	public PhysicalDto myPhysical(long uno) {
-		return mapper.myPhysical(uno);
+	public ArrayList<PhysicalLogDto> searchPhysical(String U_no){
+		System.out.println("서치 피지컬 통과" + U_no);
+		return mapper.searchPhysical(U_no);
 	}
 	
-	@Override
-	public ArrayList<PhysicalLogDto> searchPhysical(String uno){
-//		PhysicalLogDto dto = new PhysicalLogDto();
-//		dto.setU_no(uno);
-		return mapper.searchPhysical(uno);
-	}
 	
 	@Override
-	public void delPhysical(long uno) {
-		mapper.delPhysical(uno);
-	}
-	
-	@Override
-	public void setterPhysical(String uno,
-			String weight,
-			String height) {
-		if (mapper != null) {
-			mapper.setterPhysical(uno,weight,height);
+	public void setterPhysical(String U_no,	String weight,	String height) {
+		
+		Integer updateTime = mapper.physicalUpdateTime(U_no);
+		if(updateTime == null || updateTime > 0) {
+			mapper.physical(U_no,weight,height);
 		} else {
-			System.out.println("null");
+			mapper.physicalUpdate(U_no,weight,height);
 		}
 	}
 	

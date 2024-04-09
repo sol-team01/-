@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+.detailFoodTitle {
+	font-size: 46px;
+	text-align: center;
+	font-family: 'SUIT-ExtraBold';
+}
+
+.detailFoodTitle span {
+	color: #03BDFF;
+}
+
+#foodForm .detailListSearchWrap .detailListSearch {
+	border: none !important;
+	font-family: 'SUIT-Bold';
+	font-size: 20px;
+	color: #c4c8ce;
+}
+
+#foodForm .detailListSearchWrap .detailListSearch:focus,
+	.detailListSearch:focus-visible, .detailListSearch:target {
+	color: #101219;
+	-webkit-text-fill-color: #101219;
+}
+
+#foodForm input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 30px #fff inset;
+	-webkit-text-fill-color: #101219;
+}
+
+#foodForm input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+/* #foodForm .detailListSearchWrap .detailListSearch:-webkit-autofill { */
+/* 	-webkit-box-shadow: none !important; */
+/* 	-webkit-text-fill-color: #c4c8ce; */
+/* } */
+
+#foodForm .detailListSearchWrap .detailListSearch:focus {
+	outline: none;
+	background: transparent;
+	color: #101219;
+}
+
+.detailListCategory .categoryBox .categoryGram h5 {
+	font-family: 'SUIT-Bold';
+	font-size: 18px;
+	line-height: 140%;
+	color: #03BDFF;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin:0;
+}
+
+.detailListCategory .categoryBox .categoryGram p {
+	color: #9BA1AA;
+	margin: 10px 0 0 0;
+	font-family: 'SUIT-Medium';
+}
+
+#foodForm .detailListSearchWrap {
+	display: flex;
+	width: 60%;
+	height: 64px;
+	box-shadow: 0px 2px 10px #eee;
+	border-radius: 32px;
+	margin: 30px auto 60px auto;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 20px;
+}
+
+#foodForm .detailListSearchWrap .searhBoxK {
+	width: 124px;
+	height: 64px;
+	border-radius: 32px;
+	background: #03BDFF;
+	background: linear-gradient(90deg, #03BDFF 0%, #18A4FF 100%);
+	border-color: transparent;
+	cursor: pointer;
+}
+
+#foodForm .detailListSearchWrap .searhBoxK img {
+	width: 30px;
+	height: 30px;
+}
+
+.categoryBox {
+	background: #fff;
+	width: 60%;
+	height: 92px;
+	margin: 20px auto 0px auto;
+	padding: 20px 40px !important;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid #E6E9ED;
+	box-shadow: 0px 2px 10px rgba(70, 56, 147, 0.1);
+	border-radius: 20px;
+	box-sizing: border-box;
+}
+
+.detailListCategory .categoryBox .categoryCalorie {
+	font-family: 'SUIT-SemiBold';
+	font-size: 18px;
+	line-height: 140%;
+	color: #787E8B;
+}
+
+.detailListCategory {
+	background: #f8f8fa;
+	padding: 40px 0 60px 0;
+}

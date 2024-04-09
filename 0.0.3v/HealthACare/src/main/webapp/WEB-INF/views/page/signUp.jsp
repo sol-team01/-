@@ -100,18 +100,14 @@
 	<script>
 	//비활성화 상태로 두다가 조건이 다 맞아야 활성화하는 상태
 	$(document).ready(function() {
-	    // 회원가입 버튼
+	    // 회원가입 버튼(현재는 비활성화 상태)
 	    var signUpBtn = $("#signUPBt");
 	    
-	    // 초기에 버튼 비활성화
-	    signUpBtn.prop("disabled", true);
-
 	    // 아이디 입력 시
 	    $("#userId").on("focusout", function() {
 	        var id = $(this).val();
 	        if (id === '' || id.length === 0) {
 	            $("#checkText").css("color", "red").text("공백은 ID로 사용할 수 없습니다.");
-	            checkSignUpButtonState();
 	            return false;
 	        }
 	        
@@ -126,12 +122,10 @@
 	                } else {
 	                    $("#checkText").css("color", "red").text("사용 불가능한 ID 입니다.");
 	                    $("#userId").val('');
-	                    checkSignUpButtonState();
 	                }
 	            }
 	        });
 
-	        checkSignUpButtonState();
 	    });
 	    
 	    //닉네임 입력시
@@ -140,7 +134,6 @@
 	        console.log(name);
 	        if (name === '' || name.length === 0) {
 	            $("#checkName").css("color", "red").text("공백은 닉네임으로 사용할 수 없습니다.");
-	            checkSignUpButtonState();
 	            return false;
 	        }
 	        
@@ -155,11 +148,9 @@
 	                } else {
 	                    $("#checkName").css("color", "red").text("사용 불가능한 닉네임 입니다.");
 	                    $("#nickname").val('');
-	                    checkSignUpButtonState();
 	                }
 	            }
 	        });
-	        checkSignUpButtonState();
 	     });
 
 	    // 비밀번호 입력 시
@@ -169,43 +160,44 @@
 	        
 	        if (pw === '' || pw.length === 0) {
 	            $("#checkTextPw").css("color", "red").text("공백은 PW로 사용할 수 없습니다.");
-	            checkSignUpButtonState();
 	            return false;
 	        }
 
 	        if (pw.length < 8) {
 	            $("#checkTextPw").css("color", "orange").text("8자 미만 비밀번호는 설정할 수 없습니다.");
-	            checkSignUpButtonState();
 	            return false;
 	        }
 
 	        $("#checkTextPw").css("color", "green").text("사용가능한 비밀번호입니다.");
-	        checkSignUpButtonState();
 	        
 	        if (rePw !== '' && rePw.length !== 0) {
 	            if (pw !== rePw) {
 	                $("#checkRePw").css("color", "red").text("비밀번호가 일치하지 않습니다.");
-	                checkSignUpButtonState();
 	                return false;
 	            }
 
 	            $("#checkRePw").css("color", "green").text("비밀번호가 일치합니다.");
-	            checkSignUpButtonState();
 	        }
 	    });
 
-	    // 회원가입 버튼 상태 확인 함수
-	    function checkSignUpButtonState() {
-	        var idColor = $("#checkText").css("color");
-	        var pwColor = $("#checkTextPw").css("color");
-	        var rePwColor = $("#checkRePw").css("color");
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
 
-	        if (idColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 0, 0)" || pwColor === "rgb(255, 165, 0)" || rePwColor === "rgb(255, 0, 0)") {
-	        	signUpBtn.prop("disabled", true);
-	        } else {
-	            signUpBtn.prop("disabled", false);
-	        }
-	    }
+        // error 파라미터에서 오류 메시지 가져오기
+        var errorMessage = getParameterByName('error');
+
+        // 오류 메시지가 존재하면 알림창으로 표시
+        if (errorMessage) {
+            alert(errorMessage);
+        }
+
 	});
 	
 	// '출생 연도' 셀렉트 박스 option 목록 동적 생성 
@@ -281,7 +273,7 @@
 	 domainInputEl.disabled = false;
 	 } 
 	});	
-	
+	//db에 이메일 @ 도메인까지 전부 들어가게 만들어주는 에이젝스
 	 $(document).ready(function() {
 		    $("#email").blur(function(){
 		        updateEmail();    

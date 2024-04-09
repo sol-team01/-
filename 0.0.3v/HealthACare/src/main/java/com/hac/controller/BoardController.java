@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
+import com.hac.dto.searchDto.WriteDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.BoardService;
 import com.hac.service.ReplyService;
@@ -97,7 +101,18 @@ public class BoardController {
 	}
 	
 	@PostMapping("/write")
-	public String write(BoardDto dto) {
+	public String write(WriteDto dto,HttpServletRequest request) {
+		Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		Matcher match = pattern.matcher(dto.getB_text());
+		String img = null;
+		if(match.find()) {
+			img = match.group(0);
+			System.out.println(img);
+		}
+		HttpSession session = request.getSession();
+		InfoDto info = (InfoDto) session.getAttribute("login");
+		dto.setU_no(info.getU_no());
+		dto.setI_name(info.getI_name());
 		service.write(dto);
 		return "redirect:/board/noticeBoard";
 	}
@@ -110,27 +125,27 @@ public class BoardController {
 	@GetMapping("/readBoard")
 	public void read(
 			@RequestParam(value = "replyCurrentPage", defaultValue = "1") long replyCurrentPage,
-			@RequestParam("b_NO") long bno,
+			@RequestParam("B_no") String B_no,
 			Model m,
 			HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
 		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
-		m.addAttribute("read", service.read(bno));
-		m.addAttribute("reply", rService.replyList(replyCurrentPage,bno));
-		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, bno));
-		m.addAttribute("totalReply", rService.totalReply(bno));
-		service.hit(bno);
+		m.addAttribute("read", service.read(B_no));
+		m.addAttribute("reply", rService.replyList(replyCurrentPage,B_no));
+		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, B_no));
+		m.addAttribute("totalReply", rService.totalReply(B_no));
+		service.hit(B_no);
 	}
 	
 	@GetMapping("/modifyBoard")
-	public void modifyBoard(@RequestParam("b_NO") long b_NO, Model m,HttpServletRequest request) {
+	public void modifyBoard(@RequestParam("B_no") String B_no, Model m,HttpServletRequest request) {
 		System.out.println("..................modifyBoard 진입");
 		HttpSession session = request.getSession();
 		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
-		m.addAttribute("read", service.read(b_NO));
+		m.addAttribute("read", service.read(B_no));
 	}
 	
 	@PostMapping("/modify")
@@ -140,8 +155,8 @@ public class BoardController {
 	}
 	
 	@GetMapping("/del")
-	public String del(@RequestParam("b_NO") long bno) {
-		service.del(bno);
+	public String del(@RequestParam("B_no") String B_no) {
+		service.del(B_no);
 		return "redirect:/board/noticeBoard";
 	}
 }

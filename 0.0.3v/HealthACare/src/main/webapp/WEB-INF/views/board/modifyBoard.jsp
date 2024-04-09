@@ -22,12 +22,12 @@
 				<h1>게시글 작성</h1>
 				
 				<form action="${cp}/board/modify" method="post">
-					<input type="hidden" id="id" name="b_ID" value="${user.i_name}">
-					<input type="hidden" id="no" name="b_NO" value="${read.b_NO}">
+					<input type="hidden" id="id" name="B_id" value="${user.i_name}">
+					<input type="hidden" id="no" name="B_no" value="${read.b_no}">
 					<label for="title">제목: </label>
-					<input type="text" width="400px" name="b_TITLE" value="${read.b_TITLE}" required>
+					<input type="text" width="400px" name="B_title" value="${read.b_title}" required>
 					<label for="category">분류: </label>
-					<select id="category" name="B_CATEGORY">
+					<select id="category" name="B_category">
 						<option value="공지사항">공지사항</option>
 						<option value="일반">일반</option>
 						<option value="질문">질문</option>
@@ -35,7 +35,7 @@
 					<br>
 					<br>
 					<label for="content">내용: </label>
-					<textarea rows="5" cols="40" id="content" name="b_TEXT" required>${read.b_TEXT}</textarea>
+					<textarea rows="5" cols="40" id="content" name="B_text" required>${read.b_text}</textarea>
 					<input type="submit" value="수정하기">
 				</form>
 			</div>
