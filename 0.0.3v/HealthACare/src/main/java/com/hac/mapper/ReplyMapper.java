@@ -9,10 +9,10 @@ import com.hac.dto.boardDto.BoardSDto;
 import com.hac.dto.boardDto.ReplyDto;
 
 public interface ReplyMapper {
-	public ArrayList<ReplyDto> replyList(@Param("replyLimitIndex")long replyLimitIndex,@Param("bno")long bno);
-	public long totalReply(@Param("bno")long bno);
-	public void replyDel(long rno);
+	public ArrayList<ReplyDto> replyList(@Param("replyLimitIndex")long replyLimitIndex,@Param("B_no")String B_no);
+	public long totalReply(@Param("B_no")String B_no);
+	public void replyDel(String R_no);
 	public void replyWrite(ReplyDto dto);
 	public void replyModify(ReplyDto dto);
-	public int replyHit(long rno);
+	public int replyHit(String R_no);
 }

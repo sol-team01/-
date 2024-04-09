@@ -22,25 +22,25 @@ public class ReplyController {
 	@GetMapping("/replyWrite")
 	public void replyWrite(
 			@RequestParam("textValue")String textValue,
-			@RequestParam("uno") long uno,
-			@RequestParam("uid") String uid,
-			@RequestParam("bno") long bno) {
+			@RequestParam("U_no") String U_no,
+			@RequestParam("U_id") String U_id,
+			@RequestParam("B_no") String B_no) {
 		ReplyDto dto = new ReplyDto();
-		dto.setR_ID(uid);
-		dto.setU_NO(uno);
-		dto.setR_TEXT(textValue);
-		dto.setB_NO(bno);
+		dto.setR_id(U_id);
+		dto.setU_no(U_no);
+		dto.setR_text(textValue);
+		dto.setB_no(B_no);
 		service.replyWrite(dto);
-		bService.replyCount(bno);
+		bService.replyCount(B_no);
 	}
 	
 	@PostMapping("/delReply")
 	public void delReply(
-			@RequestParam("rno") long rno,
-			@RequestParam("bno") long bno
+			@RequestParam("R_no") String R_no,
+			@RequestParam("B_no") String B_no
 			) {
-		service.replyDel(rno);
-		bService.delReplyCount(bno);
+		service.replyDel(R_no);
+		bService.delReplyCount(B_no);
 	}
 	
 

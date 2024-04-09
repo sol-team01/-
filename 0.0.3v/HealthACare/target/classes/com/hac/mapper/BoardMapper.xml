@@ -5,8 +5,8 @@
 <mapper namespace="com.hac.mapper.BoardMapper">
 
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
-	    select * from board where B_CATEGORY != '공지사항' 
-	    order by B_NO
+	    select * from board where B_category != '공지사항' 
+	    order by B_no
 	    <choose>
 	    	<when test='sort == 0'>
 	    	desc
@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="getNoticeList" resultType="com.hac.dto.boardDto.BoardDto">
-		select * from board where B_CATEGORY = '공지사항' order by B_NO desc limit 3
+		select * from board where B_category = '공지사항' order by B_no desc limit 3
 	</select>
 		
 	<select id="searchList" resultType="com.hac.dto.boardDto.BoardDto" parameterType="com.hac.dto.boardDto.BoardSDto">
@@ -28,20 +28,20 @@
 	    <where>
 	    	<choose>
 	    		<when test='column.equals("B_TITLE")'>
-	    			B_TITLE LIKE CONCAT('%', #{word}, '%')
+	    			B_title LIKE CONCAT('%', #{word}, '%')
 	    		</when>
 	    		<when test='column.equals("B_TEXT")'>
-		             B_TEXT LIKE CONCAT('%', #{word}, '%')
+		             B_text LIKE CONCAT('%', #{word}, '%')
 	    		</when>
 	    		<when test='column.equals("B_TITLE_OR_B_TEXT")'>
-		             (B_TITLE LIKE CONCAT('%', #{word}, '%') OR B_TEXT LIKE CONCAT('%', #{word}, '%'))
+		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_ID LIKE CONCAT('%', #{word}, '%')
+		             B_id LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	    </where>
-	    order by B_NO desc
+	    order by B_no desc
 	    LIMIT #{limitIndex}, 7;
 	</select>
 
@@ -49,60 +49,60 @@
 	    select count(*) from board where 
 	        <choose>
 	    		<when test='column.equals("B_TITLE")'>
-	    			B_TITLE LIKE CONCAT('%', #{word}, '%')
+	    			B_title LIKE CONCAT('%', #{word}, '%')
 	    		</when>
 	    		<when test='column.equals("B_TEXT")'>
-		             B_TEXT LIKE CONCAT('%', #{word}, '%')
+		             B_text LIKE CONCAT('%', #{word}, '%')
 	    		</when>
 	    		<when test='column.equals("B_TITLE_OR_B_TEXT")'>
-		             (B_TITLE LIKE CONCAT('%', #{word}, '%') OR B_TEXT LIKE CONCAT('%', #{word}, '%'))
+		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_ID LIKE CONCAT('%', #{word}, '%')
+		             B_id LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	</select>
 	
 	<select id="totalContent" resultType="int">
-		select count(*) from board where B_CATEGORY != '공지사항'
+		select count(*) from board where B_category != '공지사항'
 	</select>
 	
 	<select id="read" resultType="com.hac.dto.boardDto.BoardDto">
-		select * from board where B_NO = #{bno}
+		select * from board where B_no = #{B_no}
 	</select>
 	
 	<delete id="del">
-		delete from board where B_NO = #{bno}
+		delete from board where B_no = #{B_no}
 	</delete>
 	
-	<insert id="write">
-		insert into board (B_ID, U_NO, B_TITLE, B_CATEGORY, B_TEXT) 
+	<insert id="write" parameterType="com.hac.dto.boardDto.BoardDto">
+		insert into board (B_id, U_no, B_title, B_category, B_text) 
 		values 
-		(#{b_ID},
-		#{u_NO},
-		#{b_TITLE},
-		#{b_CATEGORY},
-		#{b_TEXT})
+		(#{B_id},
+		#{U_no},
+		#{B_title},
+		#{B_category},
+		#{B_text})
 	</insert>
 	
 	<update id="hit">
-		update board set b_hit = b_hit + 1 where b_no = #{bno}
+		update board set B_hit = B_hit + 1 where B_no = #{B_no}
 	</update>
 	
 	<update id="replyCount">
-		update board set b_REPLY_COUNT = b_REPLY_COUNT + 1 where b_no = #{bno}
+		update board set B_replyCount = B_replyCount + 1 where B_no = #{B_no}
 	</update>
 	
 	<update id="delReplyCount">
-		update board set b_REPLY_COUNT = b_REPLY_COUNT - 1 where b_no = #{bno}
+		update board set B_replyCount = B_replyCount - 1 where B_no = #{B_no}
 	</update>
 	
 	<update id="modify">
-		update board set B_ID = #{b_ID},
-		B_TITLE = #{b_TITLE},
-		B_CATEGORY = #{b_CATEGORY},
-		B_TEXT = #{b_TEXT}
-		where B_NO = #{b_NO}
+		update board set B_id = #{B_id},
+		B_title = #{B_title},
+		B_category = #{B_category},
+		B_text = #{B_text}
+		where B_no = #{B_no}
 	</update>
 
 </mapper>

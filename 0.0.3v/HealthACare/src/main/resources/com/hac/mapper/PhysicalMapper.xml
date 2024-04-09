@@ -9,15 +9,15 @@
 	</select>
 	
 	<select id="searchPhysical" resultType="com.hac.dto.userDto.PhysicalLogDto">
-    	select * from physicalLog where U_no = #{uno}
+    	select * from physicalLog where U_no = #{U_no}
 	</select>
 	
 	<insert id="setterPhysical">
-		insert into physicalLog (U_no,P_weightLog,P_heightLog) values (#{uno},#{weight},#{height})
+		insert into physicalLog (U_no,P_weightLog,P_heightLog) values (#{U_no},#{weight},#{height})
 	</insert>
 	
 	<delete id="delPhysical">
-		delete from physicalLog where P_no = #{uno}
+		delete from physicalLog where P_no = #{P_no}
 	</delete>
 
 </mapper>
