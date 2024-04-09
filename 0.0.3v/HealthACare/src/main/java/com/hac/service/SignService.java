@@ -29,5 +29,5 @@ public interface SignService {
 	
 	public boolean searchPwHint(SignDto dto);
 	
-	public void pwChange(SignDto dto);
+	public String pwChange(SignDto dto, Model model);
 }

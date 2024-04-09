@@ -99,16 +99,16 @@ public class SignServiceImpl implements SignService {
 		// U_pw 는 user 정보 조회할때 참조하지않아 지움
 		SignDto user = signMapper.signIn(U_id); // DB에서 사용자 정보를 가져옴
 
-	    System.out.println(U_pw);
-	    System.out.println(user.getU_pw());
-	    
-	    if (user != null && encoder.matches(U_pw, user.getU_pw())) {
-	        // 비밀번호가 일치하면 로그인 성공
-	    	// 인포dto 를 리턴하게 변경, U_no 로 조회
-	    	System.out.println("유저 dto 가져옴");
-	        return signMapper.userInfo(user.getU_no());
-	    }
-	    return null;
+		System.out.println(U_pw);
+		System.out.println(user.getU_pw());
+
+		if (user != null && encoder.matches(U_pw, user.getU_pw())) {
+			// 비밀번호가 일치하면 로그인 성공
+			// 인포dto 를 리턴하게 변경, U_no 로 조회
+			System.out.println("유저 dto 가져옴");
+			return signMapper.userInfo(user.getU_no());
+		}
+		return null;
 	}
 
 	// 아이디 중복체크
@@ -153,13 +153,29 @@ public class SignServiceImpl implements SignService {
 
 	// 비밀번호 재설정
 	@Override
-	public void pwChange(SignDto dto) {
+	public String pwChange(SignDto dto, Model model) {
 		System.out.println(dto);
 		System.out.println("암호화전 비밀번호: " + dto.getU_pw());
-		String newPw = encoder.encode(dto.getU_pw());
-		dto.setU_pw(newPw);
-		System.out.println("암호화후 비밀번호: " + dto.getU_pw());
-		signMapper.pwChange(dto);
+		if (dto.getU_pw() == null || dto.getU_pw().trim().isEmpty()) {
+			System.out.println("빈 PW 회원가입");
+			return "PW를 입력해주세요.";
+		}
+
+		if (dto.getU_pw().length() < 8) {
+			System.out.println("비밀번호 불일치 재설정");
+			return "비밀번호는 8자 이상이여야합니다.";
+		}
+
+		if (!dto.getU_pw().equals(dto.getU_repw())) {
+			System.out.println("비밀번호 확인 불일치 재설정");
+			return "비밀번호가 일치하지 않습니다.";
+		} else {
+			String newPw = encoder.encode(dto.getU_pw());
+			dto.setU_pw(newPw);
+			System.out.println("암호화후 비밀번호: " + dto.getU_pw());
+			signMapper.pwChange(dto);
+			return "";
+		}
 	}
 
 }

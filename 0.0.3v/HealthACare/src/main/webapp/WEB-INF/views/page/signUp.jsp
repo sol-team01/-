@@ -100,7 +100,7 @@
 	<script>
 	//비활성화 상태로 두다가 조건이 다 맞아야 활성화하는 상태
 	$(document).ready(function() {
-	    // 회원가입 버튼
+	    // 회원가입 버튼(현재는 비활성화 상태)
 	    var signUpBtn = $("#signUPBt");
 	    
 	    // 아이디 입력 시

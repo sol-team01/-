@@ -45,6 +45,75 @@
 		<!-- inBox -->
 	</div>
 	<!-- searchPwBox -->
+<script>
+// 도메인 직접 입력 or domain option 선택 
+const domainListEl = document.querySelector('#domain-list');
+const domainInputEl = document.querySelector('#domain-txt');
+// select 옵션 변경 시
+ domainListEl.addEventListener('change', (event) => {
+// option에 있는 도메인 선택 시
+if(event.target.value !== "") {
+ // 선택한 도메인을 input에 입력하고 disabled 
+domainInputEl.value = event.target.value;
+domainInputEl.disabled = true;
+} else { // 직접 입력 시
+ // input 내용 초기화 & 입력 가능하도록 변경 
+ domainInputEl.value = ""; 
+ domainInputEl.disabled = false;
+ } 
+});	
 
+ $(document).ready(function() {
+	    $("#email").blur(function(){
+	        updateEmail();    
+	    });
+
+	    $("#domain-txt").change(function(){
+	        updateEmail();    
+	    });
+
+	    $("#domain-list").change(function(){
+	        updateEmail();    
+	    });
+
+	    function updateEmail() {
+	        const email = $("#email").val();
+	        const middle = $("#middle").text();
+	        const address = $("#domain-txt").val();
+	        if(email != "" && address != "") {
+	            $("#totalemail").val(email + middle + address);
+	        }
+	    }
+	    
+	    
+	});
+ 
+ $(document).ready(function() {
+	    $("#findUserIdForm").submit(function(event) {
+	        event.preventDefault(); // 기본 제출 동작을 막음
+
+	        var formData = $(this).serialize(); // 폼 데이터를 시리얼라이즈하여 가져옴
+
+	        $.ajax({
+	            type: 'POST',
+	            url: $(this).attr('action'),
+	            data: formData,
+	            success: function(data) {
+	                if (data) {
+	                	$("#checkImage").attr("src", "${cp}/resources/img/checkBox.png"); // 이미지를 표시
+	                    $("#userIdResult").text(data); // 찾은 아이디를 결과 영역에 표시
+	                    $("#container").show(); // container 영역을 보이도록 함
+	                } else {
+	                    alert('아이디를 찾을 수 없습니다.');
+	                }
+	            },
+	            error: function() {
+	                alert("서버 에러");
+	            }
+	        });
+	    });
+	});
+ 
+</script>
 </body>
 </html>
