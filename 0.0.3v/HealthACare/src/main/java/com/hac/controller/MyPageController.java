@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hac.dto.searchDto.MyPageDto;
+import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
 import com.hac.service.PhysicalService;
 
@@ -26,16 +27,17 @@ public class MyPageController {
 @Setter(onMethod_ = @Autowired)
 	private MyPageService service;
 
+@Setter(onMethod_ = @Autowired)
+	private PhysicalService pService;
+
 	String mag;
 	
 	//마이페이지로 이동
-	@GetMapping("/myPage")
-	public String nameChange(
-			MyPageDto dto,
-			Model model,
-			HttpServletRequest request) {
-
+	@GetMapping("/myInfo")
+	public String myPage(Model model,HttpServletRequest request) {
+		System.out.println("myPage 컨트롤러 진입");
 	HttpSession session = request.getSession();
+	model.addAttribute("physical",pService.searchPhysical(((InfoDto) session.getAttribute("login")).getU_no()));
 	return "/page/myPage";
 	}
 

@@ -32,18 +32,18 @@ public class PhysicalController {
 
 	@DeleteMapping("/delete/{uno}")
 	@ResponseBody
-	public String delete(@PathVariable Long uno) {
+	public String delete(@PathVariable String U_no) {
 		System.out.println("데이터삭제");
-		service.delPhysical(uno);
+		service.delPhysical(U_no);
 		return "success";
 	}
 	
 	@PostMapping("/physicalSumbit")
-	public String physicalSumbit(@RequestParam("uno")String uno,
+	public String physicalSumbit(@RequestParam("U_no")String U_no,
 			@RequestParam("weight")String weight,
 			@RequestParam("height")String height) {
 		System.out.println("체중입력 진입................");
-		service.setterPhysical(uno,weight,height);
+		service.setterPhysical(U_no,weight,height);
 		return "/page/myPage";
 	}
 	

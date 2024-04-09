@@ -97,7 +97,10 @@ public class BoardController {
 	}
 	
 	@PostMapping("/write")
-	public String write(BoardDto dto) {
+	public String write(BoardDto dto,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		InfoDto user = (InfoDto) session.getAttribute("login");
+		dto.setU_no(user.getU_no());
 		service.write(dto);
 		return "redirect:/board/noticeBoard";
 	}
@@ -110,27 +113,27 @@ public class BoardController {
 	@GetMapping("/readBoard")
 	public void read(
 			@RequestParam(value = "replyCurrentPage", defaultValue = "1") long replyCurrentPage,
-			@RequestParam("b_NO") long bno,
+			@RequestParam("B_no") String B_no,
 			Model m,
 			HttpServletRequest request) {
 		System.out.println("..................readBoard 진입");
 		HttpSession session = request.getSession();
 		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
-		m.addAttribute("read", service.read(bno));
-		m.addAttribute("reply", rService.replyList(replyCurrentPage,bno));
-		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, bno));
-		m.addAttribute("totalReply", rService.totalReply(bno));
-		service.hit(bno);
+		m.addAttribute("read", service.read(B_no));
+		m.addAttribute("reply", rService.replyList(replyCurrentPage,B_no));
+		m.addAttribute("replyPaging", rService.replyPageBlock(replyCurrentPage, B_no));
+		m.addAttribute("totalReply", rService.totalReply(B_no));
+		service.hit(B_no);
 	}
 	
 	@GetMapping("/modifyBoard")
-	public void modifyBoard(@RequestParam("b_NO") long b_NO, Model m,HttpServletRequest request) {
+	public void modifyBoard(@RequestParam("B_no") String B_no, Model m,HttpServletRequest request) {
 		System.out.println("..................modifyBoard 진입");
 		HttpSession session = request.getSession();
 		InfoDto user = (InfoDto) session.getAttribute("login");
 		m.addAttribute("user", user);
-		m.addAttribute("read", service.read(b_NO));
+		m.addAttribute("read", service.read(B_no));
 	}
 	
 	@PostMapping("/modify")
@@ -140,8 +143,8 @@ public class BoardController {
 	}
 	
 	@GetMapping("/del")
-	public String del(@RequestParam("b_NO") long bno) {
-		service.del(bno);
+	public String del(@RequestParam("B_no") String B_no) {
+		service.del(B_no);
 		return "redirect:/board/noticeBoard";
 	}
 }

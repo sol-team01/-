@@ -34,12 +34,12 @@
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
 					<c:forEach var="list" items="${noticeList}">
-						<c:if test="${list.b_CATEGORY eq '공지사항'}">
+						<c:if test="${list.b_category eq '공지사항'}">
 							<div class="noticeBox">
 								<div class="noticeHead">공지</div>
 								<div class="noticeBody">
-									<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
-										${list.b_TITLE}
+									<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+										${list.b_title}
 									</a>
 								</div>
 							</div>
@@ -50,35 +50,35 @@
 				<div id="ttt">
 					<c:forEach var="list" items="${list}">
 						<c:choose>
-							<c:when test="${list.b_CATEGORY eq '일반'}">
+							<c:when test="${list.b_category eq '일반'}">
 								<div class="boardList">
 									<div class="flexK">
-										<div class="listNumber">${list.b_NO}</div>
+										<div class="listNumber">${list.b_no}</div>
 										<div class="listContent">
-											<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
-												${list.b_TITLE}
+											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+												${list.b_title}
 											</a>
 										</div>
-										<div class="listWriter">${list.b_ID}</div>
-										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
-										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
-										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
+										<div class="listWriter">${list.b_id}</div>
+										<div class="listCategory">&nbsp;${list.b_category}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
 									</div>
 								</div>
 							</c:when>
-								<c:when test="${list.b_CATEGORY eq '질문'}">
+								<c:when test="${list.b_category eq '질문'}">
 								<div class="boardList">
 									<div class="flexK">
-										<div class="listNumber">${list.b_NO}</div>
+										<div class="listNumber">${list.b_no}</div>
 										<div class="listContent">
-											<a href="${cp}/board/readBoard?b_NO=${list.b_NO}">
-												${list.b_TITLE}
+											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+												${list.b_title}
 											</a>
 										</div>
-										<div class="listWriter">${list.b_ID}</div>
-										<div class="listCategory">&nbsp;${list.b_CATEGORY}</div>
-										<div class="listReplyCount">&nbsp;[${list.b_REPLY_COUNT}]</div>
-										<div class="listReplyCount">&nbsp;조회수: ${list.b_HIT}</div>
+										<div class="listWriter">${list.b_id}</div>
+										<div class="listCategory">&nbsp;${list.b_category}</div>
+										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
+										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
 									</div>
 								</div>
 							</c:when>

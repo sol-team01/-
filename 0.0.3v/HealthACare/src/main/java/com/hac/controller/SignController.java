@@ -32,15 +32,8 @@ import lombok.AllArgsConstructor;
 @Controller
 public class SignController {
 	private final SignService signservice;
-	private final PhysicalService pService;
 
-	// 로그인 페이지로 이동
-	@GetMapping("/myPage")
-	public String myPage(@RequestParam("uno") String uno, Model model) {
-		System.out.println("myPage 컨트롤러 진입");
-		model.addAttribute("physical", pService.searchPhysical(uno));
-		return "/page/myPage";
-	}
+
 
 	// 로그인 페이지로 이동
 	@GetMapping("/login")
@@ -81,9 +74,9 @@ public class SignController {
 		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
-		
 		Map<String, Object> response = new HashMap<>();
 		if (dto != null) {
+			dto.setI_profileImg(null);
 			session.setAttribute("login", dto);
 			response.put("success", true);
 			return ResponseEntity.ok(response);
