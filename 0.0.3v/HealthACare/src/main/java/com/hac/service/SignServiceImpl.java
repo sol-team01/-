@@ -98,17 +98,7 @@ public class SignServiceImpl implements SignService {
 	public InfoDto signIn(String U_id, String U_pw) {
 		// U_pw 는 user 정보 조회할때 참조하지않아 지움
 		SignDto user = signMapper.signIn(U_id); // DB에서 사용자 정보를 가져옴
-<<<<<<< HEAD
-		System.out.println(U_pw);
-		System.out.println(user.getU_pw());
 
-		if (user != null && encoder.matches(U_pw, user.getU_pw())) {
-			// 비밀번호가 일치하면 로그인 성공
-			// 인포dto 를 리턴하게 변경, U_no 로 조회
-			return signMapper.userInfo(user.getU_no());
-		}
-		return null;
-=======
 	    System.out.println(U_pw);
 	    System.out.println(user.getU_pw());
 	    
@@ -119,7 +109,6 @@ public class SignServiceImpl implements SignService {
 	        return signMapper.userInfo(user.getU_no());
 	    }
 	    return null;
->>>>>>> 4a442358d67d30a8c16ad5c7fab5db9675a28b6d
 	}
 
 	// 아이디 중복체크
