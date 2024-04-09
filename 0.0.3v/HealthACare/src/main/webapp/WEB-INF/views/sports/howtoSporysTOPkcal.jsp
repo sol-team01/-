@@ -99,6 +99,8 @@ $(document).ready(function() {
     $(".choiceSports").on("click", function() {
         var sport = $(this).text().trim(); // 선택한 운동 종목 가져오기
         var caloriesPerMinute = 0; // 분당 소모 칼로리 초기값
+        var height = parseInt($(".bodyInfo:eq(1)").text().trim());
+        var standardWeight = (height - 100) * 0.9;
 
         // 운동 종목에 따라 분당 소모 칼로리 설정
         switch (sport) {
@@ -139,10 +141,10 @@ $(document).ready(function() {
         var weight = parseInt($(".bodyInfo:eq(0)").text().trim());
         var duration = parseInt($(".bodyInfoInput").val());
         if (!isNaN(duration) && duration > 0) {
-            var newWeight = weight / 10;
+            var newWeight = standardWeight / 10;
             var newDuration = duration / 10;
             var calories = newWeight * newDuration * caloriesPerMinute;
-            $(".resultKcal").text(calories.toFixed(0) + " Kcal"); // 결과 업데이트
+            $(".resultKcal").text(calories.toFixed(1) + " Kcal"); // 결과 업데이트
         } else {
             $(".resultKcal").text("0 Kcal"); // 운동시간이 0일 때 0 Kcal로 표시
         }
