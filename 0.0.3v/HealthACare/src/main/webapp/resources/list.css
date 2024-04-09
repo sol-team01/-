@@ -9,6 +9,43 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'SUIT-Medium';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SUIT-Medium.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-SemiBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SUIT-ExtraBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 .dietTitle {
 	height: 70px;
 	box-shadow: 1px 2px 4px #eee;
@@ -81,9 +118,8 @@
 
 .wrapperK .wrapperKFlex .wrapperKText a {
 	font-size: 14px;
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 	margin-bottom: 10px;
-	font-weight: 600;
 }
 
 .listLeft {
@@ -183,11 +219,12 @@
 
 .dietSearchText h2 {
 	margin: 0;
-	font-weight: 700;
+	font-family: 'SUIT-Bold';
 }
 
 .dietSearchText div {
 	margin-top: 13px;
+	font-family: 'SUIT-Medium';
 }
 
 .dietForm {
@@ -203,11 +240,13 @@
 	border: none;
 	height: 45px;
 	width: 100%;
+	font-family: 'SUIT-Medium';
 }
 
 .dietForm h3 {
 	font-size: 16px;
 	margin: 0px 0 10px 0;
+	font-family: 'SUIT-Bold';
 }
 
 .dietFormBottom img {
@@ -234,7 +273,7 @@
 	box-shadow: 1px 2px 4px #eee;
 	color: #03BDFF;
 	line-height: 29px;
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 }
 
 .listRight {
@@ -243,6 +282,7 @@
 
 .dietTitleText {
 	color: #bbb;
+	font-family: 'SUIT-SemiBold';
 }
 
 .listRight div {
@@ -271,9 +311,13 @@
 }
 
 .backArrowWrap p {
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 }
 
 .backArrowK {
 	margin-right: 20px;
+}
+
+.listLeft h3{
+		font-family: 'SUIT-Bold';
 }

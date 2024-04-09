@@ -3,6 +3,7 @@
 .detailFoodTitle {
 	font-size: 46px;
 	text-align: center;
+	font-family: 'SUIT-ExtraBold';
 }
 
 .detailFoodTitle span {
@@ -11,7 +12,7 @@
 
 #foodForm .detailListSearchWrap .detailListSearch {
 	border: none !important;
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 	font-size: 20px;
 	color: #c4c8ce;
 }
@@ -43,18 +44,20 @@
 	color: #101219;
 }
 
-.detailListCategory .categoryBox .categoryGram a {
-	font-weight: 600;
+.detailListCategory .categoryBox .categoryGram h5 {
+	font-family: 'SUIT-Bold';
 	font-size: 18px;
 	line-height: 140%;
 	color: #03BDFF;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	margin:0;
 }
 
 .detailListCategory .categoryBox .categoryGram p {
 	color: #9BA1AA;
 	margin: 10px 0 0 0;
+	font-family: 'SUIT-Medium';
 }
 
 #foodForm .detailListSearchWrap {
@@ -100,7 +103,7 @@
 }
 
 .detailListCategory .categoryBox .categoryCalorie {
-	font-weight: 600;
+	font-family: 'SUIT-SemiBold';
 	font-size: 18px;
 	line-height: 140%;
 	color: #787E8B;
