@@ -1,5 +1,7 @@
 package com.hac.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,11 +53,18 @@ public class SignController {
 	// 회원가입
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
-			@ModelAttribute PhysicalDto phyDto) {
+			@ModelAttribute PhysicalDto phyDto, Model model) throws UnsupportedEncodingException {
 
-		signservice.signUp(signDto, infoDto, phyDto);
-		signDto.getU_no();
-		return "redirect:/page/login";
+		String result = signservice.signUp(signDto, infoDto, phyDto, model);
+
+		// 오류 메시지 확인 후 리다이렉트
+		if (!result.isEmpty()) {
+		    return "redirect:/page/signUp?error=" + URLEncoder.encode(result, "UTF-8");
+		} else {
+			signservice.signUp(signDto, infoDto, phyDto, model);
+			signDto.getU_no();
+			return "redirect:/page/login";
+		}
 	}
 
 	// 로그인
@@ -91,7 +100,7 @@ public class SignController {
 		return "redirect:/";
 	}
 	
-	//아이디 찾기
+	//아이디 중복체크
 	@PostMapping("/ConfirmId")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmId(String id) {
@@ -113,7 +122,7 @@ public class SignController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
-	//중복 닉네임 검사
+	//닉네임 중복체크
 	@PostMapping("/ConfirmName")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmName(String name) {
@@ -202,9 +211,19 @@ public class SignController {
 	
 	//비밀번호 재설정
 	@PostMapping("/pwChange")
-	public String pwChange(SignDto dto) {
+	public String pwChange(SignDto dto, Model model) throws UnsupportedEncodingException {
 		System.out.println("비밀번호 변경 진입");
-		signservice.pwChange(dto);
-		return "/page/login";
+		String result = signservice.pwChange(dto, model);
+		if (!result.isEmpty()) {
+		    return "redirect:/page/resetPw?error=" + URLEncoder.encode(result, "UTF-8");
+		} else {
+		return "redirect:/page/login";
+		}
 	}
+	
+	@GetMapping("/resetPw")
+	public void resetPw() {
+	}
+	
 }
+	
