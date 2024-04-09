@@ -33,7 +33,7 @@
 	<div id="user">	
     <a href="${cp}/page/logout" class="out">LOGOUT</a>
 	<img class="icon" alt="bell" src="${cp}/resources/img/bell.png"> 
-	<a href="${cp}/page/myPage">
+	<a href="${cp}/page/myPage?uno=${login.getU_no()}">
 	<div class="box">
 	${login.getI_name()}
 	<div  class="myImg"></div>
@@ -41,7 +41,7 @@
 	</a>
 	</div>
     </c:otherwise>
-</c:choose>
+    </c:choose>
 	</div>
 </div>
 

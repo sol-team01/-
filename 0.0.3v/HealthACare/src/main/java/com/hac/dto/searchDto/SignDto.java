@@ -11,4 +11,7 @@ public class SignDto {
 	private String I_name ="";
 	private String I_email = "";
 	private String I_hint = "";
+	private String email;
+	private String domain;
+	private String domainList;
 }
