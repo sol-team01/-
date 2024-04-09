@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hac.dto.boardDto.BoardDto;
 import com.hac.dto.boardDto.BoardSDto;
+import com.hac.dto.searchDto.WriteDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.BoardService;
 import com.hac.service.ReplyService;
@@ -97,10 +101,18 @@ public class BoardController {
 	}
 	
 	@PostMapping("/write")
-	public String write(BoardDto dto,HttpServletRequest request) {
+	public String write(WriteDto dto,HttpServletRequest request) {
+		Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		Matcher match = pattern.matcher(dto.getB_text());
+		String img = null;
+		if(match.find()) {
+			img = match.group(0);
+			System.out.println(img);
+		}
 		HttpSession session = request.getSession();
-		InfoDto user = (InfoDto) session.getAttribute("login");
-		dto.setU_no(user.getU_no());
+		InfoDto info = (InfoDto) session.getAttribute("login");
+		dto.setU_no(info.getU_no());
+		dto.setI_name(info.getI_name());
 		service.write(dto);
 		return "redirect:/board/noticeBoard";
 	}

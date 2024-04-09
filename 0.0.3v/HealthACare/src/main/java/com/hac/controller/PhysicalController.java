@@ -30,13 +30,13 @@ public class PhysicalController {
 @Setter(onMethod_ = @Autowired)
 	private PhysicalService service;
 
-	@DeleteMapping("/delete/{uno}")
-	@ResponseBody
-	public String delete(@PathVariable String U_no) {
-		System.out.println("데이터삭제");
-		service.delPhysical(U_no);
-		return "success";
-	}
+//	@DeleteMapping("/delete/{U_no}")
+//	@ResponseBody
+//	public String delete(@PathVariable String U_no) {
+//		System.out.println("데이터삭제");
+//		service.delPhysical(U_no);
+//		return "success";
+//	}
 	
 	@PostMapping("/physicalSumbit")
 	public String physicalSumbit(@RequestParam("U_no")String U_no,

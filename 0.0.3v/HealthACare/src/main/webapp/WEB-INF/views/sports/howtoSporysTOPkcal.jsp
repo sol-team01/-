@@ -42,12 +42,12 @@
 				<div class="bodyInfoBox">
 				체중
 				<div class="Box">
-				<div class="bodyInfo">	50</div>
+				<div class="bodyInfo">	${physical.p_weightLog}</div>
 				<a>kg</a>	</div></div>
 				<div class="bodyInfoBox">
 				신장
 				<div class="Box">
-				<div class="bodyInfo">	150</div>
+				<div class="bodyInfo">	${physical.p_heightLog}</div>
 				<a>cm</a>	</div></div>
 				<div class="bodyInfoBox">
 				<!-- ★todo 제이쿼리 사용해서 실시간 반영 해야 함 -->

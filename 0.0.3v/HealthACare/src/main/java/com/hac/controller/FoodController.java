@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.hac.dto.foodDto.FoodDto;
+import com.hac.dto.userDto.InfoDto;
+import com.hac.service.FoodService;
+import com.hac.service.MyPageService;
+import com.hac.service.PhysicalService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,6 +31,9 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class FoodController {
 		
+	private FoodService service;
+	private MyPageService mService;
+	
 		// 식품정보 리스트 보기
 		@RequestMapping("/list")
 		public void list(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model) throws UnsupportedEncodingException {
@@ -105,33 +112,9 @@ public class FoodController {
 		    	
 		        return "redirect:/page/login";
 		    }
-
-			//인코딩 인증키	n
-			String API_KEY = "hHHC2afAzbBFG%2BiTNM1BgP8tim6KZmaRvsAPA6AOJd60TROjKviEGzaqQ%2BS%2BKLCR5OHtl74y2SWr%2Bev1LBBvHQ%3D%3D";					
-			String API_URL = null;
-		
-			try {
-				String encodedSearchId = URLEncoder.encode(descKor, "UTF-8");
-				API_URL = "http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1?serviceKey="+ API_KEY +"&desc_kor="+ encodedSearchId +"&pageNo=1&numOfRows=20&type=json" ;			
-			log.info("========" + API_URL);
-			} catch (UnsupportedEncodingException e1) {
-				e1.printStackTrace();
-			}
-			
-			RestTemplate restTemplate = new RestTemplate();					
-			URI uri = null; 				
-			try {	
-				uri = new URI(API_URL);				
-			} catch (URISyntaxException e) {					
-				e.printStackTrace();				
-			}
-								
-			FoodDto food = restTemplate.getForObject(uri, FoodDto.class); 	
-			
-			log.info("==== food json ==== : ============================ : ");							
-			
-			 model.addAttribute("food", food); 
-			
+		    InfoDto info = (InfoDto) session.getAttribute("login");
+			 model.addAttribute("food", service.foodList(descKor)); 
+			 model.addAttribute("physical",mService.myPhysical(info.getU_no()));
 			 return "/food/calorieCounting";
 		}
 

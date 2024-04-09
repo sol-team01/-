@@ -75,10 +75,10 @@
 		delete from board where B_no = #{B_no}
 	</delete>
 	
-	<insert id="write" parameterType="com.hac.dto.boardDto.BoardDto">
-		insert into board (B_id, U_no, B_title, B_category, B_text) 
-		values 
-		(#{B_id},
+	<insert id="write" parameterType="com.hac.dto.searchDto.WriteDto">
+		insert into board (I_name, U_no, B_title, B_category, B_text) 
+		value
+		(#{I_name},
 		#{U_no},
 		#{B_title},
 		#{B_category},
