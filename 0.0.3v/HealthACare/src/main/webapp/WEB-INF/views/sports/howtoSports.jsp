@@ -21,7 +21,7 @@
 <jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>			
 <!-- 여기에서 작업하세요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <!-- 상단 칼로리 계산탭 -->
-<jsp:include page="/WEB-INF/views/sports/howtoSporysTOPkcal.jsp"></jsp:include>
+<%-- <jsp:include page="/WEB-INF/views/sports/howtoSporysTOPkcal.jsp"></jsp:include> --%>
 <!-- 중단 운동 추천 -->
 <hr>
 <h1>운동 어쩌구</h1>
