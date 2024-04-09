@@ -18,5 +18,5 @@ public class Item {
     public String NUTR_CONT9;
     public String BGN_YEAR;
     public String ANIMAL_PLANT;
-
+    
 }
