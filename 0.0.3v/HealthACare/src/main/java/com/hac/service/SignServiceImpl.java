@@ -134,8 +134,27 @@ public class SignServiceImpl implements SignService {
 	
 	//작성한 힌트 비교
 	@Override
-	public SignDto searchPwHint(SignDto dto) {
-		return signMapper.searchPwHint(dto);
+	public boolean searchPwHint(SignDto dto) {
+		System.out.println(dto);
+		
+		if (signMapper.searchPwHint(dto) == 1) {
+			System.out.println("힌트 잘맞아요~");
+			return true;
+		} else {
+			System.out.println("힌트가 안맞아요 ");
+			return false;
+		}
+	}
+	
+	//비밀번호 재설정
+	@Override
+	public void pwChange(SignDto dto) {
+		System.out.println(dto);
+		System.out.println("암호화전 비밀번호: "+dto.getU_pw());
+		String newPw = encoder.encode(dto.getU_pw());
+		dto.setU_pw(newPw);
+		System.out.println("암호화후 비밀번호: "+dto.getU_pw());
+		signMapper.pwChange(dto);
 	}
 
 }

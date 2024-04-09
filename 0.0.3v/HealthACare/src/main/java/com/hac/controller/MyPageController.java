@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hac.dto.searchDto.MyPageDto;
 import com.hac.service.MyPageService;
+import com.hac.service.PhysicalService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -29,11 +30,12 @@ public class MyPageController {
 	
 	//마이페이지로 이동
 	@GetMapping("/myPage")
-	public String nameChange(MyPageDto dto, Model model,HttpServletRequest request) {
+	public String nameChange(
+			MyPageDto dto,
+			Model model,
+			HttpServletRequest request) {
 
 	HttpSession session = request.getSession();
-	
-	
 	return "/page/myPage";
 	}
 
