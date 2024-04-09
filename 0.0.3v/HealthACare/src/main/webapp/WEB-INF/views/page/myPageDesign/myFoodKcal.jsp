@@ -20,7 +20,7 @@
 <body>
 						<div id="myFood">
 							<div id="myFoodText">
-								당신의 권장 칼로리
+								내가 작성한 글
 								<div>
 								<div class="kaclBox">150,00</div>
 									<a class="textKcal"> kcal</a>

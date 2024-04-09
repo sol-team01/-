@@ -71,13 +71,17 @@
 				<div id="secondPage">
 <!-- 칼로리 jsp 따로 뺴놓았슴다~ (최) -->
 <jsp:include page="/WEB-INF/views/page/myPageDesign/myFoodKcal.jsp"></jsp:include>						
-					<div id="rightPage">
-						<div id="rightBottom">
-							<div id="calender">
-								<img src="https://img.freepik.com/free-vector/simple-calendar-2017-template_1057-1892.jpg?w=740&t=st=1711696973~exp=1711697573~hmac=e43835881b4a67cab0ca8eddbe6941b40b317bfa57b9b378182f9481e3403697">
+<div id="rightPage">
+							<div id="myActivity">나의 활동</div>
+							<div id="myActivityListBox">
+							<div id="myActivityList">
+<!-- 내가 작성한 글  -->
+<c:forEach var="i" begin="1" end="20">
+			<a href="#">${i } ) [제목] [카테고리] [조회수]</a><br>
+</c:forEach>
 							</div>
-						</div>
-					</div>
+							</div>
+</div>
 			</div>
 		</div>
 		<!-- <div id="main"> -->
