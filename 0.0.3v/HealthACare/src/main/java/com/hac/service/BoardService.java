@@ -10,6 +10,7 @@ public interface BoardService {
 	public ArrayList<BoardDto> getList(int currentPage,int sort);
 	public ArrayList<BoardDto> getNoticeList();
 	public ArrayList<BoardSDto> searchList(int currentPage, String word, String column);
+	public ArrayList<BoardDto> getListHome();
 	public int totalContent();
 	public int searchTotalContent(BoardSDto dto);
 	public PagingProcessor pageBlock(int currentPage,BoardSDto dto);
