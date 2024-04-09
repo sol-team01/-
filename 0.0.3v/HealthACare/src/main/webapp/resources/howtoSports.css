@@ -1,93 +1,206 @@
 @charset "UTF-8";
 
-#useKcal{
+p {
+	margin: 0px;
+}
+/**/
+#useKcal {
 	margin-top: 5px;
 	margin: auto;
 	width: 1300px;
 	border-radius: 28px;
 	padding: 25px 36px;
-	background-color: green;
-	color:white;
+	background-color: #F3F3F3;
+	color: white;
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	color: #0475a6;
 }
-#choiceSportsBox{
+
+#choiceSportsBox {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
 }
-#choiceSportsBox .choiceSports{
+
+#choiceSportsBox .choiceSports {
 	width: 100px;
 	height: 50px;
 	font-size: 26px;
-	background-color: pink;
-	display: flex;
+	background-color: #03BDFF;
+	color: white; display : flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 16px;
 	cursor: pointer;
+	display: flex;
 }
 /**/
 /* 상단 메인*/
 /**/
-#useKcalMainBox{
+#useKcalMainBox {
 	width: 100%;
+	height: 187px;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	background-color: pink;
 	margin: 20px 0px;
 }
-#useKcalMainBox .inputBox{
+
+#useKcalMainBox .inputBox {
 	width: 350px;
-	background-color:white;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 /**/
-#useKcalMainBox .sumKcalBox{
-	width: 350px;
-	background-color:yellow;
+/*소모되는 칼로리*/
+#useKcalMainBox .sumKcalBox {
+	width: 330px;
+	height: 170px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: center;
 	font-size: 30px;
+	padding: 0px 10px;
+	margin: 10px 0px;
+}
+
+#useKcalMainBox .sumKcalBox .resultKcal {
+	width: 300px;
+	height: 100px;
+	background-color: #9FE2FA99;
+	color: #03BDFF;
+	font-weight: 800; display : flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	display: flex;
 }
 /**/
-#useKcalMainBox .dayKcalBox{
+/*하루권장 칼로리*/
+#useKcalMainBox .dayKcalBox {
 	width: 600px;
-	background-color:#00ff80;
+	height: 150px;;
 	display: flex;
+	border:1px solid #03BDFF;
+	border-radius:18px;
 	flex-direction: column;
 	justify-content: space-between;
-	font-size: 30px;
+	align-items: center;
+	font-size: 26px;
+	padding: 15px 10px;
+}
+
+#useKcalMainBox .dayKcalBox .blue {
+	color: #03BDFF;
+	font-weight: 800;
+}
+
+#useKcalMainBox .dayKcalBox .kcalColor {
+	width: 100%;
+	height: 30px;
+	border-radius: 20px;;
+	background-color: red;
+	margin-top: 10px;
+	display: flex;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+#useKcalMainBox .dayKcalBox .kcalColor .underWeight {
+	background-color: yellow;
+	width: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#useKcalMainBox .dayKcalBox .kcalColor .normalWeight {
+	background-color: #acf266;
+	width: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#useKcalMainBox .dayKcalBox .kcalColor .dangerWeight {
+	background-color: #fdbb42;
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dangerWeight2 {
+	background-color: #FF9933; /* 경도비만 */
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dangerWeight3 {
+	background-color: #FF6600; /* 중정도 비만 */
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dangerWeight4 {
+	background-color: #FF3300; /* 고도 비만 - 진한 색상 */
+	color: #FFFFFF; /* 흰색 텍스트 색상 */
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 /**/
-#useKcalMainBox .inputBox .bodyInfoBox{
-	display: flex;	
+#useKcalMainBox .inputBox .bodyInfoBox {
+	display: flex;
 	justify-content: space-between;
-	align-items: center; 
+	align-items: center;
 	font-size: 30px;
 	margin-bottom: 10px;
 }
-#useKcalMainBox .inputBox .bodyInfoBox a{
+
+#useKcalMainBox .inputBox .bodyInfoBox a {
 	font-size: 18px;
-	line-height:40px; 
-	}
-#useKcalMainBox .inputBox .bodyInfoBox .Box{
+	line-height: 40px;
+}
+
+#useKcalMainBox .inputBox .bodyInfoBox .Box {
 	width: 200px;
 	display: flex;
 	align-items: flex-end;
-	justify-content:space-between; 
+	justify-content: space-between;
 }
-#useKcalMainBox .inputBox .bodyInfoBox .bodyInfo{
+
+#useKcalMainBox .inputBox .bodyInfoBox .bodyInfo {
 	width: 140px;
-	height: 32px; 
-	background-color: red;
+	height: 32px;
+/* 	background-color: white; */
+/* 	border: 1px solid #03BDFF;  */
+	font-size : 28px;
+	text-align: right;
+	padding: 10px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	font-size: 28px;
+}
+
+#useKcalMainBox .inputBox .bodyInfoBox .bodyInfoInput {
+	width: 160px;
+	height: 53px;
+	border: 0px;
+	background-color: white;
+	border: 1px solid #d4d4d4;
 	font-size: 28px;
 	text-align: right;
 	padding: 10px;

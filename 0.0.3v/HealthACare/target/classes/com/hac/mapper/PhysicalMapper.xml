@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hac.mapper.PhysicalMapper">
+
+	<select id="getPhysical" resultType="com.hac.dto.searchDto.PhysicalDto">
+		select * from physicalLog
+	</select>
+	
+	<select id="searchPhysical" resultType="com.hac.dto.userDto.PhysicalLogDto">
+    	select * from physicalLog where U_no = #{U_no}
+	</select>
+	
+	<insert id="setterPhysical">
+		insert into physicalLog (U_no,P_weightLog,P_heightLog) values (#{U_no},#{weight},#{height})
+	</insert>
+	
+	<delete id="delPhysical">
+		delete from physicalLog where P_no = #{P_no}
+	</delete>
+
+</mapper>

@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+img {
+	overflow: hidden;
+	height: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+hr {
+	margin: 20px 0px;
+	border: none;
+	border-top: 1px solid rgba(128, 128, 128, 0.3);
+	/* 회색(128, 128, 128)의 30% 투명도 설정 */
+}
+
+.mainOverflowBox {
+	width: 100%;
+	position: relative;
+	z-index: 100;
+}
+
+.overflow {
+	width: 100%;
+	/* 	padding: 20px 10px; */
+	overflow: hidden;
+	z-index: 100;
+}
+
+.sportsAreaBox {
+	display: flex;
+	width: max-content; /* 컨테이너의 최대 너비를 이미지박스들의 너비 합으로 설정 */
+	white-space: nowrap; /* 이미지박스들을 가로로 나열하도록 설정 */
+	z-index: 100;
+}
+
+.slideshow-container {
+	position: relative;
+	width: 300px;
+	overflow: hidden;
+	margin: 10px;
+	z-index: 100;
+}
+
+.slide {
+	width: 300px;
+	padding-bottom: 30px;
+	float: left;
+	z-index: 100;
+}
+
+.content {
+	background-color: red;
+	border-radius: 18px;
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	overflow: hidden;
+	z-index: 100;
+}
+/**/
+.mainTextBox{
+	display: none; width : 1352px;
+	height: 300px;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #03BDFF;
+	position: absolute; /* 절대 위치 지정 */
+	top: 75%;
+	z-index: 9999;
+	width: 1352px; /* 다른 요소보다 앞에 오도록 설정 */
+}
+.a {
+	display:none;
+	height:0px;
+	margin-bottom: 135px;
+	
+}

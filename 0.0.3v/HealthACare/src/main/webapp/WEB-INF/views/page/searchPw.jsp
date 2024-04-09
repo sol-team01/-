@@ -15,20 +15,21 @@
 <body>
 
 	<div id="searchPwBox">
-		<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고"
-			class="image"></a>
+		<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
 		<div id="inBox">
-			<a class="idText">비밀번호 찾기</a> <a class="cText">**** 아이디와 답을
-				입력해주시면 비밀번호를 찾을 수 있어요! ****</a>
+			<a class="idText">비밀번호 찾기</a> 
+			<a class="cText">**** 아이디와 답을 입력해주시면 비밀번호를 찾을 수 있어요! ****</a>
 
 			<form action="${cp}/page/searchPw" method="post" name="PwSearch">
-				<label class="text3">아이디</label> <input id="idInput" type="text"
-					maxlength="20" name="U_id" placeholder="아이디를 입력해주세요.">
+				<label class="text3">아이디</label> 
+				<input id="idInput" type="text" maxlength="20" name="U_id" placeholder="아이디를 입력해주세요.">
+					<br>
+				    <label for="email" class="text3">이메일</label>
 				<div>
 					<input class="ebox" id="email" name="email" type="text" /> 
 					<a class="text4"><span id="middle">@</span></a> 
 					<input class="ebox" id="domain" type="text" name = "domain"/> 
-						<select class="ebox"id="domain-list" name ="domainList">
+						<select class="sebox" id="domain-list" name ="domainList">
 						<option value="">직접입력</option>
 						<option value="naver.com">naver.com</option>
 						<option value="google.com">google.com</option>

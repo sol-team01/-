@@ -47,22 +47,14 @@ form{
    flex-direction: column;
 }
 
-.idText { /* 아이디 찾기 text */
+.idText { /* 비밀번호 변경 text */
    color: #4A4A4B;
    font-size: 22px;
    font-weight: bold;
    text-align: left; /* 왼쪽 정렬 */
 }
 
-.cText { /* 구문 text */
-   margin-top: 20px;
-   color: #ff8080;
-   font-size: 15px;
-   font-weight: bold;
-   text-align: center; /* 왼쪽 정렬 */
-}
-
-.text3 { /* 아이디 text */
+.text3 { /* 암호 바꾸기 text */
    height: 20px;
    color: #4A4A4B;
    font-size: 13px;
@@ -71,14 +63,7 @@ form{
    margin-top: 5px;
 }
 
-.text4 { /* . text */
-   color: #4A4A4B;
-   font-size: 13px;
-   font-weight: bold;
-   text-align: left; /* 왼쪽 정렬 */
-}
-
-#idInput { /* input */
+.idInput { /* input */
    font-weight: bold;
    font-size: 15px;
    border-radius: 3px;
@@ -89,42 +74,7 @@ form{
    margin-top: 2px;
 }
 
-.ebox { /* 이메일 input */
-   font-weight: bold;
-   font-size: 15px;
-   border-radius: 3px;
-   width: 133px;
-   height: 30px;
-   padding: 10px;
-   border: 1px solid #ddd;
-   margin-top: 2px;
-   margin: auto;
-}
-
-.sebox { /* 이메일 input */
-   font-weight: bold;
-   font-size: 15px;
-   border-radius: 3px;
-   width: 133px;
-   padding: 10px;
-   border: 1px solid #ddd;
-   margin-top: 2px;
-   margin: auto;
-}
-
-/* select box  */
-select.box , select.passwordQuestion {
-  width: 477px;
-  height: 50px;
-  padding: 10px;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-  font-weight: bold;
-  font-size: 13px;
-  border-radius: 3px;
-}
-
-#searchPwBt { /* 비밀번호 찾기 버튼 */
+#changePwBt { /* 비밀번호 변경 버튼 */
    font-size: 18px;
    color: #6c7079;
    font-weight: bold;
@@ -138,7 +88,7 @@ select.box , select.passwordQuestion {
    border: none;
 }
 
-#searchPwBt:hover{ /* 비밀번호 찾기 클릭 시 */
+#changePwBt:hover{ /* 비밀번호 변경 클릭 시 */
    background-color: #03BDFF;
    color: #ffffff;
    font-weight: bold;

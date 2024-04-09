@@ -101,6 +101,7 @@ public class SignServiceImpl implements SignService {
 	    if (user != null && encoder.matches(U_pw, user.getU_pw())) {
 	        // 비밀번호가 일치하면 로그인 성공
 	    	// 인포dto 를 리턴하게 변경, U_no 로 조회
+	    	System.out.println("유저 dto 가져옴");
 	        return signMapper.userInfo(user.getU_no());
 	    }
 	    return null;

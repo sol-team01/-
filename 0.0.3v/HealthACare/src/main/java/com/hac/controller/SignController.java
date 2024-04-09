@@ -1,5 +1,8 @@
 package com.hac.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
+import com.hac.service.PhysicalService;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
@@ -27,12 +31,7 @@ import lombok.AllArgsConstructor;
 public class SignController {
 	private final SignService signservice;
 
-	// 로그인 페이지로 이동
-	@GetMapping("/myPage")
-	public String myPage() {
-		System.out.println("myPage 컨트롤러 진입");
-		return "/page/myPage";
-	}
+
 
 	// 로그인 페이지로 이동
 	@GetMapping("/login")
@@ -50,7 +49,6 @@ public class SignController {
 	}
 
 	// 회원가입
-
 	@PostMapping("/createId")
 	public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
 			@ModelAttribute PhysicalDto phyDto) {
@@ -62,18 +60,20 @@ public class SignController {
 
 	// 로그인
 	@PostMapping("/signIn")
-	public String signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
+	public ResponseEntity<Map<String, Object>> signIn(HttpServletRequest request, @RequestParam("U_id") String U_id,
 			@RequestParam("U_pw") String U_pw) {
 		InfoDto dto = signservice.signIn(U_id, U_pw);
 		HttpSession session = request.getSession();
 		System.out.println("=======로그인 잘 통과하는가?=======");
+		Map<String, Object> response = new HashMap<>();
 		if (dto != null) {
+			dto.setI_profileImg(null);
 			session.setAttribute("login", dto);
-			System.out.println("로그인 성공");
-			return "redirect:/";
+			response.put("success", true);
+			return ResponseEntity.ok(response);
 		} else {
-			System.out.println("로그인 실패");
-			return "redirect:/page/login";
+		    response.put("success", false);
+		    return ResponseEntity.ok(response);
 		}
 	}
 
