@@ -14,11 +14,11 @@ public interface BoardMapper {
 	public ArrayList<BoardSDto> searchList(BoardSDto dto);
 	public int totalContent();
 	public int searchListCount(BoardSDto dto);
-	public BoardDto read(long bno);
-	public void del(long bno);
+	public BoardDto read(String B_no);
+	public void del(String B_no);
 	public void write(BoardDto dto);
 	public void modify(BoardDto dto);
-	public int hit(long bno);
-	public int replyCount(long bno);
-	public int delReplyCount(long bno);
+	public int hit(String B_no);
+	public int replyCount(String B_no);
+	public int delReplyCount(String B_no);
 }

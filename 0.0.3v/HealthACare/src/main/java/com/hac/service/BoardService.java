@@ -12,12 +12,12 @@ public interface BoardService {
 	public int totalContent();
 	public int searchTotalContent(BoardSDto dto);
 	public PagingProcessor pageBlock(int currentPage,BoardSDto dto);
-	public BoardDto read(long bno);
+	public BoardDto read(String B_no);
 	public void write(BoardDto dto);
 	public void modify(BoardDto dto);
-	public void del(long bno);
-	public int hit(long bno);
-	public int replyCount(long bno);
-	public int delReplyCount(long bno);
+	public void del(String B_no);
+	public int hit(String B_no);
+	public int replyCount(String B_no);
+	public int delReplyCount(String B_no);
 
 }

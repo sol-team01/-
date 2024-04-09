@@ -5,35 +5,35 @@
 <mapper namespace="com.hac.mapper.ReplyMapper">
 
 	<select id="replyList" resultType="com.hac.dto.boardDto.ReplyDto">
-	    select * from reply_board where B_NO = #{bno} order by R_NO desc
+	    select * from replyBoard where B_no = #{B_no} order by R_no desc
 	    limit #{replyLimitIndex}, 10
 	</select>
 	
 	<select id="totalReply" resultType="long">
-		select count(*) from reply_board where B_NO = #{bno}
+		select count(*) from replyBoard where B_no = #{B_no}
 	</select>
 	
 	<delete id="replyDel">
-		delete from reply_board where R_NO = #{rno}
+		delete from replyBoard where R_no = #{R_no}
 	</delete>
 	
 	<insert id="replyWrite">
-		insert into reply_board (R_ID, U_NO, B_NO, R_TEXT) 
+		insert into replyBoard (R_id, U_no, B_no, R_text) 
 		values 
-		(#{r_ID},
-		#{u_NO},
-		#{b_NO},
-		#{r_TEXT})
+		(#{R_id},
+		#{U_no},
+		#{B_no},
+		#{R_text})
 	</insert>
 	
 	<update id="replyHit">
-		update reply_board set r_hit = r_hit + 1 where r_no = #{rno}
+		update replyBoard set R_hit = R_hit + 1 where R_no = #{R_no}
 	</update>
 	
 	<update id="replyModify">
-		update reply_board set r_ID = #{r_ID},
-		r_TEXT = #{r_TEXT}
-		where r_NO = #{r_NO}
+		update replyBoard set R_id = #{R_id},
+		R_text = #{R_text}
+		where R_no = #{R_no}
 	</update>
 
 </mapper>

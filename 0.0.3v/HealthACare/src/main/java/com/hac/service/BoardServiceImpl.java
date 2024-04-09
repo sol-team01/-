@@ -57,13 +57,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDto read(long bno) {
-		return mapper.read(bno);
+	public BoardDto read(String B_no) {
+		return mapper.read(B_no);
 	}
 
 	@Override
-	public void del(long bno) {
-		mapper.del(bno);
+	public void del(String B_no) {
+		mapper.del(B_no);
 	}
 
 	@Override
@@ -77,18 +77,18 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int hit(long bno) {
-		return mapper.hit(bno);
+	public int hit(String B_no) {
+		return mapper.hit(B_no);
 	}
 	
 	@Override
-	public int replyCount(long bno) {
-		return mapper.replyCount(bno);
+	public int replyCount(String B_no) {
+		return mapper.replyCount(B_no);
 	}
 	
 	@Override
-	public int delReplyCount(long bno) {
-		return mapper.delReplyCount(bno);
+	public int delReplyCount(String B_no) {
+		return mapper.delReplyCount(B_no);
 	}
 
 }

@@ -16,26 +16,26 @@ public class ReplyServiceImpl implements ReplyService {
 	private ReplyMapper mapper;
 
 	@Override
-	public ArrayList<ReplyDto> replyList(long replyCurrentPage,long bno) {
+	public ArrayList<ReplyDto> replyList(long replyCurrentPage,String B_no) {
 		long replyLimitIndex = (replyCurrentPage - 1) * 10;
-		return mapper.replyList(replyLimitIndex,bno);
+		return mapper.replyList(replyLimitIndex,B_no);
 	}
 
 	@Override
-	public ReplyPagingProcessor replyPageBlock(long replyCurrentPage,long bno) {
-		ReplyPagingProcessor replyPaging = new ReplyPagingProcessor(replyCurrentPage, mapper, bno);
+	public ReplyPagingProcessor replyPageBlock(long replyCurrentPage,String B_no) {
+		ReplyPagingProcessor replyPaging = new ReplyPagingProcessor(replyCurrentPage, mapper, B_no);
 		return replyPaging;
 	}
 
 	@Override
-	public long totalReply(long bno) {
-		long totalReply = mapper.totalReply(bno);
+	public long totalReply(String B_no) {
+		long totalReply = mapper.totalReply(B_no);
 		return totalReply;
 	}
 
 	@Override
-	public void replyDel(long rno) {
-		mapper.replyDel(rno);
+	public void replyDel(String R_no) {
+		mapper.replyDel(R_no);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public int replyHit(long rno) {
-		return mapper.replyHit(rno);
+	public int replyHit(String R_no) {
+		return mapper.replyHit(R_no);
 	}
 }
