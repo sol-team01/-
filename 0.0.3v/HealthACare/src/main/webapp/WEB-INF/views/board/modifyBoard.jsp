@@ -22,7 +22,7 @@
 				<h1>게시글 작성</h1>
 				
 				<form action="${cp}/board/modify" method="post">
-					<input type="hidden" id="id" name="B_id" value="${user.i_name}">
+					<input type="hidden" id="id" name="B_name" value="${user.i_name}">
 					<input type="hidden" id="no" name="B_no" value="${read.b_no}">
 					<label for="title">제목: </label>
 					<input type="text" width="400px" name="B_title" value="${read.b_title}" required>
