@@ -46,23 +46,23 @@
 	<div id="listBox">
 	<!-- 최신 공지사항 출력 2개까지만 -->
  	<div id="notice">
- 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1">
-		<div class="list">
-				<form action="${cp}/board/readBoard" method="get">
-					<div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
-					<div class="top">
-						<a class="subtext"> ${board.b_datetime}</a>
-						<div class="subTextBox">${board.b_category}</div>
-					</div>
-					<div class="bottom">
-						<a class="title">${board.b_title}  </a>
-						작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
-					</div>
-					</div>
-				</form> 
-		</div>
-	</c:forEach>
-		</div>
+	 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1" varStatus="status">
+				<div class="list" id="noticeList0${status.count}">
+					<form action="${cp}/board/readBoard" method="get">
+						<div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
+						<div class="top">
+							<a class="subtext"> ${board.b_datetime}</a>
+							<div class="subTextBox">${board.b_category}</div>
+						</div>
+						<div class="bottom">
+							<a class="title">${board.b_title}  </a>
+							작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+						</div>
+						</div>
+					</form>
+				</div>
+		</c:forEach>
+	</div>
 	
 	<!-- 최신 글 출력 4개까지만 -->
 			<c:forEach var="board" items="${boardReadHomeList}" begin="0" end="3" varStatus="status">
