@@ -43,11 +43,16 @@
 							</tr>
 						</c:forEach>
 					</table>
-				</div>
+				</div><!-- <div id="foodDiv"> -->
 			</div>
 
 			<hr>
-
+			<select id="C_meal">
+        		<option value="0">아침</option>
+        		<option value="1">점심</option>
+       			<option value="2">저녁</option>
+        		<option value="3">간식</option>
+  		  </select>
 			<div>
 				<!-- 장바구니 보이고 오른쪽에 권장 칼로리와 계산된 칼로리가 보이는 곳 -->
 				<div id="cartDiv" style="overflow: auto; max-height: 200px;">
@@ -61,11 +66,11 @@
 						<tr>
 						</tr>
 					</table>
-				</div>
+				</div><!-- <div id="cartDiv"> -->
 				<button id="clearSessionButton">저장</button>
 				<div id = "caloriePlus"></div>
 				&nbsp;&nbsp;&nbsp;/
-${physical.p_heightLog}
+                ${physical.p_heightLog}
 				<div>
 
 
@@ -84,19 +89,16 @@ ${physical.p_heightLog}
 				권장 칼로리 : ${recommendedCalories}
 				<br>
 				
-<!-- 				선택 - 육체활동이 거의 없는 경우 표준체중 X 30(kcal) - 
-				
-				보통의 활동을 하는 경우 표준체중
-					X 35(kcal) - 심한 육체활동을 하는 경우 표준체중 X 40(kcal) 
-
-					표준체중 구하는 법 - 신장이 150cm	미만 : 신장 -100 - 신장이 
-					                                         150cm 이상 -160cm 미만인 경우 : (신장-150) /2 +50 -   <- 이거 우선
-					                               신장이 160cm 이상인 경우 : (신장-100)X0.9 권장칼로리 선택 -->
-					                               </div>
+<!-- 		선택 - 육체활동이 거의 없는 경우 표준체중 X 30(kcal) 
+				- 보통의 활동을 하는 경우 표준체중 X 35(kcal)
+				- 심한 육체활동을 하는 경우 표준체중 X 40(kcal) 
+   표준체중 구하는 법 - 신장이 150cm미만 : 신장 -100
+   				- 신장이 150cm 이상 -160cm 미만인 경우 : (신장-150) /2 +50   <- 이거 우선
+			    - 신장이 160cm 이상인 경우 : (신장-100)X0.9 권장칼로리 선택 -->
+			    
+			   </div>
 			</div>
-
-
-
+			
 		</div>
 		<!-- <div id="main"> -->
 	</div>

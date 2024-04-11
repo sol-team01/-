@@ -74,20 +74,20 @@ iframe {
 .SelecNone {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .SelectHealth {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsHealth {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsHealth div {
@@ -108,14 +108,14 @@ iframe {
 .SelectFood {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsFood {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsFood div {
@@ -136,14 +136,14 @@ iframe {
 .SelectDisease {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsDisease {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsDisease div {
@@ -226,7 +226,7 @@ iframe {
 }
 
 #top #user  .icon {
-	height: 60px;
+	height: 30px;
 }
 
 #top #user .out {
@@ -312,7 +312,7 @@ iframe {
 
 #main #optionTitle .choiceTitleList {
 	font-weight: 700;
-	font-size: 46px;
+	font-size: 36px;
 	line-height: 57px;
 	letter-spacing: -0.01em;
 	color: #000000;
@@ -323,7 +323,7 @@ iframe {
 
 #main #optionTitle .choiceTitleYotube {
 	font-weight: 700;
-	font-size: 46px;
+	font-size: 36px;
 	line-height: 57px;
 	letter-spacing: -0.01em;
 	color: #D0D0D2;
