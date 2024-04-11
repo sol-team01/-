@@ -196,16 +196,17 @@ public class SignController {
 
    // 비밀번호 힌트 비교
    @PostMapping("/searchHint")
-   public String searchHint(SignDto dto, Model model) {
-      System.out.println(dto);
-   
-      if(signservice.searchPwHint(dto)) {
-         model.addAttribute("U_no",dto.getU_no());
-         return "/page/resetPw";
-      } else {         
-         model.addAttribute("mag","이거 틀렸어요");
-         return "/page/searchPw";
-      }
+   @ResponseBody
+   public Map<String, Object> searchHint(SignDto dto) {
+       Map<String, Object> response = new HashMap<>();
+       response.put("U_no", dto.getU_no()); // U_no 값을 response에 추가
+       if (signservice.searchPwHint(dto)) {
+           response.put("valid", true);
+       } else {
+           response.put("valid", false);
+       }
+       
+       return response;
    }
    
    //비밀번호 재설정

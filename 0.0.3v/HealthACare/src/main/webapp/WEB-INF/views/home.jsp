@@ -45,8 +45,8 @@
 	<div id="midAlign">
 	<div id="listBox">
 	<!-- 최신 공지사항 출력 2개까지만 -->
- 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1">
-		<div class="list">
+ 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1" varStatus="status">
+		<div class="list" id="noticeList0${status.count}">
 				<form action="${cp}/board/readBoard" method="get">
 					<div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
 					<div class="top">
@@ -63,61 +63,54 @@
 	</c:forEach>
 	
 	<!-- 최신 글 출력 4개까지만 -->
- 	<c:forEach var="board" items="${boardReadHomeList}" begin="0" end="3">
-		<div class="list">
-		    
-				<form action="${cp}/board/readBoard" method="get">
-				    <div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
-					<div class="top">
-						<a class="subtext"> ${board.b_datetime}</a>
-						<div class="subTextBox">${board.b_category}</div>
-					</div>
-					<div class="bottom">
-						<a class="title">${board.b_title}  </a>
-						작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
-					</div>
-					</div>
-				</form> 
-			
-		</div>
-	</c:forEach>
-	
-	
-<!-- 	 <div class="list" id="list01"> -->
-<!-- 			<div class="top"> -->
-<!-- 			<a class="subtext"> 18, Thursday</a> -->
-<!-- 			<div class="subTextBox">Few tickets </div> -->
-<!-- 		</div> -->
-<!-- 		<div class="bottom"> -->
-<!-- 			<a class="title">Memory day of Boris Ryzhiy  </a> -->
-<!-- 			Octover 18, Thursday -->
-<!-- 		</div>   -->
-<!-- 	</div> -->
-
+			<c:forEach var="board" items="${boardReadHomeList}" begin="0" end="3" varStatus="status">
+				<div class="list" id="commonList0${status.count}">
+					<form action="${cp}/board/readBoard" method="get">
+					    <div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
+						<div class="top">
+							<a class="subtext"> ${board.b_datetime}</a>
+							<div class="subTextBox">${board.b_category}</div>
+						</div>
+						<div class="bottom">
+							<a class="title">${board.b_title}  </a>
+							작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+						</div>
+						</div>
+					</form> 
+				</div>
+			</c:forEach>
+		
 	</div>
 	
 		<script type="text/javascript">
 		$(document).ready(function() {
+			var noticeListContent01 = $("#noticeList01").html();
+			var noticeListContent02 = $("#noticeList02").html();
+			var commonListContent01 = $("#commonList01").html();
+			var commonListContent02 = $("#commonList02").html();
+			var commonListContent03 = $("#commonList03").html();
+			var commonListContent04 = $("#commonList04").html();
+			
 		    $(".choiceTitleYotube").click(function() {
 		        // '영상으로 보기' 버튼이 클릭되었을 때 실행되는 코드
 
 		        // list 영역의 내용을 변경합니다.
-		        $("#list00").each(function() {
+		        $("#noticeList01").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic0 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
-		        $("#list01").each(function() {
+		        $("#noticeList02").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic1 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
-		        $("#list02").each(function() {
+		        $("#commonList01").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic2 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
-		        $("#list03").each(function() {
+		        $("#commonList02").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic3 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
-		        $("#list04").each(function() {
+		        $("#commonList03").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic4 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
-		        $("#list05").each(function() {
+		        $("#commonList04").each(function() {
 		        	$(this).html('<c:forEach var="Basic" items="${YoutubeDtoBasic5 }" ><iframe id="ytplayer" type="text/html" width="415" height="190"src="https://www.youtube.com/embed/${Basic}"frameborder="0" allowfullscreen></iframe></c:forEach>');
 		        });
 		        $(".choiceTitleList").each(function() {
@@ -131,9 +124,30 @@
 		        // '리스트로 보기' 버튼이 클릭되었을 때 실행되는 코드
 
 		        // list 영역의 내용을 기존의 내용으로 변경합니다.
-		        $(".list").each(function() {
-		            $(this).html('<div class="top"><a class="subtext"> 18, Thursday</a><div class="subTextBox">Few tickets </div></div><div class="bottom"><a class="title">Memory day of Boris Ryzhiy  </a>Octover 18, Thursday</div>');
+		        $("#noticeList01").each(function() {
+		        	$(this).html(noticeListContent01);
 		        });
+		        
+		        $("#noticeList02").each(function() {
+		        	$(this).html(noticeListContent02);
+		        });
+		        
+		        $("#commonList01").each(function() {
+		        	$(this).html(commonListContent01);
+		        });
+		        
+		        $("#commonList02").each(function() {
+		        	$(this).html(commonListContent02);
+		        });
+		        
+		        $("#commonList03").each(function() {
+		        	$(this).html(commonListContent03);
+		        });
+		        
+		        $("#commonList04").each(function() {
+		        	$(this).html(commonListContent04);
+		        });
+		        
 		        $(".choiceTitleYotube").each(function() {
 		        	$(this).css('color', '#D0D0D2');
 		        });
@@ -159,10 +173,13 @@
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기 주제</div>
 			<div class="realTextBox">
-			<c:forEach var="i" begin="1" end="3">
-  			  <div class="realText">
-  			  <div class="numBox"><div class="num">${i}</div> 가나다</div>🧡
-  			  </div>
+			<c:forEach var="theme" items="${realTime}" begin="0" end="2" varStatus="status">
+				<div class="realText">
+	  			  <div class="numBox">
+	  			  	<div class="num">${status.count}</div>
+	  			  	${theme.t_name}🧡
+	  			  </div>
+				</div>
   			  </c:forEach>
 			</div></div>
 		</div><!-- 	<div id="rankingBox"> -->

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
+import com.hac.service.ThemeService;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,8 @@ public class SportsController {
 	
 	@Setter(onMethod_ = @Autowired)
 	private MyPageService mService;
+	@Autowired
+	private ThemeService tService;
 
    @GetMapping("/howtoSports")
    public String myPage(Model model,HttpServletRequest request) {
@@ -29,7 +32,7 @@ public class SportsController {
 		HttpSession session = request.getSession();
 		String U_no = ((InfoDto) session.getAttribute("login")).getU_no();
 		 model.addAttribute("physical",mService.myPhysical(U_no));
-
+		 tService.themeHit("1");
       return "/sports/howtoSports";
    }
 }
