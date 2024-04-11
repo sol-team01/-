@@ -59,8 +59,11 @@
 						</select>
 					<div id="weightWrite">
 						<input type="hidden" id="sessionUno" value="${login.u_no}">
-						<input type="number" name="weight" placeholder="몸무게" maxlength="5">
-						<input type="number" name="height" placeholder="신장" maxlength="5">
+						<div class="flex"><input type="number" name="weight" placeholder="몸무게" maxlength="5"> kg</div>
+						<c:forEach var="graph" items="${physical}">
+						<div class="flex"><input type="number" name="height" placeholder="신장" maxlength="5" value="${graph.p_heightLog}"> cm</div>
+						</c:forEach>
+						<br>
 						<button type="button" id="weightSubmit">입력</button>
 					</div>
 				</div>
@@ -189,11 +192,12 @@
         					datasetArray.push(dataset.data[index])
         				})
         			})
-        			ctx.font='bold 12px sans-serif';
+        			ctx.font='bold 20px sans-serif';
         			ctx.fillStyle='blue';
         			ctx.textAlign='end';
         		}
         }
+        
         
         
         var myChart = new Chart(ctx, {
@@ -203,16 +207,19 @@
                 datasets: [{
                     label: 'Weight (kg)',
                     data: weights,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(3, 189, 255, 0.2)', // #03BDFF 색상에 30%의 투명도
+                    borderColor: 'rgba(3, 189, 255, 0.5)', // 막대 테두리 색상을 #03BDFF로 설정
                     borderWidth: 1,
 //                     yAxisID: 'left-y-axis',
                     barThickness: 15,
                     datalabels: {
-                        color: 'red',
-                        align: 'end',
+                        color: '#03BDFF',
+                        align: 'start',
                         anchor: 'end',
-                        font: { weight: 'bold' },
+                        font: {
+                            size: 20, // 이 부분을 추가하여 폰트 크기를 설정합니다.
+                            weight: 'bold'
+                        }
                       }
                 }, 
                 {
@@ -220,7 +227,7 @@
                     data: bmis,
                     type: 'line',
                     fill: false,
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'blue', // 막대 배경색을 #03BDFF로 설정
                     borderWidth: 2,
                     segment: {
                         borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,71,75)'),
@@ -230,7 +237,10 @@
                           color: 'blue',
                           align: 'end',
                           anchor: 'end',
-                          font: { weight: 'bold' },
+                          font: {
+                              size: 20, // 이 부분을 추가하여 폰트 크기를 설정합니다.
+                              weight: 'bold'
+                          }
                         }
 //                     yAxisID: 'right-y-axis'
                 }]

@@ -12,11 +12,11 @@
 </head>
 <body>
  <div id="searchPwBox">
-	<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
+   <a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
    <div id="inBox">
     <a class="idText">비밀번호 변경</a>
       <form action="${cp}/page/pwChange" method="post">
-    	<input type = "hidden" value="${U_no}" name ="U_no">
+       <input type = "hidden" id="U_no" value="${Uno}" name ="U_no">
         <div>
             <label class="text3" for="newPassword">새 암호:</label>
             <input class="idInput" type="password" maxlength="20" id="userPw" name="U_pw" required>
@@ -33,7 +33,7 @@
         </div>
       </form>
     </div>
-	<!-- inBox -->
+   <!-- inBox -->
  </div>
  <!-- searchPwBox -->
  <script>
