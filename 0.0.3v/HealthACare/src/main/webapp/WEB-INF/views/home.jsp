@@ -45,6 +45,7 @@
 	<div id="midAlign">
 	<div id="listBox">
 	<!-- 최신 공지사항 출력 2개까지만 -->
+ 	<div id="notice">
  	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1">
 		<div class="list">
 				<form action="${cp}/board/readBoard" method="get">
@@ -61,6 +62,7 @@
 				</form> 
 		</div>
 	</c:forEach>
+		</div>
 	
 	<!-- 최신 글 출력 4개까지만 -->
  	<c:forEach var="board" items="${boardReadHomeList}" begin="0" end="3">
