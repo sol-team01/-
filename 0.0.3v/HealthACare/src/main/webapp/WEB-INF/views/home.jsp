@@ -45,14 +45,9 @@
 	<div id="midAlign">
 	<div id="listBox">
 	<!-- 최신 공지사항 출력 2개까지만 -->
-<<<<<<< HEAD
- 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1" varStatus="status">
-		<div class="list" id="noticeList0${status.count}">
-=======
  	<div id="notice">
  	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1">
 		<div class="list">
->>>>>>> 72d67c75a2adedf4c36c89dd7eb06bd42e44e0c8
 				<form action="${cp}/board/readBoard" method="get">
 					<div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
 					<div class="top">
