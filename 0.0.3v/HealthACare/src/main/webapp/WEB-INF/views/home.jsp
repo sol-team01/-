@@ -162,11 +162,11 @@
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기글</div>
 			<div class="realTextBox">
-			<c:forEach var="popular" items="${boardPopularPost}" begin="1" end="10" varStatus="status">
+			<c:forEach var="popular" items="${boardPopularPost}" begin="0" end="9" varStatus="status">
 			    <div class="realText">
 			        <div class="numBox">
 			            <div class="num">${status.count}</div>
-			            ${popular.b_title} 🧡
+			            <a href="${cp}/board/readBoard?B_no=${popular.b_no}">${popular.b_title} 🧡</a>
 			        </div>
 			    </div>
 			</c:forEach>
