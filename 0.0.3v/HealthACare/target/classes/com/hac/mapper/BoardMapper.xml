@@ -4,6 +4,23 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hac.mapper.BoardMapper">
 
+    <!-- 홈에 최신 공지사항 출력 -->
+    <select id="getListNoticeHome" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category = '공지사항' ORDER BY B_no DESC;
+    </select>
+    
+    <!-- 홈에 최신글 출력 -->
+    <select id="getListReadHome" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category != '공지사항' ORDER BY B_no DESC;
+    </select>
+    
+    <!-- 인기글 출력 -->
+    <select id="popularPost" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category != '공지사항' ORDER BY B_hit DESC;
+    </select>
+    
+    
+    
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
 	    select * from board where B_category != '공지사항' 
 	    order by B_no
@@ -37,7 +54,7 @@
 		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_id LIKE CONCAT('%', #{word}, '%')
+		             B_name LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	    </where>
@@ -58,7 +75,7 @@
 		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_id LIKE CONCAT('%', #{word}, '%')
+		             B_name LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	</select>
@@ -98,7 +115,7 @@
 	</update>
 	
 	<update id="modify">
-		update board set B_id = #{B_id},
+		update board set B_name = #{B_name},
 		B_title = #{B_title},
 		B_category = #{B_category},
 		B_text = #{B_text}

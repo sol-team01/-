@@ -23,10 +23,10 @@ public class ReplyController {
 	public void replyWrite(
 			@RequestParam("textValue")String textValue,
 			@RequestParam("U_no") String U_no,
-			@RequestParam("U_id") String U_id,
+			@RequestParam("I_name") String I_name,
 			@RequestParam("B_no") String B_no) {
 		ReplyDto dto = new ReplyDto();
-		dto.setR_id(U_id);
+		dto.setI_name(I_name);
 		dto.setU_no(U_no);
 		dto.setR_text(textValue);
 		dto.setB_no(B_no);

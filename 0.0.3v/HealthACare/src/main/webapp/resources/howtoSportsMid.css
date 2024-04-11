@@ -29,7 +29,6 @@ hr {
 /* 	position: relative; */
 		overflow: hidden;
 	z-index: 100;
-	background-color: blue;
 }
 
 .overflow {
@@ -54,7 +53,6 @@ hr {
 	overflow: hidden;
 	margin: 10px;
 	z-index: 100;
-	background-color: red;
 }
 
 .slideshow-container2 {
@@ -75,28 +73,27 @@ hr {
 
 .slide {
 /* 	width: 40px; */
-	width: 100%;
+	width: 45%;
 	padding-bottom: 30px;
 	float: left;
 	z-index: 100;
 }
 
 .slide2 {
-	width: 100%;
+	width: 45%;
 	padding-bottom: 30px;
 	float: left;
 	z-index: 100;
 }
 
 .slide3 {
-	width: 100%;
+	width: 30%;
 	padding-bottom: 30px;
 	float: left;
 	z-index: 100;
 }
 
 .content {
-	background-color: red;
 	border-radius: 18px;
 	width: 300px;
 	height: 300px;
@@ -106,18 +103,17 @@ hr {
 }
 /**/
 .mainTextBox{
-	display: none; width : 1322px;
-	height: 280px;
-	padding: 20px 10px;
+	display: none; width : 1308px;
+	height: 260px;
+	padding: 30px 30px;
 	background-color: white;
 	border: 1px solid #c0c0c0;
 	border-radius:20px;
 	position: absolute; /* 절대 위치 지정 */
 	top: 75%;
 	z-index: 9999;
-	width: 1352px; /* 다른 요소보다 앞에 오도록 설정 */
 	
-	font-size: 26px;
+	font-size: 28px;
 	
 	 /* 이미지가 가로로 늘어나지 않고 원래 크기로 유지됨 */
 	    background-size: cover;
@@ -125,6 +121,9 @@ hr {
     background-position: right center;
     /* 배경 이미지가 페이지 내에서 반복되지 않음 */
     background-repeat: no-repeat;
+    
+    white-space: pre; /* 개행 문자(\A)를 인식하도록 설정 */
+    line-height: 45px;
 }
 .noneText{
 	display: none;

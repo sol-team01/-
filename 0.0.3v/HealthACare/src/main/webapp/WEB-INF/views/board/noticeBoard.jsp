@@ -11,6 +11,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="stylesheet" href="${cp}/resources/list.css">
+<link rel="stylesheet" href="${cp}/resources/signComme.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 </head>
 <body>
@@ -59,7 +61,7 @@
 												${list.b_title}
 											</a>
 										</div>
-										<div class="listWriter">${list.b_id}</div>
+										<div class="listWriter">${list.i_name}</div>
 										<div class="listCategory">&nbsp;${list.b_category}</div>
 										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
 										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
@@ -75,7 +77,7 @@
 												${list.b_title}
 											</a>
 										</div>
-										<div class="listWriter">${list.b_id}</div>
+										<div class="listWriter">${list.i_name}</div>
 										<div class="listCategory">&nbsp;${list.b_category}</div>
 										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
 										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>

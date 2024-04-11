@@ -50,7 +50,7 @@
 											${list.b_title}
 										</a>
 									</div>
-									<div class="listWriter">${list.b_id}</div>
+									<div class="listWriter">${list.i_name}</div>
 									<div class="listCategory">${list.b_category}</div>
 								</div>
 							</div>

@@ -204,7 +204,7 @@ public class SignController {
          return "/page/resetPw";
       } else {         
          model.addAttribute("mag","이거 틀렸어요");
-         return "/page/searchPwHint";
+         return "/page/searchPw";
       }
    }
    

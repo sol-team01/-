@@ -13,8 +13,9 @@ a {
 img {
 	pointer-events: none; /* 이미지 드래그 막기 */
 }
+
 iframe {
-    border-radius: 10px;
+	border-radius: 10px;
 }
 /*기본 영역 세팅 (시작)*/
 #warp {
@@ -49,20 +50,22 @@ iframe {
 }
 /*기본 영역 세팅 (끝)*/
 /*CATEGORY 하위*/
-#Category #imgbox{
+#Category #imgbox {
 	width: 200px;
 	height: 90px;
 	margin-bottom: 100px;
-    position: relative; /* 부모 요소를 기준으로 자식 요소의 위치를 지정하기 위해 필요 */
+	position: relative; /* 부모 요소를 기준으로 자식 요소의 위치를 지정하기 위해 필요 */
 }
+
 #imgbox img {
-    width: 100%; /* 이미지의 너비를 부모 요소의 너비와 동일하게 설정 */
-    height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지 */
-    display: block; /* 이미지를 블록 요소로 표시하여 수직 정렬 문제 해결 */
-    position: absolute; /* 이미지를 절대 위치로 지정하여 부모 요소 내에 배치 */
-    top: 0; /* 부모 요소의 맨 위에 이미지를 배치 */
-    left: 0; /* 부모 요소의 맨 왼쪽에 이미지를 배치 */
+	width: 100%; /* 이미지의 너비를 부모 요소의 너비와 동일하게 설정 */
+	height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지 */
+	display: block; /* 이미지를 블록 요소로 표시하여 수직 정렬 문제 해결 */
+	position: absolute; /* 이미지를 절대 위치로 지정하여 부모 요소 내에 배치 */
+	top: 0; /* 부모 요소의 맨 위에 이미지를 배치 */
+	left: 0; /* 부모 요소의 맨 왼쪽에 이미지를 배치 */
 }
+
 #customSelect {
 	position: relative;
 	width: 250px;
@@ -71,20 +74,20 @@ iframe {
 .SelecNone {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .SelectHealth {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsHealth {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsHealth div {
@@ -105,14 +108,14 @@ iframe {
 .SelectFood {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsFood {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsFood div {
@@ -133,14 +136,14 @@ iframe {
 .SelectDisease {
 	padding: 10px;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 28px;
 }
 
 .select-itemsDisease {
 	width: 100%;
 	display: none;
 	margin-left: 35px;
-	font-size: 26px;
+	font-size: 24px;
 }
 
 .select-itemsDisease div {
@@ -208,7 +211,7 @@ iframe {
 
 #top #user .box {
 	min-width: 200px;
-	max-width:1000px;
+	max-width: 1000px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -220,10 +223,10 @@ iframe {
 	border-radius: 100%;
 	object-fit: cover; /* 이미지를 요소에 맞춰 자르기 */
 	border: 1px solid rgba(0, 0, 0, 0.3);
-	}
+}
 
 #top #user  .icon {
-	height: 60px;
+	height: 30px;
 }
 
 #top #user .out {
@@ -309,7 +312,7 @@ iframe {
 
 #main #optionTitle .choiceTitleList {
 	font-weight: 700;
-	font-size: 46px;
+	font-size: 36px;
 	line-height: 57px;
 	letter-spacing: -0.01em;
 	color: #000000;
@@ -320,7 +323,7 @@ iframe {
 
 #main #optionTitle .choiceTitleYotube {
 	font-weight: 700;
-	font-size: 46px;
+	font-size: 36px;
 	line-height: 57px;
 	letter-spacing: -0.01em;
 	color: #D0D0D2;
@@ -337,9 +340,17 @@ iframe {
 	flex-wrap: wrap; /* 내부 요소들이 넘칠 때 자동으로 아래로 내려가도록 설정 */
 }
 
+#notice {
+	display: flex;
+	width: 990px;
+	justify-content: space-between;
+	border-bottom: 3px solid #9FE2FA99;
+	margin-bottom: 25px;
+}
+
 #main #listBox .list {
 	width: 419px;
-	height: 193px;
+	height: 182px;
 	background: #F3F3F3;
 	border-radius: 10px;
 	margin-bottom: 25px;
@@ -472,14 +483,14 @@ iframe {
 	text-align: left;
 	justify-content: flex-start;
 }
-#main #store{
-width: 1372px;
-height: 300px;
-background-image: url('/resources/img/bottomBanner.png');
-background-color:aqua;
-border-radius: 28px;
-margin-top: 58px;
-/* background-image: url('/resources/img/banner.jpg'); */
 
+#main #store {
+	width: 1372px;
+	height: 300px;
+	background-image: url('/resources/img/bottomBanner.png');
+	background-color: aqua;
+	border-radius: 28px;
+	margin-top: 58px;
+	/* background-image: url('/resources/img/banner.jpg'); */
 }
 /*MAIN 하위(끝)*/
