@@ -54,7 +54,7 @@
 		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_id LIKE CONCAT('%', #{word}, '%')
+		             B_name LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	    </where>
@@ -75,7 +75,7 @@
 		             (B_title LIKE CONCAT('%', #{word}, '%') OR B_text LIKE CONCAT('%', #{word}, '%'))
 	    		</when>
 				<when test='column.equals("B_ID")'>
-		             B_id LIKE CONCAT('%', #{word}, '%')
+		             B_name LIKE CONCAT('%', #{word}, '%')
 				</when>
 	    	</choose>
 	</select>
@@ -115,7 +115,7 @@
 	</update>
 	
 	<update id="modify">
-		update board set B_id = #{B_id},
+		update board set B_name = #{B_name},
 		B_title = #{B_title},
 		B_category = #{B_category},
 		B_text = #{B_text}

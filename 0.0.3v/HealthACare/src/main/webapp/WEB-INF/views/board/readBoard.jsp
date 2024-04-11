@@ -21,7 +21,7 @@
 				<fieldset>
 					<legend>글제목: :${read.b_title}</legend>
 					<label for="id">작성자: </label>
-					${read.b_id}
+					${read.i_name}
 					<br>
 					<label for="content">내용: </label>
 					${read.b_text}
@@ -57,7 +57,7 @@
 								댓글이 비어있습니다.
 							</c:when>
 							<c:otherwise>
-								작성자: ${replyList.r_id} 작성시간: ${replyList.r_datetime}
+								작성자: ${replyList.r_name} 작성시간: ${replyList.r_datetime}
 								&nbsp;
 								<c:if test="${replyList.u_no eq user.u_no}">
 									<button type="button" class="deleteBtn" data-reply-id="${replyList.r_no}">삭제</button>
@@ -91,10 +91,10 @@
 		    $('#replySubmit').click(function() {
 		        var textValue = $('#replyText').val(); // 댓글창 입력값 설정
 		        var U_no = "${user.u_no}";
-		        var U_id = "${user.i_name}";
-		        if(U_id === "" || U_id === null){
+		        var I_name = "${user.i_name}";
+		        if(I_name === "" || I_name === null){
 		            var random = Math.floor(Math.random() * 1000) + 1;
-		            U_id = '비회원' + random;
+		            I_name = '비회원' + random;
 		        }
 		        if(U_no === "" || U_no === null){
 		            U_no = 0;
@@ -109,9 +109,9 @@
 		            url: '/board/replyWrite',
 		            data: {
 		                textValue: textValue, // 선택한 정렬 순서를 매개변수로 전달
-		                uno: U_no, // 현재 페이지 정보를 함께 전달
-		                uid: U_id,
-		                bno: B_no
+		                U_no: U_no, // 현재 페이지 정보를 함께 전달
+		                I_name: I_name,
+		                B_no: B_no
 		            },
 		            success: function(data) {
 		                // Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
