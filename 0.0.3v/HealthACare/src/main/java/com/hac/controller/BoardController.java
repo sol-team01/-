@@ -30,7 +30,7 @@ public class BoardController {
 	private final ReplyService rService;
 	
 	
-
+	//글리스트
 	@GetMapping("/noticeBoard")
 	public void BoardList(
 			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
@@ -39,6 +39,7 @@ public class BoardController {
 			HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
+		//sort 분류 값을 받아와서 출력
 		String sessionSort = (String) session.getAttribute("sort");
 		BoardSDto dtos = new BoardSDto();
 		int sortValue = 0;
