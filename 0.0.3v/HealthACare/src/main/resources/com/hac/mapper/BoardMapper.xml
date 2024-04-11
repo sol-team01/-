@@ -4,9 +4,22 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hac.mapper.BoardMapper">
 
-    <select id="getListHome" resultType="com.hac.dto.boardDto.BoardDto">
-        SELECT * FROM board ORDER BY B_no DESC;
+    <!-- 홈에 최신 공지사항 출력 -->
+    <select id="getListNoticeHome" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category = '공지사항' ORDER BY B_no DESC;
     </select>
+    
+    <!-- 홈에 최신글 출력 -->
+    <select id="getListReadHome" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category != '공지사항' ORDER BY B_no DESC;
+    </select>
+    
+    <!-- 인기글 출력 -->
+    <select id="popularPost" resultType="com.hac.dto.boardDto.BoardDto">
+        SELECT * FROM board where B_category != '공지사항' ORDER BY B_hit DESC;
+    </select>
+    
+    
     
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
 	    select * from board where B_category != '공지사항' 

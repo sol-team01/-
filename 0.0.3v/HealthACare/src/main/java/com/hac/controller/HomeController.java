@@ -39,7 +39,9 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		model.addAttribute("boardHomeList",boardService.getListHome());
+		model.addAttribute("boardNoticeHomeList",boardService.getListNoticeHome());
+		model.addAttribute("boardReadHomeList",boardService.getListReadHome());
+		model.addAttribute("boardPopularPost",boardService.popularPost());
 //		logger.info("Welcome home! The client locale is {}.", locale);
 //		Date date = new Date();
 //		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
