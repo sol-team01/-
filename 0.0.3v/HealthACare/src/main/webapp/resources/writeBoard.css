@@ -101,9 +101,10 @@
 .writeBoardBtnKBorder {
 	border-radius: 5px;
 	font-family: 'SUIT-Regular';
-	border: 1px solid #18A4FF;
+	border: 1px solid #03BDFF;
 	padding: 5px 16px;
 	color: #03BDFF;
+	background:#fff;
 }
 
 .writeBoardBtnKBorder:hover {
