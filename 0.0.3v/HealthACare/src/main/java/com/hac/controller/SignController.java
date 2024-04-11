@@ -205,10 +205,6 @@ public class SignController {
       } else {         
          model.addAttribute("mag","이거 틀렸어요");
          return "/page/searchPw";
-<<<<<<< HEAD
-
-=======
->>>>>>> 32e7dfc59b64df143c357c3ac26902d4c2b6c9f4
       }
    }
    
