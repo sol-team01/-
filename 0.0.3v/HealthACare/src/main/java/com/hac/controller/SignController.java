@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
-import com.hac.service.PhysicalService;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
@@ -205,7 +204,11 @@ public class SignController {
          return "/page/resetPw";
       } else {         
          model.addAttribute("mag","이거 틀렸어요");
+<<<<<<< HEAD
          return "/page/searchPwHint";
+=======
+         return "/page/searchPw";
+>>>>>>> b03763b5124792604be747b259f7e58cf257ba0a
       }
    }
    

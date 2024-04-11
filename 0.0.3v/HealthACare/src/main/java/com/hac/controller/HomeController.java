@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hac.service.BoardService;
 import com.hac.service.MyPageService;
 
 import lombok.Setter;
@@ -30,12 +31,17 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Setter(onMethod_ = @Autowired)
-	private MyPageService service;
+	private MyPageService mypageService;
+	@Autowired
+	private BoardService boardService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		model.addAttribute("boardNoticeHomeList",boardService.getListNoticeHome());
+		model.addAttribute("boardReadHomeList",boardService.getListReadHome());
+		model.addAttribute("boardPopularPost",boardService.popularPost());
 //		logger.info("Welcome home! The client locale is {}.", locale);
 //		Date date = new Date();
 //		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);

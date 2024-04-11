@@ -88,7 +88,7 @@
 											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
 												${list.b_title} </a>
 										</div>
-										<div class="listWriter">${list.b_id}</div>
+										<div class="listWriter">${list.i_name}</div>
 										<div class="listCategory">&nbsp;${list.b_category}</div>
 										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
 										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
@@ -103,7 +103,7 @@
 											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
 												${list.b_title} </a>
 										</div>
-										<div class="listWriter">${list.b_id}</div>
+										<div class="listWriter">${list.i_name}</div>
 										<div class="listCategory">&nbsp;${list.b_category}</div>
 										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
 										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
