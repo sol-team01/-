@@ -119,13 +119,12 @@
 .pageBox {
 	background: #03BDFF;
 	color: #fff;
-/* 	width: 45px; */
+	width: 45px;
 	height: 45px;
 	border-radius: 6px;
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	padding: 0px 10px;
 	align-items: center;
 	margin-right: 18px;
 }
@@ -134,4 +133,79 @@
 	display: flex;
 	margin: 50px auto 0 auto;
 	width: 294px;
+}
+
+#searchForm {
+	background: #f8f8fa;
+	height: 139px;
+	line-height: 139px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.noticeBoardSearchBtn {
+	width: 120px;
+	height: 40px;
+	background: linear-gradient(90deg, #03BDFF 0%, #18A4FF 100%);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'SUIT-Regular';
+}
+
+.noticeBoardSearchInput {
+	width: 576px;
+	margin-right: 10px;
+	font-family: 'SUIT-Regular';
+}
+
+.box_a1 {
+	font-family: 'SUIT-Regular';
+	width: 185px;
+	height: 40px;
+	padding: 10px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	font-weight: bold;
+	font-size: 13px;
+	border-radius: 3px;
+	margin-right: 10px;
+}
+
+.sort {
+	font-family: 'SUIT-Regular';
+	width: 90px;
+	height: 40px;
+	padding: 10px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	font-weight: bold;
+	font-size: 13px;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+
+#writeBtnK {
+	font-family: 'SUIT-Bold';
+	border: 1px solid #03BDFF;
+	border-radius: 5px;
+	background: #fff;
+	color: #03BDFF;
+	padding: 10px 14px;
+}
+
+.boardTotalWrapFlexWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.boardTotalWrapFlex{
+	display: flex; align-items: center; font-family: 'SUIT-Bold';
+}
+
+.sortTableK{
+	text-align:right; margin-bottom:14px; font-family: 'SUIT-Regular';
 }

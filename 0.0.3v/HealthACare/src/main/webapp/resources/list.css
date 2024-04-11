@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family: 'SUIT-Regular',;
+	font-family: 'SUIT-Regular';
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
 		format('woff2');
@@ -50,7 +50,6 @@
 	height: 70px;
 	box-shadow: 1px 2px 4px #eee;
 	margin-bottom: 20px;
-	/* 	line-height: 70px; */
 	padding: 0 20px;
 	font-weight: 600;
 	border-radius: 10px;
@@ -195,6 +194,7 @@
 }
 
 .dietCategoryDetail div {
+	font-family:'SUIT-Regular';
 	border-radius: 10px;
 	padding: 3px 4px;
 	font-size: 12px;
@@ -224,7 +224,7 @@
 
 .dietSearchText div {
 	margin-top: 13px;
-	font-family: 'SUIT-Medium';
+	font-family: 'SUIT-Regular';
 }
 
 .dietForm {
@@ -240,7 +240,7 @@
 	border: none;
 	height: 45px;
 	width: 100%;
-	font-family: 'SUIT-Medium';
+    font-family: 'SUIT-Regular';
 }
 
 .dietForm h3 {
