@@ -39,7 +39,7 @@
 </div><!-- searchPwHintBox -->
  <script>
  $(document).ready(function() {
-       $('#searchPwHint').click(function(e) {
+       $('form').submit(function(e) {
            e.preventDefault(); // 폼 전송 방지
            
            // 폼 데이터 가져오기
@@ -62,8 +62,8 @@
 
                    // 힌트가 맞는 경우 비밀번호 재설정 페이지로 이동
                    if (valid === 'true') {
-                       $('#U_no').val(U_no); // U_no 값을 hidden input 태그에 설정
-                       window.location.href = '/page/resetPw?U_no=' + U_no;
+                       window.location.href = '/page/resetPw?U_no='+U_no;
+                      
                    } else {
                        // 힌트가 틀린 경우 팝업 창에 메시지 표시
                        alert('힌트가 잘못되었습니다.');
