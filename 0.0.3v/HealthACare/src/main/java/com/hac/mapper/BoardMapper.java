@@ -14,8 +14,12 @@ public interface BoardMapper {
 	public ArrayList<BoardDto> getNoticeList();
 	public ArrayList<BoardDto> getNoticeListFull(int limitIndex);
 	public ArrayList<BoardSDto> searchList(BoardSDto dto);
-	//홈 메인화면 게시판 최신순으로 보이게 하기 
-	public ArrayList<BoardDto> getListHome();
+	//홈 메인화면 게시판 공지사항 최신순으로 보이게 하기 
+	public ArrayList<BoardDto> getListNoticeHome();
+	//홈 메인화면 게시판 글 최신순으로 보이게 하기 
+	public ArrayList<BoardDto> getListReadHome();
+	//인기글 출력
+	public ArrayList<BoardDto> popularPost();
 	public int totalContent();
 	public int searchListCount(BoardSDto dto);
 	public BoardDto read(String B_no);

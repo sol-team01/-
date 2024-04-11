@@ -44,33 +44,55 @@
 	</div>
 	<div id="midAlign">
 	<div id="listBox">
-	
-	<c:forEach var="board" items="${boardHomeList}" begin="0" end="3">
+	<!-- 최신 공지사항 출력 2개까지만 -->
+ 	<c:forEach var="board" items="${boardNoticeHomeList}" begin="0" end="1">
 		<div class="list">
-		<form action="${cp}/board/readBoard" method="get">
-			<div class="top">
-				<a class="subtext"> ${board.b_datetime}</a>
-				<div class="subTextBox">${board.i_name}</div>
-			</div>
-			<div class="bottom">
-				<a class="title">${board.b_title}  </a>
-				조회수 : ${board.b_hit}[${board.b_replyCount}]
-			</div>
-		</form>  
+				<form action="${cp}/board/readBoard" method="get">
+					<div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
+					<div class="top">
+						<a class="subtext"> ${board.b_datetime}</a>
+						<div class="subTextBox">${board.b_category}</div>
+					</div>
+					<div class="bottom">
+						<a class="title">${board.b_title}  </a>
+						작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+					</div>
+					</div>
+				</form> 
+		</div>
+	</c:forEach>
+	
+	<!-- 최신 글 출력 4개까지만 -->
+ 	<c:forEach var="board" items="${boardReadHomeList}" begin="0" end="3">
+		<div class="list">
+		    
+				<form action="${cp}/board/readBoard" method="get">
+				    <div onclick="location.href='${cp}/board/readBoard?B_no=${board.b_no}'">
+					<div class="top">
+						<a class="subtext"> ${board.b_datetime}</a>
+						<div class="subTextBox">${board.b_category}</div>
+					</div>
+					<div class="bottom">
+						<a class="title">${board.b_title}  </a>
+						작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+					</div>
+					</div>
+				</form> 
+			
 		</div>
 	</c:forEach>
 	
 	
-	 <div class="list" id="list01">
-			<div class="top">
-			<a class="subtext"> 18, Thursday</a>
-			<div class="subTextBox">Few tickets </div>
-		</div>
-		<div class="bottom">
-			<a class="title">Memory day of Boris Ryzhiy  </a>
-			Octover 18, Thursday
-		</div>  
-	</div>
+<!-- 	 <div class="list" id="list01"> -->
+<!-- 			<div class="top"> -->
+<!-- 			<a class="subtext"> 18, Thursday</a> -->
+<!-- 			<div class="subTextBox">Few tickets </div> -->
+<!-- 		</div> -->
+<!-- 		<div class="bottom"> -->
+<!-- 			<a class="title">Memory day of Boris Ryzhiy  </a> -->
+<!-- 			Octover 18, Thursday -->
+<!-- 		</div>   -->
+<!-- 	</div> -->
 
 	</div>
 	
@@ -122,17 +144,20 @@
 	
 		<div id="rankingBox">
 		<div class="realTime">	
-		<div class="realTitle">실시간 인기 주제</div>
+		<div class="realTitle">실시간 인기글</div>
 			<div class="realTextBox">
-			<c:forEach var="i" begin="1" end="10">
-  			  <div class="realText">
-  			  <div class="numBox"><div class="num">${i}</div> 가나다</div>🧡
-  			  </div>
-  			  </c:forEach>
+			<c:forEach var="popular" items="${boardPopularPost}" begin="1" end="10" varStatus="status">
+			    <div class="realText">
+			        <div class="numBox">
+			            <div class="num">${status.count}</div>
+			            ${popular.b_title} 🧡
+			        </div>
+			    </div>
+			</c:forEach>
 			</div>
 		</div>
 		<div class="realTime">	
-		<div class="realTitle">실시간 인기글</div>
+		<div class="realTitle">실시간 인기 주제</div>
 			<div class="realTextBox">
 			<c:forEach var="i" begin="1" end="3">
   			  <div class="realText">

@@ -39,6 +39,7 @@ public class BoardController {
 			HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
+		//sort 분류 값을 받아와서 출력
 		String sessionSort = (String) session.getAttribute("sort");
 		BoardSDto dtos = new BoardSDto();
 		int sortValue = 0;

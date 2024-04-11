@@ -17,9 +17,22 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper mapper;
 	
+	//최신 공지사항 2개까지 홈화면에 출력
 	@Override
-	public ArrayList<BoardDto> getListHome(){
-		return mapper.getListHome();
+	public ArrayList<BoardDto> getListNoticeHome(){
+		return mapper.getListNoticeHome();
+	}
+	
+	//최신글 4개까지 홈 화면에 출력
+	@Override
+	public ArrayList<BoardDto> getListReadHome(){
+		return mapper.getListReadHome();
+	}
+	
+	
+	@Override
+	public ArrayList<BoardDto> popularPost(){
+		return mapper.popularPost();
 	}
 
 	@Override
