@@ -1,7 +1,8 @@
 package com.hac.dto.searchDto;
 
-import lombok.Data;
+import java.time.LocalDateTime;
 
+import lombok.Data;
 @Data
 public class WriteDto {
 	
@@ -10,5 +11,5 @@ public class WriteDto {
 	private String B_category;
 	private String B_title;
 	private String B_text;
-	
+	private LocalDateTime registerDate;	
 }

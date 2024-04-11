@@ -18,9 +18,9 @@
 	</delete>
 	
 	<insert id="replyWrite">
-		insert into replyBoard (R_id, U_no, B_no, R_text) 
+		insert into replyBoard (I_name, U_no, B_no, R_text) 
 		values 
-		(#{R_id},
+		(#{I_name},
 		#{U_no},
 		#{B_no},
 		#{R_text})
@@ -31,7 +31,7 @@
 	</update>
 	
 	<update id="replyModify">
-		update replyBoard set R_id = #{R_id},
+		update replyBoard set I_name = #{I_name},
 		R_text = #{R_text}
 		where R_no = #{R_no}
 	</update>
