@@ -11,6 +11,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="stylesheet" href="${cp}/resources/list.css">
+<link rel="stylesheet" href="${cp}/resources/signComme.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 </head>
 <body>

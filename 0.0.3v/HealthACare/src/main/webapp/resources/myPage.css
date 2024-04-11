@@ -338,6 +338,10 @@ img {
 	border: 2px solid rgba(0, 0, 0, 0.3);
 	margin-top: 30px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 .chartText{
 	font-size: 23px;
@@ -345,6 +349,47 @@ img {
 	margin: 5px 0px;
 }
 
+/**/
+/*
+체중변화 그래프
+*/
+/**/
 
-
+#graphSelect{
+	width: 280px;
+	font-size: 20px;
+	margin: 10px 0px;
+	}
+#weightWrite {
+color: white;
+font-size: 20px;	
+width: 250px;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+background-color: #03BDFF;
+border-radius: 18px;
+padding: 20px 15px;
+}
+#weightWrite .flex{
+display: flex;
+justify-content: space-between;
+}
+#weightWrite input{
+	width: 200px;
+	font-size: 20px;
+	margin: 5px 0px;
+	border: 0px; 
+	padding: 5px;
+}
+#weightWrite button{
+	background-color: white;
+	height: 40px;
+	border-radius: 13px;
+	cursor: pointer;
+	border: 0px; 
+}
+#weightWrite button:hover{
+	background-color: #dbdbdb;
+}
 

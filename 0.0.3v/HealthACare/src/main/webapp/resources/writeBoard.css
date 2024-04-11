@@ -1,10 +1,113 @@
 @charset "UTF-8";
 
-#content{
+#content {
 	color: red;
 	font-size: 120px;
 	text-align: center;
 	width: 1340px;
 	height: 631px;
 	resize: none;
+}
+
+.test {
+	box-shadow: 0px 3px 3px #e8e8e8;
+	height: 850px;
+	padding: 40px 20px;
+	border-radius: 20px;
+	margin-top: 13px;
+	margin: 13px auto 0px auto;
+	border: 1px solid rgba(232, 232, 232, 0.5);
+}
+
+.test1 {
+	height: 100px;
+	margin: 10px 0 30px 0;
+	background: linear-gradient(45deg, rgba(3, 189, 255, 1) 0%,
+		rgba(159, 226, 250, 1) 49%, rgba(149, 251, 171, 1) 98%);
+	border-radius: 20px;
+	padding: 10px 40px;
+	display: flex;
+	align-items: center;
+}
+
+.test1 h3 {
+	font-family: 'SUIT-Regular';
+	color: #616161;
+	font-size: 16px;
+	line-height: 40px;
+	margin: 0;
+	line-height: 40px;
+}
+
+.test1 img {
+	height: 40px;
+	margin-right: 30px;
+}
+
+.note-toolbar {
+	padding: 10px 5px;
+	color: #333;
+	background-color: #f8f8fa !important;
+	border-bottom: 1px solid #f8f8fa !important;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.note-editable {
+	background: #fff !important;
+}
+
+.note-editor.note-airframe, .note-editor.note-frame {
+	border-color: #E6E9ED !important;
+	font-family: 'SUIT-Regular';
+}
+
+.test label {
+	font-family: 'SUIT-Regular';
+	width: 40px;
+	text-align: right;
+}
+
+.test .form-control {
+	font-family: 'SUIT-Regular';
+	height: 40px;
+}
+
+.test .note-editable {
+	font-family: 'SUIT-Regular' !important;
+}
+
+/* .note-codable::placeholder { */
+/* 	font-family: 'SUIT-Regular'; */
+/* } */
+.labelFlexK {
+	display: flex;
+	align-items: center;
+}
+
+.writeBoardBtnK {
+	font-family: 'SUIT-Regular';
+	background: #03BDFF;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	padding: 5px 20px;
+}
+
+.writeBoardBtnK:hover {
+	background: #18A4FF;
+}
+
+.writeBoardBtnKBorder {
+	border-radius: 5px;
+	font-family: 'SUIT-Regular';
+	border: 1px solid #03BDFF;
+	padding: 5px 16px;
+	color: #03BDFF;
+	background:#fff;
+}
+
+.writeBoardBtnKBorder:hover {
+	border: 1px solid #18A4FF;
+	color: #18A4FF;
 }
