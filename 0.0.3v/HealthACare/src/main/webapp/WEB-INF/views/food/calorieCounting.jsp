@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="${cp}/resources/js/Calorie.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="stylesheet" href="${cp}/resources/calorieCounting.css">
 <style>
 </style>
 </head>
