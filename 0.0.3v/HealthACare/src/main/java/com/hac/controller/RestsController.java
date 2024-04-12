@@ -74,13 +74,13 @@ public class RestsController {
 	@RequestMapping(value="/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request )  {
-		JsonObject jsonObject = new JsonObject();
 		
         /*
 		 * String fileRoot = "C:\\summernote_image\\"; // 외부경로로 저장을 희망할때.
 		 */
 		
 
+		JsonObject jsonObject = new JsonObject();
 		// 내부경로로 저장
 		String realPath = servletContext.getRealPath("/");
 		String fileRoot = realPath+"resources/fileupload/";
@@ -102,6 +102,7 @@ public class RestsController {
 			e.printStackTrace();
 		}
 		String a = jsonObject.toString();
+		System.out.println(a);
 		return a;
 	}
 	
