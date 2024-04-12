@@ -18,6 +18,8 @@ public interface SignMapper {
 	public boolean selectId(@Param("U_id") String U_id);
 	//중복 닉네임 검사
 	public boolean selectName(@Param("I_name") String I_name);
+	//이메일 중복 검사
+	public boolean selectEmail(@Param("I_email") String I_email);
 	//회원가입 개인 정보 매퍼
 	public ArrayList<InfoDto> infoList();
 	//회원가입 개인 정보 매퍼

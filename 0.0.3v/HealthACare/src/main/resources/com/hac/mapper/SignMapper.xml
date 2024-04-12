@@ -40,6 +40,11 @@
 		select count(*) from info where I_name = #{I_name}
 	</select>
 	
+	<!-- 이메일 중복 검사 -->
+	<select id="selectEmail" resultType="boolean">
+		select count(*) from info where I_email = #{I_email}
+	</select>
+	
 	<!-- 로그인 -->			
 	<select id = "signIn" resultType="com.hac.dto.searchDto.SignDto">
 	    SELECT * FROM user WHERE U_id = #{U_id}

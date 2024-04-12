@@ -51,7 +51,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">닉네임</div>
-		<input name="I_name" value="${myInfo.getI_name()}">
+		${myInfo.getI_name()} : <input name="I_name">
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
@@ -74,7 +74,7 @@
 			<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
 		</select>
 			<a class="text">정답 바꾸기</a>
-			<input name="I_hint" onchange="previewImage(event)">
+			<input name="I_hint">
 		</div> 
 	</div>
 <!-- 		<input type="submit" value="이미지 업로드" > -->

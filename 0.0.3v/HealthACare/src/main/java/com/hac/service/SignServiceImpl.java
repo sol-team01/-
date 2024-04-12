@@ -131,6 +131,13 @@ public class SignServiceImpl implements SignService {
 		return signMapper.selectName(I_name);
 	}
 
+	//이메일 중복체크
+	@Override
+	public boolean selectEmail(String I_email) {
+		
+		return signMapper.selectEmail(I_email);
+	}
+	
 	// 아이디 찾기
 	@Override
 	public String searchId(String I_email) {

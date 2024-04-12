@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hac.dto.searchDto.MyPageDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
+import com.hac.service.SignService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -30,6 +31,8 @@ public class InfoChangeController {
 
 	@Setter(onMethod_ = @Autowired)
 	private MyPageService service;
+	@Setter(onMethod_ = @Autowired)
+	private SignService sService;
 
 	
 	String mag;
@@ -54,8 +57,12 @@ public class InfoChangeController {
 		HttpSession session = request.getSession();
 
 		dto.setU_no(((InfoDto) session.getAttribute("login")).getU_no());
-		// 이미지 변환후 저장
-		// 이미지 파일 선택되있을때 구분
+
+		//닉네임 및 이메일중복검사를 통과한후 정보 변경 가능하도록 로직 수정
+		if(((dto.getI_name() == null && dto.getI_name().length() > 0) || !sService.selectName(dto.getI_name()))
+			    && ((dto.getI_email() == null) || !sService.selectEmail(dto.getI_email()))) {
+			// 이미지 변환후 저장
+			// 이미지 파일 선택되있을때 구분
 		if (file != null && !file.isEmpty()) {
 			try {
 				// file.getBytes() 부분이 이미지 파일을 바이트로 쪼개는 역할을함.
@@ -68,17 +75,28 @@ public class InfoChangeController {
 				e.printStackTrace();
 			}
 		}
+		// 닉네임 중복
 		if(dto.getI_name() != null && dto.getI_name().length() > 0) {
-			service.nameChange(dto);
-		}
+			
+				service.nameChange(dto);
+
+			}
+		// 이메일 중복
 		if(dto.getI_email() != null) {
+
 			service.emailChange(dto);
+	
 		}
 		if(dto.getI_hint() != null) {
-			service.pwFindingChange(dto);	
+			service.pwFindingChange(dto);
 		}
-		System.out.println("쿠쿠루삥뽕");
+		
+		}else {
+			System.out.println("정보 안바뀌지롱");
+			return "redirect:/myPage/myInfo";
+		}
 		session.setAttribute("login",service.getInfoDto(dto.getU_no()));
+		
 		return "redirect:/myPage/myInfo";
 	}
 
