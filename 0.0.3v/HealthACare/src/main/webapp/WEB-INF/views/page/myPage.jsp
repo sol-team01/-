@@ -60,9 +60,7 @@
 					<div id="weightWrite">
 						<input type="hidden" id="sessionUno" value="${login.u_no}">
 						<div class="flex"><input type="number" name="weight" placeholder="몸무게" maxlength="5"> kg</div>
-						<c:forEach var="graph" items="${physical}">
-						<div class="flex"><input type="number" name="height" placeholder="신장" maxlength="5" value="${graph.p_heightLog}"> cm</div>
-						</c:forEach>
+						<div class="flex"><input type="number" name="height" placeholder="신장" maxlength="5" value="${physical[0].p_heightLog}"> cm</div>
 						<br>
 						<button type="button" id="weightSubmit">입력</button>
 					</div>
