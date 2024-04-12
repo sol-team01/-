@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hac.dto.userDto.InfoDto;
+import com.hac.service.BoardService;
 import com.hac.service.FoodService;
 import com.hac.service.MyPageService;
 import com.hac.service.PhysicalService;
@@ -31,6 +32,9 @@ public class MyPageController {
 	private PhysicalService pService;
 
 @Setter(onMethod_ = @Autowired)
+private BoardService BService;
+
+@Setter(onMethod_ = @Autowired)
 private FoodService fService;
 
 	String mag;
@@ -45,6 +49,7 @@ private FoodService fService;
 	
 	model.addAttribute("physical",pService.searchPhysical(U_no));
 	model.addAttribute("myCalorieLog",fService.calorieListDto(U_no));
+	model.addAttribute("myBoardList",BService.myBoardList(U_no));
 	return "/page/myPage";
 	}
 

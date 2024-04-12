@@ -13,6 +13,7 @@ public interface BoardService {
 	public ArrayList<BoardDto> getListNoticeHome();
 	public ArrayList<BoardDto> getListReadHome();
 	public ArrayList<BoardDto> popularPost();
+	public ArrayList<BoardDto> myBoardList(String U_no);
 	public int totalContent();
 	public int searchTotalContent(BoardSDto dto);
 	public PagingProcessor pageBlock(int currentPage,BoardSDto dto);
