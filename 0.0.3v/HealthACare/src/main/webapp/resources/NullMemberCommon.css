@@ -202,7 +202,7 @@ iframe {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	width: 400px;
+	min-width: 400px;
 	height: 72px;
 	font-size: 30px;
 	font-weight: 700;
@@ -215,6 +215,10 @@ iframe {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-left: 15px;
+}
+#top #user .box .myImg {
+margin-left: 15px;
 }
 
 #top #user .Profile {
@@ -227,6 +231,7 @@ iframe {
 
 #top #user  .icon {
 	height: 30px;
+	margin-left: 15px;
 }
 
 #top #user .out {
