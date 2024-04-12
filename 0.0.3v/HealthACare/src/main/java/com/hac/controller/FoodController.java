@@ -18,12 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.hac.dto.foodDto.FoodDto;
-<<<<<<< HEAD
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.MyPageService;
-=======
 import com.hac.service.ThemeService;
->>>>>>> 427063fbb1b82de988212d88939519117146adf3
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -110,10 +107,7 @@ public class FoodController {
       
       @RequestMapping("/calorieCounting")
       public String calorieCounting(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model, HttpServletRequest request) {
-<<<<<<< HEAD
-=======
-         tService.themeHit("2");
->>>>>>> 427063fbb1b82de988212d88939519117146adf3
+
     	  
          HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 

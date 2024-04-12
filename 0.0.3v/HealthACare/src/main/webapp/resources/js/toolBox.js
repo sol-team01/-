@@ -58,7 +58,7 @@ $(document).ready(function () {
             }
         }
     });
-    
+    // 글 쓰기
         $('#write').click(function(){
         
         
@@ -99,6 +99,49 @@ $(document).ready(function () {
         });
         return false;
     });
+    // 글 수정
+            $('#fix').click(function(){
+        
+        var B_no = $('#B_no').val();
+        const B_title = $('#B_title').val();
+        if(B_title.length <= 0){
+            alert('제목을 입력해야 합니다.');
+            $('#B_title').focus();
+            return false;
+        }
+
+        var markupStr = $('#summernote').summernote('code');
+        if(markupStr.length<= 0){
+            alert('내용을 입력해야 합니다.');
+            return false;
+        }
+        saveContent();
+        var B_category = $('#B_category').val();
+        alert(B_category);
+        $('#write').prop('disabled', true);
+        $.ajax({
+            url: "/board/modify",
+            method: "POST",
+            data: {
+            	B_no : B_no,
+                B_category : B_category,
+                B_title : B_title,
+                B_text : markupStr
+            },
+            success: function(response){
+                alert('글 수정이 완료되었습니다.');
+                window.location.href = "/board/noticeBoard";
+                },
+                error: function(xhr, status, error) {
+                    alert('글 등록 중 오류가 발생했습니다.');
+                    console.error(xhr, status, error);
+                    $('#btnSubmit').prop('disabled', false);
+                }
+
+        });
+        return false;
+    });
+    
     
     
     

@@ -115,7 +115,7 @@
 	</update>
 	
 	<update id="modify">
-		update board set B_name = #{B_name},
+		update board set 
 		B_title = #{B_title},
 		B_category = #{B_category},
 		B_text = #{B_text}
