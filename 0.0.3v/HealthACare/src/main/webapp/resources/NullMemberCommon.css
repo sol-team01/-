@@ -512,7 +512,7 @@ background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);
 
 #main #rankingBox .realTime .realText .num {
 	margin-right: 18px;
-	width: 30px;
+	width: 10px;
 	text-align: center;
 	font-weight: 700;
 	font-size: 15px;
@@ -522,12 +522,17 @@ background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);
 
 #main #rankingBox .realTime .realText .numBox {
 	display: flex;
-	width: 150px;
+	width: 170px;
+	height:30px;
 	text-align: left;
 	justify-content: flex-start;
 	font-size: 20px;
 }
-
+#main #rankingBox .realTime .realText .numBox a{
+	white-space: nowrap; /* 텍스트를 한 줄로 고정합니다. */
+	overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
+	text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
+}
 #main #store {
 	width: 1372px;
 	height: 300px;

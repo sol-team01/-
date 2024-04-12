@@ -245,7 +245,7 @@
 			        <div class="numBox">
 			            <div class="num">${status.count}</div>
 			            <!-- ${fn:substring(popular.b_title,0,5)}🧡 인기글에 제목을 5글자로 만 제한하는 el 명령문 -->
-			            <a href="${cp}/board/readBoard?B_no=${popular.b_no}">${fn:substring(popular.b_title,0,5)}</a>
+			            <a href="${cp}/board/readBoard?B_no=${popular.b_no}">${popular.b_title}</a>
 			        </div>
 			    </div>
 			</c:forEach>
@@ -271,8 +271,5 @@
 </div><!-- <div id="main"> -->
 </div><!-- <div id="warp"> -->
 
-<script>
-$(document).ready(function()
-</script>
 </body>
 </html>
