@@ -71,17 +71,15 @@ var storedFoodList = JSON.parse(localStorage.getItem('foodList'));
             // 새로운 행을 생성하여 이동된 정보를 추가합니다.
             var newRow = cartTable.insertRow();
             newRow.innerHTML = `
-                <td>${item.foodName}</td>
-                <td>${item.servingAmount}</td>
-                <td>${item.calorie}</td>
-                <td><button class="removeButton">삭제</button></td>`;
+                <td class="testFS">${item.foodName}</td>
+                <td class="testFS">${item.servingAmount}</td>
+                <td class="testFS">${item.calorie}</td>
+                <td class="testFS"><button class="removeButton">삭제</button></td>`;
 calorie += parseInt(item.calorie);
         });
-	$('#caloriePlus').html(`<p>총 칼로리: ${calorie}</p>`);
+	$('#caloriePlus').html(`<p id="answer"> ${calorie}</p>`);
 	}
-
-
-            
+	
     function saveFood() {
         // localStorage에 변경된 foodList 저장
         localStorage.setItem('foodList', JSON.stringify(foodList));
