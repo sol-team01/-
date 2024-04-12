@@ -50,7 +50,8 @@ public class InfoChangeController {
 		return "page/myInfoChange";
 
 	}
-
+	
+	//이미지 파일 저장
 	@PostMapping("/profile")
 	public String profileUpdate(@RequestPart("imageFile") MultipartFile file, MyPageDto dto, Model model,
 			HttpServletRequest request) {
