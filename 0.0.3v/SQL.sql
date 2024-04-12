@@ -1,5 +1,4 @@
 CREATE DATABASE HAC DEFAULT CHARACTER SET UTF8MB4; 
-
 USE HAC;
 DROP TABLE `user`;
  # 로그인 할때 필요한 정보
@@ -74,9 +73,9 @@ CREATE TABLE `calorieLog`(
 `C_createdAt` DATETIME NOT NULL DEFAULT now(), # 시간체크
 `C_updatedAt` DATETIME NOT NULL DEFAULT now() ON UPDATE now()# 시간 업데이트 체크
 );
- 
+INSERT INTO board(U_no,B_title,I_name,C_calorie,C_meal) values ( '1','꽈배기','100','404.00','1');
 drop table board;
-INSERT INTO `board`(U_no,B_title,U_name,B_text,B_category)value(1,"제목","아이디","텍스트","질문");
+INSERT INTO `board`(U_no,B_title,I_name,B_text,B_category)value(1,"제목","아이디","텍스트","질문");
 select * from board;
 CREATE TABLE `board` (
 		`B_no` INT PRIMARY KEY AUTO_INCREMENT, 			#글번호
@@ -95,9 +94,19 @@ CREATE TABLE `board` (
 		`R_no` INT PRIMARY KEY AUTO_INCREMENT, 			#댓글번호
         `U_no` INT NOT NULL DEFAULT 0,                  #유저번호
         `B_no` INT NOT NULL DEFAULT 0,					#글번호
-	    `R_id` CHAR(50) NOT NULL,							#작성자ID
+	    `I_name` CHAR(50) NOT NULL,							#작성자ID
 		`R_datetime` DATETIME NOT NULL DEFAULT now(),		#작성시간
 	    `R_hit` INT NOT NULL DEFAULT 0,					#추천수    
 	    `R_text` TEXT	NOT NULL							#댓글내용
 	);
     
+    drop table realTimeTheme;
+    create table `realTimeTheme` (
+		`T_no` INT PRIMARY KEY AUTO_INCREMENT,			#실시간주제 넘버링
+        `T_name` TEXT NOT NULL,							#실시간주제 이름
+        `T_hit` INT NOT NULL DEFAULT 0					#실시간주제 조회수
+    );
+    select * from realTimeTheme;
+    insert into realTimeTheme (T_name, T_hit) values ('운동',0);
+    insert into realTimeTheme (T_name, T_hit) values ('식단',0);
+    insert into realTimeTheme (T_name, T_hit) values ('질병',0);
