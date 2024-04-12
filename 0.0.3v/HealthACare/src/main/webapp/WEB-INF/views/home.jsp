@@ -36,10 +36,31 @@
 		<a href="${cp}/board/noticeBoard">게시판</a>
 		<a>고객지원</a>
 	</div>
-	<div class="Banner">
+	
+	<div class="s-container">
+    <button class="prev-btn"><img alt="" src="${cp}/resources/img/leftarrow.png"> </button>
+    <div class="s">
+<%--         <img src="${cp}/resources/img/bell.png" alt="Slide 1"> --%>
+	<div class="Banner" onclick="redirectToPage('http://localhost:8080/board/readBoard?B_no=9')">
 	<a class="title">웨이트 트레이닝 순서, 근력운동 순서는?</a>
 	<a class="text">by hanClass</a>
 	</div>
+    </div>
+    <div class="s">
+	<div class="Banner" onclick="redirectToPage('http://localhost:8080/board/readBoard?B_no=9')">
+	<a class="title">ghd</a>
+	<a class="text">by hanClass</a>
+	</div>
+    </div>
+    <div class="s">
+	<div class="Banner" onclick="redirectToPage('http://localhost:8080/board/readBoard?B_no=9')">
+	<a class="title">42141412</a>
+	<a class="text">by hanClass</a>
+	</div>
+    </div>
+    <button class="next-btn"><img alt="" src="${cp}/resources/img/rightarrow.png"> </button>
+</div>
+
 	<div id="optionTitle">
 	<div class="choiceTitleList">리스트로 보기</div>
 	<div class="choiceTitleYotube">영상으로 보기</div>
@@ -87,6 +108,60 @@
 	</div>
 	
 		<script type="text/javascript">
+		function redirectToPage(url) {
+		    window.location.href = url;
+		}
+		
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('.s');
+		const totalSlides = slides.length;
+		let intervalId; // 자동 전환을 위한 interval ID
+
+		function showSlide(n) {
+		    slides.forEach(slide => {
+		        slide.style.display = 'none';
+		    });
+		    slides[n].style.display = 'block';
+		}
+
+		function nextSlide() {
+		    currentSlide = (currentSlide + 1) % totalSlides;
+		    showSlide(currentSlide);
+		}
+
+		function prevSlide() {
+		    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+		    showSlide(currentSlide);
+		}
+
+		// 다음 슬라이드 보여주기 함수를 일정 시간 간격으로 호출하는 함수
+		function startAutoSlide() {
+		    intervalId = setInterval(nextSlide, 5000); // 5초마다 다음 슬라이드로 전환
+		}
+
+		// 슬라이드를 수동으로 이동하면 자동 전환을 멈추는 함수
+		function stopAutoSlide() {
+		    clearInterval(intervalId);
+		}
+
+		// 초기 슬라이드 보여주기 및 자동 전환 시작
+		showSlide(currentSlide);
+		startAutoSlide();
+
+		// 다음 버튼 클릭 시 다음 슬라이드 보여주기
+		document.querySelector('.next-btn').addEventListener('click', () => {
+		    nextSlide();
+		    stopAutoSlide(); // 슬라이드를 수동으로 전환할 때 자동 전환 중지
+		});
+
+		// 이전 버튼 클릭 시 이전 슬라이드 보여주기
+		document.querySelector('.prev-btn').addEventListener('click', () => {
+		    prevSlide();
+		    stopAutoSlide(); // 슬라이드를 수동으로 전환할 때 자동 전환 중지
+		});
+		
+		
+
 		$(document).ready(function() {
 			var noticeListContent01 = $("#noticeList01").html();
 			var noticeListContent02 = $("#noticeList02").html();
@@ -161,10 +236,11 @@
 		</script>
 	
 		<div id="rankingBox">
+		
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기글</div>
 			<div class="realTextBox">
-			<c:forEach var="popular" items="${boardPopularPost}" begin="0" end="9" varStatus="status">
+			<c:forEach var="popular" items="${boardPopularPost}" begin="0" end="6" varStatus="status">
 			    <div class="realText">
 			        <div class="numBox">
 			            <div class="num">${status.count}</div>
@@ -175,6 +251,8 @@
 			</c:forEach>
 			</div>
 		</div>
+		
+	
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기 주제</div>
 			<div class="realTextBox">
