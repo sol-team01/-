@@ -316,7 +316,7 @@ margin-left: 15px;
 }
 
 #main .Banner {
-	background: rgba(66, 63, 63, 0.7);
+background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);    
 /* 	background-image: url('/resources/img/banner.jpg'); */
 	width: 1150px;
 	height: 187px;
