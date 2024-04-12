@@ -89,6 +89,31 @@ public class PagingProcessor {
 	}
 	
 	public String getHtmlPageList() {
+<<<<<<< HEAD
+	       String html = "";
+	       // 페이지 목록 생성
+	       if (totalPage == getPageCount()) {
+	           for (int i = blockStartNo; i <= blockEndNo; i++) {
+	               if (i == currentPage) {
+	                   // 현재 페이지에는 링크를 걸지 않음
+	                   html = html + String.format("<div class='aaa'>%d</div>&nbsp;&nbsp;", i);
+	               } else {
+	                   html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>&nbsp;&nbsp;", i, i);
+	               }
+	           }
+	       } else {
+	           for (int i = blockStartNo; i <= blockEndNo; i++) {
+	               if (i == currentPage) {
+	                   // 현재 페이지에는 링크를 걸지 않음
+	                   html = html + String.format("<span>%d</span>&nbsp;&nbsp;", i);
+	               } else {
+	                   html = html + String.format("<a href='/board/searchBoard?&currentPage=%d&word=%s&searchInfo=%s'>%d</a>&nbsp;&nbsp;", i, word, column, i);
+	               }
+	           }
+	       }
+	       return html;
+	   }
+=======
 	    String html = "";
 	    // 페이지 목록 생성
 	    if (totalPage == getPageCount()) {
@@ -112,6 +137,7 @@ public class PagingProcessor {
 	    }
 	    return html;
 	}
+>>>>>>> 2b7ce1a16083d377861bf0e756e24c1887f93d40
 	
 	public String getPrevPageButton() {
 	    String prevPageButton = "";

@@ -44,8 +44,8 @@
              <div class="mt-2 d-flex gap-2 justify-content-end">
             <label for="category">분류: </label>
             <select id="B_category"   name="B_category">
-               <option value="공지사항">공지사항</option>
                <option value="일반">일반</option>
+               <option value="공지사항">공지사항</option>
                <option value="질문">질문</option>
             </select>
             </div>
