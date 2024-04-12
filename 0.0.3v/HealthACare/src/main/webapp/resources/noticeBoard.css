@@ -57,7 +57,7 @@
 	border-radius: 5px;
 	color: #4A4A4B;
 	padding: 3px 10px;
-	margin-right: 70px;
+	margin-right: 66px;
 	font-size: 15px;
 }
 
@@ -72,11 +72,11 @@
 }
 
 .titleLineK {
-	border: 1px solid #D0D0D2;
+	border-top: 1px solid #D0D0D2;
 }
 
 .titleBottomLineK {
-	border: 1px solid #D0D0D2;
+	border-top: 1px solid #D0D0D2;
 	margin-top: 46px;
 }
 
@@ -334,7 +334,7 @@
 
 .sortTableK {
 	text-align: right;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 	font-family: 'SUIT-Regular';
 }
 
@@ -383,4 +383,17 @@
 	display:flex;
 	align-items:center;
 	margin-left:28px;
+}
+
+.listTemplate{
+	padding:20px 0px 20px 40px;
+	border-top:1px solid #D0D0D2;
+}
+
+.listTemplate div{
+	font-family: 'SUIT-Regular';
+}
+
+.listContentEnd .ml-20{
+	margin-left:20px;
 }

@@ -57,6 +57,20 @@
 						<option value="asc">오래된순</option>
 					</select>
 				</div>
+				<div class="listTemplate">
+					<div class="listContentGrid">
+						<div class="listContentFlex">
+							<div>번호</div>
+							<div>제목</div>
+						</div>
+						<div class="listContentEnd">
+							<div>글쓴이</div>
+							<div class="ml-20">카테고리</div>
+							<div class="ml-20">댓글수</div>
+							<div class="ml-20">조회수</div>
+						</div>
+					</div>
+				</div>
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
 					<c:forEach var="list" items="${noticeList}">
@@ -76,7 +90,6 @@
 						</c:if>
 					</c:forEach>
 				</div>
-
 				<div id="ttt">
 					<c:forEach var="list" items="${list}">
 						<c:choose>

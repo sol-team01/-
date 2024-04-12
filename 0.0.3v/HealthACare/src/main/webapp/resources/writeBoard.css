@@ -111,3 +111,20 @@
 	border: 1px solid #18A4FF;
 	color: #18A4FF;
 }
+
+/* .sort { */
+/* 	font-family: 'SUIT-Regular'; */
+/* 	width: 90px; */
+/* 	height: 40px; */
+/* 	padding: 10px; */
+/* 	border-radius: 3px; */
+/* 	border: 1px solid #ddd; */
+/* 	font-weight: bold; */
+/* 	font-size: 13px; */
+/* 	border-radius: 3px; */
+/* 	margin-left: 10px; */
+/* } */
+
+.testForm{
+	width:100%;
+}

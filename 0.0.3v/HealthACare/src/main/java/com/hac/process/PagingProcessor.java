@@ -95,26 +95,16 @@ public class PagingProcessor {
               for (int i = blockStartNo; i <= blockEndNo; i++) {
                   if (i == currentPage) {
                       // 현재 페이지에는 링크를 걸지 않음
-<<<<<<< HEAD
-                      html = html + String.format("<div class='aaa'>%d</div>", i);
-                  } else {
-                      html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>", i, i);
-=======
                       html = html + String.format("<div class='aaa'>%d</div>&nbsp;&nbsp;", i);
                   } else {
                       html = html + String.format("<a href='/board/noticeBoard?&currentPage=%d'>%d</a>&nbsp;&nbsp;", i, i);
->>>>>>> adfcf972b92a8ec0e387639756a179f44a89bf3b
                   }
               }
           } else {
               for (int i = blockStartNo; i <= blockEndNo; i++) {
                   if (i == currentPage) {
                       // 현재 페이지에는 링크를 걸지 않음
-<<<<<<< HEAD
-                      html = html + String.format("<span>%d</span>", i);
-=======
                       html = html + String.format("<span>%d</span>&nbsp;&nbsp;", i);
->>>>>>> adfcf972b92a8ec0e387639756a179f44a89bf3b
                   } else {
                       html = html + String.format("<a href='/board/searchBoard?&currentPage=%d&word=%s&searchInfo=%s'>%d</a>&nbsp;&nbsp;", i, word, column, i);
                   }
