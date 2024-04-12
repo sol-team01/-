@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -76,8 +77,10 @@
 							<div id="myActivityListBox">
 							<div id="myActivityList">
 <!-- 내가 작성한 글  -->
-<c:forEach var="i" begin="1" end="20">
-			<a href="#">${i } ) [제목] [카테고리] [조회수]</a><br>
+<c:forEach var="list" items="${myBoardList}" begin="0" end="19" varStatus="status">
+<div class="num">${status.count}
+			<a href="${cp}/board/readBoard?B_no=${list.b_no}">${fn:substring(list.b_title,0,5)} [${list.b_category}] [${list.b_hit }]</a><br>
+</div>
 </c:forEach>
 							</div>
 							</div>

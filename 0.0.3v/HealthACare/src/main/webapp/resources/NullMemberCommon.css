@@ -447,6 +447,7 @@ iframe {
 	font-size: 18px;
 	color: black;
 	margin-bottom: 20px;
+	font-size: 23px;
 }
 
 #main #rankingBox .realTime .realTextBox {
@@ -475,6 +476,7 @@ iframe {
 	font-weight: 700;
 	font-size: 15px;
 	color: #B5B1B1;
+	font-size: 20px;
 }
 
 #main #rankingBox .realTime .realText .numBox {
@@ -482,6 +484,7 @@ iframe {
 	width: 150px;
 	text-align: left;
 	justify-content: flex-start;
+	font-size: 20px;
 }
 
 #main #store {

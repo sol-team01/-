@@ -18,21 +18,24 @@
     <form action="${cp}/page/searchHint" method="post">
        <c:choose>
           <c:when test="${pwFinding.getI_pwFinding() == '1'}">
-          <p>질문입니다. 당신의 대답은?</p>
+          <p class="cText">**** 질문입니다. 당신의 대답은? ****</p>
           </c:when>
           <c:when test="${pwFinding.getI_pwFinding() == '2'}">
-          <p>학원 근처에서 가장 맛있었던 식당은?</p>
+          <p class="cText">**** 학원 근처에서 가장 맛있었던 식당은? ****</p>
           </c:when>
           <c:when test="${pwFinding.getI_pwFinding() == '3'}">
-          <p>학원에서 처음으로 갔던 단체회식 장소는?</p>
+          <p class="cText">**** 학원에서 처음으로 갔던 단체회식 장소는? ****</p>
           </c:when>
           <c:when test="${pwFinding.getI_pwFinding() == '4'}">
-          <p>수강하고 계신 수업에 가장 어려운 과목은?</p>
+          <p class="cText">**** 수강하고 계신 수업에 가장 어려운 과목은? ****</p>
           </c:when>
        </c:choose>
- 
-    <input id="I_hint" name="I_hint" type="text" placeholder="답변을 입력해주세요?">
-    <input id="U_no" name="U_no" type="hidden" value="${pwFinding.getU_no()}">
+       <div>
+ 		<label class="text3" for="confirmPassword">답변</label>
+ 	
+    	<input id="I_hint" name="I_hint" type="text" placeholder="답변을 입력해주세요">
+    	<input id="U_no" name="U_no" type="hidden" value="${pwFinding.getU_no()}">
+       </div>
     <input id="searchPwHint" type="submit" value="비밀번호재설정">
  
     </form>

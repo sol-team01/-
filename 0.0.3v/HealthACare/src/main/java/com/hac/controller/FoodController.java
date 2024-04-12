@@ -107,7 +107,6 @@ public class FoodController {
       
       @RequestMapping("/calorieCounting")
       public String calorieCounting(@RequestParam(value = "desc_kor", defaultValue = "%EB%B0%B0") String descKor, Model model, HttpServletRequest request) {
-
     	  
          HttpSession session = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 

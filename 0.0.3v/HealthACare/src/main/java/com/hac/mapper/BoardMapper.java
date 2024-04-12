@@ -20,6 +20,8 @@ public interface BoardMapper {
 	public ArrayList<BoardDto> getListReadHome();
 	//인기글 출력
 	public ArrayList<BoardDto> popularPost();
+	//마이페이지 나의 활동 기록에 게시판 글 연동하기
+	public ArrayList<BoardDto> myBoardList(String U_no);
 	public int totalContent();
 	public int searchListCount(BoardSDto dto);
 	public BoardDto read(String B_no);
