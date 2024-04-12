@@ -196,22 +196,26 @@ public class SignController {
 
    // 비밀번호 힌트 비교
    @PostMapping("/searchHint")
-   public String searchHint(SignDto dto, Model model) {
-      System.out.println(dto);
-   
-      if(signservice.searchPwHint(dto)) {
-         model.addAttribute("U_no",dto.getU_no());
-         return "/page/resetPw";
-      } else {         
-         model.addAttribute("mag","이거 틀렸어요");
-         return "/page/searchPw";
-      }
+   @ResponseBody
+   public Map<String, Object> searchHint(SignDto dto) {
+       Map<String, Object> response = new HashMap<>();
+       System.out.println("U_no: "+dto.getU_no());
+       if (signservice.searchPwHint(dto)) {
+           response.put("valid", true);
+           response.put("U_no", dto.getU_no()); // U_no 값을 response에 추가
+       } else {
+           response.put("valid", false);
+       }
+       
+       return response;
    }
    
    //비밀번호 재설정
    @PostMapping("/pwChange")
-   public String pwChange(SignDto dto, Model model) throws UnsupportedEncodingException {
+   public String pwChange(SignDto dto, Model model,@RequestParam("U_no")String U_no) throws UnsupportedEncodingException {
       System.out.println("비밀번호 변경 진입");
+      dto.setU_no(U_no);
+      System.out.println("U_no: " + dto.getU_no());
       String result = signservice.pwChange(dto, model);
       if (!result.isEmpty()) {
           return "redirect:/page/resetPw?error=" + URLEncoder.encode(result, "UTF-8");
@@ -221,7 +225,9 @@ public class SignController {
    }
    
    @GetMapping("/resetPw")
-   public void resetPw() {
+   public void resetPw(@RequestParam("U_no")String U_no,Model model) {
+      System.out.println("resetPw 컨트롤러 번호받아옴?: " + U_no);
+      model.addAttribute("Uno", U_no);
    }
    
 }

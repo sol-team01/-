@@ -57,7 +57,7 @@
 								댓글이 비어있습니다.
 							</c:when>
 							<c:otherwise>
-								작성자: ${replyList.r_name} 작성시간: ${replyList.r_datetime}
+								작성자: ${replyList.i_name} 작성시간: ${replyList.r_datetime}
 								&nbsp;
 								<c:if test="${replyList.u_no eq user.u_no}">
 									<button type="button" class="deleteBtn" data-reply-id="${replyList.r_no}">삭제</button>

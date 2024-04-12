@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hac.service.BoardService;
 import com.hac.service.MyPageService;
+import com.hac.service.ThemeService;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -34,6 +35,8 @@ public class HomeController {
 	private MyPageService mypageService;
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private ThemeService themeService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -42,6 +45,7 @@ public class HomeController {
 		model.addAttribute("boardNoticeHomeList",boardService.getListNoticeHome());
 		model.addAttribute("boardReadHomeList",boardService.getListReadHome());
 		model.addAttribute("boardPopularPost",boardService.popularPost());
+		model.addAttribute("realTime",themeService.themeList());
 //		logger.info("Welcome home! The client locale is {}.", locale);
 //		Date date = new Date();
 //		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
