@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+.s-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.s {
+    float: left;
+    display: none;
+    transition: 0.5s;
+    }
+
+.s img {
+    width: 100%;
+    height: auto;
+}
+
+
+
 body {
 	background-color: #d0f5ff;
 	margin: 0px;
@@ -280,16 +301,31 @@ margin-left: 15px;
 	color: #18A4FF;
 }
 
+.prev-btn, .next-btn{
+	background-color:white;
+	border: 0px;
+	width: 60px;
+	cursor: pointer;
+	border-radius: 25px;
+}
+.prev-btn:hover, .next-btn:hover{
+	background-color: #ddd;
+}
+.prev-btn img, .next-btn img{
+	width: 25px;
+}
+
 #main .Banner {
 	background: rgba(66, 63, 63, 0.7);
-	background-image: url('/resources/img/banner.jpg');
-	width: 1300px;
+/* 	background-image: url('/resources/img/banner.jpg'); */
+	width: 1150px;
 	height: 187px;
 	border-radius: 28px;
 	padding: 25px 36px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	cursor: pointer;
 }
 
 #main .Banner .title {

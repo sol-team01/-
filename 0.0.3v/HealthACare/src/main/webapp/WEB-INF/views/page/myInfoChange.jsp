@@ -62,7 +62,7 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 재설정</div>
-		<a href="${cp}/page/resetPw?U_no=${myInfo.getU_no()}">비밀번호 바꾸기</a>
+		<a href="${cp}/page/resetPw?U_no=${myInfo.getU_no()}" class="changePW">비밀번호 바꾸기</a>
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
