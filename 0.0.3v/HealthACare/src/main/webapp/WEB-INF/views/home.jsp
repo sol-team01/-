@@ -161,10 +161,11 @@
 		</script>
 	
 		<div id="rankingBox">
+		
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기글</div>
 			<div class="realTextBox">
-			<c:forEach var="popular" items="${boardPopularPost}" begin="0" end="9" varStatus="status">
+			<c:forEach var="popular" items="${boardPopularPost}" begin="0" end="6" varStatus="status">
 			    <div class="realText">
 			        <div class="numBox">
 			            <div class="num">${status.count}</div>
@@ -175,6 +176,8 @@
 			</c:forEach>
 			</div>
 		</div>
+		
+	
 		<div class="realTime">	
 		<div class="realTitle">실시간 인기 주제</div>
 			<div class="realTextBox">
