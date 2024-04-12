@@ -7,36 +7,26 @@
 <head>
 <meta charset="UTF-8">
 <title>질병 리스트</title>
-<script>
-function filterData() {
-    var ageRange = document.getElementById("ageRange").value;
-    var gender = document.getElementById("gender").value;
-    var sickCd = document.getElementById("sickCd").value;
-    window.location.href = "/disease/list?ageRange=" + ageRange + "&gender=" + gender + "&sickCd=" + sickCd;
-}
-</script>
+<link rel="stylesheet"
+	href="${cp}/resources/error404.css">
 </head>
 <body>
+    
+    <label for="ageRange">연령대 선택:</label><br>
+<input type="checkbox" id="ageRange_0_9" name="ageRange" value="0_9세"> 0세 ~ 9세<br>
+<input type="checkbox" id="ageRange_10_19" name="ageRange" value="10_19세"> 10세 ~ 19세 <br>
+<input type="checkbox" id="ageRange_20_29" name="ageRange" value="20_29세"> 20세 ~ 29세 <br>
+<input type="checkbox" id="ageRange_30_39" name="ageRange" value="30_39세"> 30세 ~ 39세 <br>
+<input type="checkbox" id="ageRange_40_49" name="ageRange" value="40_49세"> 40세 ~ 49세 <br>
+<input type="checkbox" id="ageRange_50_59" name="ageRange" value="50_59세"> 50세 ~ 59세 <br>
+<input type="checkbox" id="ageRange_60_69" name="ageRange" value="60_69세"> 60세 ~ 69세 <br>
+<input type="checkbox" id="ageRange_70_79" name="ageRange" value="70_79세"> 70세 ~ 79세 <br>
+<input type="checkbox" id="ageRange_80_89" name="ageRange" value="80_89세"> 80세 ~ 89세 <br>
+    
+   <label for="gender">성별 선택:</label><br>
+<input type="checkbox" id="gender_m" name="gender" value="남"> 남성 <br>
+<input type="checkbox" id="gender_f" name="gender" value="여"> 여성 <br>
 
- <label for="ageRange">연령대 선택:</label>
-    <select id="ageRange">
-        <option value="0_9">0세 ~ 9세</option>
-        <option value="10_19">10세 ~ 19세</option>
-        <option value="20_29">20세 ~ 29세</option>
-        <option value="30_39">30세 ~ 39세</option>
-        <option value="40_49">40세 ~ 49세</option>
-        <option value="50_59">50세 ~ 59세</option>
-        <option value="60_69">60세 ~ 69세</option>
-        <option value="70_79">70세 ~ 79세</option>
-        <option value="80_89">80세 ~ 89세</option>
-    </select>
-    
-    <label for="gender">성별 선택:</label>
-    <select id="gender">
-        <option value="남">남성</option>
-        <option value="여">여성</option>
-    </select>
-    
     <label for="sickCd">질병</label>
     <select id="sickCd">
     <option value="">질병 선택</option>
@@ -1648,7 +1638,6 @@ function filterData() {
  <c:if test="${not empty itemList}">
 	<c:forEach items="${itemList}" var="item">
 	
-	
 <c:if test="${item.age == param.ageRange && item.sex == param.gender && item.sickCd == param.sickCd}">
                 <div>
                     <h3> ${item.sickNm} ${param.ageRange} ${param.gender == '남' ? '남성' : '여성'}</h3>
@@ -1662,7 +1651,36 @@ function filterData() {
 
 	</c:forEach>
 	</c:if>
-	
+<script>
+function filterData() {
+    // 연령대 선택
+    var ageRanges = document.getElementsByName("ageRange");
+    var selectedAgeRanges = [];
+    for (var i = 0; i < ageRanges.length; i++) {
+        if (ageRanges[i].checked) {
+            selectedAgeRanges.push(ageRanges[i].value);
+        }
+    }
+    var ageRangeQueryString = selectedAgeRanges.join("_");
+
+    // 성별 선택
+    var genderElements = document.getElementsByName("gender");
+    var selectedGenders = [];
+    for (var i = 0; i < genderElements.length; i++) {
+        if (genderElements[i].checked) {
+            selectedGenders.push(genderElements[i].value);
+        }
+    }
+    var genderQueryString = selectedGenders.join("_");
+
+    // 질병 선택
+    var sickCd = document.getElementById("sickCd").value;
+
+    // URL 생성 및 이동
+    var url = "/disease/list?ageRange=" + ageRangeQueryString + "&gender=" + genderQueryString + "&sickCd=" + sickCd;
+    window.location.href = url;
+}
+</script>	
 	
 </body>
 </html>
