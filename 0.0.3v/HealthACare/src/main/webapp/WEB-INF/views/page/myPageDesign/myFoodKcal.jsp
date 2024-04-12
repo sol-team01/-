@@ -31,13 +31,14 @@
 							<c:forEach var = "myDay" items="${myCalorieLog}"><!-- 개별목록 포이츠 -->
 								<div class="mainBox"><!-- List 개별 목록 -->
 									<div class="dateBox">
-									
 										<div class="time">${myDay.date}</div>
 										<div class="time">${myDay.meal}</div>
 									</div>	<div class="myEatBox"><div class="myEatLog">
 <!-- 먹은 칼로리 목록 넣는 곳  -->
 <c:forEach var="food" items="${myDay.foodList}">
-			${food.c_foodName} | ${food.c_servingAmount } | ${food.c_calorie }<br>
+			<div class="myDayfoodList">
+			<div class="foodName">${food.c_foodName}</div><div class="calorie"> ${food.c_servingAmount } g </div> ${food.c_calorie } kcal<br>
+			</div>
 </c:forEach>
 									</div>	<div class="totalBox">Total<div>
 									<div class="totalSum">
