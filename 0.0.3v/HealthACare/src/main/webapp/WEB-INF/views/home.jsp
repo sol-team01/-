@@ -21,8 +21,7 @@
 <title>Home</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
-<style>
-</style>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png">
 </head>
 <body>
 <div id="warp">

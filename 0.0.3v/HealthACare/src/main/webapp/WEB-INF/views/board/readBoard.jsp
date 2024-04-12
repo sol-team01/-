@@ -90,6 +90,7 @@
 
 	<script>
 		$(document).ready(function() {
+<<<<<<< HEAD
 			console.log("ajax 사용중");
 			var B_no = "${read.b_no}";
 			$('#replySubmit').click(function() {
@@ -148,6 +149,66 @@
 					}
 				});
 			});
+=======
+		    console.log("ajax 사용중");
+		    var B_no = "${read.b_no}";
+		    $('#replySubmit').click(function() {
+		        var textValue = $('#replyText').val(); // 댓글창 입력값 설정
+		        var U_no = "${user.u_no}";
+		        var I_name = "${user.i_name}";
+		        if(I_name === "" || I_name === null){
+		            var random = Math.floor(Math.random() * 1000) + 1;
+		            I_name = '비회원' + random;
+		        }
+		        if(U_no === "" || U_no === null){
+		            U_no = 0;
+		        }
+		        console.log(textValue);
+/* 		        console.log(U_no);
+		        console.log(U_id);
+		        console.log(B_no); */
+		        // 현재 페이지 변수를 사용하여 AJAX 요청 전달
+		        $.ajax({
+		            type: 'GET',
+		            url: '/board/replyWrite',
+		            data: {
+		                textValue: textValue, // 선택한 정렬 순서를 매개변수로 전달
+		                U_no: U_no, // 현재 페이지 정보를 함께 전달
+		                I_name: I_name,
+		                B_no: B_no
+		            },
+		            success: function(data) {
+		                // Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
+		                // 예를 들어, 게시글 목록을 업데이트하는 등의 작업 수행
+		                // data 변수에는 서버에서 전달한 HTML 또는 JSON 데이터가 포함됩니다.
+		                // 아래는 간단한 예시
+		            	window.location.reload();
+		            },
+		            error: function(xhr, status, error) {
+		                console.log('AJAX 요청 실패');
+		            }
+		        });
+		    });
+		    
+		    $('.deleteBtn').click(function() {
+		        var replyNo = $(this).data('reply-id');
+		        console.log(replyNo);
+		        $.ajax({
+		            type: 'POST',
+		            url: '/board/delReply',
+		            data: { 
+		            	R_no: replyNo,
+		            	B_no: B_no	
+		            },
+		            success: function(response) {
+		                window.location.reload();
+		            },
+		            error: function(xhr, status, error){
+		                
+		            }
+		        });
+		    });
+>>>>>>> fcbb9ab038c15cc16640e90bfcc75cbaf977c723
 		});
 	</script>
 </body>

@@ -59,6 +59,12 @@ public class SignServiceImpl implements SignService {
 		if (infoDto.getI_hint() == null || infoDto.getI_hint().trim().isEmpty()) {
 			System.out.println("힌트 답이 존재하지 않는다.");
 			return "힌트 질문에 답을 적어주세요";
+		}
+			
+		if (!dto.getI_email().matches("[a-zA-Z0-9]+")) {
+			System.out.println("한글 또는 특수문자 포함 이메일 회원가입...................");
+			return "이메일은 영문자와 숫자로만 입력해주세요."; // 회원가입 폼으로 이동
+			
 			
 		} else {
 			dto.setU_pw(encoder.encode(dto.getU_pw()));
@@ -131,6 +137,13 @@ public class SignServiceImpl implements SignService {
 		return signMapper.selectName(I_name);
 	}
 
+	//이메일 중복체크
+	@Override
+	public boolean selectEmail(String I_email) {
+		
+		return signMapper.selectEmail(I_email);
+	}
+	
 	// 아이디 찾기
 	@Override
 	public String searchId(String I_email) {
