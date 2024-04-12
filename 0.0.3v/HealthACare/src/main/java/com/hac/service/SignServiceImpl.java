@@ -54,6 +54,12 @@ public class SignServiceImpl implements SignService {
 			System.out.println("아이디 중복 검사");
 			return "이미 존재하는 ID입니다.";
 
+		}
+		
+		if (infoDto.getI_hint() == null || infoDto.getI_hint().trim().isEmpty()) {
+			System.out.println("힌트 답이 존재하지 않는다.");
+			return "힌트 질문에 답을 적어주세요";
+			
 		} else {
 			dto.setU_pw(encoder.encode(dto.getU_pw()));
 			signMapper.signUp(dto); // 회원가입 진행
