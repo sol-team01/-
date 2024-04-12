@@ -133,8 +133,8 @@
 		            type: 'POST',
 		            url: '/board/delReply',
 		            data: { 
-		            	rno: replyNo,
-		            	bno: B_no	
+		            	R_no: replyNo,
+		            	B_no: B_no	
 		            },
 		            success: function(response) {
 		                window.location.reload();
