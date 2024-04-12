@@ -20,48 +20,46 @@
 <body>
 						<div id="myFood">
 							<div id="myFoodText">
-								내가 작성한 글
+								하루 권장칼로리
 								<div>
-								<div class="kaclBox">150,00</div>
+								<div class="kaclBox"></div>
 									<a class="textKcal"> kcal</a>
 								</div> 
+
 							</div>
 							<div id="myFoodListBox">
 							<div id="myFoodList"><!-- List 전체 묶어주기 -->
+							<c:if test ="${myCalorieLog != null}">
+							<c:forEach var = "myDay" items="${myCalorieLog}"><!-- 개별목록 포이츠 -->
 								<div class="mainBox"><!-- List 개별 목록 -->
 									<div class="dateBox">
-										<div class="time">24.04.01</div>
-										<div class="time">아침</div>
+										<div class="time">${myDay.date}</div>
+										<div class="time">${myDay.meal}</div>
 									</div>	<div class="myEatBox"><div class="myEatLog">
 <!-- 먹은 칼로리 목록 넣는 곳  -->
-<c:forEach var="i" begin="1" end="20">
-			${i }. 곰탕<br>
+<c:forEach var="food" items="${myDay.foodList}">
+			<div class="myDayfoodList">
+			<div class="foodName">${food.c_foodName}</div><div class="calorie"> ${food.c_servingAmount } g </div> ${food.c_calorie } kcal<br>
+			</div>
 </c:forEach>
 									</div>	<div class="totalBox">Total<div>
 									<div class="totalSum">
 <!-- 리스트당 칼로리 계산 넣는 곳 -->
-15,000
+								${myDay.sumCalorie }
 									</div>	<a class="textKcal"> kcal</a>
 									</div>	</div>	</div>
+	
 								</div> 						   <!-- List 개별 목록 -->
-								<div class="mainBox"><!-- List 개별 목록 -->
-									<div class="dateBox">
-										<div class="time">24.04.01</div>
-										<div class="time">아침</div>
-									</div>	<div class="myEatBox"><div class="myEatLog">
-<!-- 먹은 칼로리 목록 넣는 곳  -->
-<c:forEach var="i" begin="1" end="5">
-			${i }. 오리고기<br>
-</c:forEach>
-									</div>	<div class="totalBox">Total<div>
-									<div class="totalSum">
-<!-- 리스트당 칼로리 계산 넣는 곳 -->
-15,000
-									</div>	<a class="textKcal"> kcal</a>
-									</div>	</div>	</div>
-								</div> 						   <!-- List 개별 목록 -->
+							</c:forEach>	<!-- 개별목록 포이츠 -->
+							</c:if>
+							</div><!-- List 전체 묶어주기 -->
 							</div>
 							</div>
-							</div>
+																						<script>
+						        var weight = ${presentPhysical.p_weightLog};
+						        var dailyCalories = 25 * weight; // 하루 열량 섭취 권장량 계산 공식
+						        $(".kaclBox").html(dailyCalories);
+							</script>
+
 </body>
 </html>

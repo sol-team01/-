@@ -16,6 +16,16 @@ h2{
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
+.mainTextBox2 h2{
+	font-size:46px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+.mainTextBox3 h2{
+	font-size:46px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
 
 hr {
 	margin: 20px 0px;
@@ -125,6 +135,54 @@ hr {
     white-space: pre; /* 개행 문자(\A)를 인식하도록 설정 */
     line-height: 45px;
 }
+/**/
+.mainTextBox2{
+	display: none; width : 1308px;
+	height: 260px;
+	padding: 30px 30px;
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	border-radius:20px;
+	position: absolute; /* 절대 위치 지정 */
+	top: 75%;
+	z-index: 9999;
+	
+	font-size: 28px;
+	
+	 /* 이미지가 가로로 늘어나지 않고 원래 크기로 유지됨 */
+	    background-size: cover;
+    /* 이미지를 페이지의 오른쪽에서 시작하도록 설정 */
+    background-position: right center;
+    /* 배경 이미지가 페이지 내에서 반복되지 않음 */
+    background-repeat: no-repeat;
+    
+    white-space: pre; /* 개행 문자(\A)를 인식하도록 설정 */
+    line-height: 45px;
+}
+/**/
+.mainTextBox3{
+	display: none; width : 1308px;
+	height: 260px;
+	padding: 30px 30px;
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	border-radius:20px;
+	position: absolute; /* 절대 위치 지정 */
+	top: 75%;
+	z-index: 9999;
+	
+	font-size: 28px;
+	
+	 /* 이미지가 가로로 늘어나지 않고 원래 크기로 유지됨 */
+	    background-size: cover;
+    /* 이미지를 페이지의 오른쪽에서 시작하도록 설정 */
+    background-position: right center;
+    /* 배경 이미지가 페이지 내에서 반복되지 않음 */
+    background-repeat: no-repeat;
+    
+    white-space: pre; /* 개행 문자(\A)를 인식하도록 설정 */
+    line-height: 45px;
+}
 .noneText{
 	display: none;
 }
@@ -135,6 +193,16 @@ hr {
 	font-size: 20px;
 }
 .a {
+	display:none;
+	height:0px;
+	margin-bottom: 240px;
+}
+.a2 {
+	display:none;
+	height:0px;
+	margin-bottom: 240px;
+}
+.a3 {
 	display:none;
 	height:0px;
 	margin-bottom: 240px;

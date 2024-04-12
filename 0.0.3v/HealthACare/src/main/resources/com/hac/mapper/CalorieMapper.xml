@@ -10,4 +10,21 @@
         (#{U_no},#{food.foodName},#{food.servingAmount},#{food.calorie},#{meal})
     </foreach>
 </insert>
+<select id="myCalorieLog" resultType="com.hac.dto.foodDto.CalorieLogDtoList">
+    SELECT 
+        U_no,
+        DATE_FORMAT(C_createdAt, '%Y-%m-%d') AS date,
+        C_meal,
+        SUM(C_calorie) AS sumCalorie,
+        JSON_ARRAYAGG(JSON_OBJECT('C_no', C_no, 'C_foodName', C_foodName, 'C_servingAmount', C_servingAmount, 'C_calorie', C_calorie)) AS foodJSON 
+    FROM 
+        calorieLog 
+    WHERE 
+        U_no = #{U_no}
+    GROUP BY 
+        DATE_FORMAT(C_createdAt, '%Y-%m-%d'), C_meal 
+    ORDER BY 
+        date ASC, C_meal ASC;
+</select>
+
 </mapper>

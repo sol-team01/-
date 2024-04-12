@@ -7,7 +7,6 @@ $(document).ready(function(){
             $('.myImg').html('<img src="' + imageDataURI + '" alt="Image">');
         },
         error: function(xhr, status, error) {
-          	$('.myImg').html('<img src="${cp}/resources/img/profile.jsp" alt="image">');
             
         }
     });

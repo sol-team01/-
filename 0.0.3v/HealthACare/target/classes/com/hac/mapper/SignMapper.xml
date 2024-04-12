@@ -21,8 +21,8 @@
 	
 	<!-- 회원가입 마이정보 -->
 	<insert id="signUpInfo" parameterType="com.hac.dto.userDto.InfoDto">
-		INSERT INTO info(U_no, I_name, I_birthDate_y, I_birthDate_m, I_birthDate_d, I_gender, I_email, I_pwFinding, I_hint) 
-		values (#{U_no}, #{I_name}, #{I_birthDate_y}, #{I_birthDate_m}, #{I_birthDate_d}, #{I_gender}, #{I_email}, #{I_pwFinding}, #{I_hint})
+		INSERT INTO info(U_no, I_name,I_profileImg, I_birthDate_y, I_birthDate_m, I_birthDate_d, I_gender, I_email, I_pwFinding, I_hint) 
+		values (#{U_no}, #{I_name},#{I_profileImg}, #{I_birthDate_y}, #{I_birthDate_m}, #{I_birthDate_d}, #{I_gender}, #{I_email}, #{I_pwFinding}, #{I_hint})
 	</insert>
 	
 	<!-- 회원가입 시 기본건강정보 -->

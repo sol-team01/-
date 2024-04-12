@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -60,9 +61,7 @@
 					<div id="weightWrite">
 						<input type="hidden" id="sessionUno" value="${login.u_no}">
 						<div class="flex"><input type="number" name="weight" placeholder="몸무게" maxlength="5"> kg</div>
-						<c:forEach var="graph" items="${physical}">
-						<div class="flex"><input type="number" name="height" placeholder="신장" maxlength="5" value="${graph.p_heightLog}"> cm</div>
-						</c:forEach>
+						<div class="flex"><input type="number" name="height" placeholder="신장" maxlength="5" value="${physical[0].p_heightLog}"> cm</div>
 						<br>
 						<button type="button" id="weightSubmit">입력</button>
 					</div>
@@ -78,8 +77,10 @@
 							<div id="myActivityListBox">
 							<div id="myActivityList">
 <!-- 내가 작성한 글  -->
-<c:forEach var="i" begin="1" end="20">
-			<a href="#">${i } ) [제목] [카테고리] [조회수]</a><br>
+<c:forEach var="list" items="${myBoardList}" begin="0" end="19" varStatus="status">
+<div class="num">${status.count}
+			<a href="${cp}/board/readBoard?B_no=${list.b_no}">${fn:substring(list.b_title,0,5)} [${list.b_category}] [${list.b_hit }]</a><br>
+</div>
 </c:forEach>
 							</div>
 							</div>
@@ -228,6 +229,7 @@
                     type: 'line',
                     fill: false,
                     backgroundColor: 'blue', // 막대 배경색을 #03BDFF로 설정
+                    borderColor:'blue',
                     borderWidth: 2,
                     segment: {
                         borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,71,75)'),

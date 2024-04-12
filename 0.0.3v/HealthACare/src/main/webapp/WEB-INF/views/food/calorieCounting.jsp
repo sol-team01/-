@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="${cp}/resources/js/Calorie.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="stylesheet" href="${cp}/resources/calorieCounting.css">
 <style>
 </style>
 </head>
@@ -24,7 +25,12 @@
 					<input type="text" name=desc_kor autocomplete="off"
 						placeholder="검색어를 입력하세요">
 				</form>
-
+			<select id="C_meal">
+        		<option value="0">아침</option>
+        		<option value="1">점심</option>
+       			<option value="2">저녁</option>
+        		<option value="3">간식</option>
+  		  </select>
 				<div id="foodDiv" style="overflow: auto; max-height: 200px;">
 
 					<table>
@@ -47,12 +53,7 @@
 			</div>
 
 			<hr>
-			<select id="C_meal">
-        		<option value="0">아침</option>
-        		<option value="1">점심</option>
-       			<option value="2">저녁</option>
-        		<option value="3">간식</option>
-  		  </select>
+
 			<div>
 				<!-- 장바구니 보이고 오른쪽에 권장 칼로리와 계산된 칼로리가 보이는 곳 -->
 				<div id="cartDiv" style="overflow: auto; max-height: 200px;">
@@ -70,9 +71,8 @@
 				<button id="clearSessionButton">저장</button>
 				<div id = "caloriePlus"></div>
 				&nbsp;&nbsp;&nbsp;/
-                ${physical.p_heightLog}
-				<div>
 
+				<div>
 
 				<c:choose>
 					<c:when test="${physical.p_heightLog < 150}">

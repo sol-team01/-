@@ -15,21 +15,22 @@
    <a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
    <div id="inBox">
     <a class="idText">비밀번호 변경</a>
+    <a class="cText">**** 변경할 비밀번호를 입력해주세요! ****</a>
       <form action="${cp}/page/pwChange" method="post">
        <input type = "hidden" id="U_no" value="${Uno}" name ="U_no">
         <div>
-            <label class="text3" for="newPassword">새 암호:</label>
+            <label class="text3" for="newPassword">비밀번호</label>
             <input class="idInput" type="password" maxlength="20" id="userPw" name="U_pw" required>
             <label id="checkTextPw"></label>
         </div>
         <div>
-            <label class="text3" for="confirmPassword">새 암호 확인:</label>
+            <label class="text3" for="confirmPassword">비밀변호 확인</label>
             <input class="idInput" type="password" maxlength="20" id="userRePw" name="U_repw" required>
             <label id="checkRePw"></label>
         </div>
         <label id="checkTextPw"></label> 
         <div id="rePwCk">
-            <input id="changePwBt" type="submit" value="암호 변경">
+            <input id="changePwBt" type="submit" value="비밀번호 변경">
         </div>
       </form>
     </div>

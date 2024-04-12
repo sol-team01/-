@@ -36,7 +36,6 @@
 	<a href="${cp}/myPage/myInfo">
 	<div class="box">
 	${login.getI_name()}
-
 	<div  class="myImg"></div>
 	</div>
 	</a>

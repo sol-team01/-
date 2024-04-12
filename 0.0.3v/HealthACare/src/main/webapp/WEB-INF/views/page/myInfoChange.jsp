@@ -62,15 +62,16 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 재설정</div>
-		비밀번호 찾기로 날아가기
+		<a href="${cp}/page/resetPw?U_no=${myInfo.getU_no()}" class="changePW">비밀번호 바꾸기</a>
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
 		<div class="contentTEXTLayout">
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
-			<option value="1">질문을 넣어주세요</option>
-			<option value="2">질문을 넣어주세요2</option>
-			<option value="3">질문을 넣어주세요3</option>
+			<option value="1">질문입니다. 당신의 대답은?</option>
+			<option value="2">학원 근처에서 가장 맛있었던 식당은?</option>
+			<option value="3">학원에서 처음으로 갔던 단체회식 장소는?</option>
+			<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
 		</select>
 			<a class="text">정답 바꾸기</a>
 			<input name="I_hint" onchange="previewImage(event)">

@@ -81,6 +81,9 @@
 	<select id="getByteImg" resultType="com.hac.dto.userDto.InfoDto">
 		SELECT * FROM info WHERE U_no = #{U_no}
 	</select>
+	
+	
+	
 		
 
 </mapper>
