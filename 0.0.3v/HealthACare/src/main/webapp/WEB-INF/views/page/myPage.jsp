@@ -226,6 +226,7 @@
                     type: 'line',
                     fill: false,
                     backgroundColor: 'blue', // 막대 배경색을 #03BDFF로 설정
+                    borderColor:'blue',
                     borderWidth: 2,
                     segment: {
                         borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,71,75)'),

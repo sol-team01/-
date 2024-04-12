@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.hac.dto.searchDto.MyPageDto;
 import com.hac.dto.userDto.InfoDto;
+import com.hac.service.FoodService;
 import com.hac.service.MyPageService;
 import com.hac.service.PhysicalService;
 
@@ -30,6 +30,9 @@ public class MyPageController {
 @Setter(onMethod_ = @Autowired)
 	private PhysicalService pService;
 
+@Setter(onMethod_ = @Autowired)
+private FoodService fService;
+
 	String mag;
 	
 	//마이페이지로 이동
@@ -37,7 +40,11 @@ public class MyPageController {
 	public String myPage(Model model,HttpServletRequest request) {
 		System.out.println("myPage 컨트롤러 진입");
 	HttpSession session = request.getSession();
-	model.addAttribute("physical",pService.searchPhysical(((InfoDto) session.getAttribute("login")).getU_no()));
+	
+	String U_no = ((InfoDto) session.getAttribute("login")).getU_no();
+	
+	model.addAttribute("physical",pService.searchPhysical(U_no));
+	model.addAttribute("myCalorieLog",fService.calorieListDto(U_no));
 	return "/page/myPage";
 	}
 
