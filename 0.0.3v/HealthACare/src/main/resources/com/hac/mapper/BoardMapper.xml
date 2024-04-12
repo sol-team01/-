@@ -11,7 +11,7 @@
     
     <!-- 마이페이지  -->
     <select id="myBoardList" resultType="com.hac.dto.boardDto.BoardDto">
-        select * from board where U_no and B_category != '공지사항' order by B_no DESC;
+        select * from board where U_no = #{U_no} and B_category != '공지사항' order by B_no DESC;
     </select>
     
     <!-- 홈에 최신글 출력 -->
