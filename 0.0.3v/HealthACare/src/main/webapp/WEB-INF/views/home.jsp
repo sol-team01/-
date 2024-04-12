@@ -12,6 +12,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- ${fn:substring(popular.b_title,0,5)}에 사용하기 위해 필요한 스크립트(제목 글자수 제한 출력) -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <%-- <%@ page errorPage="/error/error404.jsp" %> --%>
 <html>
@@ -166,7 +168,8 @@
 			    <div class="realText">
 			        <div class="numBox">
 			            <div class="num">${status.count}</div>
-			            <a href="${cp}/board/readBoard?B_no=${popular.b_no}">${popular.b_title} 🧡</a>
+			            <!-- ${fn:substring(popular.b_title,0,5)}🧡 인기글에 제목을 5글자로 만 제한하는 el 명령문 -->
+			            <a href="${cp}/board/readBoard?B_no=${popular.b_no}">${fn:substring(popular.b_title,0,5)}🧡</a>
 			        </div>
 			    </div>
 			</c:forEach>
@@ -191,7 +194,7 @@
 </div><!-- <div id="warp"> -->
 
 <script>
-	
+$(document).ready(function()
 </script>
 </body>
 </html>

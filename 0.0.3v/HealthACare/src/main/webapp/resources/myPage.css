@@ -207,7 +207,7 @@ img {
 	margin-bottom: 20px;
 }
 #myFoodList .mainBox .dateBox{
-	font-size: 23px;
+	font-size: 18px;
 }
 #myFoodList .mainBox .dateBox .time{
 	background-color: #9FE2FA99;
@@ -226,7 +226,7 @@ img {
 }
 #myFoodList .mainBox .myEatBox div{
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: flex-end;
 }
 #myFoodList .mainBox .myEatBox .myEatLog{
@@ -235,6 +235,7 @@ img {
 	border:1px solid #03BDFF;
 	padding: 10px 10px;
 	display:flex;
+	flex-direction:column;
 	justify-content:flex-start;
 	align-items:flex-start;
 	border-radius: 8px;
@@ -253,10 +254,10 @@ img {
 	color:white;
 	padding: 10px 10px;
 	display:flex;
+	justify-content:flex-end;
 	align-items:center;
 	border-radius: 8px;
 	margin: 0px 10px;
-	text-align: right;
 }
 #myFoodList .mainBox .myEatBox .totalBox .textKcal{
 		font-size: 14px;
@@ -401,4 +402,28 @@ justify-content: space-between;
 #weightWrite button:hover{
 	background-color: #dbdbdb;
 }
+/**/
+/**/
+/* 칼로리 디테일 */
+/**/
+/**/
+.myDayfoodList{
+	display: flex;
+	margin-bottom: 5px;
+}
+.foodName{
+	width: 190px;
+	border-right: 1px solid #c0c0c0;
+	padding-right: 5px;
+	margin-right: 5px;
+}
+.calorie{
+	width: 70px;
+	border-right: 1px solid #c0c0c0;
+	padding-right: 5px;
+	margin-right: 5px;
+}
+/**/
+/**/
+/**/
 
