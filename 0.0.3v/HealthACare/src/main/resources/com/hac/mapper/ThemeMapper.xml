@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hac.mapper.ThemeMapper">
+	
+	<select id="themeList" resultType="com.hac.dto.searchDto.ThemeDto">
+	   select * from realTimeTheme ORDER BY T_hit DESC;
+	</select>
+	
+	<update id="themeHit">
+	   update realTimeTheme set T_hit = T_hit + 1 where T_no = #{T_no};
+	</update>
+
+</mapper>

@@ -9,7 +9,7 @@ public class ReplyDto {
 	private String B_no;
 	private String R_title;
 	private String R_text;
-	private String i_name;
+	private String I_name;
 	private String R_datetime;
 	private int R_hit;
 }

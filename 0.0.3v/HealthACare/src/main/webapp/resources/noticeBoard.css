@@ -86,7 +86,7 @@
 	font-weight: 600;
 }
 
-.listContent {
+.listContent div{
 	font-size: 20px;
 	color: #000;
 	font-weight: 600;
@@ -116,7 +116,7 @@
 	height: 17px;
 }
 
-.pageBox {
+.pageBox .aaa{
 	background: #03BDFF;
 	color: #fff;
 	width: 45px;
@@ -128,6 +128,9 @@
 	align-items: center;
 	margin-right: 18px;
 }
+
+.pageBox{display:flex;}
+
 
 .pagingBlock {
 	display: flex;
@@ -208,4 +211,20 @@
 
 .sortTableK{
 	text-align:right; margin-bottom:14px; font-family: 'SUIT-Regular';
+}
+
+.listWriter{
+	margin-left:20px;
+}
+
+.listCategory{
+	margin-left:20px;
+}
+
+.listReplyCount{
+	margin-left:20px;
+}
+
+.listReplyCount{
+	margin-left:20px;
 }

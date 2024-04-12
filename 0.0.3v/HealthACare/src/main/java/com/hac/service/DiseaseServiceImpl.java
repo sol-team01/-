@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -117,5 +118,10 @@ public class DiseaseServiceImpl implements DiseaseService {
 	
 	private String extractTextContent(Element element, String tagName) {
 	    return element.getElementsByTagName(tagName).item(0).getTextContent();
+	}
+	
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+	    configurer.enable();
 	}
 }
