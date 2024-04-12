@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png">
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -36,7 +37,6 @@
 	<a href="${cp}/myPage/myInfo">
 	<div class="box">
 	${login.getI_name()}
-
 	<div  class="myImg"></div>
 	</div>
 	</a>

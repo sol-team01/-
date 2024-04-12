@@ -103,14 +103,6 @@ public class BoardController {
 	
 	@PostMapping("/write")
 	public String write(WriteDto dto,HttpServletRequest request) {
-		System.out.println(dto.getB_text());
-		Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
-		Matcher match = pattern.matcher(dto.getB_text());
-		String img = null;
-		if(match.find()) {
-			img = match.group(0);
-			System.out.println(img);
-		}
 		HttpSession session = request.getSession();
 		InfoDto info = (InfoDto) session.getAttribute("login");
 		dto.setU_no(info.getU_no());

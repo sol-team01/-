@@ -29,10 +29,16 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getListReadHome();
 	}
 	
-	
+	//인기글 조회수 순으로 홈에 출력
 	@Override
 	public ArrayList<BoardDto> popularPost(){
 		return mapper.popularPost();
+	}
+	
+	//마이페이지 나의활동에 게시판 연동하기
+	@Override
+	public ArrayList<BoardDto> myBoardList(String U_no){
+		return mapper.myBoardList(U_no);
 	}
 
 	@Override

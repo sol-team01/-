@@ -4,10 +4,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,12 +24,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.JsonObject;
 import com.hac.dto.searchDto.PhysicalDto;
 import com.hac.dto.searchDto.SignDto;
 import com.hac.dto.userDto.InfoDto;
 import com.hac.service.SignService;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 
 @RequestMapping("/page/*")
 @AllArgsConstructor
@@ -32,7 +39,7 @@ import lombok.AllArgsConstructor;
 public class SignController {
    private final SignService signservice;
 
-
+	ServletContext servletContext;
 
    // 로그인 페이지로 이동
    @GetMapping("/login")
@@ -52,9 +59,28 @@ public class SignController {
    // 회원가입
    @PostMapping("/createId")
    public String createId(@ModelAttribute SignDto signDto, @ModelAttribute InfoDto infoDto,
-         @ModelAttribute PhysicalDto phyDto, Model model) throws UnsupportedEncodingException {
+         @ModelAttribute PhysicalDto phyDto, Model model,HttpServletRequest request) throws UnsupportedEncodingException,IOException {
+		// 내부경로로 저장
+		String realPath = servletContext.getRealPath("/");
+	   String baseImgUrl = realPath + "resources/baseImg/baseImg.jpg";
+           // 이미지 파일을 읽기 위한 FileInputStream 생성
+	   System.out.println(baseImgUrl);
+           FileInputStream fileInputStream = new FileInputStream(new File(baseImgUrl));
 
-      String result = signservice.signUp(signDto, infoDto, phyDto, model);
+           // 이미지 파일의 크기를 구함
+           long fileSize = new File(baseImgUrl).length();
+
+           // 이미지 파일의 크기만큼 바이트 배열 생성
+           byte[] imageBytes = new byte[(int) fileSize];
+
+           // 이미지 파일에서 바이트를 읽어와 바이트 배열에 저장
+           fileInputStream.read(imageBytes);
+
+           // 파일을 사용한 후에는 항상 닫아야 합니다.
+           fileInputStream.close();
+           infoDto.setI_profileImg(imageBytes);
+	   
+	   String result = signservice.signUp(signDto, infoDto, phyDto, model);
 
       // 오류 메시지 확인 후 리다이렉트
       if (!result.isEmpty()) {
@@ -88,6 +114,7 @@ public class SignController {
    // 로그인
    @GetMapping("/signIn")
    public void signIn(SignDto dto) {
+	 
    }
 
    // 로그아웃

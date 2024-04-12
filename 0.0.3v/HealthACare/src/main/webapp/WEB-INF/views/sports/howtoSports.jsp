@@ -107,7 +107,7 @@ https://src.hidoc.co.kr/image/lib/2021/6/25/1624609766377_0.jpg
 <h1>유산소</h1>
 <div class="mainOverflowBox">
 <div class="overflow">
-        <div class="mainTextBox">hi!!</div>
+        <div class="mainTextBox2">hi!!</div>
 <div class="sportsAreaBox">
 
             <div class="slideshow-container2"> <!-- 운동 슬라이드 그룹에 대한 클래스 추가 -->
@@ -178,14 +178,14 @@ https://mblogthumb-phinf.pstatic.net/MjAyMDAzMDRfNyAg/MDAxNTgzMzAyNDc4NzEz.kDSCu
         
 </div>
 </div>
-<div class="a"></div>
+<div class="a2"></div>
 </div>
 <!-- ------------------------- -->
 <hr>
 <h1>근력</h1>
 <div class="mainOverflowBox">
 <div class="overflow">
-        <div class="mainTextBox">hi!!</div>
+        <div class="mainTextBox3">hi!!</div>
 <div class="sportsAreaBox">
 
                   <div class="slideshow-container3"> <!-- 운동 슬라이드 그룹에 대한 클래스 추가 -->
@@ -243,7 +243,7 @@ https://vungtaulocalguide.com/wp-content/uploads/2023/04/2-2.jpg
         </div></div>
 </div>
 </div>
-<div class="a"></div>
+<div class="a3"></div>
 </div>
 <!-- ------------------------- -->
 </div><!-- <div id="main"> -->
@@ -354,7 +354,7 @@ $(document).ready(function() {
         var title = $(this).find('.titleBox h2').text();
         var maintext = $(this).find('.noneText').text();
         
-        // mainTextBox의 텍스트를 변경
+        // mainTextBox의 텍스트를 변경 ★
          var mainTextBox = $('.mainTextBox');
         mainTextBox.html("<h2>"+title + "</h2>" + maintext);
         
@@ -379,18 +379,18 @@ $(document).ready(function() {
         var maintext = $(this).find('.noneText').text();
         
         // mainTextBox의 텍스트를 변경
-         var mainTextBox = $('.mainTextBox');
+         var mainTextBox = $('.mainTextBox2');
         mainTextBox.html("<h2>"+title + "</h2>" + maintext);
         
         // 배경 이미지 및 그라데이션 설정
         var gradient = 'linear-gradient(to right,  rgba(255,255,255,1), rgba(0,0,0,0)), ';
         var backgroundImage = gradient + 'url(' + imagePath + ')';
         // mainTextBox의 배경 이미지 설정
-        $('.mainTextBox').css('background-image', backgroundImage);
+        $('.mainTextBox2').css('background-image', backgroundImage);
         
         // .mainOverflowBox 내에서 mainTextBox와 a의 가시성을 토글
-        $(this).closest('.mainOverflowBox').find('.mainTextBox').toggle();
-        $(this).closest('.mainOverflowBox').find('.a').toggle();
+        $(this).closest('.mainOverflowBox').find('.mainTextBox2').toggle();
+        $(this).closest('.mainOverflowBox').find('.a2').toggle();
     });
 });
 $(document).ready(function() {
@@ -403,18 +403,18 @@ $(document).ready(function() {
         var maintext = $(this).find('.noneText').text();
         
         // mainTextBox의 텍스트를 변경
-         var mainTextBox = $('.mainTextBox');
+         var mainTextBox = $('.mainTextBox3');
         mainTextBox.html("<h2>"+title + "</h2>" + maintext);
         
         // 배경 이미지 및 그라데이션 설정
         var gradient = 'linear-gradient(to right,  rgba(255,255,255,1), rgba(0,0,0,0)), ';
         var backgroundImage = gradient + 'url(' + imagePath + ')';
         // mainTextBox의 배경 이미지 설정
-        $('.mainTextBox').css('background-image', backgroundImage);
+        $('.mainTextBox3').css('background-image', backgroundImage);
         
         // .mainOverflowBox 내에서 mainTextBox와 a의 가시성을 토글
-        $(this).closest('.mainOverflowBox').find('.mainTextBox').toggle();
-        $(this).closest('.mainOverflowBox').find('.a').toggle();
+        $(this).closest('.mainOverflowBox').find('.mainTextBox3').toggle();
+        $(this).closest('.mainOverflowBox').find('.a3').toggle();
     });
 });
 

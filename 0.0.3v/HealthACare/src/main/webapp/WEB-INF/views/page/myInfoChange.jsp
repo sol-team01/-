@@ -51,18 +51,29 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">닉네임</div>
-		<input name="I_name" value="${myInfo.getI_name()}">
+		${myInfo.getI_name()} : <input name="I_name">
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
 		<div class="contentTEXTLayout">
-		<a class="text">${myInfo.getI_email()}</a>
-		<input name="I_email" onchange="previewImage(event)">
+		    <input class="ebox" id="email" name="email" type="text" /> 
+			<a class="text4"><span id="middle">@</span></a> 
+			<input class="ebox" id="domain-txt" type="text" /> 
+			<select class="ebox" id="domain-list">
+			 <option value="">직접입력</option>
+			 <option value="naver.com">naver.com</option>
+			 <option value="google.com">google.com</option>
+			 <option value="hanmail.net">hanmail.net</option>
+			 <option value="nate.com">nate.com</option>
+			 <option value="kakao.com">kakao.com</option>
+		    </select>
+			<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
+			<input type="hidden" id="totalemail" name="I_email" value="" >
 		</div>
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 재설정</div>
-		비밀번호 찾기로 날아가기
+		<a href="${cp}/page/resetPw?U_no=${myInfo.getU_no()}" class="changePW">비밀번호 바꾸기</a>
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
@@ -74,7 +85,7 @@
 			<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
 		</select>
 			<a class="text">정답 바꾸기</a>
-			<input name="I_hint" onchange="previewImage(event)">
+			<input name="I_hint">
 		</div> 
 	</div>
 <!-- 		<input type="submit" value="이미지 업로드" > -->
@@ -97,6 +108,30 @@
 	        contentTexts[i].style.height = getComputedStyle(contentIndexes[i]).height;
 	    }
 	}
+	
+	//db에 이메일 @ 도메인까지 전부 들어가게 만들어주는 에이젝스
+	 $(document).ready(function() {
+		    $("#email").blur(function(){
+		        updateEmail();    
+		    });
+
+		    $("#domain-txt").change(function(){
+		        updateEmail();    
+		    });
+
+		    $("#domain-list").change(function(){
+		        updateEmail();    
+		    });
+
+		    function updateEmail() {
+		        const email = $("#email").val();
+		        const middle = $("#middle").text();
+		        const address = $("#domain-txt").val();
+		        if(email != "" && address != "") {
+		            $("#totalemail").val(email + middle + address);
+		        }
+		    }
+		});
 
 </script>
 </body>

@@ -19,6 +19,8 @@ public interface SignService {
 	
 	public boolean selectName(String I_name);
 	
+	public boolean selectEmail(String I_email);
+	
 	public void signUpInfo(InfoDto dto);
 	
 	public void signUpPhy(PhysicalDto dto);
