@@ -18,7 +18,7 @@
 		<a href="/"><img src="${cp}/resources/img/logo.png" alt="로고" class="image"></a>
 		<div id="inBox">
 			<a class="idText">비밀번호 찾기</a> 
-			<a class="cText">**** 아이디와 답을 입력해주시면 비밀번호를 찾을 수 있어요! ****</a>
+			<a class="cText">**** 아이디와 이메일을 입력해주세요! ****</a>
 
 			<form action="${cp}/page/searchPw" method="post" name="PwSearch">
 				<label class="text3">아이디</label> 

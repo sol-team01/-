@@ -91,7 +91,6 @@ public class HomeController {
 	@GetMapping("/checkSession")
 	@ResponseBody
 	public boolean checkSession(HttpServletRequest request) {
-		System.out.println("들어옴?");
 		HttpSession session = request.getSession(false);
 		System.out.println(session);
 		return session != null && session.getAttribute("login") != null;

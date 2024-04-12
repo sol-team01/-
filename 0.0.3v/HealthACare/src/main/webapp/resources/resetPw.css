@@ -26,6 +26,14 @@ html, body {
     padding: 10px;
 }
 
+.cText { /* 구문 text */
+   margin-top: 20px;
+   color: #ff8080;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: center; /* 왼쪽 정렬 */
+}
+
 #inBox{
 	margin: auto;
    display: flex;
