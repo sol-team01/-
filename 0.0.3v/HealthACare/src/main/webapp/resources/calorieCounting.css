@@ -131,8 +131,8 @@ select {
  background: url('arrow.png') no-repeat center right 20px; /* 기존의 우측 화살표를 배경 이미지로 대체 */
 }
 
-option {
-	display: none;
+select::-ms-expand {
+	display: none; 
 }
 
 /* IE 10, 11의 네이티브 화살표 숨기기 */
@@ -157,7 +157,6 @@ select::-ms-expand {
 .foodDiv,
 .cartDiv { /* 검색 값, 장바구니 값 */
 	position:relative;
-
     overflow: auto;
     border: 1px solid #E6E9ED; /* 테두리 설정 */
     border-radius: 20px; /* 테두리 모서리 둥글게 설정 */
@@ -167,7 +166,6 @@ select::-ms-expand {
     height: 380px;
     max-height: 500px;
     margin-right: 20px;
-/*     overflow-y: hidden; */
 }
 
 .foodDiv::-webkit-scrollbar,
@@ -177,29 +175,30 @@ select::-ms-expand {
 }
 
 /* 기본적인 테이블 스타일 */
-table {
+.foodDiv table, .cartDiv table {
    border-collapse: collapse;
    width: 100%;
 }
 
-th, td {
+.foodDiv th, .foodDiv td, .cartDiv th, .cartDiv td {
    border: 1px solid #fff;
    padding: 8px;
    text-align: center;
 }
 
 /* 테이블 사이의 간격 조절 */
-table tr + tr td {
+.foodDiv table tr + tr td, .cartDiv table tr + tr td {
   margin-top: 10px;
 }
 
 /* 고정된 열 */
-.fixed-column {
+.foodDiv .fixed-column, .cartDiv .fixed-column {
    position: sticky;
    top: 0;
    z-index: 1;
    background-color: #fff;
 }
+
 
 .testF{ /* 구분 */
    font-size: 18px;
@@ -217,7 +216,7 @@ table tr + tr td {
 	font-size: 25px;
 	text-align: center;
 	font-family: 'SUIT-Bold';
-	color: #03BDFF;
+/* 	color: #03BDFF; */
 }
 
 .calorieText {

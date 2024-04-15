@@ -78,7 +78,16 @@ var storedFoodList = JSON.parse(localStorage.getItem('foodList'));
 calorie += parseInt(item.calorie);
         });
 	$('#caloriePlus').html(`<p id="answer"> ${calorie}</p>`);
+	
+	 // 권장 칼로리와 비교하여 텍스트 색상 변경
+        var recommendedCalories = parseInt($('.recommendedCalories').text());
+        if (calorie > recommendedCalories) {
+            $('#answer').css('color', 'red');
+        } else {
+            $('#answer').css('color', '#03BDFF'); // 원래 색상으로 되돌리기
+        }
 	}
+	
 	
     function saveFood() {
         // localStorage에 변경된 foodList 저장
