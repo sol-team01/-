@@ -68,7 +68,7 @@
 	text-align: right;
 }
 
-.test .form-control {
+.test .formControl {
 	font-family: 'SUIT-Regular';
 	height: 40px;
 }
@@ -92,6 +92,7 @@
 	color: #fff;
 	border: none;
 	padding: 5px 20px;
+	height:36px;
 }
 
 .writeBoardBtnK:hover {
@@ -99,6 +100,7 @@
 }
 
 .writeBoardBtnKBorder {
+	height:36px;
 	border-radius: 5px;
 	font-family: 'SUIT-Regular';
 	border: 1px solid #03BDFF;

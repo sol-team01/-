@@ -49,12 +49,13 @@
 					<div class="mb-3 d-flex">
 						<form method="post" enctype="multipart/form-data" class="testForm">
 							<!-- 카테고리-->
-							<div class="mt-2 d-flex gap-2 justify-content-end">
-							<!-- 제목-->
-							<input type="text" name="B_title" class="form-control"
-								id="B_title" placeholder="제목">
+							<div class="mt-2 mb-3 d-flex gap-2 justify-content-end">
+								<!-- 제목-->
+								<input type="text" name="B_title" class="formControl"
+									id="B_title" placeholder="제목">
 								<div class="labelFlexK">
-									<label for="category">분류: </label> <select id="B_category"
+									<label for="category">분류: </label> 
+									<select id="B_category"
 										name="B_category" class="sort">
 										<option value="일반">일반</option>
 										<option value="공지사항">공지사항</option>
@@ -62,43 +63,19 @@
 									</select>
 								</div>
 							</div>
-					</div>
-					<!-- 썸머노트 에디터 -->
-					<textarea id="summernote" name="content"></textarea>
+							<!-- 					</div> -->
+							<!-- 썸머노트 에디터 -->
+							<textarea id="summernote" name="content"></textarea>
 
-					<div class="mt-4 d-flex gap-3 justify-content-end">
-						<button class="writeBoardBtnK" id="btnSubmit">저장</button>
-						<button class="writeBoardBtnKBorder">뒤로가기</button>
+							<div class="mt-4 d-flex gap-3 justify-content-end">
+								<button class="writeBoardBtnK" id="btnSubmit">저장</button>
+								<button class="writeBoardBtnKBorder">뒤로가기</button>
+							</div>
+						</form>
 					</div>
-					</form>
-
 				</div>
 			</div>
-
-
-
-
-			<%--          <div>
-            <h1>게시글 작성</h1>
-            <form action="${cp}/board/write" method="post">
-               <input type="hidden" id="id" name="b_ID" value="${user.i_name}">
-               <input type="hidden" id="no" name="u_NO" value="${user.u_no}">
-               <label for="title">제목: </label>
-               <input type="text" width="400px" name="b_TITLE" required>
-               <br>
-               <br>
-               <label for="content">내용: </label>
-               <textarea rows="5" cols="40" id="content" name="b_TEXT" required></textarea>
-               <input type="submit" value="작성하기">
-            </form>
-         </div> --%>
-			<!--          내가 한 거 끝남 -->
 		</div>
-		<!--    <div id="top"> -->
-	</div>
-	<script>
-		
-	</script>
 </body>
 
 </html>
