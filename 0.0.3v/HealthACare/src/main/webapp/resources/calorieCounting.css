@@ -1,1 +1,276 @@
 @charset "UTF-8";
+
+@font-face { /* 폰트 */
+	font-family: 'SUIT-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face { /* 폰트 */
+	font-family: 'SUIT-Medium';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SUIT-Medium.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face { /* 폰트 */
+	font-family: 'SUIT-SemiBold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face { /* 폰트 */
+	font-family: 'SUIT-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.calorieBackground { /* 백그라운드 */
+	background: #f8f8fa;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	padding-top: 40px;
+	padding-bottom: 60px;
+	padding-left: 40px;
+	display:flex;
+	flex-direction: column;
+}
+
+.topBox{ /* 상단 타이틀과 검색 및 구문 박스 */
+	display:flex;
+	flex-direction: column;
+    align-items : center; /* 수직 가운데 정렬 */
+}
+
+.calorieTitle { /* 타이틀 */
+	font-size: 46px;
+	text-align: center;
+	font-family: 'SUIT-ExtraBold';
+	color: #03BDFF;
+}
+
+#foodForm .calorieSearchWrap .calorieSearch { /* 폼태그 및 인풋 */
+	border: none !important;
+	font-family: 'SUIT-Bold';
+	font-size: 20px;
+	color: #c4c8ce;
+}
+
+#foodForm .calorieSearchWrap .calorieSearch:focus,
+	.calorieSearch:focus-visible, .calorieSearch:target { /* 폼태그 및 인풋 */
+	color: #101219;
+}
+
+#foodForm .calorieSearchWrap .calorieSearch:focus { /* 폼태그 및 인풋 */
+	outline: none;
+	background: transparent;
+	color: #101219;
+}
+
+#foodForm .calorieSearchWrap { /* 폼태그 및 인풋 */
+	display: flex;
+	width: 100%;
+	height: 64px;
+	box-shadow: 0px 2px 10px #eee;
+	border-radius: 32px;
+	margin: 30px auto 30px 10px;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 20px;
+}
+
+#foodForm .calorieSearchWrap .searhBoxK { /* 폼태그 및 인풋 */
+	width: 124px;
+	height: 64px;
+	border-radius: 32px;
+	background: #03BDFF;
+	background: linear-gradient(90deg, #03BDFF 0%, #18A4FF 100%);
+	border-color: transparent;
+	cursor: pointer;
+}
+
+#foodForm .calorieSearchWrap .searhBoxK img { /* 폼태그 및 인풋 */
+	width: 30px;
+	height: 30px;
+}
+
+.text { /* 구문 text */
+   margin-top: 20px;
+   color: #ff8080;
+   font-size: 18px;
+   font-family: 'SUIT-SemiBold';
+   text-align: center; 
+}
+
+.textBox { /* 구문 text Box */
+	width: 850px;
+    text-align: center; 
+}
+
+.basket{
+	display: flex;
+	justify-content: space-between;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+select {
+ appearance: none; /* html의 기본적인 디자인 없애기 */
+ -webkit-appearance: none;  /* Vendor Prefix */
+ -moz-appearance: none; /* Vendor Prefix */
+ background: url('arrow.png') no-repeat center right 20px; /* 기존의 우측 화살표를 배경 이미지로 대체 */
+}
+
+select::-ms-expand {
+	display: none; 
+}
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand { 
+  display: none;
+}
+
+#C_meal { /* select 박스 */
+    font-family: 'SUIT-Bold';
+    font-size: 20px; 
+    background-color: #fff; 
+    border: 1px solid #E6E9ED; 
+    border-radius: 20px; 
+    padding: 8px; 
+    width: 150px; 
+    height: 400px;
+    text-align: center; 
+    color: #03BDFF;
+    margin-right: 20px;
+}
+
+.foodDiv,
+.cartDiv { /* 검색 값, 장바구니 값 */
+	position:relative;
+    overflow: auto;
+    border: 1px solid #E6E9ED; /* 테두리 설정 */
+    border-radius: 20px; /* 테두리 모서리 둥글게 설정 */
+    background-color: #fff; /* 배경색 설정 */
+    padding: 8px; /* 내부 여백 설정 */
+    width: 530px;
+    height: 380px;
+    max-height: 500px;
+    margin-right: 20px;
+}
+
+.foodDiv::-webkit-scrollbar,
+.cartDiv::-webkit-scrollbar {
+    width: 0; /* 스크롤바 너비를 0으로 설정 */
+    height: 0; /* 스크롤바 높이를 0으로 설정 */
+}
+
+/* 기본적인 테이블 스타일 */
+.foodDiv table, .cartDiv table {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.foodDiv th, .foodDiv td, .cartDiv th, .cartDiv td {
+   border: 1px solid #fff;
+   padding: 8px;
+   text-align: center;
+}
+
+/* 테이블 사이의 간격 조절 */
+.foodDiv table tr + tr td, .cartDiv table tr + tr td {
+  margin-top: 10px;
+}
+
+/* 고정된 열 */
+.foodDiv .fixed-column, .cartDiv .fixed-column {
+   position: sticky;
+   top: 0;
+   z-index: 1;
+   background-color: #fff;
+}
+
+
+.testF{ /* 구분 */
+   font-size: 18px;
+   font-family: 'SUIT-SemiBold';
+   text-align: center;
+}
+
+.testFS{ /* 값 */
+   font-size: 15px;
+   font-family: 'SUIT-Bold';
+   text-align: center;
+}
+
+#answer {
+	font-size: 25px;
+	text-align: center;
+	font-family: 'SUIT-Bold';
+/* 	color: #03BDFF; */
+}
+
+.calorieText {
+   color: #4A4A4B;
+   font-size: 22px;
+   font-family: 'SUIT-Bold';
+/*    text-align: left; */
+}
+
+.recommendedCalories {
+	font-size: 25px;
+	text-align: center;
+	font-family: 'SUIT-Bold';
+	color: #18A4FF;
+}
+
+.result{
+	margin-top:50px;
+	display: flex;
+	justify-content: center;
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 800px;
+}
+
+.moveButton, .removeButton { /* 버튼 */
+   color: #6c7079;
+   font-family: 'SUIT-Bold';
+   width: 40px;
+   height: 30px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   border: none;
+}
+
+.moveButton:hover, .removeButton:hover { /* 버튼 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+}
+
+#clearSessionButton { /* 저장 버튼 */
+   color: #6c7079;
+   font-size: 18px;
+   font-family: 'SUIT-Bold';
+   width: 150px;
+   height: 40px;
+   cursor: pointer;
+   background-color: #C1E7FF;
+   border-radius: 3px;
+   border: none;
+   margin-left: 50px;
+}
+
+.clearSessionButton:hover { /* 저장 버튼 클릭 시 */
+   background-color: #03BDFF;
+   color: #ffffff;
+}
