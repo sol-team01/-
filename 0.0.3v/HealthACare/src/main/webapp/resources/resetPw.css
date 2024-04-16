@@ -31,7 +31,7 @@ html, body {
    color: #ff8080;
    font-size: 15px;
    font-weight: bold;
-   text-align: center; /* 왼쪽 정렬 */
+   text-align: center; 
 }
 
 #inBox{
