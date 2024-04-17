@@ -76,7 +76,7 @@
 							<textarea id="summernote" name="content"></textarea>
 
 							<div class="mt-4 d-flex gap-3 justify-content-end">
-								<button class="writeBoardBtnK" id="btnSubmit">저장</button>
+								<button class="writeBoardBtnK" id="write">저장</button>
 								<button class="writeBoardBtnKBorder">뒤로가기</button>
 							</div>
 						</form>
