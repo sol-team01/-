@@ -80,7 +80,7 @@
 
 							<div class="mt-4 d-flex gap-3 justify-content-end">
 								<!-- 								<input type="submit" value="수정하기" class="writeBoardBtnK" id="btnSubmit">							 -->
-								<button class="writeBoardBtnK" id="btnSubmit">수정하기</button>
+								<button class="writeBoardBtnK" id="fix">수정하기</button>
 								<button class="writeBoardBtnKBorder">뒤로가기</button>
 							</div>
 						</form>
@@ -88,6 +88,7 @@
 					<script>
 						$("#summernote").summernote('code', '${read.b_text}');
 					</script>
+					<input type="hidden" value="${read.b_no}" id="B_no">
 
 					<%-- 				<form action="${cp}/board/modify" method="post">
 					<input type="hidden" id="id" name="B_name" value="${user.i_name}">

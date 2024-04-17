@@ -144,7 +144,12 @@ public class BoardController {
 	
 	@PostMapping("/modify")
 	public String modify(BoardDto dto) {
+		System.out.println(dto.getB_title());
+		System.out.println(dto.getB_no());
+		System.out.println(dto.getB_text());
+		System.out.println(dto.getB_category());
 		service.modify(dto);
+		
 		return "redirect:/board/noticeBoard";
 	}
 	
