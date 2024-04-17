@@ -15,7 +15,7 @@
 
 .noticeWrap {
 	background: #FBF9F9;
-	padding: 46px 0 46px 32px;
+	padding: 46px 0 46px 40px;
 }
 
 .boardTotalWrap {
@@ -34,7 +34,7 @@
 .boardTotalWrap .boardTotalCount {
 	font-size: 20px;
 	color: #18A4FF;
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 }
 
 .noticeBox {
@@ -52,18 +52,19 @@
 }
 
 .noticeHead {
+	font-family: 'SUIT-Regular';
 	border: 1px solid #4A4A4B;
 	border-radius: 5px;
 	color: #4A4A4B;
 	padding: 3px 10px;
-	margin-right: 54px;
+	margin-right: 66px;
 	font-size: 15px;
 }
 
 .noticeBody {
 	color: #000;
-	font-size: 20px;
-	font-weight: 600;
+	font-size: 18px;
+	font-family: 'SUIT-Bold';
 }
 
 .flexK {
@@ -71,22 +72,22 @@
 }
 
 .titleLineK {
-	border: 1px solid #B4B4B4;
+	border-top: 1px solid #D0D0D2;
 }
 
 .titleBottomLineK {
-	border: 1px solid #B4B4B4;
+	border-top: 1px solid #D0D0D2;
 	margin-top: 46px;
 }
 
 .listNumber {
-	font-size: 20px;
-	color: #4A4A4B;
+	font-size: 16px;
+	color: #18A4FF;
 	margin-right: 83px;
-	font-weight: 600;
+	font-family: 'SUIT-Bold';
 }
 
-.listContent div{
+.listContent div {
 	font-size: 20px;
 	color: #000;
 	font-weight: 600;
@@ -96,16 +97,124 @@
 	padding: 28px 0 28px 55px;
 }
 
-.arrowBox {
-	border: 1px solid #ddd;
+.arrowBoxLast a {
+	display: block;
 	width: 45px;
 	height: 45px;
-	margin-right: 18px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: relative;
+	color: transparent;
+	border: 1px solid #D9D9D9;
+	border-radius: 6px;
 }
 
+.arrowBoxLast a:after {
+	cursor: pointer;
+	position: absolute;
+	background: url(./img/rightdoublearrow.png) no-repeat 0px -1px;
+	content: "";
+	display: block;
+	width: 22px;
+	height: 17px;
+	left: 11px;
+	z-index: 2;
+	top: 12px;
+}
+
+.arrowBoxFirst a {
+	display: block;
+	width: 45px;
+	height: 45px;
+	position: relative;
+	color: transparent;
+	border: 1px solid #D9D9D9;
+	border-radius: 6px;
+	margin-right: 20px;
+}
+
+.arrowBoxFirst a:after {
+	cursor: pointer;
+	position: absolute;
+	background: url(./img/leftdoublearrow.png) no-repeat 0px -1px;
+	content: "";
+	display: block;
+	width: 22px;
+	height: 17px;
+	left: 11px;
+	z-index: 2;
+	top: 12px;
+}
+
+.arrowBoxNext a {
+	display: block;
+	width: 45px;
+	height: 45px;
+	position: relative;
+	color: transparent;
+	border: 1px solid #D9D9D9;
+	border-radius: 6px;
+	margin-right: 20px;
+}
+
+.arrowBoxNext a:after {
+	cursor: pointer;
+	position: absolute;
+	background: url(./img/rightarrow.png) no-repeat 0px -1px;
+	content: "";
+	display: block;
+	width: 12px;
+	height: 17px;
+	left: 17px;
+	z-index: 2;
+	top: 12px;
+}
+
+.arrowBoxPrev a {
+	display: block;
+	width: 45px;
+	height: 45px;
+	position: relative;
+	color: transparent;
+	border: 1px solid #D9D9D9;
+	border-radius: 6px;
+	margin-right: 20px;
+}
+
+.arrowBoxPrev a:after {
+	cursor: pointer;
+	position: absolute;
+	background: url(./img/leftarrow.png) no-repeat 0px -1px;
+	content: "";
+	display: block;
+	width: 10px;
+	height: 17px;
+	left: 17px;
+	z-index: 2;
+	top: 12px;
+}
+
+/* .arrowBoxFirst a { */
+/* 	display: block; */
+/* 	width: 45px; */
+/* 	height: 45px; */
+/* 	position: relative; */
+/* 	color: transparent; */
+/* 	border: 1px solid green; */
+/* 	border-radius: 6px; */
+/* 	margin-right: 18px; */
+/* } */
+
+/* .arrowBoxFirst a:after { */
+/*     cursor: pointer; */
+/*     position: absolute; */
+/*     background: url(./img/leftdoublearrow.png) no-repeat 0px -1px; */
+/*     content: ""; */
+/*     display: block; */
+/*     width: 22px; */
+/*     height: 17px; */
+/*     left: 11px; */
+/*     z-index: 2; */
+/*     top: 12px; */
+/* } */
 .arrowBigImage {
 	width: 16px;
 	height: 17px;
@@ -116,7 +225,7 @@
 	height: 17px;
 }
 
-.pageBox .aaa{
+.pageBox .aaa {
 	background: #03BDFF;
 	color: #fff;
 	width: 45px;
@@ -126,11 +235,22 @@
 	justify-content: center;
 	text-align: center;
 	align-items: center;
-	margin-right: 18px;
+	margin-right: 20px;
+	font-size: 18px;
+	font-family: 'SUIT-Bold';
 }
 
-.pageBox{display:flex;}
+.pageBox a {
+	font-size: 18px;
+	font-family: 'SUIT-Bold';
+	display: flex;
+	margin-right: 20px;
+}
 
+.pageBox {
+	display: flex;
+	align-items: center;
+}
 
 .pagingBlock {
 	display: flex;
@@ -146,6 +266,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top:23px;
 }
 
 .noticeBoardSearchBtn {
@@ -205,26 +326,74 @@
 	width: 100%;
 }
 
-.boardTotalWrapFlex{
-	display: flex; align-items: center; font-family: 'SUIT-Bold';
+.boardTotalWrapFlex {
+	display: flex;
+	align-items: center;
+	font-family: 'SUIT-Bold';
 }
 
-.sortTableK{
-	text-align:right; margin-bottom:14px; font-family: 'SUIT-Regular';
+.sortTableK {
+	text-align: right;
+	margin-bottom: 18px;
+	font-family: 'SUIT-Regular';
 }
 
-.listWriter{
-	margin-left:20px;
+/* .listWriter { */
+/* 	margin-left: 20px; */
+/* } */
+
+.listCategory {
+	margin-left: 28px;
 }
 
-.listCategory{
-	margin-left:20px;
+.listReplyCount {
+	margin-left: 28px;
 }
 
-.listReplyCount{
-	margin-left:20px;
+.listReplyCount {
+	margin-left: 8px;
 }
 
-.listReplyCount{
+.listContentFlex {
+	display: flex;
+	align-items: center;
+}
+
+.listContentFlex .title{
+	font-family: 'SUIT-Bold';
+	font-size:18px;
+}
+
+.listContentEnd {
+	display: flex;
+	align-items: center;
+	justify-content:end;
+}
+
+.listContentEnd div{
+	font-family: 'SUIT-Regular';
+}
+
+.listContentGrid{
+	display:grid;
+	grid-template-columns:2fr 1fr;
+}
+
+.listContentIconWrap{
+	display:flex;
+	align-items:center;
+	margin-left:28px;
+}
+
+.listTemplate{
+	padding:20px 0px 20px 40px;
+	border-top:1px solid #D0D0D2;
+}
+
+.listTemplate div{
+	font-family: 'SUIT-Regular';
+}
+
+.listContentEnd .ml-20{
 	margin-left:20px;
 }
