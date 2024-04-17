@@ -28,8 +28,13 @@
 
 <script src="${cp}/resources/js/toolBox.js"></script>
 <style>
-.note-icon-caret::after {
-	display: none;
+/* .note-icon-caret::after { */
+/* 	display: none !important; */
+/* } */
+
+.note-icon-caret::before {
+	content: "";
+	display: none !important;
 }
 </style>
 </head>
@@ -80,9 +85,9 @@
 							</div>
 						</form>
 					</div>
-					<!-- 				<script> -->
-					<%-- 					// $("#summernote").summernote('code', '${read.b_text}'); --%>
-					<!-- 				</script> -->
+					<script>
+						$("#summernote").summernote('code', '${read.b_text}');
+					</script>
 
 					<%-- 				<form action="${cp}/board/modify" method="post">
 					<input type="hidden" id="id" name="B_name" value="${user.i_name}">

@@ -27,6 +27,15 @@
 	crossorigin="anonymous"></script>
 
 <script src="${cp}/resources/js/toolBox.js"></script>
+<style>
+/* .note-icon-caret::after { */
+/* 	display: none !important; */
+/* } */
+.note-icon-caret::before {
+	content: "";
+	display: none !important;
+}
+</style>
 </head>
 <body>
 	<div id="warp">
@@ -54,8 +63,7 @@
 								<input type="text" name="B_title" class="formControl"
 									id="B_title" placeholder="제목">
 								<div class="labelFlexK">
-									<label for="category">분류: </label> 
-									<select id="B_category"
+									<label for="category">분류: </label> <select id="B_category"
 										name="B_category" class="sort">
 										<option value="일반">일반</option>
 										<option value="공지사항">공지사항</option>
