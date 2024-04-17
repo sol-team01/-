@@ -169,6 +169,28 @@ public class SignController {
 
       return new ResponseEntity<>(result, HttpStatus.OK);
    }
+   
+   //이메일 중복체크
+   @PostMapping("/ConfirmEmail")
+   @ResponseBody
+   public ResponseEntity<Boolean> confirmEmail(String email) {
+	   System.out.println("confirmName 컨트롤러 진입...................");
+	   System.out.println("email : " + email);
+	   boolean result = true;
+	   
+	   if (email.trim().isEmpty()) {
+		   System.out.println("email : " + email);
+		   result = false;
+	   } else {
+		   if (signservice.selectEmail(email)) {
+			   result = false;
+		   } else {
+			   result = true;
+		   }
+	   }
+	   
+	   return new ResponseEntity<>(result, HttpStatus.OK);
+   }
 
    // 아이디 찾기
    @PostMapping("/searchId")
