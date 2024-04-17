@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/* #boardImgWrap{ */
+/* 	border:1px solid red; */
+/* } */
+#boardImgWrap .box .myImg img {
+	width: 48px !important;
+	height: 48px !important;
+	border-radius: 50%;
+	margin-right: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+}
+
+.boardImg {
+	width: 48px !important;
+	height: 48px !important;
+	border-radius: 50%;
+	margin-right: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+}
+
+.readBoardWrap {
+	padding: 0px 12px;
+}
+
+.boardFlexK {
+	display: flex;
+}
+
+.boardFlexKCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.boardFlexKCol div {
+	font-family: 'SUIT-SemiBold' !important;
+}
+
+.postInner {
+	display: flex;
+	align-items: center;
+}
+
+.postInner img {
+	margin-right: 4px;
+	height: 14px;
+}
+
+.postInner, .postInnerMl div {
+	font-family: 'SUIT-SemiBold';
+	font-size: 12px;
+	color: #111827;
+}
+
+.postInnerMl {
+	display: flex;
+	align-items: center;
+	margin-left: 20px;
+}
+
+.postInnerMl img {
+	margin-right: 4px;
+	height: 14px;
+}
+
+/* .postInnerMl div { */
+/* 	font-family: 'SUIT-Regular'; */
+/* 	font-size: 12px; */
+/* 	color: #111827; */
+/* } */
+.boardReadTitle {
+	font-family: 'SUIT-SemiBold';
+	font-size: 16px;
+	color: #111827;
+	margin-bottom: 10px;
+}
+
+.readBoardFlexWrap {
+	margin-bottom: 30px;
+}
+
+.boardPostTitle {
+	font-size: 26px;
+	font-family: 'SUIT-SemiBold';
+	margin: 0;
+}
+
+.boardPostText {
+	margin-bottom: 14px;
+	padding: 20px 0px;
+	box-sizing: border-box;
+	font-family: 'SUIT-Regular';
+}
+
+.boardPostText p {
+	font-family: 'SUIT-Regular';
+	color: #5d5c68;
+}
+
+.boardPostText table {
+	border-collapse: collapse;
+}
+
+.boardPostText table td {
+	font-family: 'SUIT-Regular';
+	border: 1px solid #374151;
+	color: #5d5c68;
+	min-width: 100px;
+	padding: 10px;
+}
+
+.commentFlex {
+	display: flex;
+	align-items: center;
+	/* 	margin-bottom: 10px; */
+}
+
+.commentFlex p {
+	margin-left: 10px;
+	font-family: 'SUIT-Regular';
+}
+
+.inputComment {
+	width: 99.5%;
+	height: 140px !important;
+	margin-bottom: 20px;
+	border: 1px solid #D0D0D2;
+	resize: none;
+}
+
+.replyAreaK {
+	margin-top: 10px;
+	display: block;
+}
+
+.replyAreaK div {
+	font-family: 'SUIT-Regular';
+}
+
+.mt-10K {
+	margin-top: 10px;
+}
+
+.mb-20K {
+	margin-bottom: 20px;
+}
+
+.mt-30K {
+	margin-top: 30px;
+}
+
+.mr-30K {
+	margin-right: 30px;
+}
+
+.CommentDelete {
+	height: 26px !important;
+	padding: 1px 8px !important;
+}
+
+.editDelWrap {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	width: fit-content;
+}
+
+.colComment {
+	color: #5d5c68;
+}
+
+.btnEndPosition {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+}
+
+.wordBreak {
+	word-break: break-all;
+	line-height: 150%;
+}
+/* .flexK{ */
+/* 	display:flex; */
+/* } */

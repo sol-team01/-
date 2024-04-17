@@ -13,7 +13,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
 <link rel="stylesheet" href="${cp}/resources/list.css">
-<link rel="stylesheet" href="${cp}/resources/signComme.css">
+<link rel="stylesheet" href="${cp}/resources/signCommon.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 </head>
 <body>
@@ -21,69 +21,124 @@
 		<jsp:include page="/WEB-INF/views/homeDesign/category.jsp"></jsp:include>
 		<div id="main">
 			<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>
+			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
+				<input type="hidden" name="currentPage" value="1"> <select
+					class="box_a1" id="I_birthDate_m" name="I_birthDate_m">
+					<option value="title">제목</option>
+					<option value="content">내용</option>
+					<option value="titleOrContent">제목+내용</option>
+					<option value="writer">글쓴이</option>
+				</select> <input type="text" name="word" class="noticeBoardSearchInput">
+				<input type="submit" value="검색" class="noticeBoardSearchBtn">
+			</form>
 			<!-- 내가 한 거 -->
 			<div>
 				<div class="boardTotalWrap">
-					<h4 class="boardTotal">전체</h4>
-					<span class="boardTotalCount">${totalContent}건</span>
+					<div class="boardTotalWrapFlexWrap">
+						<div class="boardTotalWrapFlex">
+							<h4 class="boardTotal">전체</h4>
+							<span class="boardTotalCount">${totalContent}건</span>
+						</div>
+						<div>
+							<c:choose>
+								<c:when test="${empty login}">
+									<button type="button" id="writeBtnK" style="display: none">글쓰기</button>
+								</c:when>
+								<c:otherwise>
+									<button type="button" id="writeBtnK">글쓰기</button>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</div>
 				</div>
-				<div>
-					<label for="sort">정렬 순서:</label> <select id="sort" name="sort">
+				<div class="sortTableK">
+					<label for="sort">정렬 순서:</label> <select class="sort" name="sort">
 						<option value="desc">최신순</option>
 						<option value="asc">오래된순</option>
 					</select>
+				</div>
+				<div class="listTemplate">
+					<div class="listContentGrid">
+						<div class="listContentFlex">
+							<div>번호</div>
+							<div>제목</div>
+						</div>
+						<div class="listContentEnd">
+							<div>글쓴이</div>
+							<div class="ml-20">카테고리</div>
+							<div class="ml-20">댓글수</div>
+							<div class="ml-20">조회수</div>
+						</div>
+					</div>
 				</div>
 				<div class="titleLineK"></div>
 				<div class="noticeWrap">
 					<c:forEach var="list" items="${noticeList}">
 						<c:if test="${list.b_category eq '공지사항'}">
 							<div class="noticeBox">
-								<div class="noticeHead">공지</div>
-								<div class="noticeBody">
-									<a href="${cp}/board/readBoard?B_no=${list.b_no}">
-										${list.b_title} </a>
+								<div class="listContentGrid">
+									<div class="listContentFlex">
+										<div class="noticeHead">공지</div>
+										<div class="noticeBody">
+											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+												${list.b_title} </a>
+										</div>
+									</div>
+									<div></div>
 								</div>
 							</div>
 						</c:if>
 					</c:forEach>
 				</div>
-
 				<div id="ttt">
 					<c:forEach var="list" items="${list}">
 						<c:choose>
 							<c:when test="${list.b_category eq '일반'}">
 								<div class="boardList">
-									<div class="flexK">
-										<div class="listNumber">${list.b_no}</div>
-										<a href="${cp}/board/readBoard?B_no=${list.b_no}">
-											<div class="listContent">
-												<div class="flexK">
-													<div>${list.b_title}</div>
-													<div class="listWriter">${list.i_name}</div>
-													<div class="listCategory">&nbsp;${list.b_category}</div>
-													<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
-													<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
-
+									<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+										<div class="listContentGrid">
+											<div class="listContentFlex">
+												<div class="listNumber">${list.b_no}</div>
+												<div class="title">${list.b_title}</div>
+											</div>
+											<div class="listContentEnd">
+												<div class="listWriter">${list.i_name}</div>
+												<div class="listCategory">${list.b_category}</div>
+												<div class="listContentIconWrap">
+													<img src="${cp}/resources/img/comment.svg">
+													<div class="listReplyCount">${list.b_replyCount}</div>
+												</div>
+												<div class="listContentIconWrap">
+													<img src="${cp}/resources/img/eye.svg">
+													<div class="listReplyCount">${list.b_hit}</div>
 												</div>
 											</div>
-										</a>
-
-									</div>
+										</div>
+									</a>
 								</div>
 							</c:when>
 							<c:when test="${list.b_category eq '질문'}">
 								<div class="boardList">
-									<div class="flexK">
-										<div class="listNumber">${list.b_no}</div>
-										<div class="listContent">
-											<a href="${cp}/board/readBoard?B_no=${list.b_no}">
-												${list.b_title} </a>
+									<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+										<div class="listContentGrid">
+											<div class="listContentFlex">
+												<div class="listNumber">${list.b_no}</div>
+												<div class="title">${list.b_title}</div>
+											</div>
+											<div class="listContentEnd">
+												<div class="listWriter">${list.i_name}</div>
+												<div class="listCategory">${list.b_category}</div>
+												<div class="listContentIconWrap">
+													<img src="${cp}/resources/img/comment.svg">
+													<div class="listReplyCount">${list.b_replyCount}</div>
+												</div>
+												<div class="listContentIconWrap">
+													<img src="${cp}/resources/img/eye.svg">
+													<div class="listReplyCount">${list.b_hit}</div>
+												</div>
+											</div>
 										</div>
-										<div class="listWriter">${list.i_name}</div>
-										<div class="listCategory">&nbsp;${list.b_category}</div>
-										<div class="listReplyCount">&nbsp;[${list.b_replyCount}]</div>
-										<div class="listReplyCount">&nbsp;조회수: ${list.b_hit}</div>
-									</div>
+									</a>
 								</div>
 							</c:when>
 							<c:otherwise>
@@ -95,48 +150,22 @@
 				<div class="titleBottomLineK"></div>
 				<!-- 				페이징 블럭 -->
 				<div class="pagingBlock">
-					<div class="arrowBox">
-						<%-- 						<img id="leftDoubleArrow" src="${cp}/resources/img/leftdoublearrow.png" alt="왼쪽 연속 화살표" class="arrowBigImage"> --%>
-						${paging.goToFirstPage()}
-					</div>
-					<div class="arrowBox">
-						<%-- 						<img id="leftArrow" src="${cp}/resources/img/leftarrow.png" alt="왼쪽 화살표" class="arrowSmallImage"> --%>
-						${paging.getPrevPageButton()}
-					</div>
+					<!-- 처음으로 -->
+					<div class="arrowBoxFirst">${paging.goToFirstPage()}</div>
+					<!-- 이전 페이지로 -->
+					<div class="arrowBoxPrev">${paging.getPrevPageButton()}</div>
 					<div class="pageBox">${paging.getHtmlPageList()}</div>
-					<div class="arrowBox">
-						${paging.getNextPageButton()}
-						<%-- 						<img id="rightArrow" src="${cp}/resources/img/rightarrow.png" alt="오른쪽 화살표" class="arrowSmallImage"> --%>
-					</div>
-					<div class="arrowBox">
-						${paging.goToLastPage()}
-						<%-- 						<img id="rightDoubleArrow" src="${cp}/resources/img/rightdoublearrow.png" alt="오른쪽 연속 화살표" class="arrowBigImage"> --%>
-					</div>
+					<!-- 다음 페이지로 -->
+					<div class="arrowBoxNext">${paging.getNextPageButton()}</div>
+					<!-- 맨끝으로 -->
+					<div class="arrowBoxLast">${paging.goToLastPage()}</div>
 				</div>
 			</div>
 			<!-- 			내가 한 거 끝남 -->
-			<c:choose>
-				<c:when test="${empty login}">
-					<button type="button" id="writeBtn" style="display: none">글쓰기</button>
-				</c:when>
-				<c:otherwise>
-					<button type="button" id="writeBtn">글쓰기</button>
-				</c:otherwise>
-			</c:choose>
-			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
-				<input type="hidden" name="currentPage" value="1"> <input
-					type="text" name="word"> <select id="searchInfo"
-					name="searchInfo">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-					<option value="titleOrContent">제목+내용</option>
-					<option value="writer">글쓴이</option>
-				</select> <input type="submit" value="검색">
-			</form>
 		</div>
 	</div>
 	<script>
-		writeBtn.addEventListener('click', function() {
+		writeBtnK.addEventListener('click', function() {
 			window.location.href = '${cp}/board/writeBoard';
 		});
 
