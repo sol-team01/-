@@ -60,8 +60,13 @@ public class SignServiceImpl implements SignService {
 			System.out.println("힌트 답이 존재하지 않는다.");
 			return "힌트 질문에 답을 적어주세요";
 		}
-			
-		if (!dto.getI_email().matches("[a-zA-Z0-9]+")) {
+		
+		String email = dto.getI_email(); // 이메일 주소를 가져옵니다.
+		String[] parts = email.split("@"); // '@' 기호를 기준으로 문자열을 분할합니다.
+		String username = parts[0]; // '@' 기호 앞 부분을 추출합니다.
+		System.out.println("이메일 주소 앞 부분: " + username);
+		
+		if (!username.matches("[a-zA-Z0-9]+")) {
 			System.out.println("한글 또는 특수문자 포함 이메일 회원가입...................");
 			return "이메일은 영문자와 숫자로만 입력해주세요."; // 회원가입 폼으로 이동
 			

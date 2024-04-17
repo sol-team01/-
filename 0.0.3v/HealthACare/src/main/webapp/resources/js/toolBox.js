@@ -60,8 +60,6 @@ $(document).ready(function () {
     });
     // 글 쓰기
         $('#write').click(function(){
-        
-        
         const B_title = $('#B_title').val();
         if(B_title.length <= 0){
             alert('제목을 입력해야 합니다.');
