@@ -136,7 +136,9 @@
 									<div class="titleBottomLineK"></div>
 									
 									<script type="text/javascript">
-									   $.ajax({ // 다른사람 인코딩 정보
+									if(${replyList.u_no} != 0){
+										console.log("회원임");
+										$.ajax({ // 다른사람 인코딩 정보
 							        url: "/RestsController/ImgEncoding",
 							        method: "POST",
 							        data:{U_no: "${replyList.u_no}" }, // 추후 포문을 돌릴때 사용하게된다면 myInfo.U_no 를 사용하면 안됩니다.
@@ -144,12 +146,13 @@
 							        	if(response != null){
 							            var imageDataURI = 'data:image/jpeg;base64,' + response;
 							            $('#img${replyList.r_no}').html('<img class="Profile" src="' + imageDataURI + '" alt="사용자 프로필">');
-							            }
-							        },
-							        error: function(xhr, status, error) {
-							            
+							            } 
 							        }
-							    }); 
+							        });
+									} else {
+										console.log("비회원임");
+							            $('#img${replyList.r_no}').html("<img class='Profile' src='${cp}/resources/baseImg/baseImg.jpg'>");
+									}
 									</script>
 									
 								</c:otherwise>

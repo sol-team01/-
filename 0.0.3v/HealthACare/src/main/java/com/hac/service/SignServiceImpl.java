@@ -69,6 +69,11 @@ public class SignServiceImpl implements SignService {
 		if (!username.matches("[a-zA-Z0-9]+")) {
 			System.out.println("한글 또는 특수문자 포함 이메일 회원가입...................");
 			return "이메일은 영문자와 숫자로만 입력해주세요."; // 회원가입 폼으로 이동
+		}
+
+		if (signMapper.selectEmail(dto.getI_email())) {
+			System.out.println("이메일 중복검사");
+			return "이미 존재하는 이메일입니다.";
 			
 			
 		} else {
@@ -145,7 +150,7 @@ public class SignServiceImpl implements SignService {
 	//이메일 중복체크
 	@Override
 	public boolean selectEmail(String I_email) {
-		
+		System.out.println("이메일중복체크" + " " + I_email);
 		return signMapper.selectEmail(I_email);
 	}
 	
