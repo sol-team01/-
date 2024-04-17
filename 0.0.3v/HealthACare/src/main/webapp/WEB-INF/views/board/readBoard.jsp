@@ -80,14 +80,14 @@
 					<!-- 				<label id="reply">댓글목록</label> -->
 <!-- 					<input type="text" id="replyText" name="replyText" class="formControl inputComment"> -->
 					<textarea id="replyText" name="replyText" class="formControl inputComment"></textarea>
-					<button type="button" id="replySubmit" class="writeBoardBtnK mb-20K btnEndPosition">글쓰기</button>
+					<button type="button" id="replySubmit" class="writeBoardBtnK mb-20K btnEndPosition">댓글 달기</button>
 					<div class="titleLineK"></div>
 					<span id="reply_area" class="replyAreaK">
 						<c:forEach var="replyList" items="${reply}">
 							<c:choose>
 								<c:when test="${replyList eq null or empty replyList}">>
 								댓글이 비어있습니다.
-							</c:when>
+								</c:when>
 								<c:otherwise>
 									<div class="boardFlexK">
 										<div class="mr-30K mt-30K">
