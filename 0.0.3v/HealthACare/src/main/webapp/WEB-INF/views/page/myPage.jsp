@@ -82,7 +82,7 @@
 <div class="num">	
 <div class="box">[${status.count}] [${list.b_category}]</div>
 <div class="title">${list.b_title} </div>
-<div class="box">[조회수 : ${list.b_hit }]</div>
+<div class="box"><img src="${cp}/resources/img/eye.svg"> ${list.b_hit }</div>
 </div>
 </a>
 </c:forEach>
