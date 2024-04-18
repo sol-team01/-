@@ -285,7 +285,10 @@ img {
 	font: bold;
 	font-size: 28px;
 	padding: 15px;
-	background-color:#dbdbdb;
+	border: 1px solid #03BDFF;
+	color:#03BDFF;
+	font-weight:700;
+/* 	background-color:#dbdbdb; */
 /* 	border:1px solid #dbdbdb ; */
 	border-radius: 18px;
 	display: flex;
@@ -299,13 +302,14 @@ img {
 	 overflow-x: hidden; /* 가로 스크롤을 숨김 */
 	}
 #myActivityList{
+	 color: white;
 	width: 540px;
 	padding:20px 5px;
 	font: bold;
 	font-size: 18px;
 	padding: 15px;
 	border-radius: 18px;
-	background-color:#D0D0D2;
+	background-color:#03BDFF;
 /* 	background-color:#F3F3F3; */
 	display: flex;
 	flex-direction:column;
@@ -313,6 +317,27 @@ img {
 	align-items: center;
 	margin-bottom: 20px;
 	line-height: 28px;
+	}
+	#myActivityList a{
+	color: white;
+	}
+	#myActivityList .num{
+	display: flex;
+	width:500px;
+	justify-content: space-between;
+	}
+	#myActivityList .num .box{
+	margin: 0px 10px;
+		width:110px;
+		text-align: center;
+	}
+	#myActivityList .num .title{
+	margin: 0px 10px;
+	width:200px;
+	white-space: nowrap; /* 텍스트를 한 줄로 고정합니다. */
+	overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
+	text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
+		text-align: center;
 	}
 /**/
 /**/
@@ -426,4 +451,5 @@ justify-content: space-between;
 /**/
 /**/
 /**/
+
 
