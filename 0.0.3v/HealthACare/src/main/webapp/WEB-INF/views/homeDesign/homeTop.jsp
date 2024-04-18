@@ -25,7 +25,7 @@
     <c:when test="${empty login}">
 <!--         <p>비회원</p> -->
 			<a href="${cp}/page/login">
-        	<div id="signupBox"> SIGN UP	</div>
+        	<div id="signupBox"> 로그인</div>
 			</a>
     </c:when>
     <c:otherwise>
