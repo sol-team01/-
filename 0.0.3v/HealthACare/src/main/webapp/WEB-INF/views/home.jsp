@@ -78,7 +78,9 @@
 						</div>
 						<div class="bottom">
 							<a class="title">${board.b_title}  </a>
-							작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+							<div class="box">
+							<div class="i_name">작성자 : ${board.i_name}</div>  &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+							</div>
 						</div>
 						</div>
 					</form>
@@ -97,7 +99,9 @@
 						</div>
 						<div class="bottom">
 							<a class="title">${board.b_title}  </a>
-							작성자 : ${board.i_name} &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+								<div class="box">
+							<div class="i_name">작성자 : ${board.i_name}</div> &nbsp;&nbsp; 댓글수:[${board.b_replyCount}]
+							</div>
 						</div>
 						</div>
 					</form> 
