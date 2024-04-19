@@ -79,6 +79,7 @@
 							</select>
 							<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
 							<input type="hidden" id="totalemail" name="I_email" value="">
+							<br>
 							<label id="checkEmail"></label>
 						</div>
 						<label for="securityQuestion" class="text3">비밀번호 찾기 질문</label> 
@@ -294,6 +295,22 @@
 		        const address = $("#domain-txt").val();
 		        if(email != "" && address != "") {
 		            $("#totalemail").val(email + middle + address);
+		            const totalemail =  email + middle + address
+		            console.log(totalemail);
+			        $.ajax({
+			            url : '/page/ConfirmEmail',
+			            data : { email : totalemail },
+			            type : 'POST',
+			            dataType : 'json',
+			            success : function(result) {
+			                if (result == true) {
+			                    $("#checkEmail").css("color", "green").text("사용 가능한 이메일 입니다.");
+			                } else {
+			                    $("#checkEmail").css("color", "red").text("사용 불가능한 이메일 입니다.");
+			                    $("#email").val('');
+			                }
+			            }
+			        });
 		        }
 		    }
 		});

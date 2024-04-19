@@ -78,9 +78,13 @@
 							<div id="myActivityList">
 <!-- 내가 작성한 글  -->
 <c:forEach var="list" items="${myBoardList}" begin="0" end="19" varStatus="status">
-<div class="num">${status.count}
-			<a href="${cp}/board/readBoard?B_no=${list.b_no}">${fn:substring(list.b_title,0,5)} [${list.b_category}] [${list.b_hit }]</a><br>
+<a href="${cp}/board/readBoard?B_no=${list.b_no}">
+<div class="num">	
+<div class="box">[${status.count}] [${list.b_category}]</div>
+<div class="title">${list.b_title} </div>
+<div class="box"><img src="${cp}/resources/img/eye.svg"> ${list.b_hit }</div>
 </div>
+</a>
 </c:forEach>
 							</div>
 							</div>
