@@ -6,7 +6,7 @@
 <%-- <%@ page errorPage="/error/error404.jsp" %> --%>
 <html>
 <head>
-<title>Home</title>
+<title>칼로리 계산</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="${cp}/resources/js/Calorie.js"></script>
 <link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
