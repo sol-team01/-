@@ -58,7 +58,7 @@ public class BoardController {
 	}
 
 	// 글리스트
-	@GetMapping({"/challengeBoard", "/eventBoard"})
+	@GetMapping({"/challengeBoard", "/eventBoard", "/bestFoodBoard"})
 	public void BoardList(Model m, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
