@@ -63,7 +63,7 @@
 							<div class="mt-2 mb-3 d-flex gap-2 justify-content-end">
 								<!-- 제목-->
 								<input type="text" name="B_title" class="formControl"
-									id="B_title" placeholder="제목">
+									id="B_title" placeholder="제목" value="${read.b_title}">
 								<div class="labelFlexK">
 									<label for="category">분류: </label> <select id="B_category"
 										name="B_category" class="sort">

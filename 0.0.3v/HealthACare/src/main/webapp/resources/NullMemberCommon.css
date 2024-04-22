@@ -433,6 +433,7 @@ background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);
 	font-weight: 700;
 	font-size: 20px;
 	color: #B1B1B1;
+		text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
 }
 
 #main #listBox .list .bottom .title {
@@ -446,6 +447,16 @@ background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);
 	white-space: nowrap; /* 텍스트를 한 줄로 고정합니다. */
 	overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
 	text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
+}
+#main #listBox .list .bottom .box {
+	display: flex;
+}
+#main #listBox .list .bottom .i_name {
+	white-space: nowrap; /* 텍스트를 한 줄로 고정합니다. */
+	overflow: hidden; /* 넘치는 텍스트를 숨깁니다. */
+	text-overflow: ellipsis; /* 넘치는 텍스트에 대한 생략 부호 (...)를 표시합니다. */
+	width: 300px;
+	display: block;
 }
 
 #main #listBox .list:hover {

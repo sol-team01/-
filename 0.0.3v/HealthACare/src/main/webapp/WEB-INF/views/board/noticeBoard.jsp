@@ -52,7 +52,7 @@
 					</div>
 				</div>
 				<div class="sortTableK">
-					<label for="sort">정렬 순서:</label> <select class="sort" name="sort">
+					<label for="sort">정렬 순서:</label> <select id="sort" class="sort" name="sort">
 						<option value="desc">최신순</option>
 						<option value="asc">오래된순</option>
 					</select>
@@ -186,51 +186,37 @@
 		// JSP 코드를 사용하여 JavaScript 변수에 현재 페이지 값 할당
 		var currentPage = 1;
 
-		$(document)
-				.ready(
-						function() {
+		$(document).ready(function() {
 							console.log("문서가 준비되었습니다.");
-							$('#sort')
-									.change(
-											function() {
-												$('#ttt')
-														.load(
-																'/board/noticeBoard #ttt');
-												var sortValue = $(this).val(); // 선택한 정렬 순서
-												console.log(sortValue);
-												// 현재 페이지 변수를 사용하여 AJAX 요청 전달
-												$
-														.ajax({
-															type : 'GET',
-															url : '/board/noticeBoard',
-															data : {
-																sort : sortValue, // 선택한 정렬 순서를 매개변수로 전달
-																currentPage : currentPage
-															// 현재 페이지 정보를 함께 전달
-															},
-															success : function(
-																	data) {
-																// Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
-																// 예를 들어, 게시글 목록을 업데이트하는 등의 작업 수행
-																// data 변수에는 서버에서 전달한 HTML 또는 JSON 데이터가 포함됩니다.
-																// 아래는 간단한 예시
-																var newData = $(
-																		data)
-																		.find(
-																				'#ttt')
-																		.html();
-																$('#ttt')
-																		.html(
-																				newData);
-															},
-															error : function(
-																	xhr,
-																	status,
-																	error) {
-																console
-																		.log('AJAX 요청 실패');
-															}
-														});
+							$('#sort').change(function() {
+										$('#ttt').load('/board/noticeBoard #ttt');
+										var sortValue = $(this).val(); // 선택한 정렬 순서
+										console.log(sortValue);
+										// 현재 페이지 변수를 사용하여 AJAX 요청 전달
+										$.ajax({
+													type : 'GET',
+													url : '/board/noticeBoard',
+													data : {
+														sort : sortValue, // 선택한 정렬 순서를 매개변수로 전달
+														currentPage : currentPage
+													// 현재 페이지 정보를 함께 전달
+													},
+													success : function(
+															data) {
+														// Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
+														// 예를 들어, 게시글 목록을 업데이트하는 등의 작업 수행
+														// data 변수에는 서버에서 전달한 HTML 또는 JSON 데이터가 포함됩니다.
+														// 아래는 간단한 예시
+														var newData = $(data).find('#ttt').html();
+														$('#ttt').html(newData);
+													},
+													error : function(
+															xhr,
+															status,
+															error) {
+														console.log('AJAX 요청 실패');
+													}
+												});
 											});
 
 							var savedSort = getCookie("sort");

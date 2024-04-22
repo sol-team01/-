@@ -71,6 +71,7 @@
 .test .formControl {
 	font-family: 'SUIT-Regular';
 	height: 40px;
+	width:100%;
 }
 
 .test .note-editable {

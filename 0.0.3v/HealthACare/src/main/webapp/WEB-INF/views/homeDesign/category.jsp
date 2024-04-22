@@ -39,7 +39,7 @@
   	<div><a href="${cp}/disease/list">연령대별 질병</a></div>
   	</div>
 	</div>
-  	<div class="SelecNone">고객지원</div> 
+  	<div class="SelecNone"><a href="${cp}/board/serviceCenter">고객지원</a></div> 
 <script>
 	$(document).ready(function(){ //운동 카테고리 버튼
 	  // 셀렉트 박스를 클릭했을 때 이벤트 처리
