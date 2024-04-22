@@ -155,4 +155,9 @@ public class BoardController {
 		service.del(B_no);
 		return "redirect:/board/noticeBoard";
 	}
+	
+	@GetMapping("/serviceCenter")
+	public void serviceCenter() {
+		
+	}
 }
