@@ -16,9 +16,9 @@
 <body>
 
 <div id="top">
-	<div id="Search">
-	<img alt="" src="${cp}/resources/img/Magnifier.png">
-	<input placeholder="Event, Place or type" type="search" >
+	<div>
+	<%-- <img alt="" src="${cp}/resources/img/Magnifier.png"> --%>
+	<!-- <input placeholder="Event, Place or type" type="search" > -->
 	</div>
 	<div>
 	<c:choose>	

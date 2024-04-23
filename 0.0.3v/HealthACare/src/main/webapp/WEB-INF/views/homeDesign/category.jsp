@@ -36,7 +36,7 @@
   	<div id="customSelect">
     <div class="SelectDisease">질병</div>
   	<div class="select-itemsDisease">
-  	<div><a href="${cp}/disease/list">연령대별 질병</a></div>
+  	<div><a href="https://www.kdca.go.kr/">질병관리청 바로가기</a></div>
   	</div>
 	</div>
   	<div class="SelecNone"><a href="${cp}/board/serviceCenter">고객지원</a></div> 
