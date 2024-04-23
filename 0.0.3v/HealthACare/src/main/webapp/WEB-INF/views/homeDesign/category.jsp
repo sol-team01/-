@@ -30,7 +30,7 @@
   	<div class="select-itemsFood">
     <div><a href="${cp}/food/calorieCounting">칼로리 계산</a></div>
     <div><a href="${cp}/food/list">식품 영양 정보</a></div>
-    <div>질병 당 추천 음식</div>
+    <div><a href="${cp}/board/bestFoodBoard">질병 당 추천 음식</a></div>
   	</div>
 	</div>
   	<div id="customSelect">
