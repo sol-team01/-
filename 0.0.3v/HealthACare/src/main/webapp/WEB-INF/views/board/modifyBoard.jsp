@@ -81,7 +81,7 @@
 							<div class="mt-4 d-flex gap-3 justify-content-end">
 								<!-- 								<input type="submit" value="수정하기" class="writeBoardBtnK" id="btnSubmit">							 -->
 								<button class="writeBoardBtnK" id="fix">수정하기</button>
-								<button class="writeBoardBtnKBorder">뒤로가기</button>
+								<button class="writeBoardBtnKBorder" id="fixBack">뒤로가기</button>
 							</div>
 						</form>
 					</div>

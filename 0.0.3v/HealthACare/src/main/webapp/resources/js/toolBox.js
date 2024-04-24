@@ -58,7 +58,14 @@ $(document).ready(function () {
             }
         }
     });
+	//글쓰기 뒤로가기
+    	$('#writeBack').click(function(event){
+    		event.preventDefault();
+    	   window.location.href = "/board/noticeBoard";
+    	})
+    	
     // 글 쓰기
+    
         $('#write').click(function(){
         const B_title = $('#B_title').val();
         if(B_title.length <= 0){
@@ -97,6 +104,13 @@ $(document).ready(function () {
         });
         return false;
     });
+    
+    	//글수정 뒤로가기
+    	$('#fixBack').click(function(event){
+    	        var B_no = $('#B_no').val();
+    		event.preventDefault();
+    	   window.location.href = "/board/readBoard?B_no="+ B_no;
+    	})
     // 글 수정
             $('#fix').click(function(){
         
