@@ -51,22 +51,22 @@
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">닉네임</div>
-		${myInfo.getI_name()} : <input name="I_name">
+		<input name="I_name" value="${myInfo.getI_name()}">
 	</div>
 	<div class="contentIndex">
 	<div class="contentText">이메일</div>
-		<div class="contentTEXTLayout">
+		<div class="contentTEXTLayoutEmail">
 		    <input class="ebox" id="email" name="email" type="text" /> 
 			<a class="text4"><span id="middle">@</span></a> 
 			<input class="ebox" id="domain-txt" type="text" /> 
-			<select class="ebox" id="domain-list">
-			 <option value="">직접입력</option>
-			 <option value="naver.com">naver.com</option>
-			 <option value="google.com">google.com</option>
-			 <option value="hanmail.net">hanmail.net</option>
-			 <option value="nate.com">nate.com</option>
-			 <option value="kakao.com">kakao.com</option>
-		    </select>
+				<select class="ebox" id="domain-list">
+				 <option value="">직접입력</option>
+				 <option value="naver.com">naver.com</option>
+				 <option value="google.com">google.com</option>
+				 <option value="hanmail.net">hanmail.net</option>
+				 <option value="nate.com">nate.com</option>
+				 <option value="kakao.com">kakao.com</option>
+			    </select>
 			<!-- 타입 히든으로 넣고 앞에 인풋으로 들어간 입력들을 제이커리에서 합치는 기능 -->
 			<input type="hidden" id="totalemail" name="I_email" value="" >
 		</div>
@@ -78,14 +78,14 @@
 	<div class="contentIndex">
 	<div class="contentText">비밀번호 찾기 질의</div>
 		<div class="contentTEXTLayout">
+			<a class="text">정답 바꾸기</a>
 		<select	class="passwordQuestion" id="I_pwFinding" name="I_pwFinding">
 			<option value="1">질문입니다. 당신의 대답은?</option>
 			<option value="2">학원 근처에서 가장 맛있었던 식당은?</option>
 			<option value="3">학원에서 처음으로 갔던 단체회식 장소는?</option>
 			<option value="4">수강하고 계신 수업에 가장 어려운 과목은?</option>
 		</select>
-			<a class="text">정답 바꾸기</a>
-			<input name="I_hint">
+			<input name="I_hint" value="${myInfo.getI_hint()}">
 		</div> 
 	</div>
 <!-- 		<input type="submit" value="이미지 업로드" > -->
