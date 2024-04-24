@@ -28,18 +28,9 @@ public class BoardController {
 
 	// 글리스트
 	@GetMapping("/noticeBoard")
-<<<<<<< HEAD
-	public void BoardList(
-			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,	
-			@RequestParam(value = "sort", required = false) String sort,
-			Model m,
-			HttpServletRequest request) {
-		
-=======
 	public void BoardList(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
 			@RequestParam(value = "sort", required = false) String sort, Model m, HttpServletRequest request) {
 
->>>>>>> 0bd9b5cbcb1f1801e78d37418521cc24752c3e88
 		HttpSession session = request.getSession();
 		// sort 분류 값을 받아와서 출력
 		String sessionSort = (String) session.getAttribute("sort");
