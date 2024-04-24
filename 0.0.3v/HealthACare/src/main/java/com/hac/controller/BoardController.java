@@ -30,7 +30,7 @@ public class BoardController {
 	//글리스트
 	@GetMapping("/noticeBoard")
 	public void BoardList(
-			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
+			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage,	
 			@RequestParam(value = "sort", required = false) String sort,
 			Model m,
 			HttpServletRequest request) {

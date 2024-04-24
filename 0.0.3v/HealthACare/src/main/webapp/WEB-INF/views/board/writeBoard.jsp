@@ -77,7 +77,7 @@
 
 							<div class="mt-4 d-flex gap-3 justify-content-end">
 								<button class="writeBoardBtnK" id="write">저장</button>
-								<button class="writeBoardBtnKBorder">뒤로가기</button>
+								<button class="writeBoardBtnKBorder" id="writeBack">뒤로가기</button>
 							</div>
 						</form>
 					</div>
