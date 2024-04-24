@@ -47,14 +47,14 @@
     </div>
     <div class="s">
 	<div class="Banner" onclick="redirectToPage('http://localhost:8080/board/readBoard?B_no=9')">
-	<a class="title">ghd</a>
-	<a class="text">by hanClass</a>
+	<a class="title">만원에 고기·막걸리 준다…'수육런'이 뭐길래?</a>
+	<a class="text">by 금천구청장배</a>
 	</div>
     </div>
     <div class="s">
 	<div class="Banner" onclick="redirectToPage('http://localhost:8080/board/readBoard?B_no=9')">
-	<a class="title">42141412</a>
-	<a class="text">by hanClass</a>
+	<a class="title">한강브릿지 워크... “가을과 함께 걷는 이색 축제”</a>
+	<a class="text">by 어반브릿지</a>
 	</div>
     </div>
     <button class="next-btn"><img alt="" src="${cp}/resources/img/rightarrow.png"> </button>

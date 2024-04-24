@@ -548,6 +548,8 @@ background: linear-gradient(to bottom right, #03BDFF, #6ad2b2);
 	width: 1372px;
 	height: 300px;
 	background-image: url('/resources/img/bottomBanner.png');
+    background-size: cover; /* 배경 이미지를 컨테이너에 맞게 채웁니다. */
+    background-position: center; /* 배경 이미지를 가운데 정렬합니다. */
 	background-color: aqua;
 	border-radius: 28px;
 	margin-top: 58px;

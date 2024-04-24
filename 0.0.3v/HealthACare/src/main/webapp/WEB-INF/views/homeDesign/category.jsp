@@ -21,8 +21,8 @@
   <div class="SelectHealth">운동</div>
   <div class="select-itemsHealth">
     <div><a href="#" class="howToHealth">운동 하는 방법</a></div>
-    <div>오늘 운동 완료</div>
-    <div>이벤트</div>
+    <div><a href="${cp}/board/challengeBoard">오늘 운동 완료</a></div>
+    <div><a href="${cp}/board/eventBoard">이벤트</a></div>
   </div>
   </div>
   	<div id="customSelect">
@@ -30,13 +30,13 @@
   	<div class="select-itemsFood">
     <div><a href="${cp}/food/calorieCounting">칼로리 계산</a></div>
     <div><a href="${cp}/food/list">식품 영양 정보</a></div>
-    <div>질병 당 추천 음식</div>
+    <div><a href="${cp}/board/bestFoodBoard">질병 당 추천 음식</a></div>
   	</div>
 	</div>
   	<div id="customSelect">
     <div class="SelectDisease">질병</div>
   	<div class="select-itemsDisease">
-  	<div><a href="${cp}/disease/list">연령대별 질병</a></div>
+  	<div><a href="https://www.kdca.go.kr/">질병관리청 바로가기</a></div>
   	</div>
 	</div>
   	<div class="SelecNone"><a href="${cp}/board/serviceCenter">고객지원</a></div> 
