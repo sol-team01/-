@@ -84,10 +84,29 @@ select {
 	height: 30px;
 	font-size: 23px;
 }
+.contentTEXTLayoutEmail{
+	display: flex;
+	align-items: center;
+}
 .contentTEXTLayout{
 	display: flex;
 	flex-direction: column;
 }
+.contentTEXTLayoutEmail input, select{
+	width: 150px;
+	margin: 0px;
+	margin-right: 5px;
+}
+.contentTEXTLayout select{
+	width: 472px;
+	margin: 0px;
+	margin-right: 5px;
+}
+.contentTEXTLayout .text{
+margin-bottom: 15px;
+font-size: 20px;
+}
+
 /**/
 /* 이미지 수정하기 */
 .a{
