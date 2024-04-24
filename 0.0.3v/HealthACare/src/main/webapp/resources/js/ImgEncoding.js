@@ -1,7 +1,5 @@
 $(document).ready(function(){
- 
-
-    $.ajax({ // 내꺼 이미지 정보
+    $.ajax({
         url: "/RestsController/myImgEncoding",
         method: "POST",
         success: function(response){
@@ -16,8 +14,4 @@ $(document).ready(function(){
             
         }
     });
- 
-
-
-    
 });
