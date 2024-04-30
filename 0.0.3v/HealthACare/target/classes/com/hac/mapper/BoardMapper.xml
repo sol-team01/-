@@ -27,7 +27,7 @@
     
     
 	<select id="getList" resultType="com.hac.dto.boardDto.BoardDto">
-	    select * from board where B_category != '공지사항' 
+	    select * from board where B_category != '공지사항' and B_category != '운동' and B_category != '이벤트' and B_category != '질병추천음식'
 	    order by B_no
 	    <choose>
 	    	<when test='sort == 0'>
@@ -86,7 +86,7 @@
 	</select>
 	
 	<select id="totalContent" resultType="int">
-		select count(*) from board where B_category != '공지사항'
+		select count(*) from board where B_category != '공지사항' and B_category != '운동' and B_category != '이벤트' and B_category != '질병추천음식'
 	</select>
 	
 	<select id="read" resultType="com.hac.dto.boardDto.BoardDto">

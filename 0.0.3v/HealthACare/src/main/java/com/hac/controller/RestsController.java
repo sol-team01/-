@@ -37,7 +37,7 @@ public class RestsController {
 	ServletContext servletContext;
 	
 	
-	// 세션에 저장되어있는 이미지 데이터를 불러와 반환해주는 방식
+	// 로그인되어 있는 유저의 프로필사진 불러오기
 	@PostMapping("/myImgEncoding")
 	public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
 
@@ -78,8 +78,7 @@ public class RestsController {
         /*
 		 * String fileRoot = "C:\\summernote_image\\"; // 외부경로로 저장을 희망할때.
 		 */
-		
-
+	
 		JsonObject jsonObject = new JsonObject();
 		// 내부경로로 저장
 		String realPath = servletContext.getRealPath("/");
