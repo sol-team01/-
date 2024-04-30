@@ -8,7 +8,8 @@
 <title>운동 하는 방법</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
 <%-- <link rel="stylesheet" href="${cp}/resources/howtoSports.css"> --%>
 <link rel="stylesheet" href="${cp}/resources/howtoSportsMid.css">
 <style>
