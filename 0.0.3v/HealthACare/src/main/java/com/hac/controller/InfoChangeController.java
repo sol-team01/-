@@ -37,7 +37,7 @@ public class InfoChangeController {
 	
 	String mag;
 
-	// 이건 추후에 수정해야함
+
 	@GetMapping("/myInfoChange")
 	public String change(MyPageDto dto, Model model, HttpServletRequest request) {
 		System.out.println("나의정보수정 화면진입");
