@@ -23,8 +23,8 @@
 		<div id="main">
 			<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>
 			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
-				<input type="hidden" name="currentPage" value="1"> <select
-					class="box_a1" id="I_birthDate_m" name="I_birthDate_m">
+				<input type="hidden" name="currentPage" value="1"> 
+				<select class="box_a1" id="I_birthDate_m" name="searchInfo">
 					<option value="title">제목</option>
 					<option value="content">내용</option>
 					<option value="titleOrContent">제목+내용</option>
