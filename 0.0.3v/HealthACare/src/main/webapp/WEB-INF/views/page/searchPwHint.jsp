@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>비밀번호 찾기 결과</title>
+    <link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
     <link rel="stylesheet" href="${cp}/resources/searchPwHint.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>

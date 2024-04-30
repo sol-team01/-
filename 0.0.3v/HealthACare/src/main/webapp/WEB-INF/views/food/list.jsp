@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>식품정보 리스트</title>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
 <link rel="stylesheet" href="${cp}/resources/list.css">
 </head>
 <body>
