@@ -65,7 +65,7 @@
 <%-- <%@ page errorPage="/error/error404.jsp" %> --%>
 <html>
 <head>
-<title>Home</title>
+<title>헬스어케어</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
 <link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
@@ -80,7 +80,7 @@
 	<div id="buttonZONE">
 		<a href="#" class="howToHealth">운동 하는 방법</a>
 		<a href="${cp}/board/noticeBoard">게시판</a>
-		<a>고객지원</a>
+<!-- 		<a>고객지원</a> -->
 	</div>
 	
 	<div class="s-container">
