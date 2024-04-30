@@ -131,3 +131,21 @@
 .testForm{
 	width:100%;
 }
+
+.note-input {
+    height: 40px !important;
+}
+
+.note-modal-footer .note-btn {
+    height: 40px !important;
+    width: fit-content !important;
+    margin-right: 20px !important;
+}
+
+.note-modal-content{
+	height: 370px !important;
+}
+
+.note-modal .note-modal-body label {
+    text-align: left !important;
+}
