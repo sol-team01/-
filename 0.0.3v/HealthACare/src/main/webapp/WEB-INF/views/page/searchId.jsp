@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
 <link rel="stylesheet" href="${cp}/resources/searchId.css">
 </head>
 <body>

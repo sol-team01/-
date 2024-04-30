@@ -10,6 +10,7 @@
 <title>비밀번호 찾기</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="${cp}/resources/js/searchPw.js"></script>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
 <link rel="stylesheet" href="${cp}/resources/searchPw.css">
 </head>
 <body>

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>비밀번호 변경하기</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
 <link rel="stylesheet" href="${cp}/resources/resetPw.css">
 </head>
 <body>

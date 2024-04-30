@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
 <link rel="stylesheet" href="/resources/myPage.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script
