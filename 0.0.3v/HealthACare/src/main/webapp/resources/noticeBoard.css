@@ -115,9 +115,9 @@
 	display: block;
 	width: 22px;
 	height: 17px;
-	left: 11px;
+	left: 12px;
 	z-index: 2;
-	top: 12px;
+	top: 14px;
 }
 
 .arrowBoxFirst a {
@@ -139,9 +139,9 @@
 	display: block;
 	width: 22px;
 	height: 17px;
-	left: 11px;
-	z-index: 2;
-	top: 12px;
+    left: 10px;
+    z-index: 2;
+    top: 14px;
 }
 
 .arrowBoxNext a {
@@ -165,7 +165,7 @@
 	height: 17px;
 	left: 17px;
 	z-index: 2;
-	top: 12px;
+	top: 13px;
 }
 
 .arrowBoxPrev a {
@@ -187,9 +187,9 @@
 	display: block;
 	width: 10px;
 	height: 17px;
-	left: 17px;
-	z-index: 2;
-	top: 12px;
+    left: 16px;
+    z-index: 2;
+    top: 13px;
 }
 
 /* .arrowBoxFirst a { */
