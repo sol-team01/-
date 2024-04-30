@@ -10,11 +10,12 @@
 <title>게시판</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
 <link rel="stylesheet" href="${cp}/resources/list.css">
-<link rel="stylesheet" href="${cp}/resources/writeBoard.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 <link rel="stylesheet" href="${cp}/resources/readBoard.css">
+<link rel="stylesheet" href="${cp}/resources/writeBoard.css">
 </head>
 <body>
 	<div id="warp">

@@ -9,7 +9,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script src="${cp}/resources/js/ImgEncoding.js"></script>
-<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,8 +18,6 @@
 
 <div id="top">
 	<div>
-	<%-- <img alt="" src="${cp}/resources/img/Magnifier.png"> --%>
-	<!-- <input placeholder="Event, Place or type" type="search" > -->
 	</div>
 	<div>
 	<c:choose>	
