@@ -9,8 +9,8 @@
 <title>Home</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/css/common.css"><!-- 기본 CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/error404.css">
 <style>

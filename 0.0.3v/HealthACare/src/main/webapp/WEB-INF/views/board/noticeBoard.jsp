@@ -11,7 +11,8 @@
 <title>게시판</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link rel="stylesheet" href="${cp}/resources/NullMemberCommon.css">
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
 <link rel="stylesheet" href="${cp}/resources/list.css">
 <link rel="stylesheet" href="${cp}/resources/signCommon.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
@@ -22,8 +23,9 @@
 		<div id="main">
 			<jsp:include page="/WEB-INF/views/homeDesign/homeTop.jsp"></jsp:include>
 			<form id="searchForm" action="${cp}/board/searchBoard" method="get">
-				<input type="hidden" name="currentPage" value="1"> <select
-					class="box_a1" id="I_birthDate_m" name="I_birthDate_m">
+				<input type="hidden" name="currentPage" value="1"> 
+				<select
+					class="box_a1" id="I_birthDate_m" name="searchInfo">
 					<option value="title">제목</option>
 					<option value="content">내용</option>
 					<option value="titleOrContent">제목+내용</option>
