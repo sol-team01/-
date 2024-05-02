@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.hac.dto.searchDto.MyPageDto;
 import com.hac.dto.searchDto.PhysicalDto;
-import com.hac.dto.userDto.InfoDto;
 import com.hac.dto.userDto.PhysicalLogDto;
 
 public interface PhysicalMapper {
