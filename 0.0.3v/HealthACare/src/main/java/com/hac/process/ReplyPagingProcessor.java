@@ -66,7 +66,7 @@ public class ReplyPagingProcessor {
 	    for (long i = blockStartNo; i <= blockEndNo; i++) {
 	        if (i == replyCurrentPage) {
 	            // 현재 페이지에는 링크를 걸지 않음
-	            html = html + String.format("<span>%d</span>&nbsp;&nbsp;", i);
+	            html = html + String.format("<div class='aaa'>%d</div>&nbsp;&nbsp;", i);
 	        } else {
 	            html = html + String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=%d'>%d</a>&nbsp;&nbsp;", B_no, i, i);
 	        }
