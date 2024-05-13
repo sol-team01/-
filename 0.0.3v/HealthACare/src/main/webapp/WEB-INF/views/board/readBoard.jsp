@@ -10,8 +10,11 @@
 <title>게시판</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link rel="shortcut icon" href="${cp}/resources/img/salad1.png" type="image/png"><!-- 파비콘 -->
-<link rel="stylesheet" href="${cp}/resources/common.css"><!-- 기본 CSS -->
+<link rel="shortcut icon" href="${cp}/resources/img/salad1.png"
+	type="image/png">
+<!-- 파비콘 -->
+<link rel="stylesheet" href="${cp}/resources/common.css">
+<!-- 기본 CSS -->
 <link rel="stylesheet" href="${cp}/resources/list.css">
 <link rel="stylesheet" href="${cp}/resources/noticeBoard.css">
 <link rel="stylesheet" href="${cp}/resources/readBoard.css">
@@ -31,7 +34,7 @@
 								<div id="user">
 									<div class="box">
 										<div class="boardImg" id="boardImg">
-									<script type="text/javascript">
+											<script type="text/javascript">
 									   $.ajax({ // 다른사람 인코딩 정보
 							        url: "/RestsController/ImgEncoding",
 							        method: "POST",
@@ -93,12 +96,14 @@
 						<p>댓글목록</p>
 					</div>
 					<!-- 				<label id="reply">댓글목록</label> -->
-<!-- 					<input type="text" id="replyText" name="replyText" class="formControl inputComment"> -->
-					<textarea id="replyText" name="replyText" class="formControl inputComment"></textarea>
-					<button type="button" id="replySubmit" class="writeBoardBtnK mb-20K btnEndPosition">댓글 달기</button>
+					<!-- 					<input type="text" id="replyText" name="replyText" class="formControl inputComment"> -->
+					<textarea id="replyText" name="replyText"
+						class="formControl inputComment"></textarea>
+					<button type="button" id="replySubmit"
+						class="writeBoardBtnK mb-20K btnEndPosition">댓글 달기</button>
 					<div class="titleLineK"></div>
-					<span id="reply_area" class="replyAreaK">
-						<c:forEach var="replyList" items="${reply}">
+					<span id="reply_area" class="replyAreaK"> <c:forEach
+							var="replyList" items="${reply}">
 							<c:choose>
 								<c:when test="${replyList eq null or empty replyList}">>
 								댓글이 비어있습니다.
@@ -110,8 +115,7 @@
 												<div id="boardImgWrap">
 													<div id="user">
 														<div class="box">
-															<div class ="boardImg" id="img${replyList.r_no}">
-															</div>
+															<div class="boardImg" id="img${replyList.r_no}"></div>
 														</div>
 													</div>
 												</div>
@@ -135,7 +139,7 @@
 									</div>
 									<div class="mt-30K colComment wordBreak">${replyList.r_text}</div>
 									<div class="titleBottomLineK"></div>
-									
+
 									<script type="text/javascript">
 									if(${replyList.u_no} != 0){
 										console.log("회원임");
@@ -155,17 +159,22 @@
 							            $('#img${replyList.r_no}').html("<img class='Profile' src='${cp}/resources/baseImg/baseImg.jpg'>");
 									}
 									</script>
-									
+
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-					</span> ${replyPaging.goReplyToFirstPage()}
-					${replyPaging.getReplyPrevPageButton()}
-					${replyPaging.getHtmlReplyPageList()}
-					${replyPaging.getReplyNextPageButton()}
-					${replyPaging.goReplyToLastPage()} <br>
-
-
+					</span>
+					<div class="pagingBlock">
+						<div class="arrowBoxFirst">
+							${replyPaging.goReplyToFirstPage()}</div>
+						<div class="arrowBoxPrev">
+							${replyPaging.getReplyPrevPageButton()}</div>
+						<div class="pageBox">${replyPaging.getHtmlReplyPageList()}</div>
+						<div class="arrowBoxNext">
+							${replyPaging.getReplyNextPageButton()}</div>
+						<div class="arrowBoxLast">
+							${replyPaging.goReplyToLastPage()}</div>
+					</div>
 				</div>
 
 			</div>

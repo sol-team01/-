@@ -23,8 +23,8 @@ public class ReplyPagingProcessor {
 	public ReplyPagingProcessor(long replyCurrentPage,ReplyMapper mapper,String B_no) {
 		this.mapper = mapper;
 		this.replyCurrentPage = replyCurrentPage;
-		this.replyTotalPage = getReplyPageCount(B_no);
 		this.B_no = B_no;
+		this.replyTotalPage = getReplyPageCount(B_no);
 
 		totalBlock = (int) Math.ceil((double) replyTotalPage / 5);
 		currentBlockNo = (int) Math.ceil((double) replyCurrentPage / 5);
@@ -68,7 +68,7 @@ public class ReplyPagingProcessor {
 	            // 현재 페이지에는 링크를 걸지 않음
 	            html = html + String.format("<span>%d</span>&nbsp;&nbsp;", i);
 	        } else {
-	            html = html + String.format("<a href='/board/readBoard?B_no=%d&replyCurrentPage=%d'>%d</a>&nbsp;&nbsp;", B_no, i, i);
+	            html = html + String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=%d'>%d</a>&nbsp;&nbsp;", B_no, i, i);
 	        }
 	    }
 	    return html;
@@ -78,7 +78,7 @@ public class ReplyPagingProcessor {
 	    String prevPageButton = "";
 	    // 이전 페이지 버튼 생성
 	    if (ablePrev) {
-	    		prevPageButton += String.format("<a href='/board/readBoard?B_no=%d&replyCurrentPage=%d'></a>", B_no, prevPage);
+	        prevPageButton += String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=%d'>Previous</a>", B_no, prevPage);
 	    }
 	    return prevPageButton;
 	}
@@ -89,7 +89,7 @@ public class ReplyPagingProcessor {
 	    String nextPageButton = "";
 	    // 다음 페이지 버튼 생성
 	    if (ableNext) {
-	    		nextPageButton += String.format("<a href='/board/readBoard?B_no=%d&replyCurrentPage=%d'></a>", B_no, nextPage);
+	        nextPageButton += String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=%d'>Next</a>", B_no, nextPage);
 	    }
 	    return nextPageButton;
 	}
@@ -98,7 +98,7 @@ public class ReplyPagingProcessor {
         String firstPageButton = "";
         // 첫 번째 페이지로 이동하는 버튼 생성
         	if (replyCurrentPage != 1) {
-        		firstPageButton += String.format("<a href='/board/readBoard?B_no=%d&replyCurrentPage=%d'></a>", B_no, 1);
+        		firstPageButton += String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=%d'></a>", B_no, 1);
         	}
         return firstPageButton;
     }
@@ -108,7 +108,7 @@ public class ReplyPagingProcessor {
         // 마지막 페이지로 이동하는 버튼 생성
         if (replyTotalPage != 1 && replyTotalPage > 0) {
             if (replyCurrentPage != replyTotalPage) {
-                lastPageButton += String.format("<a href='/board/readBoard?B_no=%d&replyCurrentPage=" + replyTotalPage + "'></a>", B_no);
+                lastPageButton += String.format("<a href='/board/readBoard?B_no=%s&replyCurrentPage=" + replyTotalPage + "'></a>", B_no);
             }
         }
         return lastPageButton;
