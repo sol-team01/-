@@ -191,6 +191,10 @@
 				var textValue = $('#replyText').val(); // 댓글창 입력값 설정
 				var U_no = "${user.u_no}";
 				var I_name = "${user.i_name}";
+				if (textValue.trim() === "" || textValue.length <= 2) {
+		            alert("댓글은 3글자 이상 입력해주세요.");
+		            return; // 댓글이 유효하지 않으면 함수 종료
+		        }
 				if (I_name === "" || I_name === null) {
 					var random = Math.floor(Math.random() * 1000) + 1;
 					I_name = '비회원' + random;
@@ -199,10 +203,6 @@
 					U_no = 0;
 				}
 				console.log(textValue);
-				/* 		        console.log(U_no);
-				 console.log(U_id);
-				 console.log(B_no); */
-				// 현재 페이지 변수를 사용하여 AJAX 요청 전달
 				$.ajax({
 					type : 'GET',
 					url : '/board/replyWrite',
@@ -213,10 +213,6 @@
 						B_no : B_no
 					},
 					success : function(data) {
-						// Ajax 요청으로 받은 응답을 사용하여 페이지 일부 업데이트
-						// 예를 들어, 게시글 목록을 업데이트하는 등의 작업 수행
-						// data 변수에는 서버에서 전달한 HTML 또는 JSON 데이터가 포함됩니다.
-						// 아래는 간단한 예시
 						window.location.reload();
 					},
 					error : function(xhr, status, error) {
